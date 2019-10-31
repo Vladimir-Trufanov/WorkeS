@@ -1,0 +1,38 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.CompileOnBackground=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+DefaultDir=C:\Webservers\WorkeS\www
+DefaultCP=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+HTServer=localhost
+Extensions=*.*
+[Project tree]
+Workes
+	+www
+		+smartmenus
+			www\smartmenus\jquery.min.js
+			www\smartmenus\jquery.smartmenus.min.js
+			www\smartmenus\site.css
+			www\smartmenus\sm-blue.css
+			www\smartmenus\sm-core-css.css
+		www\index.html
+[Open project files]
+0=www\smartmenus\sm-blue.css
+1=www\index.html
+[Selected Project Files]
+Main=
+Selected=www\smartmenus\sm-blue.css
+[www\smartmenus\sm-blue.css]
+TopLine=179
+Caret=1,1
+[www\index.html]
+TopLine=45
+Caret=1,58
