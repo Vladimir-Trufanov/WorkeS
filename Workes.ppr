@@ -16,7 +16,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Workes
-	+www
+	-www
 		+smartmenus
 			www\smartmenus\jquery.min.js
 			www\smartmenus\jquery.smartmenus.min.js
@@ -29,10 +29,10 @@ Workes
 1=www\index.html
 [Selected Project Files]
 Main=
-Selected=www\smartmenus\sm-blue.css
+Selected=www\index.html
 [www\smartmenus\sm-blue.css]
-TopLine=179
+TopLine=177
 Caret=1,1
 [www\index.html]
-TopLine=45
-Caret=1,58
+TopLine=41
+Caret=31,63
