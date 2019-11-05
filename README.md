@@ -11,7 +11,10 @@
 
 
 Mеню взято из третьего упражнения  "Создание отзывчивого меню навигации" 7 главы книги Дэвида МакФарланда "JavaScript и jQuery".
-
+**SmartMenus jQuery Plugin - v0.9.5 - January 19, 2014
+http://www.smartmenus.org/
+Copyright 2014 Vasil Dinkov, Vadikom Web Ltd. 
+http://vadikom.com; Licensed MIT** 
 
 ###### [к содержанию](#%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 ***

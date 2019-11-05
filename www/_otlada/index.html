@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Меню doortry.ru</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- --> 
+<link rel="stylesheet" href="smartmenus/sm-core-css.css" type="text/css">
+<link rel="stylesheet" href="smartmenus/sm-blue.css" type="text/css">
+<script src="smartmenus/jquery.min.js"></script>
+<script src="smartmenus/jquery.smartmenus.min.js"></script>
+<script>
+$(document).ready(function() 
+{
+   //$('.sm').smartmenus(
+   $('#main-menu').smartmenus(
+   {
+      showFunction: function($ul,complete) 
+      {
+         $ul.slideDown(250, complete);
+      },
+      hideFunction: function($ul,complete) 
+      {
+         $ul.slideUp(250, complete);
+      }
+      
+   });
+}); // end ready
+
+</script>
+</head>
+<body>
+
+<ul id="main-menu" class="sm sm-blue">
+<li><a href="#">Подключение обработчика ошибок и исключений</a></li>
+<li><a href="#">Штрихотворения</a>
+   <ul>
+      <li><a href="#">Соревнование с хакерами</a></li>
+   </ul>
+</li>
+<li><a href="#">Новости</a>
+   <ul>
+      <li><a href="#" rel="nofollow">Ведомости России</a></li>
+      <li><a href="#" rel="nofollow">Яндекс Общество</a></li>
+      <li><a href="#" rel="nofollow">Новости Украины</a></li>
+      <li><a href="#" rel="nofollow">Яндекс Интернет</a></li>
+      <li><a href="#" rel="nofollow">Журнал Хакер</a></li>
+      <li><a href="#" rel="nofollow">Google Новости</a></li>
+      <li><a href="#" rel="nofollow">Что достойно перевода!</a></li>
+      <li><a href="#" rel="nofollow">Новости Mail.ru</a></li>
+   </ul>
+</li>
+<li><a href="#">- Наши товары</a>
+   <ul>
+      <li><a href="#">- Штуковины</a>
+         <ul>
+            <li><a href="#">- Простая штуковина</a></li>
+            <li><a href="#">- Стандартная штуковина</a></li>
+            <li><a href="#">- Продвинутая штуковина</a></li>
+         </ul>
+      </li>
+      <li><a href="#">- Гаджеты</a>
+         <ul>
+            <li><a href="#">- Простой гаджет</a></li>
+            <li><a href="#">- Стандартный гаджет</a></li>
+            <li><a href="#">- Продвинутый гаджет</a>
+               <ul>
+                  <li><a href="#">- Продвинутый гаджет А</a></li>
+                  <li><a href="#">- Продвинутый гаджет Б</a></li>
+               </ul>
+            </li>
+         </ul>
+      </li>
+      <li><a href="#">- Машины времени</a></li>
+   </ul>
+</li>
+</ul>
+
+<!--  
+<nav class="TopMenu">
+<ul id="bar">
+<li><a href="index.php?list=podklyuchenie-obrabotchika-oshibok-i-isklyuchenij">Подключение обработчика ошибок и исключений</a></li>
+<li><a href="#">Штрихотворения</a>
+   <ul>
+      <li class="menuli"><a href="index.php?stihi=sorevnovanie-s-hakerami">Соревнование с хакерами</a></li>
+   </ul>
+</li>
+<li><a href="#">Новости</a>
+   <ul>
+      <li class="menuli"><a href="index.php?novosti=vedomosti-rossii" rel="nofollow">Ведомости России</a></li>
+      <li class="menuli"><a href="index.php?novosti=yandeks-obshchestvo" rel="nofollow">Яндекс Общество</a></li>
+      <li class="menuli"><a href="index.php?novosti=novosti-ukrainy" rel="nofollow">Новости Украины</a></li>
+      <li class="menuli"><a href="index.php?novosti=yandeks-internet" rel="nofollow">Яндекс Интернет</a></li>
+      <li class="menuli"><a href="index.php?novosti=zhurnal-haker" rel="nofollow">Журнал Хакер</a></li>
+      <li class="menuli"><a href="index.php?novosti=google-novosti" rel="nofollow">Google Новости</a></li>
+      <li class="menuli"><a href="index.php?novosti=chto-dostojno-perevoda" rel="nofollow">Что достойно перевода!</a></li>
+      <li class="menuli"><a href="index.php?novosti=novosti-mailru" rel="nofollow">Новости Mail.ru</a></li>
+   </ul>
+</li>
+</ul>
+</nav>
+-->
+</body>
+</html>
