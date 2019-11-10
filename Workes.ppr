@@ -16,7 +16,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Workes
-	-www
+	+www
 		-_otlada
 			-smartmenus
 				www\_otlada\smartmenus\jquery.min.js
@@ -24,10 +24,11 @@ Workes
 				www\_otlada\smartmenus\sm-blue.css
 				www\_otlada\smartmenus\sm-core-css.css
 			www\_otlada\index.html
-		-_proba
-			-smartmenus
+		+_proba
+			+smartmenus
 				www\_proba\smartmenus\jquery.min.js
 				www\_proba\smartmenus\jquery.smartmenus.min.js
+				www\_proba\smartmenus\sm-blue.css
 				www\_proba\smartmenus\sm-core-css.css
 				www\_proba\smartmenus\sm-mytheme.css
 			www\_proba\index.html
@@ -40,9 +41,13 @@ Workes
 		www\index.html
 [Open project files]
 0=www\_proba\index.html
+1=www\_proba\smartmenus\sm-mytheme.css
 [Selected Project Files]
 Main=
 Selected=www\_proba\index.html
 [www\_proba\index.html]
-TopLine=5
-Caret=1,25
+TopLine=31
+Caret=2,26
+[www\_proba\smartmenus\sm-mytheme.css]
+TopLine=97
+Caret=1,132

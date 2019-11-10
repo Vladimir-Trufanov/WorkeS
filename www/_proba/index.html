@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="smartmenus/sm-core-css.css">
 <link rel="stylesheet" href="smartmenus/sm-mytheme.css">
+<link rel="stylesheet" href="smartmenus/sm-blue.css">
 <script src="smartmenus/jquery.min.js"></script>
 <script src="smartmenus/jquery.smartmenus.min.js"></script>
 
@@ -21,6 +22,39 @@ $(document).ready(function() {
      $ul.slideUp(250, complete); 
     }
   });
+  
+ 
+  $(function()
+{
+  var $mainMenuState = $('#main-menu-state');
+  if ($mainMenuState.length) 
+  {
+    // animate mobile menu
+    $mainMenuState.change(function(e) 
+    {
+      var $menu = $('#main-menu');
+      if (this.checked) 
+        {
+          $menu.hide().slideDown(250,function() 
+            {$menu.css('display','');});
+        } 
+        else 
+        {
+          $menu.show().slideUp(250,function() 
+            {$menu.css('display','');});
+        }
+    });
+    // hide mobile menu beforeunload
+    $(window).on('beforeunload unload', function() 
+    {
+      if ($mainMenuState[0].checked) 
+      {
+        $mainMenuState[0].click();
+      }
+    });
+  }
+});
+
 }); // end ready
 
 </script>
@@ -29,8 +63,8 @@ $(document).ready(function() {
 <header>
    Своя тема из smartmenus
 </header>
-<div class="main">
-   <ul id="main-menu" class="sm sm-mytheme">
+<div class="maini">
+   <ul id="maini-menu" class="sm sm-mytheme">
       <li><a href="#">О нас</a>
          <ul>
             <li><a href="#">Наша история</a></li>
@@ -41,6 +75,30 @@ $(document).ready(function() {
       <li><a href="#">Простая штуковина</a></li>
    </ul>
 </div>
+
+<br><br><br><br><br><br><br>
+
+<div class="gambur">
+<!-- Mobile menu toggle button (hamburger/x icon) -->
+<input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+   <span class="main-menu-btn-icon"></span> Кнопка меню-гамбургера
+</label>
+<ul id="main-menu" class="sm sm-blue">
+   <li><a href="#">О нас</a>
+      <ul>
+         <li><a href="#">Наша история</a></li>
+         <li><a href="#">Как нас найти</a></li>
+         <li><a href="#">Часы работы</a></li>
+      </ul>
+   </li>
+   <li><a href="#">Простая штуковина</a></li>
+</ul>
+
+
+</div>
+
+
 <footer>
 </footer>
 </body>
