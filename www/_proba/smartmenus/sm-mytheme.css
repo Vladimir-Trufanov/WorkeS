@@ -1,0 +1,41 @@
+/*
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+.sm-mytheme{
+  background: transparent;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.sm-mytheme a, .sm-mytheme a:hover, .sm-mytheme a:focus, .sm-mytheme a:active {
+  padding: 10px 20px;
+  padding-right: 58px;
+  background: #3092c0;
+  background-image: linear-gradient(to bottom, #119811, #118cb8);
+  color: #777;
+  font-family: "PT Sans Narrow", "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.sm-mytheme a.current {
+  background: #006892;
+  background-image: linear-gradient(to bottom, #006188, #006f9c);
+  color: #777;
+}
+*/
+/* Your rules to style the menu in mobile view (collapsible mode) here... */
+@media (min-width: 768px) 
+{
+  /* start... (it's not recommended editing these rules) */
+  .sm-mytheme ul{position:absolute;width:12rem;}
+  .sm-mytheme li{float:left;}
+  .sm-mytheme.sm-rtl li{float:right;}
+  .sm-mytheme ul li,.sm-mytheme.sm-rtl ul li,.sm-mytheme.sm-vertical li{float:none;}
+  .sm-mytheme a{white-space:nowrap;}
+  .sm-mytheme ul a,.sm-mytheme.sm-vertical a{white-space:normal;}
+  .sm-mytheme .sm-nowrap > li > a,.sm-mytheme .sm-nowrap > li > :not(ul) a{white-space:nowrap;}
+  /* ...end */
+
+  /* Your rules to style the menu in desktop view here... */
+}

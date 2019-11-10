@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Своя тема из smartmenus</title>
+<!-- -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="smartmenus/sm-core-css.css">
+<link rel="stylesheet" href="smartmenus/sm-mytheme.css">
+<script src="smartmenus/jquery.min.js"></script>
+<script src="smartmenus/jquery.smartmenus.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+  $('.sm').smartmenus({
+    showFunction: function($ul, complete) {
+      $ul.slideDown(250, complete);
+    },
+    hideFunction: function($ul, complete) {
+     $ul.slideUp(250, complete); 
+    }
+  });
+}); // end ready
+
+</script>
+</head>
+<body>
+<header>
+   Своя тема из smartmenus
+</header>
+<div class="main">
+   <ul id="main-menu" class="sm sm-mytheme">
+      <li><a href="#">О нас</a>
+         <ul>
+            <li><a href="#">Наша история</a></li>
+            <li><a href="#">Как нас найти</a></li>
+            <li><a href="#">Часы работы</a></li>
+         </ul>
+      </li>
+      <li><a href="#">Простая штуковина</a></li>
+   </ul>
+</div>
+<footer>
+</footer>
+</body>
+</html>
