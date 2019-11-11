@@ -16,7 +16,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Workes
-	+www
+	-www
 		-_otlada
 			-smartmenus
 				www\_otlada\smartmenus\jquery.min.js
@@ -24,12 +24,19 @@ Workes
 				www\_otlada\smartmenus\sm-blue.css
 				www\_otlada\smartmenus\sm-core-css.css
 			www\_otlada\index.html
-		+_proba
+		-_proba
 			-smartmenus
+				-res
+					-v1
+						www\_proba\smartmenus\res\v1\sm-doortry.css
+					-v2 border-radius
+						www\_proba\smartmenus\res\v2 border-radius\sm-doortry.css
+					-v3 noshadow
+						www\_proba\smartmenus\res\v3 noshadow\sm-doortry.css
 				www\_proba\smartmenus\jquery.min.js
 				www\_proba\smartmenus\jquery.smartmenus.min.js
-				www\_proba\smartmenus\sm-blue.css
 				www\_proba\smartmenus\sm-core-css.css
+				www\_proba\smartmenus\sm-doortry.css
 				www\_proba\smartmenus\sm-mytheme.css
 			www\_proba\index.html
 			www\_proba\save.php
@@ -39,20 +46,17 @@ Workes
 			www\smartmenus\site.css
 			www\smartmenus\sm-blue.css
 			www\smartmenus\sm-core-css.css
+		www\favicon.ico
 		www\index.html
 [Open project files]
 0=www\_proba\index.html
-1=www\_proba\smartmenus\sm-mytheme.css
-2=www\_proba\save.php
+1=www\_proba\smartmenus\sm-doortry.css
 [Selected Project Files]
 Main=
-Selected=www\_proba\index.html
+Selected=www\_proba\smartmenus\sm-doortry.css
 [www\_proba\index.html]
-TopLine=19
-Caret=1,39
-[www\_proba\smartmenus\sm-mytheme.css]
-TopLine=1
-Caret=1,132
-[www\_proba\save.php]
-TopLine=1
-Caret=16,4
+TopLine=9
+Caret=15,31
+[www\_proba\smartmenus\sm-doortry.css]
+TopLine=123
+Caret=1,269
