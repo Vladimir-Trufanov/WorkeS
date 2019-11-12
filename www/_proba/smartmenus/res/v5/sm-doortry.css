@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
 /**
- * ÐžÐ¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ð¾Ð¹ Ð²ÐµÑ€ÑÐ¸Ð¸ Ð¼ÐµÐ½ÑŽ
+ * Îïðåäåëÿåì íàñòðîéêè ìîáèëüíîé âåðñèè ìåíþ
 **/ 
 
 body 
@@ -8,21 +8,22 @@ body
    background:#3092c0;
 }
 
-/* ÐžÐ±Ñ‰Ð¸Ðµ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ð¾Ð¹ Ð¸ Ð½Ð°ÑÑ‚Ð¾Ð»ÑŒÐ½Ð¾Ð¹ Ð²ÐµÑ€ÑÐ¸Ð¹ */
+/* Îáùèå íàñòðîéêè ìîáèëüíîé è íàñòîëüíîé âåðñèé */
 .sm-doortry 
 {
-   /*background:transparent !Ð²Ð½Ð°Ñ‡Ð°Ð»Ðµ Ð¿Ñ€Ð¾Ð·Ñ€Ð°Ñ‡Ð½Ñ‹Ð¹;*/
+   /*background:transparent !âíà÷àëå ïðîçðà÷íûé;*/
    border-radius:0;
 }
-/* Ð¦Ð²ÐµÑ‚Ð° Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ð¹ Ð¿ÑƒÐ½ÐºÑ‚Ð¾Ð² Ð¼ÐµÐ½ÑŽ Ð¸ Ð¸Ñ… Ñ„Ð¾Ð½Ð° */
+/* Öâåòà íàçâàíèé ïóíêòîâ ìåíþ è èõ ôîíà */
 .sm-doortry a
 {
    color:white;
 	background-color:rgb(25,25,25);
+   /*border-bottom:0.1rem solid rgba(255,255,255,.5);*/	
 }
 .sm-doortry a:hover, .sm-doortry a:focus, 
 .sm-doortry a:active, 
-.sm-doortry a.highlighted /* Ð’Ñ‹Ð±Ð¸Ñ€Ð°ÐµÐ¼Ñ‹Ð¹ Ð¿ÑƒÐ½ÐºÑ‚ Ð¼ÐµÐ½ÑŽ Ñ Ð¿Ð¾Ð´Ð¼ÐµÐ½ÑŽ */ 
+.sm-doortry a.highlighted /* Âûáèðàåìûé ïóíêò ìåíþ ñ ïîäìåíþ */ 
 {
  	background-color:rgb(93,43,78);
 }
@@ -37,6 +38,7 @@ body
    color: #a1d1e8;
    background: #006892;
    background-image: linear-gradient(to bottom, #006188, #006f9c);
+
 }
 .sm-doortry li ul li
 {
@@ -47,18 +49,6 @@ body
    background-color:#f63;
    width:100%;
 }
-
-/* ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ð¾Ð¹ Ð²ÐµÑ€ÑÐ¸Ð¸ */
-.sm-doortry a,
-.sm-doortry li:last-of-type a,
-.sm-doortry li ul li a
-{
-	border-right:none;	
-}
-
-
-
-
 
 /* */
 .sm-doortry a, .sm-doortry a:hover, .sm-doortry a:focus, .sm-doortry a:active 
@@ -127,7 +117,7 @@ body
 {
    /*background:transparent;*/
    font-size:16px;
-  /* border-left:8px solid transparent;  */
+   border-left:8px solid transparent;
 }
 .sm-doortry ul a.current 
 {
@@ -140,31 +130,31 @@ body
 .sm-doortry ul ul a:hover,
 .sm-doortry ul ul a:focus,
 .sm-doortry ul ul a:active {
- /* border-left: 16px solid transparent;  */
+  border-left: 16px solid transparent;
 }
 .sm-doortry ul ul ul a,
 .sm-doortry ul ul ul a:hover,
 .sm-doortry ul ul ul a:focus,
 .sm-doortry ul ul ul a:active {
- /* border-left: 24px solid transparent; */
+  border-left: 24px solid transparent;
 }
 .sm-doortry ul ul ul ul a,
 .sm-doortry ul ul ul ul a:hover,
 .sm-doortry ul ul ul ul a:focus,
 .sm-doortry ul ul ul ul a:active {
-  /*border-left: 32px solid transparent; */
+  border-left: 32px solid transparent;
 }
 .sm-doortry ul ul ul ul ul a,
 .sm-doortry ul ul ul ul ul a:hover,
 .sm-doortry ul ul ul ul ul a:focus,
 .sm-doortry ul ul ul ul ul a:active {
- /* border-left: 40px solid transparent; */
+  border-left: 40px solid transparent;
 }
 .sm-doortry ul li {
- /* border-top: 1px solid rgba(0, 0, 0, 0.05);  */
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .sm-doortry ul li:first-child {
-  /*border-top: 0;   */
+  border-top: 0;
 }
 
 
@@ -172,7 +162,7 @@ body
 
 
 /**
- * ÐžÐ¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÐºÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€Ð½Ð¾Ð¹ Ð²ÐµÑ€ÑÐ¸Ð¸ Ð¼ÐµÐ½ÑŽ
+ * Îïðåäåëÿåì íàñòðîéêè êîìïüþòåðíîé âåðñèè ìåíþ
 **/ 
 @media (min-width: 768px) 
 {
@@ -181,22 +171,7 @@ body
    /*background:transparent;*/
    border-radius:0;
 }
-/* Ð¦Ð²ÐµÑ‚Ð° Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ð¹ Ð¿ÑƒÐ½ÐºÑ‚Ð¾Ð² Ð¼ÐµÐ½ÑŽ Ð¸ Ð¸Ñ… Ñ„Ð¾Ð½Ð° Ð˜Ð— ÐžÐ‘Ð©Ð•Ð“Ðž*/
-
-
-/* ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð½Ð°ÑÑ‚Ð¾Ð»ÑŒÐ½Ð¾Ð¹ Ð²ÐµÑ€ÑÐ¸Ð¸ */
-.sm-doortry a
-{
-   border-right:0.1rem dashed rgba(255,255,255,.75);
-}
-.sm-doortry li:last-of-type a
-{
-	border-right:none;	
-}
-.sm-doortry li ul li a
-{
-	border-right:none;	
-}
+/* Öâåòà íàçâàíèé ïóíêòîâ ìåíþ è èõ ôîíà ÈÇ ÎÁÙÅÃÎ*/
 
 
 /* */
@@ -283,9 +258,9 @@ body
       right:auto;
       width:0;
       height:0;
-     /* border-width:5px;
+      border-width:5px;
       border-style:solid dashed dashed dashed;
-      border-color:#a1d1e8 transparent transparent transparent;  */
+      border-color:#a1d1e8 transparent transparent transparent;
       /*background:transparent; */
    }
    .sm-doortry a .sub-arrow::before 
@@ -294,15 +269,15 @@ body
    }
    .sm-doortry > li 
    {
-    /*  border-left:1px solid #2b82ac;  */
+      border-left:1px solid #2b82ac;
    }
    .sm-doortry > li:first-child 
    {
-     /* border-left:0;  */
+      border-left:0;
    }
    .sm-doortry ul
    {
-     /* border:1px solid #a8a8a8;   */
+      border:1px solid #a8a8a8;
       padding:7px 0;
      /* background:#fff;*/
    }
@@ -313,7 +288,7 @@ body
    .sm-doortry ul a, .sm-doortry ul a:hover, .sm-doortry ul a:focus, .sm-doortry ul a:active, 
    .sm-doortry ul a.highlighted 
    {
-     /* border:0 !important;    */
+      border:0 !important;
       padding:9px 23px;
       /*background:transparent; */
    }
@@ -341,12 +316,11 @@ body
     left: auto;
     margin-left: 0;
     right: 10px;
-    /*
     border-style: dashed dashed dashed solid;
-    border-color: transparent transparent transparent #a1d1e8;  */
+    border-color: transparent transparent transparent #a1d1e8;
   }
   .sm-doortry ul li {
-   /* border: 0;  */
+    border: 0;
   }
   .sm-doortry .scroll-up,
   .sm-doortry .scroll-down {
@@ -368,37 +342,32 @@ body
     width: 0;
     height: 0;
     overflow: hidden;
-    /*
     border-width: 8px;
     border-style: dashed dashed solid dashed;
-    border-color: transparent transparent #2b82ac transparent;  */
+    border-color: transparent transparent #2b82ac transparent;
   }
   .sm-doortry .scroll-down-arrow {
     top: 6px;
-    /*
     border-style: solid dashed dashed dashed;
-    border-color: #2b82ac transparent transparent transparent;  */
+    border-color: #2b82ac transparent transparent transparent;
   }
   .sm-doortry.sm-rtl.sm-vertical a .sub-arrow {
     right: auto;
     left: 10px;
-    /*
     border-style: dashed solid dashed dashed;
-    border-color: transparent #a1d1e8 transparent transparent; */
+    border-color: transparent #a1d1e8 transparent transparent;
   }
   .sm-doortry.sm-rtl > li:first-child {
-  /*
-    border-left: 1px solid #2b82ac; */
+    border-left: 1px solid #2b82ac;
   }
   .sm-doortry.sm-rtl > li:last-child {
-    /*border-left: 0; */
+    border-left: 0;
   }
   .sm-doortry.sm-rtl ul a .sub-arrow {
     right: auto;
     left: 10px;
-    /*
     border-style: dashed solid dashed dashed;
-    border-color: transparent #a1d1e8 transparent transparent; */
+    border-color: transparent #a1d1e8 transparent transparent;
   }
   .sm-doortry.sm-vertical a {
     padding: 9px 23px;
@@ -410,13 +379,11 @@ body
     left: auto;
     margin-left: 0;
     right: 10px;
-    /*
     border-style: dashed dashed dashed solid;
-    border-color: transparent transparent transparent #a1d1e8;*/
+    border-color: transparent transparent transparent #a1d1e8;
   }
   .sm-doortry.sm-vertical > li {
-  /*
-    border-left: 0 !important;  */
+    border-left: 0 !important;
   }
   .sm-doortry.sm-vertical ul a {
     padding: 9px 23px;

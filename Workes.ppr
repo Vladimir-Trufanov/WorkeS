@@ -16,7 +16,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Workes
-	-www
+	+www
 		-_otlada
 			-smartmenus
 				www\_otlada\smartmenus\jquery.min.js
@@ -24,8 +24,8 @@ Workes
 				www\_otlada\smartmenus\sm-blue.css
 				www\_otlada\smartmenus\sm-core-css.css
 			www\_otlada\index.html
-		-_proba
-			-smartmenus
+		+_proba
+			+smartmenus
 				-res
 					-v1
 						www\_proba\smartmenus\res\v1\sm-doortry.css
@@ -33,6 +33,10 @@ Workes
 						www\_proba\smartmenus\res\v2 border-radius\sm-doortry.css
 					-v3 noshadow
 						www\_proba\smartmenus\res\v3 noshadow\sm-doortry.css
+					-v4 color
+						www\_proba\smartmenus\res\v4 color\sm-doortry.css
+					-v5
+						www\_proba\smartmenus\res\v5\sm-doortry.css
 				www\_proba\smartmenus\jquery.min.js
 				www\_proba\smartmenus\jquery.smartmenus.min.js
 				www\_proba\smartmenus\sm-core-css.css
@@ -55,8 +59,8 @@ Workes
 Main=
 Selected=www\_proba\smartmenus\sm-doortry.css
 [www\_proba\index.html]
-TopLine=9
+TopLine=87
 Caret=15,31
 [www\_proba\smartmenus\sm-doortry.css]
-TopLine=123
-Caret=1,269
+TopLine=42
+Caret=1,58
