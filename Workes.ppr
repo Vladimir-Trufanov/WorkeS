@@ -17,6 +17,21 @@ Extensions=*.*
 [Project tree]
 Workes
 	+www
+		-_countdown
+			-assets
+				-countdown
+					www\_countdown\assets\countdown\jquery.countdown.css
+					www\_countdown\assets\countdown\jquery.countdown.js
+				-css
+					www\_countdown\assets\css\styles.css
+				-img
+					www\_countdown\assets\img\page_bg_center.jpg
+					www\_countdown\assets\img\tile_bg.jpg
+				-js
+					www\_countdown\assets\js\script.js
+			www\_countdown\index.html
+		+_minsectimer
+			www\_minsectimer\index.html
 		-_otlada
 			-smartmenus
 				www\_otlada\smartmenus\jquery.min.js
@@ -56,7 +71,7 @@ Workes
 			www\_sortable\admin.php
 			www\_sortable\index.php
 			www\_sortable\save.php
-		+_tabmenu
+		-_tabmenu
 			-img
 				www\_tabmenu\img\3d.gif
 				www\_tabmenu\img\3d.jpg
@@ -86,14 +101,18 @@ Workes
 		www\index.html
 		www\sort.db3
 [Open project files]
-0=www\index.html
-1=www\_tabmenu\index.php
+0=www\_countdown\index.html
+1=www\index.html
+2=www\_minsectimer\index.html
 [Selected Project Files]
 Main=
-Selected=www\index.html
+Selected=www\_minsectimer\index.html
+[www\_countdown\index.html]
+TopLine=11
+Caret=9,3
 [www\index.html]
-TopLine=28
-Caret=46,38
-[www\_tabmenu\index.php]
+TopLine=45
+Caret=49,52
+[www\_minsectimer\index.html]
 TopLine=1
-Caret=11,19
+Caret=14,8

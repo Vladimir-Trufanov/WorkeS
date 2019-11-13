@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- 
+http://www.net-f.ru/item/javascript/104.html
+-->
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <title>Простой таймер, использующий только минуты и секунды</title>
+      <script language="JavaScript" type="text/javascript">
+      <!--
+      // выставляем секунды
+      var sec=05;
+      // выставляем минуты
+      var min=01;
+      function refresh()
+      {
+         sec--;
+         if(sec==-01){sec=59; min=min-1;}
+         else{min=min;}
+         if(sec<=9){sec="0" + sec;}
+         time=(min<=9 ? "0"+min : min) + ":" + sec;
+         if(document.getElementById){timer.innerHTML=time;}
+         inter=setTimeout("refresh()", 1000);
+         // действие, если таймер 00:00
+         if(min=='00' && sec=='00')
+         {
+         sec="00";
+         clearInterval(inter);
+         /* выводим сообщение в элемент с id="tut", например <div id="tut"></div> */
+         tut.innerHTML="Таймер завершил свою работу!";
+         /* либо модальное окно */
+         //alert('Таймер завершил свою работу!');
+         /* либо переход на какой-то адрес */
+         //window.location='http://www.net-f.ru/';
+         /* либо любой другой Ваш код */
+         }
+      }
+      //-->
+      </script>
+   </head>
+   <body onload="refresh();">
+   <span id="timer"></span>
+   <div id="tut"></div>
+   </body>
+</html>
+
