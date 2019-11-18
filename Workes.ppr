@@ -108,11 +108,11 @@ Workes
 Main=
 Selected=www\_minsectimer\index.html
 [www\_countdown\index.html]
-TopLine=11
+TopLine=3
 Caret=9,3
 [www\index.html]
 TopLine=45
 Caret=49,52
 [www\_minsectimer\index.html]
-TopLine=1
-Caret=14,8
+TopLine=15
+Caret=44,34
