@@ -1,9 +1,9 @@
 <?php
-   $SiteRoot = $_SERVER['DOCUMENT_ROOT'];       // �������� ������� �����
+   $SiteRoot = $_SERVER['DOCUMENT_ROOT'];       // Корневой каталог сайта
    //echo "ajaks\r\n";
-   alert('ajaks');
-
-   
+   echo 'Получил '.$_POST['masiv'].'! Возвращаю вместе с ';
+   $message='Well!';
+   exit($message);
    /*
    $pathBase='sqlite:'.$SiteRoot.'/sort.db3';                                          
    $db = new PDO($pathBase);

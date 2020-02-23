@@ -46,8 +46,10 @@ $(document).ready(function()
                {
                   $('#res').text("Ошибка!");
                },
-               success: function()
+               success: function(message)
                {
+                  //alert(item);
+                  alert(message);
                   $('#res').show().text("Сохранено!").fadeOut(1000);
                }
 			   });
@@ -121,7 +123,7 @@ $(document).ready(function()
 <ul id="main-menu" class="sm sm-doortry">
    <li><a href="#">О нас</a>
       <ul>
-         <li><a href="#">Наша история</a></li>
+         <li><a href="###">Наша история</a></li>
          <li><a href="#">Как нас найти</a></li>
          <li><a href="#">Часы работы</a></li>
       </ul>
