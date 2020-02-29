@@ -30,9 +30,9 @@ Workes
 				-js
 					www\_countdown\assets\js\script.js
 			www\_countdown\index.html
-		+_minsectimer
+		-_minsectimer
 			www\_minsectimer\index.html
-		+_otlada
+		-_otlada
 			-smartmenus
 				www\_otlada\smartmenus\jquery.min.js
 				www\_otlada\smartmenus\jquery.smartmenus.min.js
@@ -41,17 +41,6 @@ Workes
 			www\_otlada\index.html
 		+_proba
 			-smartmenus
-				-res
-					-v1
-						www\_proba\smartmenus\res\v1\sm-doortry.css
-					-v2 border-radius
-						www\_proba\smartmenus\res\v2 border-radius\sm-doortry.css
-					-v3 noshadow
-						www\_proba\smartmenus\res\v3 noshadow\sm-doortry.css
-					-v4 color
-						www\_proba\smartmenus\res\v4 color\sm-doortry.css
-					-v5
-						www\_proba\smartmenus\res\v5\sm-doortry.css
 				www\_proba\smartmenus\jquery.min.js
 				www\_proba\smartmenus\jquery.smartmenus.min.js
 				www\_proba\smartmenus\sm-core-css.css
@@ -59,12 +48,12 @@ Workes
 				www\_proba\smartmenus\sm-mytheme.css
 			www\_proba\index.html
 			www\_proba\save.php
-		+_sortable
+			www\_proba\TPhpPrownTests.js
+		-_sortable
 			-css
 				-images
 					www\_sortable\css\images\ui-bg_glass_75_e6e6e6_1x400.png.png
 				www\_sortable\css\jquery-ui-1.8.14.custom.css
-			-js
 			-scripts
 				www\_sortable\scripts\jquery-1.6.2.min.js
 				www\_sortable\scripts\jquery-ui-1.8.14.custom.min.js
@@ -101,14 +90,18 @@ Workes
 		www\index.html
 		www\sort.db3
 [Open project files]
-0=www\_proba\save.php
+0=www\_proba\TPhpPrownTests.js
 1=www\_proba\index.html
+2=www\_proba\save.php
 [Selected Project Files]
 Main=
 Selected=www\_proba\save.php
+[www\_proba\TPhpPrownTests.js]
+TopLine=1
+Caret=18,10
+[www\_proba\index.html]
+TopLine=33
+Caret=5,44
 [www\_proba\save.php]
 TopLine=1
-Caret=58,4
-[www\_proba\index.html]
-TopLine=21
-Caret=1,1
+Caret=1,5

@@ -2,17 +2,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Своя тема из smartmenus</title>
+<title>Двухсторонняя ajax-передача в smartmenus</title>
 <!-- -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="smartmenus/sm-core-css.css">
-<link rel="stylesheet" href="smartmenus/sm-mytheme.css">
+<!-- для внешнего вида меню -->
 <link rel="stylesheet" href="smartmenus/sm-doortry.css">
+<!-- для сокрытия меню гамбургера -->
+<link rel="stylesheet" href="smartmenus/sm-mytheme.css"> 
+
 <script src="smartmenus/jquery.min.js"></script>
 <script src="smartmenus/jquery.smartmenus.min.js"></script>
+<script src="TPhpPrownTests.js"></script>
 
 <script>
-
 $(document).ready(function() 
 {
    // Разворачиваем смартменю
@@ -27,94 +30,29 @@ $(document).ready(function()
          $ul.slideUp(250,complete);
       }
    });
-      
-      $('#main-menu').on('click.smapi', function(e,item)
-      {
-         // check namespace if you need to differentiate from a regular DOM
-         // event fired inside the menu tree
-         if (e.namespace == 'smapi')
-         { 
-            // your handler code
-            //alert('smapi');
-            var $arr='Oppa';
-            
-            $.ajax({
-               url: 'save.php',
-               type: 'POST',
-               data: {masiv:$arr},
-               error: function()
-               {
-                  $('#res').text("Ошибка!");
-               },
-               success: function(message)
-               {
-                  //alert(item);
-                  alert(message);
-                  $('#res').show().text("Сохранено!").fadeOut(1000);
-               }
-			   });
-         }
-      });
-      
-
-   /*
-   $(function()
+   // Запускаем аякс-передачу по клику на пункте меню  
+   $('#main-menu').on('click.smapi', function(e,item)
    {
-      var $mainMenuState = $('#main-menu-state');
-      alert('arr');
-      if ($mainMenuState.length)
-      {
-         // animate mobile menu
-         $mainMenuState.change
-         (function(e){
-            var $menu=$('#main-menu');
-            if (this.checked)
-            {
-               $menu.hide().slideDown(250,function(){$menu.css('display','');});
-            } 
-            else
-            {
-               $menu.show().slideUp(250,function(){$menu.css('display','');});
-            }
-         });
-         // hide mobile menu beforeunload
-         $(window).on('beforeunload unload',
-         function(){
-            if ($mainMenuState[0].checked)
-            {
-               $mainMenuState[0].click();
-            }
-         });
+      // check namespace if you need to differentiate from a regular DOM
+      // event fired inside the menu tree
+      if (e.namespace == 'smapi')
+      { 
+         // Запускаем передачу сообщений через ajax
+         gali('Привет');
       }
    });
-   */
-   
-}); // end ready
-
+}); 
 </script>
 </head>
 <body>
+
 <header>
-   Своя тема из smartmenus
+Двухсторонняя ajax-передача в smartmenus<br>
+(протокол передачи показывается в консоли)<br>
 </header>
-<div class="maini">
-   <ul id="maini-menu" class="sm sm-mytheme">
-      <li><a href="#">О нас</a>
-         <ul>
-            <li><a href="#">Наша история</a></li>
-            <li><a href="#">Как нас найти</a></li>
-            <li><a href="#">Часы работы</a></li>
-         </ul>
-      </li>
-      <li><a href="#">Простая штуковина</a></li>
-   </ul>
-</div>
 
-<br><br><br><br>
 <div id="res">Сообщение</div>
-<br><br><br>
-
-<div class="gambur">
+<div class="gamburi">
 <!-- Mobile menu toggle button (hamburger/x icon) -->
 <input id="main-menu-state" type="checkbox"/>
 <label class="main-menu-btn" for="main-menu-state">
@@ -130,12 +68,6 @@ $(document).ready(function()
    </li>
    <li><a href="#">Простая штуковина</a></li>
 </ul>
-
-
 </div>
-
-
-<footer>
-</footer>
 </body>
 </html>
