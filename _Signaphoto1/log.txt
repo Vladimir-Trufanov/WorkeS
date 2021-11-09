@@ -1,0 +1,3 @@
+[09-Nov-2021 22:08:37 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
+[09-Nov-2021 22:09:14 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
+[09-Nov-2021 22:09:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16

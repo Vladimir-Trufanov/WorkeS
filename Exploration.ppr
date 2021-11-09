@@ -13,6 +13,7 @@ DontOpen=0
 AbsolutePath=0
 FileFormat=0
 ProjectFilesOnly=0
+HTServer=localhost
 Extensions=*.*
 [Project tree]
 Exploration
@@ -32,13 +33,6 @@ Exploration
 			_countdown\index.html
 		-_minsectimer
 			_minsectimer\index.html
-		-_otlada
-			-smartmenus
-				_otlada\smartmenus\jquery.min.js
-				_otlada\smartmenus\jquery.smartmenus.min.js
-				_otlada\smartmenus\sm-blue.css
-				_otlada\smartmenus\sm-core-css.css
-			_otlada\index.html
 		-_proba
 			-smartmenus
 				_proba\smartmenus\jquery.min.js
@@ -49,6 +43,10 @@ Exploration
 			_proba\index.html
 			_proba\save.php
 			_proba\TPhpPrownTests.js
+		+_Signaphoto1
+			_Signaphoto1\log.txt
+			_Signaphoto1\SignaPhoto.php
+			_Signaphoto1\SignaPhotoHtml.php
 		-_sortable
 			-css
 				-images
@@ -181,10 +179,30 @@ Exploration
 					Рабочие материалы\SmartMenus\SmartMenus_110\LICENSE-MIT
 					Рабочие материалы\SmartMenus\SmartMenus_110\README.md
 				Рабочие материалы\SmartMenus\SmartMenus.doc
+		Exploration.ppr
 		favicon.ico
 		index.html
+		iniWorkSpace.php
 		README.md
 		sort.db3
+		ViewEnviron.php
 [Open project files]
+0=index.html
+1=_Signaphoto1\SignaPhoto.php
+2=ViewEnviron.php
+3=_Signaphoto1\SignaPhotoHtml.php
 [Selected Project Files]
 Main=
+Selected=_Signaphoto1\SignaPhoto.php
+[index.html]
+TopLine=29
+Caret=49,37
+[_Signaphoto1\SignaPhoto.php]
+TopLine=33
+Caret=4,36
+[ViewEnviron.php]
+TopLine=1
+Caret=48,15
+[_Signaphoto1\SignaPhotoHtml.php]
+TopLine=366
+Caret=6,215
