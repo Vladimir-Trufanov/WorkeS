@@ -1,0 +1,190 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.CompileOnBackground=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+Compilator.LogEncoding=0
+DefaultDir=C:\Webservers\Exploration
+DefaultCP=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+Extensions=*.*
+[Project tree]
+Exploration
+	+Exploration
+		-_countdown
+			-assets
+				-countdown
+					_countdown\assets\countdown\jquery.countdown.css
+					_countdown\assets\countdown\jquery.countdown.js
+				-css
+					_countdown\assets\css\styles.css
+				-img
+					_countdown\assets\img\page_bg_center.jpg
+					_countdown\assets\img\tile_bg.jpg
+				-js
+					_countdown\assets\js\script.js
+			_countdown\index.html
+		-_minsectimer
+			_minsectimer\index.html
+		-_otlada
+			-smartmenus
+				_otlada\smartmenus\jquery.min.js
+				_otlada\smartmenus\jquery.smartmenus.min.js
+				_otlada\smartmenus\sm-blue.css
+				_otlada\smartmenus\sm-core-css.css
+			_otlada\index.html
+		-_proba
+			-smartmenus
+				_proba\smartmenus\jquery.min.js
+				_proba\smartmenus\jquery.smartmenus.min.js
+				_proba\smartmenus\sm-core-css.css
+				_proba\smartmenus\sm-doortry.css
+				_proba\smartmenus\sm-mytheme.css
+			_proba\index.html
+			_proba\save.php
+			_proba\TPhpPrownTests.js
+		-_sortable
+			-css
+				-images
+					_sortable\css\images\ui-bg_glass_75_e6e6e6_1x400.png.png
+				_sortable\css\jquery-ui-1.8.14.custom.css
+			-scripts
+				_sortable\scripts\jquery-1.6.2.min.js
+				_sortable\scripts\jquery-ui-1.8.14.custom.min.js
+			_sortable\admin.php
+			_sortable\index.php
+			_sortable\save.php
+		-_tabmenu
+			-img
+				_tabmenu\img\3d.gif
+				_tabmenu\img\3d.jpg
+				_tabmenu\img\bg.jpg
+				_tabmenu\img\efectos.gif
+				_tabmenu\img\efectos.jpg
+				_tabmenu\img\galerias.gif
+				_tabmenu\img\galerias.jpg
+				_tabmenu\img\menus.gif
+				_tabmenu\img\menus.jpg
+				_tabmenu\img\Thumbs.db
+			-js
+				_tabmenu\js\ajax24.js
+				_tabmenu\js\e24tabmenu.js
+				_tabmenu\js\e24writer.js
+				_tabmenu\js\effects.js
+				_tabmenu\js\prototype.js
+				_tabmenu\js\scriptaculous.js
+			_tabmenu\index.php
+		-smartmenus
+			smartmenus\jquery.min.js
+			smartmenus\jquery.smartmenus.min.js
+			smartmenus\site.css
+			smartmenus\sm-blue.css
+			smartmenus\sm-core-css.css
+		-Рабочие материалы
+			-SmartMenus
+				-SmartMenus_095
+					-smartmenus
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery.min.js
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery.smartmenus.min.js
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery-1.11.0.min.js
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery-ui.js
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery-ui.min.css
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery-ui.min.js
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\site.css
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\site.js
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\sm-blue.css
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\sm-clean.css
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\sm-core-css.css
+						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\sm-simple.css
+					Рабочие материалы\SmartMenus\SmartMenus_095\index.html
+					Рабочие материалы\SmartMenus\SmartMenus_095\готовый_07_03.html
+					Рабочие материалы\SmartMenus\SmartMenus_095\готовый_07_03_blue.html
+					Рабочие материалы\SmartMenus\SmartMenus_095\готовый_07_03_clean.html
+				-SmartMenus_110
+					-addons
+						-bootstrap
+							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap\jquery.smartmenus.bootstrap.css
+							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap\jquery.smartmenus.bootstrap.js
+							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap\jquery.smartmenus.bootstrap.min.js
+						-bootstrap-4
+							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap-4\jquery.smartmenus.bootstrap-4.css
+							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap-4\jquery.smartmenus.bootstrap-4.js
+							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap-4\jquery.smartmenus.bootstrap-4.min.js
+						-keyboard
+							Рабочие материалы\SmartMenus\SmartMenus_110\addons\keyboard\jquery.smartmenus.keyboard.js
+							Рабочие материалы\SmartMenus\SmartMenus_110\addons\keyboard\jquery.smartmenus.keyboard.min.js
+					-css
+						-sm-blue
+							-mixins
+								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\mixins\_round-corners-last-item.scss
+								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\mixins\_sub-items-indentation.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\_mixins.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\_sm-blue-theme.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\sm-blue.css
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\sm-blue.css.map
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\sm-blue.scss
+						-sm-clean
+							-mixins
+								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\mixins\_round-corners-last-item.scss
+								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\mixins\_sub-items-indentation.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\_mixins.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\_sm-clean-theme.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\sm-clean.css
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\sm-clean.css.map
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\sm-clean.scss
+						-sm-mint
+							-mixins
+								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\mixins\_sub-items-indentation.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\_mixins.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\_sm-mint-theme.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\sm-mint.css
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\sm-mint.css.map
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\sm-mint.scss
+						-sm-simple
+							-mixins
+								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\mixins\_sub-items-indentation.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\_mixins.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\_sm-simple-theme.scss
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\sm-simple.css
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\sm-simple.css.map
+							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\sm-simple.scss
+						Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-core-css.css
+					-demo
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-4-navbar.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-4-navbar-fixed-bottom.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-4-navbar-fixed-top.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-4-navbar-static-top.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-navbar.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-navbar-fixed-bottom.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-navbar-fixed-top.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-navbar-static-top.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\index.html
+						Рабочие материалы\SmartMenus\SmartMenus_110\demo\keyboard-navigation.html
+					-libs
+						-demo-assets
+							-shjs
+								Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\shjs\shjs.css
+								Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\shjs\shjs.js
+							Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\demo.css
+							Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\readme.txt
+							Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\themes-switcher.js
+						-jquery
+							Рабочие материалы\SmartMenus\SmartMenus_110\libs\jquery\jquery.js
+					Рабочие материалы\SmartMenus\SmartMenus_110\jquery.smartmenus.js
+					Рабочие материалы\SmartMenus\SmartMenus_110\jquery.smartmenus.min.js
+					Рабочие материалы\SmartMenus\SmartMenus_110\LICENSE-MIT
+					Рабочие материалы\SmartMenus\SmartMenus_110\README.md
+				Рабочие материалы\SmartMenus\SmartMenus.doc
+		favicon.ico
+		index.html
+		README.md
+		sort.db3
+[Open project files]
+[Selected Project Files]
+Main=
