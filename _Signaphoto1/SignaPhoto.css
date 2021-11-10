@@ -1,0 +1,170 @@
+/** HTML5/CSS3, EDGE/CHROME                              *** SignaPhoto.css ***
+
+ ******************************************************************************
+ *           Определить стили ландшафтной версии "Подписать фотографию"       *
+ ******************************************************************************
+
+                                                     Автор:       Труфанов В.Е.
+                                                     Дата создания:  03.06.2021
+ Copyright © 2021 tve                                Посл.изменение: 17.06.2021
+*/
+
+html{font-family:'Anonymous Pro',monospace;font-size:16px;}
+
+/* Содержим поля в ширине блока (кроме margin) */
+* {box-sizing:border-box;}
+/* Выравниваем базовую линию блока по базовой линии родителя */
+html, body,
+a, abbr, acronym, address, article, aside, audio, b, big, blockquote,button, 
+canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, 
+em, embed,  
+fieldset, figcaption, figure, footer, form, 
+h1, h2, h3, h4, h5, h6, header, hgroup, i, iframe, img, ins, kbd, 
+label, legend, li, mark, menu, nav, 
+object, ol, output, p, pre, q, ruby, 
+s, samp, section, small, span, strike, strong, sub, summary, sup, 
+table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video 
+{
+	margin:0;
+	padding:0;
+	border:0;
+	vertical-align:baseline;
+}
+/* Снимаем умалчиваемый стили браузеров при фокусировании на поле ввода */
+*:focus {outline:none;}
+/* Все секции представляем, как блоки */
+article, aside, details, div, figcaption, figure, footer, header, hgroup, 
+menu, nav, section 
+{
+	display:block;
+}
+/* Нумеруем списки арабскими числами (1,2,3,4,...) */
+ol 
+{ 
+	list-style:decimal;
+}
+/* Ставим маркер в виде квадрата в маркированных списках */
+ul 
+{
+	list-style:square;
+}
+body
+{
+   width:100%;
+   height:100%;
+   font-size:1rem;
+}
+/**
+  Для отладки расскрашиваем дивы
+body{background:yellow;} 
+#All{background:white;}
+#View{background:magenta;}
+#Photo{background:purple;}
+#Stamp{background:red;}
+#Proba{background:olive;}
+#Lead{background:aqua;}
+*/
+/** Оформляем скелет разметки */
+#All,#Lead {position:fixed; width:100%; overflow:auto;}
+#All  {top:0;    height:82%; }
+#Lead {bottom:0; height:12%;}
+/** Размечаем правую и левую колонки области просмотра */
+#View  {width:48%; float:left;  height:100%;}
+#Proba {width:52%; float:right; height:100%;}
+/** Формируем область для показа загруженной фотографии и подписи */
+/*
+#Photo {width:48%;}
+#Stamp {width:30%; margin-left:35%;}
+*/
+
+#pic
+{
+   width:99%;
+   display:block;
+   margin-left:auto;
+   margin-right:auto;
+   margin-top:.4rem;
+   margin-bottom:.3rem;
+}
+#picStamp
+{
+   height:9%;
+   display:block;
+   margin-left:auto;
+   margin-right:auto;
+   margin-top:.3rem;
+   margin-bottom:.4rem;
+}
+#picProba
+{
+   width:99%;
+   display:block;
+   margin-left:auto;
+   margin-right:auto;
+   margin-top:.4rem;
+   margin-bottom:.4rem;
+}
+
+
+.navButtons
+{  
+      border:1px gray solid;
+      position:absolute;
+      overflow: hidden;
+      display:block;  
+      -moz-box-shadow:5px 5px 7px rgba(3,33,33,.7);  
+      -webkit-box-shadow: 5px 5px 7px rgba(3,33,33,.7);  
+      box-shadow: 5px 5px 7px rgba(3,33,33,.7);  
+      -moz-border-radius:4px;
+      -webkit-border-radius:4px;
+      border-radius:4px;
+  }
+
+.navButtons:hover
+{
+  border:2px solid black;
+  background-color:#fff;
+}
+
+.hiddenInput{  
+      position:absolute;
+      overflow: hidden;
+      display:block;  
+      height:0px;  
+      width:0px;  
+  }
+#btnLoadImg
+{
+   margin-top:0;
+   margin-left:5%;
+}
+#btnLoadStamp
+{
+   margin-top:0;
+   margin-left:23%;
+}
+#btnSubscribe
+{
+   margin-top:0;
+   margin-left:64%;
+}
+#btnTunein
+{
+   margin-top:0;
+   margin-left:82%;
+}
+
+/* Отличное от общего */
+.navButtons
+{  
+   height:4rem; 
+   width:4rem;  
+}
+
+
+
+/*
+ *********************************************************** SignaPhoto.css ***
+*/	
+	
+

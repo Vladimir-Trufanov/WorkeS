@@ -24,7 +24,6 @@ try
 {
    // Подключаем модуль и выодим технологическую информацию
    require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';;
-   //EnviView();
    // Подключаем файлы библиотеки прикладных модулей:
    $TPhpPrown=$SiteHost.'/TPhpPrown';
    require_once $TPhpPrown."/TPhpPrown/MakeCookie.php";
@@ -34,11 +33,14 @@ try
    //require_once $TPhpTools."/TPhpTools/iniErrMessage.php";
    // Подключаем модули страницы "Подписать фотографию"
    require_once 'SignaPhotoHtml.php';
+   // Готовим начало страницы для подписывания фотографий
+   $c_Orient=prown\MakeCookie('Orient','landscape',tStr);
+   IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
 
-   echo '***<br>';
-   echo 'Всем привет!<br>';
-   //
-   echo '***<br>';
+   //echo '***<br>';
+   //echo 'Всем привет!<br>';
+   EnviView();
+   //echo '***<br>';
    
 }
 catch (E_EXCEPTION $e) 
@@ -47,9 +49,6 @@ catch (E_EXCEPTION $e)
 }
 /*
     
-   // Готовим начало страницы для подписывания фотографий
-   $c_Orient=prown\MakeCookie('Orient','landscape',tStr);
-   IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
 
    echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
    // Формируем тексты запросов для вызова страниц (с помощью JS) с портретной 

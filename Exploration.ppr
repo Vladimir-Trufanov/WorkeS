@@ -43,8 +43,14 @@ Exploration
 			_proba\index.html
 			_proba\save.php
 			_proba\TPhpPrownTests.js
-		+_Signaphoto1
+		-_Signaphoto1
+			-images
+				_Signaphoto1\images\iphoto.jpg
+				_Signaphoto1\images\iproba.png
+				_Signaphoto1\images\istamp.png
 			_Signaphoto1\log.txt
+			_Signaphoto1\SignaPhoto.css
+			_Signaphoto1\SignaPhoto.js
 			_Signaphoto1\SignaPhoto.php
 			_Signaphoto1\SignaPhotoHtml.php
 		-_sortable
@@ -78,12 +84,21 @@ Exploration
 				_tabmenu\js\prototype.js
 				_tabmenu\js\scriptaculous.js
 			_tabmenu\index.php
-		-smartmenus
-			smartmenus\jquery.min.js
-			smartmenus\jquery.smartmenus.min.js
-			smartmenus\site.css
-			smartmenus\sm-blue.css
-			smartmenus\sm-core-css.css
+		-Jsx
+			Jsx\jquery-1.11.1.min.js
+			Jsx\jquery-1.11.1.min.map
+			Jsx\jquery-ui.min.css
+			Jsx\jquery-ui.min.js
+		+SmartMenus
+			SmartMenus\ColabLig-webfont.ttf
+			SmartMenus\ColabLig-webfont.woff
+			SmartMenus\jquery.min.js
+			SmartMenus\jquery.smartmenus.min.js
+			SmartMenus\leaguegothic-regular-webfont.ttf
+			SmartMenus\leaguegothic-regular-webfont.woff
+			SmartMenus\site.css
+			SmartMenus\sm-blue.css
+			SmartMenus\sm-core-css.css
 		-Рабочие материалы
 			-SmartMenus
 				-SmartMenus_095
@@ -188,21 +203,25 @@ Exploration
 		ViewEnviron.php
 [Open project files]
 0=index.html
-1=_Signaphoto1\SignaPhoto.php
-2=ViewEnviron.php
-3=_Signaphoto1\SignaPhotoHtml.php
+1=ViewEnviron.php
+2=_Signaphoto1\SignaPhotoHtml.php
+3=_Signaphoto1\SignaPhoto.php
+4=SmartMenus\sm-blue.css
 [Selected Project Files]
 Main=
-Selected=_Signaphoto1\SignaPhoto.php
+Selected=SmartMenus\sm-blue.css
 [index.html]
-TopLine=29
-Caret=49,37
-[_Signaphoto1\SignaPhoto.php]
-TopLine=33
-Caret=4,36
+TopLine=1
+Caret=43,18
 [ViewEnviron.php]
 TopLine=1
-Caret=48,15
+Caret=67,19
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=366
-Caret=6,215
+TopLine=7
+Caret=56,42
+[_Signaphoto1\SignaPhoto.php]
+TopLine=8
+Caret=1,43
+[SmartMenus\sm-blue.css]
+TopLine=1
+Caret=18,2

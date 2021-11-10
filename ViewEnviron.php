@@ -16,6 +16,7 @@ function EnviView()
    global $SiteAbove;  if (isset($SiteAbove))  echo '$SiteAbove='.$SiteAbove.'<br>';
    global $SiteHost;   if (isset($SiteHost))   echo '$SiteHost='.$SiteHost.'<br>';
    global $SiteDevice; if (isset($SiteDevice)) echo '$SiteDevice='.$SiteDevice.'<br>';
+   echo '$_SERVER["SERVER_NAME"]='.$_SERVER["SERVER_NAME"].'<br>';
    // Показываем, какие графические форматы поддерживаются
    echo '<pre>';
    print_r(gd_info());
