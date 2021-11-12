@@ -26,6 +26,7 @@ try
    require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';;
    // Подключаем файлы библиотеки прикладных модулей:
    $TPhpPrown=$SiteHost.'/TPhpPrown';
+   require_once $TPhpPrown."/TPhpPrown/CommonPrown.php";
    require_once $TPhpPrown."/TPhpPrown/MakeCookie.php";
    require_once $TPhpPrown."/TPhpPrown/ViewGlobal.php";
    // Подключаем файлы библиотеки прикладных классов:
@@ -34,45 +35,50 @@ try
    // Подключаем модули страницы "Подписать фотографию"
    require_once 'SignaPhotoHtml.php';
    // Готовим начало страницы для подписывания фотографий
-   $c_Orient=prown\MakeCookie('Orient','landscape',tStr);
-   IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
+   IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba,$p_Orient);
+   // Подключаем скрипты по завершению загрузки страницы
+   echo '<script>$(document).ready(function() {';
+   echo "console.log('window.orientation='+window.orientation);";
+   //echo "alert('window.orientation='+window.orientation);";
+   echo '});</script>';
+   // Начинаем выводить тело страницы 
+   echo '</head>';
+   echo '<body>';
 
    //echo '***<br>';
    //echo 'Всем привет!<br>';
    EnviView();
+   echo '$p_Orient='.$p_Orient.'<br>';
    //echo '***<br>';
-   
+
+   // Завершаем вывод страницы
+   //prown\ViewGlobal(avgSERVER);
+   //prown\ViewGlobal(avgCOOKIE);
+   prown\ViewGlobal(avgREQUEST);
+   echo '</body>';
+   echo '</html>';
 }
 catch (E_EXCEPTION $e) 
 {
    DoorTryPage($e);
 }
-/*
-    
-
-   echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
-   // Формируем тексты запросов для вызова страниц (с помощью JS) с портретной 
-   // ориентацией и ландшафтной. Так как страница "Подписать фотографию" 
-   // использует две разметки: для страницы на компьютере и ландшафтной странице
-   // на смартфоне - простая разметка на дивах; а для портретной страницы на 
-   // смартфоне с помощью jquery mobile 
-   MakeTextPages();
-   // При запуске страницы на смартфоне, всегда уточняем ориентацию и 
-   // перезагружаем смартфон в случае портретной ориентации
-   
-*/
-   ?> <script>
-      if ((window.orientation==0)||(window.orientation==180)) window.location = $SignaPortraitUrl;
-   </script> <?php
 /*   
-   echo '</head>';
-   echo '<body>';
    
-   // Подключаем скрипты по завершению загрузки страницы
-   echo '<script>$(document).ready(function() {';
-   //echo 'alert("SignaPhoto");';
-   echo '});</script>';
+   echo "if (window.orientation===undefined) console.log('window.orientation=UndefineD');";    // 'undefined'
    
+   
+   ?> <script> 
+      let orienti=window.orientation;
+      if (orienti===undefined) {<?php $c_Orient=prown\MakeCookie('Orient','landscape1',tStr)?>}
+      else if (orienti===180) {<?php $c_Orient=prown\MakeCookie('Orient','portrait180',tStr)?>} 
+   </script> <?php
+
+   
+   
+   
+
+ 
+      //if ((window.orientation===0)||(window.orientation===180)) {<?php $c_Orient=prown\MakeCookie('Orient','portrait',tStr)?>} 
    
    
    // Размечаем область изображений
@@ -102,10 +108,6 @@ catch (E_EXCEPTION $e)
    echo '</div>';
 */
 /*
-   echo '</body>';
-   echo '</html>';
-   //prown\ViewGlobal(avgSERVER);
-   //prown\ViewGlobal(avgCOOKIE);
    
 */
-// *** <!-- --> ******************************************** SignaPhoto.php ***
+?> <?php // *** <!-- --> *********************************** SignaPhoto.php ***

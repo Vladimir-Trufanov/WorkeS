@@ -1,3 +1,4 @@
 [09-Nov-2021 22:08:37 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
 [09-Nov-2021 22:09:14 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
 [09-Nov-2021 22:09:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
+[12-Nov-2021 15:12:41 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '*', expecting end of file in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 171

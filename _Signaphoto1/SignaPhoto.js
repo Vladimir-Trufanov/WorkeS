@@ -46,7 +46,6 @@ function doOnOrientationChange()
 {
    if ((window.orientation==0)||(window.orientation==180))
    {
-      //alert('2: '+$SignaPortraitUrl);
       window.location = $SignaPortraitUrl;
    } 
    if ((window.orientation==90)||(window.orientation==-90)) 
