@@ -8,12 +8,12 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  10.06.2021
-// Copyright © 2021 tve                              Посл.изменение: 10.11.2021
+// Copyright © 2021 tve                              Посл.изменение: 12.11.2021
 
 // ****************************************************************************
 // *                            Начать HTML-страницу сайта                    *
 // ****************************************************************************
-function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProba,&$p_Orient)
+function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProba)
 {
    $Result=true;
    // Инициируем или изменяем счетчик числа запросов страницы
@@ -22,11 +22,6 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    $c_FileImg=prown\MakeCookie('FileImg','images/iphoto.jpg',tStr,true);
    $c_FileStamp=prown\MakeCookie('FileStamp','images/istamp.png',tStr,true);
    $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr,true);
-   // Отмечаем ориентацию страницы
-   $p_Orient='landscape';
-   if t($Com='Com')
-
-   if 
    // Определяем Url домашней страницы
    if ($_SERVER["SERVER_NAME"]=='kwinflatht.nichost.ru') $UrlHome='http://kwinflatht.nichost.ru';
    else $UrlHome='http://localhost:82';   
@@ -50,8 +45,10 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
       <script src="/Jsx/jquery-1.11.1.min.js"></script>
       <script src="/Jsx/jquery-ui.min.js"></script>
    ';
-   echo '<script src="SignaPhoto.js"></script>';
    echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
+   // Подключаем сайтовые(SignaPhoto) функции Js и
+   // инициализировать обработчики
+   echo '<script src="SignaPhoto.js"></script>';
    return $Result;
 }
 
@@ -184,6 +181,45 @@ function FinaPage()
    return $Result;
 }
 // ****************************************************************************
+// *      Настроить ориентацию страницы (страница "Подписать фотографию"      *
+// *   использует две разметки: для страницы на компьютере и для ландшафтной  *
+// *    странице на смартфоне - простая разметка на дивах; а для портретной   *
+// *           страницы на смартфоне с помощью jquery mobile                  *
+// ****************************************************************************
+function MakeOrient(&$s_Orient,$s_Counter)
+{
+   $s_Orient=$s_Orient;
+   // Запрос страницы "Подписать фотографию" может осуществляться тремя 
+   // вариантами:
+   //    href="/_Signaphoto1/SignaPhoto.php"
+   //    href="/_Signaphoto1/SignaPhoto.php?orient=portrait"     
+   //    href="/_Signaphoto1/SignaPhoto.php?orient=landscape"
+   // 1. Когда отсутствует параметр orient, это значит, что положение текущего 
+   // устройства не изменилось или это был начальный запуск
+   if (prown\getComRequest('orient')===NULL)
+   {
+      // Если начальный запуск на смартфоне, то мы должны переопределить
+      // ориентацию, "вдруг портретная ориентация"
+      if ($s_Counter===1) 
+      {
+         $c1='';
+         ?> <script> 
+            iniOnOrientationChange(); 
+         </script> <?php
+         prown\Alert('Начальный запуск, ориентация: '.$s_Orient);
+      }
+      else prown\Alert('Не изменилась ориентация: '.$s_Orient);
+   }
+   // 2. Когда присутствует параметр orient, это значит, что текущее 
+   // устройство - смартфон и оно сменило ориентацию однозначно
+   else
+   {
+      $s_Orient=prown\getComRequest('orient');
+      prown\Alert('Ориентация ИЗМЕНИЛАСЬ: '.$s_Orient);
+   }
+   return $s_Orient;
+}
+// ****************************************************************************
 // *                  Сформировать через глобальные переменные JS             *
 // *            запросы для вызова страниц с портретной ориентацией           *
 // *   и ландшафтной. Так как страница "Подписать фотографию" использует две  *
@@ -193,9 +229,8 @@ function FinaPage()
 // ****************************************************************************
 function MakeTextPages()
 {
-   //  <li><a href="_Signaphoto1/SignaPhoto.php?list=signaphotoportrait">SignaPhotoPortrait</a></li>     
-   //  <li><a href="_Signaphoto1/SignaPhoto.php?list=signaphotolandscape">SignaPhotoLandscape</a></li>     
-
+   //  <li><a href="_Signaphoto1/SignaPhoto.php?orient=portrait">SignaPhotoPortrait</a></li>     
+   //  <li><a href="_Signaphoto1/SignaPhoto.php?orient=landscape">SignaPhotoLandscape</a></li>     
    ?> <script>
    // Определяем защишенность сайта, для того чтобы правильно сформулировать 
    // в запросе http или https
@@ -205,10 +240,10 @@ function MakeTextPages()
    console.log('$https='+$https);
    // Готовим URL для мобильно-портретной разметки, то есть разметки
    // для jQuery-мobile c двумя страницами 
-   var $SignaPortraitUrl="/_Signaphoto1/SignaPhoto.php?orient=portrait";
+   var $SignaPortraitUrl="/_Signaphoto1/SignaPhoto.php?orient="+oriPortrait;
    console.log('$SignaPortraitUrl='+$SignaPortraitUrl);
    // Готовим URL для настольно-ландшафтной разметки (одностраничной)
-   var $SignaUrl="/_Signaphoto1/SignaPhoto.php?orient=landscape";
+   var $SignaUrl="/_Signaphoto1/SignaPhoto.php?orient="+oriLandscape;
    console.log('$SignaUrl='+$SignaUrl);
    </script> <?php
 }

@@ -2,3 +2,8 @@
 [09-Nov-2021 22:09:14 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
 [09-Nov-2021 22:09:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
 [12-Nov-2021 15:12:41 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '*', expecting end of file in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 171
+[12-Nov-2021 20:17:36 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 't' (T_STRING), expecting '(' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 27
+[12-Nov-2021 20:18:51 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\MakeSession() in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php:49
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php on line 49
