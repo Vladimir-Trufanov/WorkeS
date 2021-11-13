@@ -10,19 +10,6 @@
 // v1.10                                             Дата создания:  01.06.2021
 // Copyright © 2021 tve                              Посл.изменение: 15.06.2021
 
-// Определения для PHP
-define ("oriLandscape", "landscape");   
-define ("oriPortrait",  "portrait");    
-
-// Переменные JavaScript, соответствующие определениям в PHP
-$define=
-'<script>'.
-'oriLandscape="'        .oriLandscape.        '";'.
-'oriPortrait="'         .oriPortrait.     '";'.
-'</script>';
-
-// -------------------------------------------------- Ориентация устройства ---
-
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
 $_WORKSPACE=iniWorkSpace();
@@ -62,9 +49,9 @@ try
    // Изменяем сессионные переменные (сессионные переменные инициируются после
    // переменных-кукисов, так как некоторые переменные-кукисы переопределяются появившимися
    // сессионными переменными. Например: $s_ModeImg --> $c_ModeImg)
-   $s_Counter=prown\MakeSession('Counter',0,tInt,true);           // посещения за сессию
+   $s_Counter=prown\MakeSession('Counter',0,tInt,true);         // посещения за сессию
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
-   $s_Orient=prown\MakeSession('Orient',oriLandscape,tStr,true);  // текущая ориентация устройства
+   $s_Orient=prown\MakeSession('Orient','landscape',tStr,true); // текущая ориентация устройства
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
    // Уточняем ориентацию страницы

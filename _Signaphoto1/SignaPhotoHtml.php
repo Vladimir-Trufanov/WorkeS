@@ -202,7 +202,6 @@ function MakeOrient(&$s_Orient,$s_Counter)
       // ориентацию, "вдруг портретная ориентация"
       if ($s_Counter===1) 
       {
-         $c1='';
          ?> <script> 
             iniOnOrientationChange(); 
          </script> <?php
@@ -240,10 +239,10 @@ function MakeTextPages()
    console.log('$https='+$https);
    // Готовим URL для мобильно-портретной разметки, то есть разметки
    // для jQuery-мobile c двумя страницами 
-   var $SignaPortraitUrl="/_Signaphoto1/SignaPhoto.php?orient="+oriPortrait;
+   var $SignaPortraitUrl="/_Signaphoto1/SignaPhoto.php?orient=portrait";
    console.log('$SignaPortraitUrl='+$SignaPortraitUrl);
    // Готовим URL для настольно-ландшафтной разметки (одностраничной)
-   var $SignaUrl="/_Signaphoto1/SignaPhoto.php?orient="+oriLandscape;
+   var $SignaUrl="/_Signaphoto1/SignaPhoto.php?orient=landscape";
    console.log('$SignaUrl='+$SignaUrl);
    </script> <?php
 }
