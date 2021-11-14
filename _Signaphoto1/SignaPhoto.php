@@ -65,18 +65,10 @@ try
    echo '</head>';
    echo '<body>';
 
-   //echo '***<br>';
-   //echo 'Всем привет!<br>';
-   EnviView();
-   echo 'Ориентация: '.$s_Orient.'<br>';
-   echo "Вы обновили эту страницу ".$_SESSION['Counter']." раз. ";
-
-   //echo '***<br>';
-
+   //DebugView($s_Orient);
+   MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba);
+   
    // Завершаем вывод страницы
-   //prown\ViewGlobal(avgSERVER);
-   //prown\ViewGlobal(avgCOOKIE);
-   prown\ViewGlobal(avgREQUEST);
    echo '</body>';
    echo '</html>';
 }
@@ -84,24 +76,41 @@ catch (E_EXCEPTION $e)
 {
    DoorTryPage($e);
 }
+// ****************************************************************************
+// *                    Разметить страницу в варианте LandScape               *
+// ****************************************************************************
+function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
+{
+   // Размечаем область изображений
+   echo '<div id="All">';
+      // Размечаем область оригинального изображения и образца подписи
+      echo '<div  id="View">';
+         // Оригинал
+         echo '<div  id="Photo">';
+         ViewPhoto($c_FileImg);
+         echo '</div>';
+         // Подпись
+         echo '<div  id="Stamp">';
+         ViewStamp($c_FileStamp);
+         echo '</div>';
+      echo '</div>';
+      
+      // Размечаем область изображения с подписью
+      echo '<div  id="Proba">';
+      ViewProba($c_FileProba);
+      echo '</div>';
+   echo '</div>';
+   
+   // Размечаем область управления загрузкой и подписанием
+   echo '<div  id="Lead">';
+   //LoadImg();
+   //LoadStamp();
+   //Subscribe();
+   //Tunein();
+   echo '</div>';
+}
+
 /*   
-   
-   echo "if (window.orientation===undefined) console.log('window.orientation=UndefineD');";    // 'undefined'
-   
-   
-   ?> <script> 
-      let orienti=window.orientation;
-      if (orienti===undefined) {<?php $c_Orient=prown\MakeCookie('Orient','landscape1',tStr)?>}
-      else if (orienti===180) {<?php $c_Orient=prown\MakeCookie('Orient','portrait180',tStr)?>} 
-   </script> <?php
-
-   
-   
-   
-
- 
-      //if ((window.orientation===0)||(window.orientation===180)) {<?php $c_Orient=prown\MakeCookie('Orient','portrait',tStr)?>} 
-   
    
    // Размечаем область изображений
    echo '<div id="All">';
@@ -130,6 +139,82 @@ catch (E_EXCEPTION $e)
    echo '</div>';
 */
 /*
+// Выполнить разметку мобильных подстраниц "Подписать фотографию"
+function markupPortraitMobile($c_SignaPhoto,$UrlHome,$SiteRoot,$c_FileImg,$c_FileStamp,$c_FileProba)
+{
+   // Начинаем 1 страницу
+   echo '<div data-role = "page" id = "page1">';
+   // Выводим заголовок 1 страницы с двумя кнопками навигации
+   echo '
+      <div data-role = "header">
+         <div data-role="controlgroup" data-type="horizontal"> 
+            <div id="bTasks" class="dibtn">
+               <a href="'.$UrlHome.'"><i class="fa fa-tasks fa-lg" aria-hidden="true"> </i></a>
+            </div>
+            <div id="c1Title"> <h1>'.'Подготовка фото для подписания'.'</h1></div>
+            <div id="bHandoright" class="dibtn">
+               <a href="#page2"><i class="fa fa-hand-o-right fa-lg" aria-hidden="true"> </i></a>
+            </div>
+         </div>
+      </div>
+   ';
+   // Выводим контент: фотографию и штамп   
+   echo '<div role="main" class="ui-content" id="cCenter">';
+   echo '<div id="Photo">';
+      ViewPhoto($c_FileImg);
+   echo '</div>';
+   echo '<div id="Stamp">';
+      ViewStamp($c_FileStamp);
+   echo '</div>';
+   echo '</div>  ';
+   // Выводим подвал с кнопками обработкт фотографий
+   // https://habr.com/ru/post/245689/
+   echo '<div data-role = "footer">';
+   LoadImg();
+   LoadStamp();
+   Register();
+   Indoor();
+   // Заготавливаем скрытый фрэйм для обработки загружаемого изображения 
+   // (25.06.2021 убираем из кода для осмысления. Делаем по другому)
+   // echo '<iframe id="rFrame" name="rFrame" style="display: none"> </iframe>';
+   // Завершаем подвал
+   echo '</div>';
+   // Завершаем 1 страницу 
+   echo '</div>'; 
+   
+   // Начинаем 2 страницу
+   echo '
+   <div data-role = "page" id = "page2">
+   ';
+   // Выводим кнопки управления и заголовок
+   echo '
+      <div data-role = "header">
+         <div data-role="controlgroup" data-type="horizontal"> 
+         <div id="bTasks" class="dibtn">
+            <a href="#page1"><i class="fa fa-hand-o-left fa-lg" aria-hidden="true"> </i></a>
+         </div>
+         <div id="c2Title"> <h1>Подписанная фотография</h1></div>
+         <div id="bHandoright" class="dibtn">
+            <a href="'.$UrlHome.'"><i class="fa fa-sign-out fa-lg" aria-hidden="true"> </i></a>
+         </div>
+         </div>
+      </div>
+   ';
+   // Размечаем область изображения с подписью
+   echo '<div role="main" class="ui-content" id="exPhp">';
+   echo '<div  id="Proba">';
+   ViewProba($c_FileProba);
+   //prown\ViewGlobal(avgCOOKIE);
+   echo '</div>';
+   echo '</div>';
+   // Размечаем подвал с двумя кнопками действий
+   echo '<div data-role = "footer">';
+   Subscribe();
+   Tunein();
+   echo '</div>';
+   // Завершаем 2 страницу 
+   echo '</div>'; 
+}
    
 */
 ?> <?php // *** <!-- --> *********************************** SignaPhoto.php ***

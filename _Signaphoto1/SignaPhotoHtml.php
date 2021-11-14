@@ -45,90 +45,65 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
       <script src="/Jsx/jquery-1.11.1.min.js"></script>
       <script src="/Jsx/jquery-ui.min.js"></script>
    ';
-   echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
+   echo '<link rel="stylesheet" type="text/css" href="SignaReset.css">';
+   //echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
    // Подключаем сайтовые(SignaPhoto) функции Js и
    // инициализировать обработчики
    echo '<script src="SignaPhoto.js"></script>';
    return $Result;
 }
+// ****************************************************************************
+// *           Вывести 3 изображения (оригинал, штамп, с подписью)            *
+// ****************************************************************************
+// Вывести изображение последнего загруженного фото
+function ViewPhoto($c_FileImg)
+{
+   /*
+   echo 
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo';
+   */
+   // Debug2: Выводим просто изображение
+   echo '<img src="'.$c_FileImg.'" alt="" id="pic">';
+   /* 
+   $im = imagecreatefrompng('dave.png');
+   if($im && imagefilter($im, IMG_FILTER_GRAYSCALE))
+   {
+      echo 'Изображение преобразовано к градациям серого.';
+      imagepng($im, 'dave1.png');
+   }
+   else
+   {
+      echo 'Преобразование не удалось.';
+   }
+   imagedestroy($im);
+   */   
+}
+// Вывести изображение подписи последних размеров
+function ViewStamp($c_FileStamp)
+{
+   /*
+   echo 'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp '.
+      'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp'.
+      'Stamp Stamp Stamp Stamp Stamp Stamp';
+   */
+   echo '<img src="'.$c_FileStamp.'" alt="" id="picStamp">';
+}
+// Вывести изображение c подписью
+function ViewProba($c_FileProba)
+{  
+   /*
+   echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
+   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
+   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
+   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
+   */
+   echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
+}
 
 /*
-// Выполнить разметку мобильных подстраниц "Подписать фотографию"
-function markupMobileSite($c_SignaPhoto,$UrlHome,$SiteRoot,$c_FileImg,$c_FileStamp,$c_FileProba)
-{
-   // Начинаем 1 страницу
-   echo '<div data-role = "page" id = "page1">';
-   // Выводим заголовок 1 страницы с двумя кнопками навигации
-   echo '
-      <div data-role = "header">
-         <div data-role="controlgroup" data-type="horizontal"> 
-            <div id="bTasks" class="dibtn">
-               <a href="'.$UrlHome.'"><i class="fa fa-tasks fa-lg" aria-hidden="true"> </i></a>
-            </div>
-            <div id="c1Title"> <h1>'.'Подготовка фото для подписания'.'</h1></div>
-            <div id="bHandoright" class="dibtn">
-               <a href="#page2"><i class="fa fa-hand-o-right fa-lg" aria-hidden="true"> </i></a>
-            </div>
-         </div>
-      </div>
-   ';
-   // Выводим контент: фотографию и штамп   
-   echo '<div role="main" class="ui-content" id="cCenter">';
-   echo '<div id="Photo">';
-      ViewPhoto($c_FileImg);
-   echo '</div>';
-   echo '<div id="Stamp">';
-      ViewStamp($c_FileStamp);
-   echo '</div>';
-   echo '</div>  ';
-   // Выводим подвал с кнопками обработкт фотографий
-   // https://habr.com/ru/post/245689/
-   echo '<div data-role = "footer">';
-   LoadImg();
-   LoadStamp();
-   Register();
-   Indoor();
-   // Заготавливаем скрытый фрэйм для обработки загружаемого изображения 
-   // (25.06.2021 убираем из кода для осмысления. Делаем по другому)
-   // echo '<iframe id="rFrame" name="rFrame" style="display: none"> </iframe>';
-   // Завершаем подвал
-   echo '</div>';
-   // Завершаем 1 страницу 
-   echo '</div>'; 
-   
-   // Начинаем 2 страницу
-   echo '
-   <div data-role = "page" id = "page2">
-   ';
-   // Выводим кнопки управления и заголовок
-   echo '
-      <div data-role = "header">
-         <div data-role="controlgroup" data-type="horizontal"> 
-         <div id="bTasks" class="dibtn">
-            <a href="#page1"><i class="fa fa-hand-o-left fa-lg" aria-hidden="true"> </i></a>
-         </div>
-         <div id="c2Title"> <h1>Подписанная фотография</h1></div>
-         <div id="bHandoright" class="dibtn">
-            <a href="'.$UrlHome.'"><i class="fa fa-sign-out fa-lg" aria-hidden="true"> </i></a>
-         </div>
-         </div>
-      </div>
-   ';
-   // Размечаем область изображения с подписью
-   echo '<div role="main" class="ui-content" id="exPhp">';
-   echo '<div  id="Proba">';
-   ViewProba($c_FileProba);
-   //prown\ViewGlobal(avgCOOKIE);
-   echo '</div>';
-   echo '</div>';
-   // Размечаем подвал с двумя кнопками действий
-   echo '<div data-role = "footer">';
-   Subscribe();
-   Tunein();
-   echo '</div>';
-   // Завершаем 2 страницу 
-   echo '</div>'; 
-}
 
 
 function MakeStamp()
@@ -205,16 +180,16 @@ function MakeOrient(&$s_Orient,$s_Counter)
          ?> <script> 
             iniOnOrientationChange(); 
          </script> <?php
-         prown\Alert('Начальный запуск, ориентация: '.$s_Orient);
+         //prown\Alert('Начальный запуск, ориентация: '.$s_Orient);
       }
-      else prown\Alert('Не изменилась ориентация: '.$s_Orient);
+      //else prown\Alert('Не изменилась ориентация: '.$s_Orient);
    }
    // 2. Когда присутствует параметр orient, это значит, что текущее 
    // устройство - смартфон и оно сменило ориентацию однозначно
    else
    {
       $s_Orient=prown\getComRequest('orient');
-      prown\Alert('Ориентация ИЗМЕНИЛАСЬ: '.$s_Orient);
+      //prown\Alert('Ориентация ИЗМЕНИЛАСЬ: '.$s_Orient);
    }
    return $s_Orient;
 }
@@ -245,55 +220,6 @@ function MakeTextPages()
    var $SignaUrl="/_Signaphoto1/SignaPhoto.php?orient=landscape";
    console.log('$SignaUrl='+$SignaUrl);
    </script> <?php
-}
-// Вывести изображение последнего загруженного фото
-function ViewPhoto($c_FileImg)
-{
-   // Debug1: Выводим просто заполнитель
-   /*
-   echo 
-      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
-      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
-      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
-      'Photo Photo Photo';
-   */
-   // Debug2: Выводим просто изображение
-   echo '<img src="'.$c_FileImg.'" alt="" id="pic">';
-   //echo '<img src="images/stamp.png" alt="" id="picStamp">';
-   /* 
-   $im = imagecreatefrompng('dave.png');
-   if($im && imagefilter($im, IMG_FILTER_GRAYSCALE))
-   {
-      echo 'Изображение преобразовано к градациям серого.';
-      imagepng($im, 'dave1.png');
-   }
-   else
-   {
-      echo 'Преобразование не удалось.';
-   }
-   imagedestroy($im);
-   */   
-}
-// Вывести изображение подписи последних размеров
-function ViewStamp($c_FileStamp)
-{
-   /*
-   echo 'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp '.
-      'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp'.
-      'Stamp Stamp Stamp Stamp Stamp Stamp';
-   */
-   echo '<img src="'.$c_FileStamp.'" alt="" id="picStamp">';
-}
-// Вывести изображение c подписью
-function ViewProba($c_FileProba)
-{  
-   /*                                                          
-   echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
-   */
-   echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
 }
 
 function LoadImg()

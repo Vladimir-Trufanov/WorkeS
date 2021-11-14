@@ -44,6 +44,13 @@ Exploration
 			_proba\save.php
 			_proba\TPhpPrownTests.js
 		+_Signaphoto1
+			-buttons
+				_Signaphoto1\buttons\image128.png
+				_Signaphoto1\buttons\input128.png
+				_Signaphoto1\buttons\register128.png
+				_Signaphoto1\buttons\stamp128.png
+				_Signaphoto1\buttons\subscribe128.png
+				_Signaphoto1\buttons\tunein128.png
 			-images
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
@@ -53,6 +60,7 @@ Exploration
 			_Signaphoto1\SignaPhoto.js
 			_Signaphoto1\SignaPhoto.php
 			_Signaphoto1\SignaPhotoHtml.php
+			_Signaphoto1\SignaReset.css
 		-_sortable
 			-css
 				-images
@@ -99,101 +107,6 @@ Exploration
 			SmartMenus\site.css
 			SmartMenus\sm-blue.css
 			SmartMenus\sm-core-css.css
-		-Рабочие материалы
-			-SmartMenus
-				-SmartMenus_095
-					-smartmenus
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery.min.js
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery.smartmenus.min.js
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery-1.11.0.min.js
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery-ui.js
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery-ui.min.css
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\jquery-ui.min.js
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\site.css
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\site.js
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\sm-blue.css
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\sm-clean.css
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\sm-core-css.css
-						Рабочие материалы\SmartMenus\SmartMenus_095\smartmenus\sm-simple.css
-					Рабочие материалы\SmartMenus\SmartMenus_095\index.html
-					Рабочие материалы\SmartMenus\SmartMenus_095\готовый_07_03.html
-					Рабочие материалы\SmartMenus\SmartMenus_095\готовый_07_03_blue.html
-					Рабочие материалы\SmartMenus\SmartMenus_095\готовый_07_03_clean.html
-				-SmartMenus_110
-					-addons
-						-bootstrap
-							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap\jquery.smartmenus.bootstrap.css
-							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap\jquery.smartmenus.bootstrap.js
-							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap\jquery.smartmenus.bootstrap.min.js
-						-bootstrap-4
-							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap-4\jquery.smartmenus.bootstrap-4.css
-							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap-4\jquery.smartmenus.bootstrap-4.js
-							Рабочие материалы\SmartMenus\SmartMenus_110\addons\bootstrap-4\jquery.smartmenus.bootstrap-4.min.js
-						-keyboard
-							Рабочие материалы\SmartMenus\SmartMenus_110\addons\keyboard\jquery.smartmenus.keyboard.js
-							Рабочие материалы\SmartMenus\SmartMenus_110\addons\keyboard\jquery.smartmenus.keyboard.min.js
-					-css
-						-sm-blue
-							-mixins
-								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\mixins\_round-corners-last-item.scss
-								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\mixins\_sub-items-indentation.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\_mixins.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\_sm-blue-theme.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\sm-blue.css
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\sm-blue.css.map
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-blue\sm-blue.scss
-						-sm-clean
-							-mixins
-								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\mixins\_round-corners-last-item.scss
-								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\mixins\_sub-items-indentation.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\_mixins.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\_sm-clean-theme.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\sm-clean.css
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\sm-clean.css.map
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-clean\sm-clean.scss
-						-sm-mint
-							-mixins
-								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\mixins\_sub-items-indentation.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\_mixins.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\_sm-mint-theme.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\sm-mint.css
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\sm-mint.css.map
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-mint\sm-mint.scss
-						-sm-simple
-							-mixins
-								Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\mixins\_sub-items-indentation.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\_mixins.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\_sm-simple-theme.scss
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\sm-simple.css
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\sm-simple.css.map
-							Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-simple\sm-simple.scss
-						Рабочие материалы\SmartMenus\SmartMenus_110\css\sm-core-css.css
-					-demo
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-4-navbar.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-4-navbar-fixed-bottom.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-4-navbar-fixed-top.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-4-navbar-static-top.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-navbar.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-navbar-fixed-bottom.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-navbar-fixed-top.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\bootstrap-navbar-static-top.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\index.html
-						Рабочие материалы\SmartMenus\SmartMenus_110\demo\keyboard-navigation.html
-					-libs
-						-demo-assets
-							-shjs
-								Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\shjs\shjs.css
-								Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\shjs\shjs.js
-							Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\demo.css
-							Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\readme.txt
-							Рабочие материалы\SmartMenus\SmartMenus_110\libs\demo-assets\themes-switcher.js
-						-jquery
-							Рабочие материалы\SmartMenus\SmartMenus_110\libs\jquery\jquery.js
-					Рабочие материалы\SmartMenus\SmartMenus_110\jquery.smartmenus.js
-					Рабочие материалы\SmartMenus\SmartMenus_110\jquery.smartmenus.min.js
-					Рабочие материалы\SmartMenus\SmartMenus_110\LICENSE-MIT
-					Рабочие материалы\SmartMenus\SmartMenus_110\README.md
-				Рабочие материалы\SmartMenus\SmartMenus.doc
 		Exploration.ppr
 		favicon.ico
 		index.html
@@ -206,26 +119,26 @@ Exploration
 1=ViewEnviron.php
 2=_Signaphoto1\SignaPhotoHtml.php
 3=_Signaphoto1\SignaPhoto.php
-4=_Signaphoto1\SignaPhoto.css
+4=_Signaphoto1\SignaReset.css
 5=_Signaphoto1\SignaPhoto.js
 [Selected Project Files]
 Main=
-Selected=_Signaphoto1\SignaPhoto.js
+Selected=_Signaphoto1\SignaReset.css
 [index.html]
 TopLine=33
 Caret=71,39
 [ViewEnviron.php]
-TopLine=1
-Caret=67,19
+TopLine=2
+Caret=1,28
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=177
-Caret=65,245
+TopLine=61
+Caret=1,70
 [_Signaphoto1\SignaPhoto.php]
-TopLine=39
-Caret=65,52
-[_Signaphoto1\SignaPhoto.css]
-TopLine=97
-Caret=1,1
+TopLine=79
+Caret=30,143
+[_Signaphoto1\SignaReset.css]
+TopLine=50
+Caret=9,84
 [_Signaphoto1\SignaPhoto.js]
 TopLine=47
-Caret=38,63
+Caret=6,63

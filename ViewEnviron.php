@@ -2,12 +2,12 @@
 // PHP7/HTML5, EDGE/CHROME                               *** ViewEnviron.php ***
 
 // ****************************************************************************
-// *                     Вывести технологическую информацию                   *
+// *                     Р’С‹РІРµСЃС‚Рё С‚РµС…РЅРѕР»РѕРіРёС‡РµСЃРєСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ                   *
 // ****************************************************************************
 
-//                                                   Автор:       Труфанов В.Е.
-//                                                   Дата создания:  09.11.2021
-// Copyright © 2021 tve                              Посл.изменение: 09.11.2021
+//                                                   РђРІС‚РѕСЂ:       РўСЂСѓС„Р°РЅРѕРІ Р’.Р•.
+//                                                   Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ:  09.11.2021
+// Copyright В© 2021 tve                              РџРѕСЃР».РёР·РјРµРЅРµРЅРёРµ: 09.11.2021
 
 function EnviView()
 {
@@ -17,9 +17,23 @@ function EnviView()
    global $SiteHost;   if (isset($SiteHost))   echo '$SiteHost='.$SiteHost.'<br>';
    global $SiteDevice; if (isset($SiteDevice)) echo '$SiteDevice='.$SiteDevice.'<br>';
    echo '$_SERVER["SERVER_NAME"]='.$_SERVER["SERVER_NAME"].'<br>';
-   // Показываем, какие графические форматы поддерживаются
+   // РџРѕРєР°Р·С‹РІР°РµРј, РєР°РєРёРµ РіСЂР°С„РёС‡РµСЃРєРёРµ С„РѕСЂРјР°С‚С‹ РїРѕРґРґРµСЂР¶РёРІР°СЋС‚СЃСЏ
    echo '<pre>';
    print_r(gd_info());
    echo '</pre>';
+}
+
+function DebugView($s_Orient)
+{
+   echo '***<br>';
+   echo 'Р’СЃРµРј РїСЂРёРІРµС‚!<br>';
+   EnviView();
+   echo 'РћСЂРёРµРЅС‚Р°С†РёСЏ: '.$s_Orient.'<br>';
+   echo "Р’С‹ РѕР±РЅРѕРІРёР»Рё СЌС‚Сѓ СЃС‚СЂР°РЅРёС†Сѓ ".$_SESSION['Counter']." СЂР°Р·. ";
+   //prown\ViewGlobal(avgSERVER);
+   prown\ViewGlobal(avgCOOKIE);
+   prown\ViewGlobal(avgSESSION);
+   //prown\ViewGlobal(avgREQUEST);
+   echo '***<br>';
 }
 // *** <!-- --> ******************************************* ViewEnviron.php ***

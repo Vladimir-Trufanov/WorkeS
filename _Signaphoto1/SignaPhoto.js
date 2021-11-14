@@ -59,8 +59,8 @@ function doOnOrientationChange()
 // ****************************************************************************
 function iniOnOrientationChange() 
 {
-   alert('$SignaPortraitUrl='+$SignaPortraitUrl);
-   console.log('$SignaPortraitUrl='+$SignaPortraitUrl);
+   //alert('$SignaPortraitUrl='+$SignaPortraitUrl);
+   //console.log('$SignaPortraitUrl='+$SignaPortraitUrl);
    if ((window.orientation==0)||(window.orientation==180))
    window.location = $SignaPortraitUrl;
 }
