@@ -45,114 +45,14 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
       <script src="/Jsx/jquery-1.11.1.min.js"></script>
       <script src="/Jsx/jquery-ui.min.js"></script>
    ';
+   // Подключаем font-awesome
+   echo '<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">';
+   //
    echo '<link rel="stylesheet" type="text/css" href="SignaReset.css">';
    //echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
    // Подключаем сайтовые(SignaPhoto) функции Js и
    // инициализировать обработчики
    echo '<script src="SignaPhoto.js"></script>';
-   return $Result;
-}
-// ****************************************************************************
-// *           Вывести 3 изображения (оригинал, штамп, с подписью)            *
-// ****************************************************************************
-// Вывести изображение последнего загруженного фото
-function ViewPhoto($c_FileImg)
-{
-   /*
-   echo 
-      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
-      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
-      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
-      'Photo Photo Photo';
-   */
-   // Debug2: Выводим просто изображение
-   echo '<img src="'.$c_FileImg.'" alt="" id="pic">';
-   /* 
-   $im = imagecreatefrompng('dave.png');
-   if($im && imagefilter($im, IMG_FILTER_GRAYSCALE))
-   {
-      echo 'Изображение преобразовано к градациям серого.';
-      imagepng($im, 'dave1.png');
-   }
-   else
-   {
-      echo 'Преобразование не удалось.';
-   }
-   imagedestroy($im);
-   */   
-}
-// Вывести изображение подписи последних размеров
-function ViewStamp($c_FileStamp)
-{
-   /*
-   echo 'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp '.
-      'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp'.
-      'Stamp Stamp Stamp Stamp Stamp Stamp';
-   */
-   echo '<img src="'.$c_FileStamp.'" alt="" id="picStamp">';
-}
-// Вывести изображение c подписью
-function ViewProba($c_FileProba)
-{  
-   /*
-   echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
-   */
-   echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
-}
-
-/*
-
-
-function MakeStamp()
-{
-   // Загрузка штампа и фото, для которого применяется водяной знак (называется штамп или печать)
-   $stamp = imagecreatefrompng('images/stamp.png');
-   $im = imagecreatefromjpeg('images/photo.jpg');
-   // Установка полей для штампа и получение высоты/ширины штампа
-   $marge_right = 10;
-   $marge_bottom = 10;
-   $sx = imagesx($stamp);
-   $sy = imagesy($stamp);
-   // Копирование изображения штампа на фотографию с помощью смещения края
-   // и ширины фотографии для расчёта позиционирования штампа.
-   imagecopy($im,$stamp,imagesx($im)-$sx-$marge_right,imagesy($im)-$sy-$marge_bottom,0,0,imagesx($stamp),imagesy($stamp));
-   // Вывод и освобождение памяти
-   //header('Content-type: image/png');
-   imagepng($im, 'images/proba.png');
-   imagedestroy($im);
-   echo '<br>Сделано!<br>';
-}
-
-function ImgMakeStamp($FileImg)
-{
-   // Загрузка штампа и фото, для которого применяется водяной знак (называется штамп или печать)
-   $stamp = imagecreatefrompng('images/stamp.png');
-   $im = imagecreatefromjpeg('images/photo.jpg');
-   // Установка полей для штампа и получение высоты/ширины штампа
-   $marge_right = 10;
-   $marge_bottom = 10;
-   $sx = imagesx($stamp);
-   $sy = imagesy($stamp);
-   // Копирование изображения штампа на фотографию с помощью смещения края
-   // и ширины фотографии для расчёта позиционирования штампа.
-   imagecopy($im,$stamp,imagesx($im)-$sx-$marge_right,imagesy($im)-$sy-$marge_bottom,0,0,imagesx($stamp),imagesy($stamp));
-   // Вывод и освобождение памяти
-   //header('Content-type: image/png');
-   imagepng($im, 'images/proba.png');
-   imagedestroy($im);
-   echo '<br>'.$FileImg.'- сделано <br>';
-}
-*/
-
-// ****************************************************************************
-// *                         Завершить HTML-страницу сайта                    *
-// ****************************************************************************
-function FinaPage()
-{
-   $Result=true;
    return $Result;
 }
 // ****************************************************************************
@@ -221,16 +121,77 @@ function MakeTextPages()
    console.log('$SignaUrl='+$SignaUrl);
    </script> <?php
 }
-
+// ****************************************************************************
+// *           Вывести 3 изображения (оригинал, штамп, с подписью)            *
+// ****************************************************************************
+// Вывести изображение последнего загруженного фото
+function ViewPhoto($c_FileImg)
+{
+   /* 
+   // Выводим заполнитель дива вместо изображения
+   echo 
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo';
+   */
+   // Выводим изображение
+   echo '<img src="'.$c_FileImg.'" alt="" id="pic">';
+   /* 
+   $im = imagecreatefrompng('dave.png');
+   if($im && imagefilter($im, IMG_FILTER_GRAYSCALE))
+   {
+      echo 'Изображение преобразовано к градациям серого.';
+      imagepng($im, 'dave1.png');
+   }
+   else
+   {
+      echo 'Преобразование не удалось.';
+   }
+   imagedestroy($im);
+   */   
+}
+// Вывести изображение подписи последних размеров
+function ViewStamp($c_FileStamp)
+{
+   
+   echo 'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp '.
+      'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp'.
+      'Stamp Stamp Stamp Stamp Stamp Stamp';
+   
+   //echo '<img src="'.$c_FileStamp.'" alt="" id="picStamp">';
+}
+// Вывести изображение c подписью
+function ViewProba($c_FileProba)
+{  
+   
+   echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
+   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
+   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
+   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
+   
+   //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
+}
+// ****************************************************************************
+// *     Подготовить кнопки для действий: загрузить изображение, подписать,   *
+// *                    загрузить подпись, выполнить настройки                *
+// ****************************************************************************
+// "Загрузить изображение"
 function LoadImg()
 { 
-   $RequestFile='photo';
+   // $RequestFile='photo';
    // Рисуем нашу кнопку, определяем ей реакцию на нажатие кнопки мыши
+   /*
    echo '
       <div id="btnLoadImg" class="navButtons" onclick="FindFileImg();" title="Загрузка изображения">
          <img src="buttons/image128.png"   width=100% height=100%/></img>
       </div>
    ';
+   */
+   echo '<button id="bLoadImg" class="btnLead" title="Загрузить изображение">'.
+   '<i id="iLoadImg" class="fa fa-file-image-o fa-2x" aria-hidden="true"></i></button>';
+  
+   /*
    // Начинаем форму запроса изображения по типу: photo, stamp, proba
    echo '
       <form action="SignaPhotoUpload.php?img='.$RequestFile.'" '.
@@ -249,9 +210,82 @@ function LoadImg()
    '</div>';
    // Завершаем форму запроса
    echo '</form>';
+   */
+}
+// "Подписать"
+function Subscribe()
+{ 
+   echo '<button id="bSubscribe" class="btnLead" title="Подписать">'.
+    '<i id="iSubscribe" class="fa fa-user-plus fa-2x" aria-hidden="true"></i></button>';
+}
+// "Выполнить настройки"
+function Tunein()
+{ 
+   echo '<button id="bTunein" class="btnLead" title="Выполнить настройки">'.
+   '<i id="iTunein" class="fa fa-cog fa-2x" aria-hidden="true"></i></button>';
+}
+// "Загрузить подпись"
+function LoadStamp()
+{ 
+   echo '<button id="bLoadStamp" class="btnLead" title="Загрузить подпись">'.
+   '<i id="iLoadStamp" class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>';
 }
 
-function LoadStamp()
+
+/*
+
+
+function MakeStamp()
+{
+   // Загрузка штампа и фото, для которого применяется водяной знак (называется штамп или печать)
+   $stamp = imagecreatefrompng('images/stamp.png');
+   $im = imagecreatefromjpeg('images/photo.jpg');
+   // Установка полей для штампа и получение высоты/ширины штампа
+   $marge_right = 10;
+   $marge_bottom = 10;
+   $sx = imagesx($stamp);
+   $sy = imagesy($stamp);
+   // Копирование изображения штампа на фотографию с помощью смещения края
+   // и ширины фотографии для расчёта позиционирования штампа.
+   imagecopy($im,$stamp,imagesx($im)-$sx-$marge_right,imagesy($im)-$sy-$marge_bottom,0,0,imagesx($stamp),imagesy($stamp));
+   // Вывод и освобождение памяти
+   //header('Content-type: image/png');
+   imagepng($im, 'images/proba.png');
+   imagedestroy($im);
+   echo '<br>Сделано!<br>';
+}
+
+function ImgMakeStamp($FileImg)
+{
+   // Загрузка штампа и фото, для которого применяется водяной знак (называется штамп или печать)
+   $stamp = imagecreatefrompng('images/stamp.png');
+   $im = imagecreatefromjpeg('images/photo.jpg');
+   // Установка полей для штампа и получение высоты/ширины штампа
+   $marge_right = 10;
+   $marge_bottom = 10;
+   $sx = imagesx($stamp);
+   $sy = imagesy($stamp);
+   // Копирование изображения штампа на фотографию с помощью смещения края
+   // и ширины фотографии для расчёта позиционирования штампа.
+   imagecopy($im,$stamp,imagesx($im)-$sx-$marge_right,imagesy($im)-$sy-$marge_bottom,0,0,imagesx($stamp),imagesy($stamp));
+   // Вывод и освобождение памяти
+   //header('Content-type: image/png');
+   imagepng($im, 'images/proba.png');
+   imagedestroy($im);
+   echo '<br>'.$FileImg.'- сделано <br>';
+}
+*/
+
+// ****************************************************************************
+// *                         Завершить HTML-страницу сайта                    *
+// ****************************************************************************
+function FinaPage()
+{
+   $Result=true;
+   return $Result;
+}
+
+function LoadStamp1()
 { 
    // Рисуем нашу кнопку, определяем ей реакцию на нажатие кнопки мыши
    echo '
@@ -326,7 +360,7 @@ function Indoor()
      </div>
    ';
 }
-function Subscribe()
+function Subscribe1()
 {
    /*
    echo '
@@ -348,6 +382,8 @@ function Subscribe()
    ';
    
  }
+ 
+/*
 function Tunein()
 { 
    echo '
@@ -358,5 +394,6 @@ function Tunein()
      </div>
     ';
 }
+*/
 
 // *** <!-- --> **************************************** SignaPhotoHtml.php ***

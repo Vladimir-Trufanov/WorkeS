@@ -103,10 +103,10 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
    
    // Размечаем область управления загрузкой и подписанием
    echo '<div  id="Lead">';
-   //LoadImg();
-   //LoadStamp();
-   //Subscribe();
-   //Tunein();
+   LoadImg();
+   Subscribe();
+   Tunein();
+   LoadStamp();
    echo '</div>';
 }
 

@@ -63,7 +63,7 @@ Exploration
 			_proba\index.html
 			_proba\save.php
 			_proba\TPhpPrownTests.js
-		-_Signaphoto1
+		+_Signaphoto1
 			-buttons
 				_Signaphoto1\buttons\image128.png
 				_Signaphoto1\buttons\input128.png
@@ -137,40 +137,24 @@ Exploration
 [Open project files]
 0=index.html
 1=ViewEnviron.php
-2=_Signaphoto1\SignaPhotoHtml.php
-3=_Signaphoto1\SignaPhoto.php
+2=_Signaphoto1\SignaPhoto.php
+3=_Signaphoto1\SignaPhotoHtml.php
 4=_Signaphoto1\SignaReset.css
-5=_Signaphoto1\SignaPhoto.js
-6=_Lobster\Lobster.html
-7=_button-loading-indicator\button-loading-indicator.html
-8=_button-loading-indicator\js\button-loading-indicator.js
 [Selected Project Files]
 Main=
-Selected=_Lobster\Lobster.html
+Selected=_Signaphoto1\SignaPhotoHtml.php
 [index.html]
-TopLine=59
+TopLine=41
 Caret=59,79
 [ViewEnviron.php]
 TopLine=2
 Caret=8,39
-[_Signaphoto1\SignaPhotoHtml.php]
-TopLine=13
-Caret=1,42
 [_Signaphoto1\SignaPhoto.php]
-TopLine=182
-Caret=17,220
+TopLine=76
+Caret=13,109
+[_Signaphoto1\SignaPhotoHtml.php]
+TopLine=206
+Caret=4,231
 [_Signaphoto1\SignaReset.css]
-TopLine=48
-Caret=9,84
-[_Signaphoto1\SignaPhoto.js]
-TopLine=47
-Caret=6,63
-[_Lobster\Lobster.html]
-TopLine=1
-Caret=1,34
-[_button-loading-indicator\button-loading-indicator.html]
-TopLine=1
-Caret=49,5
-[_button-loading-indicator\js\button-loading-indicator.js]
-TopLine=1
-Caret=3,30
+TopLine=59
+Caret=33,92
