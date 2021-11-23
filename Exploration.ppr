@@ -18,6 +18,20 @@ Extensions=*.*
 [Project tree]
 Exploration
 	+Exploration
+		-_another-button
+			-css
+				_another-button\css\style.css
+			_another-button\AnotherButton.html
+			_another-button\license.txt
+			_another-button\README.txt
+		+_button-loading-indicator
+			+css
+				_button-loading-indicator\css\style.css
+			+js
+				_button-loading-indicator\js\button-loading-indicator.js
+			_button-loading-indicator\button-loading-indicator.html
+			_button-loading-indicator\license.txt
+			_button-loading-indicator\README.txt
 		-_countdown
 			-assets
 				-countdown
@@ -31,9 +45,9 @@ Exploration
 				-js
 					_countdown\assets\js\script.js
 			_countdown\index.html
-		+_Lobster
-			+Fonts
-				+Lobster
+		-_Lobster
+			-Fonts
+				-Lobster
 					_Lobster\Fonts\Lobster\Lobster-Regular.ttf
 					_Lobster\Fonts\Lobster\OFL.txt
 			_Lobster\Lobster.html
@@ -127,22 +141,23 @@ Exploration
 3=_Signaphoto1\SignaPhoto.php
 4=_Signaphoto1\SignaReset.css
 5=_Signaphoto1\SignaPhoto.js
-6=_LeafletJS\index.html
-7=_Lobster\Lobster.html
+6=_Lobster\Lobster.html
+7=_button-loading-indicator\button-loading-indicator.html
+8=_button-loading-indicator\js\button-loading-indicator.js
 [Selected Project Files]
 Main=
 Selected=_Lobster\Lobster.html
 [index.html]
-TopLine=62
-Caret=70,67
+TopLine=59
+Caret=59,79
 [ViewEnviron.php]
 TopLine=2
 Caret=8,39
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=61
-Caret=1,70
+TopLine=13
+Caret=1,42
 [_Signaphoto1\SignaPhoto.php]
-TopLine=184
+TopLine=182
 Caret=17,220
 [_Signaphoto1\SignaReset.css]
 TopLine=48
@@ -150,9 +165,12 @@ Caret=9,84
 [_Signaphoto1\SignaPhoto.js]
 TopLine=47
 Caret=6,63
-[_LeafletJS\index.html]
-TopLine=23
-Caret=80,53
 [_Lobster\Lobster.html]
 TopLine=1
 Caret=1,34
+[_button-loading-indicator\button-loading-indicator.html]
+TopLine=1
+Caret=49,5
+[_button-loading-indicator\js\button-loading-indicator.js]
+TopLine=1
+Caret=3,30
