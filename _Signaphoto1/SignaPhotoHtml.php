@@ -189,7 +189,7 @@ function LoadImg()
    ';
    */
    echo '<button id="bLoadImg" class="btnLead" title="Загрузить изображение">'.
-   '<i id="iLoadImg" class="fa fa-file-image-o fa-2x" aria-hidden="true"></i></button>';
+   '<i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></button>';
   
    /*
    // Начинаем форму запроса изображения по типу: photo, stamp, proba
@@ -216,19 +216,19 @@ function LoadImg()
 function Subscribe()
 { 
    echo '<button id="bSubscribe" class="btnLead" title="Подписать">'.
-    '<i id="iSubscribe" class="fa fa-user-plus fa-2x" aria-hidden="true"></i></button>';
+    '<i id="iSubscribe" class="fa fa-user-plus fa-3x" aria-hidden="true"></i></button>';
 }
 // "Выполнить настройки"
 function Tunein()
 { 
    echo '<button id="bTunein" class="btnLead" title="Выполнить настройки">'.
-   '<i id="iTunein" class="fa fa-cog fa-2x" aria-hidden="true"></i></button>';
+   '<i id="iTunein" class="fa fa-cog fa-3x" aria-hidden="true"></i></button>';
 }
 // "Загрузить подпись"
 function LoadStamp()
 { 
    echo '<button id="bLoadStamp" class="btnLead" title="Загрузить подпись">'.
-   '<i id="iLoadStamp" class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>';
+   '<i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>';
 }
 
 

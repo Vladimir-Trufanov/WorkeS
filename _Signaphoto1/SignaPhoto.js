@@ -105,5 +105,17 @@ function onResponse(d) // Функция обработки ответа от с
     return; 
    }; 
  alert('Файл загружен'); 
+}
+// ****************************************************************************
+// *           Просчитать и установить размер изображения внутри дива         *
+// ****************************************************************************
+function PlaceImgOnDiv()
+{
+   let oPhoto=document.getElementById("Photo")
+   let widthPhoto=oPhoto.offsetWidth;
+   let oPic=document.getElementById("pic")
+   let widthPic=oPic.offsetWidth;
+  
+   alert('widthPhoto='+widthPhoto+'  '+'widthPic='+widthPic); 
 }  
 // ********************************************************** SignaPhoto.js ***

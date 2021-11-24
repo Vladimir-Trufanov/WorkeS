@@ -57,10 +57,13 @@ try
    // Уточняем ориентацию страницы
    $s_Orient=prown\MakeSession('Orient',MakeOrient($s_Orient,$s_Counter),tStr);
    // Подключаем скрипты по завершению загрузки страницы
-   echo '<script>$(document).ready(function() {';
-   echo "console.log('window.orientation='+window.orientation);";
-   //echo "alert('window.orientation='+window.orientation);";
-   echo '});</script>';
+   echo 
+   '<script>$(document).ready(function() {
+      //console.log("window.orientation="+window.orientation);
+      //alert("window.orientation="+window.orientation);
+      // Размещаем изображения внутри Div-ов
+      //PlaceImgOnDiv();
+   });</script>';
    // Начинаем выводить тело страницы 
    echo '</head>';
    echo '<body>';
@@ -107,6 +110,9 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
    Subscribe();
    Tunein();
    LoadStamp();
+   
+   echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
+
    echo '</div>';
 }
 

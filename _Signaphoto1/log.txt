@@ -9,3 +9,7 @@ Stack trace:
   thrown in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php on line 49
 [23-Nov-2021 18:01:44 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting '{' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 215
 [23-Nov-2021 18:07:04 Asia/Kuwait] PHP Fatal error:  Cannot redeclare Subscribe() (previously declared in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php:217) in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 375
+[24-Nov-2021 12:23:08 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function PlaceImgOnDiv() in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php:64
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php on line 64

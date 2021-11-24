@@ -140,9 +140,10 @@ Exploration
 2=_Signaphoto1\SignaPhoto.php
 3=_Signaphoto1\SignaPhotoHtml.php
 4=_Signaphoto1\SignaReset.css
+5=_Signaphoto1\SignaPhoto.js
 [Selected Project Files]
 Main=
-Selected=_Signaphoto1\SignaPhotoHtml.php
+Selected=_Signaphoto1\SignaPhoto.php
 [index.html]
 TopLine=41
 Caret=59,79
@@ -150,11 +151,14 @@ Caret=59,79
 TopLine=2
 Caret=8,39
 [_Signaphoto1\SignaPhoto.php]
-TopLine=76
-Caret=13,109
+TopLine=36
+Caret=9,65
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=206
-Caret=4,231
+TopLine=24
+Caret=1,232
 [_Signaphoto1\SignaReset.css]
-TopLine=59
-Caret=33,92
+TopLine=63
+Caret=1,94
+[_Signaphoto1\SignaPhoto.js]
+TopLine=83
+Caret=23,112
