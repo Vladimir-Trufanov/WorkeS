@@ -24,10 +24,10 @@ Exploration
 			_another-button\AnotherButton.html
 			_another-button\license.txt
 			_another-button\README.txt
-		+_button-loading-indicator
-			+css
+		-_button-loading-indicator
+			-css
 				_button-loading-indicator\css\style.css
-			+js
+			-js
 				_button-loading-indicator\js\button-loading-indicator.js
 			_button-loading-indicator\button-loading-indicator.html
 			_button-loading-indicator\license.txt
@@ -45,6 +45,10 @@ Exploration
 				-js
 					_countdown\assets\js\script.js
 			_countdown\index.html
+		-_FlipOnHover
+			-css
+				_FlipOnHover\css\style.css
+			_FlipOnHover\FlipOnHover.html
 		-_Lobster
 			-Fonts
 				-Lobster
@@ -63,14 +67,23 @@ Exploration
 			_proba\index.html
 			_proba\save.php
 			_proba\TPhpPrownTests.js
-		+_Signaphoto1
-			-buttons
-				_Signaphoto1\buttons\image128.png
-				_Signaphoto1\buttons\input128.png
-				_Signaphoto1\buttons\register128.png
-				_Signaphoto1\buttons\stamp128.png
-				_Signaphoto1\buttons\subscribe128.png
-				_Signaphoto1\buttons\tunein128.png
+		+_PureAccordion
+			-css
+				_PureAccordion\css\style.css
+			-less
+				_PureAccordion\less\style.less
+			_PureAccordion\index.pug
+			_PureAccordion\license.txt
+			_PureAccordion\PureAccordion.html
+			_PureAccordion\README.txt
+		-_Signaphoto1
+			-buttonsOld
+				_Signaphoto1\buttonsOld\image128.png
+				_Signaphoto1\buttonsOld\input128.png
+				_Signaphoto1\buttonsOld\register128.png
+				_Signaphoto1\buttonsOld\stamp128.png
+				_Signaphoto1\buttonsOld\subscribe128.png
+				_Signaphoto1\buttonsOld\tunein128.png
 			-images
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
@@ -112,6 +125,48 @@ Exploration
 				_tabmenu\js\prototype.js
 				_tabmenu\js\scriptaculous.js
 			_tabmenu\index.php
+		-font-awesome-4.7.0
+			-css
+				font-awesome-4.7.0\css\font-awesome.css
+				font-awesome-4.7.0\css\font-awesome.min.css
+			-fonts
+				font-awesome-4.7.0\fonts\FontAwesome.otf
+				font-awesome-4.7.0\fonts\fontawesome-webfont.eot
+				font-awesome-4.7.0\fonts\fontawesome-webfont.svg
+				font-awesome-4.7.0\fonts\fontawesome-webfont.ttf
+				font-awesome-4.7.0\fonts\fontawesome-webfont.woff
+				font-awesome-4.7.0\fonts\fontawesome-webfont.woff2
+			-less
+				font-awesome-4.7.0\less\animated.less
+				font-awesome-4.7.0\less\bordered-pulled.less
+				font-awesome-4.7.0\less\core.less
+				font-awesome-4.7.0\less\fixed-width.less
+				font-awesome-4.7.0\less\font-awesome.less
+				font-awesome-4.7.0\less\icons.less
+				font-awesome-4.7.0\less\larger.less
+				font-awesome-4.7.0\less\list.less
+				font-awesome-4.7.0\less\mixins.less
+				font-awesome-4.7.0\less\path.less
+				font-awesome-4.7.0\less\rotated-flipped.less
+				font-awesome-4.7.0\less\screen-reader.less
+				font-awesome-4.7.0\less\stacked.less
+				font-awesome-4.7.0\less\variables.less
+			-scss
+				font-awesome-4.7.0\scss\_animated.scss
+				font-awesome-4.7.0\scss\_bordered-pulled.scss
+				font-awesome-4.7.0\scss\_core.scss
+				font-awesome-4.7.0\scss\_fixed-width.scss
+				font-awesome-4.7.0\scss\_icons.scss
+				font-awesome-4.7.0\scss\_larger.scss
+				font-awesome-4.7.0\scss\_list.scss
+				font-awesome-4.7.0\scss\_mixins.scss
+				font-awesome-4.7.0\scss\_path.scss
+				font-awesome-4.7.0\scss\_rotated-flipped.scss
+				font-awesome-4.7.0\scss\_screen-reader.scss
+				font-awesome-4.7.0\scss\_stacked.scss
+				font-awesome-4.7.0\scss\_variables.scss
+				font-awesome-4.7.0\scss\font-awesome.scss
+			font-awesome-4.7.0\HELP-US-OUT.txt
 		-Jsx
 			Jsx\jquery-1.11.1.min.js
 			Jsx\jquery-1.11.1.min.map
@@ -136,29 +191,17 @@ Exploration
 		ViewEnviron.php
 [Open project files]
 0=index.html
-1=ViewEnviron.php
-2=_Signaphoto1\SignaPhoto.php
-3=_Signaphoto1\SignaPhotoHtml.php
-4=_Signaphoto1\SignaReset.css
-5=_Signaphoto1\SignaPhoto.js
+1=_Signaphoto1\SignaPhoto.php
+2=_PureAccordion\PureAccordion.html
 [Selected Project Files]
 Main=
-Selected=_Signaphoto1\SignaPhoto.php
+Selected=_PureAccordion\PureAccordion.html
 [index.html]
-TopLine=41
-Caret=59,79
-[ViewEnviron.php]
-TopLine=2
-Caret=8,39
+TopLine=63
+Caret=1,90
 [_Signaphoto1\SignaPhoto.php]
 TopLine=36
 Caret=9,65
-[_Signaphoto1\SignaPhotoHtml.php]
-TopLine=24
-Caret=1,232
-[_Signaphoto1\SignaReset.css]
-TopLine=63
-Caret=1,94
-[_Signaphoto1\SignaPhoto.js]
-TopLine=83
-Caret=23,112
+[_PureAccordion\PureAccordion.html]
+TopLine=1
+Caret=50,6
