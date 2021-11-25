@@ -67,16 +67,13 @@ Exploration
 			_proba\index.html
 			_proba\save.php
 			_proba\TPhpPrownTests.js
-		+_PureAccordion
+		-_PureAccordion
 			-css
 				_PureAccordion\css\style.css
-			-less
-				_PureAccordion\less\style.less
-			_PureAccordion\index.pug
 			_PureAccordion\license.txt
 			_PureAccordion\PureAccordion.html
 			_PureAccordion\README.txt
-		-_Signaphoto1
+		+_Signaphoto1
 			-buttonsOld
 				_Signaphoto1\buttonsOld\image128.png
 				_Signaphoto1\buttonsOld\input128.png
@@ -88,6 +85,7 @@ Exploration
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
 				_Signaphoto1\images\istamp.png
+			_Signaphoto1\ajaPicsSizes.php
 			_Signaphoto1\log.txt
 			_Signaphoto1\SignaPhoto.css
 			_Signaphoto1\SignaPhoto.js
@@ -192,16 +190,20 @@ Exploration
 [Open project files]
 0=index.html
 1=_Signaphoto1\SignaPhoto.php
-2=_PureAccordion\PureAccordion.html
+2=_Signaphoto1\SignaPhoto.js
+3=_Signaphoto1\ajaPicsSizes.php
 [Selected Project Files]
 Main=
-Selected=_PureAccordion\PureAccordion.html
+Selected=_Signaphoto1\ajaPicsSizes.php
 [index.html]
 TopLine=63
 Caret=1,90
 [_Signaphoto1\SignaPhoto.php]
-TopLine=36
-Caret=9,65
-[_PureAccordion\PureAccordion.html]
-TopLine=1
-Caret=50,6
+TopLine=76
+Caret=1,112
+[_Signaphoto1\SignaPhoto.js]
+TopLine=164
+Caret=55,182
+[_Signaphoto1\ajaPicsSizes.php]
+TopLine=29
+Caret=27,43

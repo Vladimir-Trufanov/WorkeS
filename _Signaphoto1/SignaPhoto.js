@@ -116,6 +116,88 @@ function PlaceImgOnDiv()
    let oPic=document.getElementById("pic")
    let widthPic=oPic.offsetWidth;
   
-   alert('widthPhoto='+widthPhoto+'  '+'widthPic='+widthPic); 
+   //alert('widthPhoto='+widthPhoto+'  '+'widthPic='+widthPic); 
+   /*
+   $.ajax({
+   type:'POST',             // тип запроса
+   url: 'ajaPicsSizes.php', // скрипт обработчика
+   async: false,
+   data: 'formData',        // данные которые мы передаем
+   cache: false,            // по POST отключено, но явно уточняем
+   contentType: false,      // отключаем, так как тип кодирования задан в форме
+   processData: false,      // отключаем, так как передаем файл
+   // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
+   success:function(data)
+   {
+      alert('ajaPicsSizes.success: '+data);
+            // "Файл превышает максимальный размер"
+            if (isLabel(data,ajErrBigFile)) 
+            {
+               let Label=makeLabel(ajErrBigFile);
+               regex=new RegExp(Label,"u");
+               let p = data; p=p.replace(regex,'')
+               p=freeLabel(p);
+               printMessage('#result',ajErrBigFile,p);
+            }
+            // "Ошибка при перемещении файла на сервер"
+            else if (isLabel(data,ajErrMoveServer)) 
+            {
+               printMessage('#result',ajErrMoveServer);
+            }
+            // "Неверный тип файла изображения"
+            else if (isLabel(data,ajInvalidType)) 
+            {
+               printMessage('#result',ajInvalidType);
+            }
+            // "Не установлен массив файлов и не загружены данные"
+            else if (isLabel(data,ajNoSetFile)) 
+            {
+               printMessage('#result',ajNoSetFile);
+            }
+            // "Файл успешно загружен"
+            else if (isLabel(data,ajSuccessfully)) 
+            {
+               printMessage('#result',ajSuccessfully);
+            }
+            else 
+            {
+               printMessage('#result',ajErrorisLabel,data);
+            }
+      // Перегружаем страницу с очисткой кэша для того, 
+      // чтобы обновить изображения и перекинуть кукисы
+      // window.location.reload(true);
+   },
+   // Отмечаем  неуспешное выполнение аякс-запроса по причине:
+   // 1) утерян файл скрипта.
+   error:function(data)
+   {
+      alert('ajaPicsSizes.error: '+data);
+      //printMessage('#result',ajLostScriptFile);
+   }
+   });
+   */
+   
+   // Делаем ajax-запрос для того, чтобы данные с сервера 
+// записались в переменную data
+$.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data) 
+{
+   console.log( "success" );
+   let htmlstr = '<table>';
+   // Выполняем цикл по сотрудникам              
+   for (var i=0; i<data.length; i++) 
+   {
+      htmlstr += '<tr>';
+      htmlstr += '<td>' + data[i].fio + '</td>';      // ФИО
+      htmlstr += '<td>' + data[i].birthday + '</td>'; // Дата рождения
+      htmlstr += '</tr>';
+   }
+   htmlstr += '</table>';
+   // в div с классом info выводим получившуюся таблицу с данными
+   $('div.info').html(htmlstr); 
+});
+
+   
+   
+   
 }  
 // ********************************************************** SignaPhoto.js ***
