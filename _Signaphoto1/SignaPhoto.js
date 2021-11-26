@@ -107,94 +107,87 @@ function onResponse(d) // Функция обработки ответа от с
  alert('Файл загружен'); 
 }
 // ****************************************************************************
-// *           Просчитать и установить размер изображения внутри дива         *
+// *          Просчитать и установить размеры изображений внутри дивов        *
 // ****************************************************************************
 function PlaceImgOnDiv()
 {
    let oPhoto=document.getElementById("Photo")
    let widthPhoto=oPhoto.offsetWidth;
+   let heightPhoto=oPhoto.offsetHeight;
    let oPic=document.getElementById("pic")
    let widthPic=oPic.offsetWidth;
   
-   //alert('widthPhoto='+widthPhoto+'  '+'widthPic='+widthPic); 
-   /*
-   $.ajax({
-   type:'POST',             // тип запроса
-   url: 'ajaPicsSizes.php', // скрипт обработчика
-   async: false,
-   data: 'formData',        // данные которые мы передаем
-   cache: false,            // по POST отключено, но явно уточняем
-   contentType: false,      // отключаем, так как тип кодирования задан в форме
-   processData: false,      // отключаем, так как передаем файл
-   // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
-   success:function(data)
-   {
-      alert('ajaPicsSizes.success: '+data);
-            // "Файл превышает максимальный размер"
-            if (isLabel(data,ajErrBigFile)) 
-            {
-               let Label=makeLabel(ajErrBigFile);
-               regex=new RegExp(Label,"u");
-               let p = data; p=p.replace(regex,'')
-               p=freeLabel(p);
-               printMessage('#result',ajErrBigFile,p);
-            }
-            // "Ошибка при перемещении файла на сервер"
-            else if (isLabel(data,ajErrMoveServer)) 
-            {
-               printMessage('#result',ajErrMoveServer);
-            }
-            // "Неверный тип файла изображения"
-            else if (isLabel(data,ajInvalidType)) 
-            {
-               printMessage('#result',ajInvalidType);
-            }
-            // "Не установлен массив файлов и не загружены данные"
-            else if (isLabel(data,ajNoSetFile)) 
-            {
-               printMessage('#result',ajNoSetFile);
-            }
-            // "Файл успешно загружен"
-            else if (isLabel(data,ajSuccessfully)) 
-            {
-               printMessage('#result',ajSuccessfully);
-            }
-            else 
-            {
-               printMessage('#result',ajErrorisLabel,data);
-            }
-      // Перегружаем страницу с очисткой кэша для того, 
-      // чтобы обновить изображения и перекинуть кукисы
-      // window.location.reload(true);
-   },
-   // Отмечаем  неуспешное выполнение аякс-запроса по причине:
-   // 1) утерян файл скрипта.
-   error:function(data)
-   {
-      alert('ajaPicsSizes.error: '+data);
-      //printMessage('#result',ajLostScriptFile);
-   }
-   });
-   */
-   
-   // Делаем ajax-запрос для того, чтобы данные с сервера 
+   // Выводим отладочную таблицу по размерам дивов и изображений
+   let htmlstr = '<table>';
+   // Выполняем цикл по сотрудникам              
+
+      htmlstr += '<tr>';
+      htmlstr += '<td>' + 'divid=' + '</td>';     
+      htmlstr += '<td>' + "Photo"  + '</td>'; 
+      htmlstr += '</tr>';
+
+      htmlstr += '<tr>';
+      htmlstr += '<td>' + 'widthPhoto=' + '</td>';     
+      htmlstr += '<td>' + widthPhoto  + '</td>'; 
+      htmlstr += '</tr>';
+
+      htmlstr += '<tr>';
+      htmlstr += '<td>' + 'heightPhoto=' + '</td>';     
+      htmlstr += '<td>' + heightPhoto  + '</td>'; 
+      htmlstr += '</tr>';
+      
+      htmlstr += '<tr>';
+      htmlstr += '<td>' + "$c_FileImg="  + '</td>'; 
+      htmlstr += '<td>' +' '   + '</td>'; 
+      htmlstr += '</tr>';
+
+   htmlstr += '</table>';
+   // в div с классом info выводим получившуюся таблицу с данными
+   $('div.info').html(htmlstr); 
+
+
+// Делаем ajax-запрос для того, чтобы данные с сервера 
 // записались в переменную data
+// The jqXHR.success(), jqXHR.error(), and jqXHR.complete() callback methods 
+// are removed as of jQuery 3.0. You can use jqXHR.done(), jqXHR.fail(), 
+// and jqXHR.always() instead.
 $.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data) 
 {
-   console.log( "success" );
+   console.log( "successi" );
    let htmlstr = '<table>';
+   htmlstr += '<tr>';
+   htmlstr += '<th>' + 'DivId'     + '</th>';    
+   htmlstr += '<th>' + 'ImgName'   + '</th>'; 
+   htmlstr += '<th>' + 'ImgWidth'  + '</th>';    
+   htmlstr += '<th>' + 'ImgHeight' + '</th>'; 
+   htmlstr += '</tr>';
    // Выполняем цикл по сотрудникам              
    for (var i=0; i<data.length; i++) 
    {
       htmlstr += '<tr>';
-      htmlstr += '<td>' + data[i].fio + '</td>';      // ФИО
-      htmlstr += '<td>' + data[i].birthday + '</td>'; // Дата рождения
+      htmlstr += '<td>' + data[i].DivId     + '</td>';    
+      htmlstr += '<td>' + data[i].ImgName   + '</td>'; 
+      htmlstr += '<td>' + data[i].ImgWidth  + '</td>';    
+      htmlstr += '<td>' + data[i].ImgHeight + '</td>'; 
       htmlstr += '</tr>';
    }
    htmlstr += '</table>';
    // в div с классом info выводим получившуюся таблицу с данными
    $('div.info').html(htmlstr); 
+})
+.done(function() 
+{
+   console.log( "second success" );
+})
+.fail(function() 
+{
+   console.log( "error" );
+})
+.always(function() 
+{
+   console.log( "complete" );
 });
+ 
 
    
    

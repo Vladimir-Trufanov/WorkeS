@@ -13,3 +13,7 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php on line 64
+[26-Nov-2021 21:12:30 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\MakeCookie() in C:\Webservers\Exploration\_Signaphoto1\ajaPicsSizes.php:48
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto1\ajaPicsSizes.php on line 48
