@@ -41,9 +41,9 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    echo '<meta name="keywords"    content="_SignaPhoto1">';
    // Подключаем jquery/jquery-ui
    echo '
-      <link rel="stylesheet" href="/Jsx/jquery-ui.min.css"/> 
+      <link rel="stylesheet" href="/Jsx/jqueryui-1.13.0.min.css"/> 
       <script src="/Jsx/jquery-1.11.1.min.js"></script>
-      <script src="/Jsx/jquery-ui.min.js"></script>
+      <script src="/Jsx/jqueryui-1.13.0.min.js"></script>
    ';
    // Подключаем font-awesome
    echo '<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">';

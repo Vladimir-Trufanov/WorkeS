@@ -111,12 +111,23 @@ function onResponse(d) // Функция обработки ответа от с
 // ****************************************************************************
 function PlaceImgOnDiv()
 {
+   // Изначально считаем, что ошибочных сообщений нет
+   let messa='Ок';
+   // Выбираем размеры окон для первоначального изображения, подписи и окончательного
    let oPhoto=document.getElementById("Photo")
    let widthPhoto=oPhoto.offsetWidth;
    let heightPhoto=oPhoto.offsetHeight;
-   let oPic=document.getElementById("pic")
-   let widthPic=oPic.offsetWidth;
+   let oStamp=document.getElementById("Stamp")
+   let widthStamp=oStamp.offsetWidth;
+   let heightStamp=oStamp.offsetHeight;
+   let oProba=document.getElementById("Proba")
+   let widthProba=oProba.offsetWidth;
+   let heightProba=oProba.offsetHeight;
+   
+   //let oPic=document.getElementById("pic")
+   //let widthPic=oPic.offsetWidth;
   
+   /*
    // Выводим отладочную таблицу по размерам дивов и изображений
    let htmlstr = '<table>';
    // Выполняем цикл по сотрудникам              
@@ -143,8 +154,8 @@ function PlaceImgOnDiv()
 
    htmlstr += '</table>';
    // в div с классом info выводим получившуюся таблицу с данными
-   $('div.info').html(htmlstr); 
-
+   $('div#info').html(htmlstr); 
+   */
 
 // Делаем ajax-запрос для того, чтобы данные с сервера 
 // записались в переменную data
@@ -173,7 +184,7 @@ $.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data)
    }
    htmlstr += '</table>';
    // в div с классом info выводим получившуюся таблицу с данными
-   $('div.info').html(htmlstr); 
+   $('div#info').html(htmlstr); 
 })
 .done(function() 
 {
@@ -188,6 +199,18 @@ $.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data)
    console.log( "complete" );
 });
  
+// При необходимости по завершении работы функции выводим сообщение
+//messa='ytОк';
+if (messa != 'Ок')
+{
+   let htmlmessa = '<p>'+messa+'</p>';
+   $('div#info').html(htmlmessa); 
+   $('#info').dialog();
+}
+else
+{
+//   $('div#info').html(htmlstr); 
+}
 
    
    

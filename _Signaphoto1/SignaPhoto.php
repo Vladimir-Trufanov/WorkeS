@@ -100,14 +100,13 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
       
       // Размечаем область изображения с подписью
       echo '<div  id="Proba">';
-      ViewProba($c_FileProba);
-      
-     echo '<div class="info">';
-     echo '***<br>';
-     echo 'Всем привет из info!<br>';
-     echo '***<br>';
-     echo '</div>';
-
+         echo '<div id="info">';
+         echo '***<br>';
+         echo 'Всем привет из info!<br>';
+         echo '***<br>';
+         echo '</div>';
+         
+         ViewProba($c_FileProba);
       echo '</div>';
    echo '</div>';
    
