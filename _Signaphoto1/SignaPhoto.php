@@ -97,15 +97,8 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
          ViewStamp($c_FileStamp);
          echo '</div>';
       echo '</div>';
-      
       // Размечаем область изображения с подписью
       echo '<div  id="Proba">';
-         echo '<div id="info">';
-         echo '***<br>';
-         echo 'Всем привет из info!<br>';
-         echo '***<br>';
-         echo '</div>';
-         
          ViewProba($c_FileProba);
       echo '</div>';
    echo '</div>';
@@ -118,38 +111,19 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
    LoadStamp();
    
    echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
-
+   
+   // Закладываем в разметку див для сообщений через диалоговое окно
+   echo '<div id="'.ohInfo.'">';
+   /*
+   echo '***<br>';
+   echo 'Привет info!<br>';
+   echo '***<br>';
+   echo '</div>';
+   */
+   echo '</div>';
    echo '</div>';
 }
 
-/*   
-   
-   // Размечаем область изображений
-   echo '<div id="All">';
-      // Размечаем область оригинального изображения и образца подписи
-      echo '<div  id="View">';
-      echo '<div  id="Photo">';
-      ViewPhoto($c_FileImg);
-      echo '</div>';
-      echo '<div  id="Stamp">';
-      ViewStamp($c_FileStamp);
-      echo '</div>';
-      echo '</div>';
-      // Размечаем область изображения с подписью
-      echo '<div  id="Proba">';
-      ViewProba($c_FileProba);
-      //prown\ViewGlobal(avgCOOKIE);
-      echo '</div>';
-   echo '</div>';
-   
-   // Размечаем область управления загрузкой и подписанием
-   echo '<div  id="Lead">';
-   LoadImg();
-   LoadStamp();
-   Subscribe();
-   Tunein();
-   echo '</div>';
-*/
 /*
 // Выполнить разметку мобильных подстраниц "Подписать фотографию"
 function markupPortraitMobile($c_SignaPhoto,$UrlHome,$SiteRoot,$c_FileImg,$c_FileStamp,$c_FileProba)

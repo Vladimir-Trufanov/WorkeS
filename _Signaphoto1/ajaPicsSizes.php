@@ -9,7 +9,7 @@
 //                                                   Дата создания:  25.11.2021
 // Copyright © 2021 tve                              Посл.изменение: 26.11.2021
 
-// Подключаем межязыковые определения
+// Подключаем межязыковые (PHP-JScript) определения
 require_once 'SignaPhotoDef.php';
 
 // Инициируем рабочее пространство страницы
@@ -94,7 +94,7 @@ function FillArray($DivId,$ImgName,&$user_info)
       // Сбрасываем массиы для возврата, чтобы было одно сообщение 
       $user_info = array(); 
       $user_info[] = array (
-         'DivId'     => 'info',
+         'DivId'     => ohInfo, 
          'ImgName'   => $ImgName.': '.$messa,
          'ImgWidth'  => NULL,
          'ImgHeight' => NULL

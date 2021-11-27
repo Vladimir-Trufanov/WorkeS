@@ -9,7 +9,7 @@
 //                                                   Дата создания:  10.07.2021
 // Copyright © 2021 tve                              Посл.изменение: 26.11.2021
 
-// Определения для PHP
+// Определения сообщений для PHP
 define ("ajErrBigFile",         "Файл превышает максимальный размер"); 
 define ("ajErrFreshStamp",      "Ошибка при наложении подписи на изображение");
 define ("ajErrMoveServer",      "Ошибка при перемещении файла на сервер");  
@@ -29,8 +29,12 @@ define ("ajStampNotBuilt",      "Не строится изображение ш
 define ("ajSuccess",            "Функция/процедура выполнена успешно");     
 define ("ajSuccessfully",       "Файл успешно загружен sss ОТЛАДКА");     
 define ("ajTransparentSuccess", "Преобразование к прозрачному виду успешно"); 
+// Определения объектов HTML
+define ("ohInfo", "Info");  // Id дива информационных сообщений
 
-// Переменные JavaScript, соответствующие определениям в PHP
+
+
+// Переменные JavaScript, соответствующие определениям сообщений в PHP
 $define=
 '<script>'.
 'ajErrBigFile="'        .ajErrBigFile.        '";'.
@@ -52,6 +56,12 @@ $define=
 'ajSuccess="'           .ajSuccess.           '";'.
 'ajSuccessfully="'      .ajSuccessfully.      '";'.
 'ajTransparentSuccess="'.ajTransparentSuccess.'";'.
+'</script>';
+
+// Переменные JavaScript, соответствующие определениям объектов HTML
+$odefine=
+'<script>'.
+'const ohInfo="'   .ohInfo. '";'. 
 '</script>';
 
 // ****************************************************** SignaPhotoDef.php ***

@@ -123,57 +123,66 @@ function PlaceImgOnDiv()
    let oProba=document.getElementById("Proba")
    let widthProba=oProba.offsetWidth;
    let heightProba=oProba.offsetHeight;
-   
-   //let oPic=document.getElementById("pic")
-   //let widthPic=oPic.offsetWidth;
-  
-   /*
-   // Выводим отладочную таблицу по размерам дивов и изображений
-   let htmlstr = '<table>';
-   // Выполняем цикл по сотрудникам              
 
-      htmlstr += '<tr>';
-      htmlstr += '<td>' + 'divid=' + '</td>';     
-      htmlstr += '<td>' + "Photo"  + '</td>'; 
-      htmlstr += '</tr>';
-
-      htmlstr += '<tr>';
-      htmlstr += '<td>' + 'widthPhoto=' + '</td>';     
-      htmlstr += '<td>' + widthPhoto  + '</td>'; 
-      htmlstr += '</tr>';
-
-      htmlstr += '<tr>';
-      htmlstr += '<td>' + 'heightPhoto=' + '</td>';     
-      htmlstr += '<td>' + heightPhoto  + '</td>'; 
-      htmlstr += '</tr>';
-      
-      htmlstr += '<tr>';
-      htmlstr += '<td>' + "$c_FileImg="  + '</td>'; 
-      htmlstr += '<td>' +' '   + '</td>'; 
-      htmlstr += '</tr>';
-
-   htmlstr += '</table>';
-   // в div с классом info выводим получившуюся таблицу с данными
-   $('div#info').html(htmlstr); 
-   */
-
-// Делаем ajax-запрос для того, чтобы данные с сервера 
-// записались в переменную data
-// The jqXHR.success(), jqXHR.error(), and jqXHR.complete() callback methods 
-// are removed as of jQuery 3.0. You can use jqXHR.done(), jqXHR.fail(), 
-// and jqXHR.always() instead.
-$.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data) 
+   // Делаем ajax-запрос для того, чтобы данные с сервера записались в 
+   // переменную data. The jqXHR.success(), jqXHR.error(), and jqXHR.complete() 
+   // callback methods are removed as of jQuery 3.0. You can use jqXHR.done(), 
+   // jqXHR.fail(), and jqXHR.always() instead.
+   $.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data) 
+   {
+      console.log( "success" );
+      if (isJSON(data)=='true')
+      {
+         trassData(data);
+      }
+   })
+   .done(function() 
+   {
+      console.log( "second success" );
+   })
+   .fail(function() 
+   {
+      console.log( "error" );
+   })
+   .always(function() 
+   {
+      console.log( "complete" );
+   });
+}
+// ****************************************************************************
+// *    Перебрать массив JSON и выдать диалоговое окно, если есть сообщение   *
+// ****************************************************************************
+function isJSON(data)
 {
-   console.log( "successi" );
+   $Result='true';
+   // Просматриваем массив и ищем первое сообщение              
+   for (let i=0; i<data.length; i++) 
+   {
+      if (data[i].DivId==ohInfo)
+      {
+         let htmlmessa = '<p>'+data[i].ImgName+'</p>';
+         $('div#'+ohInfo).html(htmlmessa); 
+         $('#'+ohInfo).dialog({modal:true});
+         $Result='false';
+      } 
+   }
+   return $Result;
+}
+// ****************************************************************************
+// *         Трассируем переданные параметры через диалоговое окно            *
+// ****************************************************************************
+function trassData(data)
+{
    let htmlstr = '<table>';
+   // Делаем шапку таблицы
    htmlstr += '<tr>';
    htmlstr += '<th>' + 'DivId'     + '</th>';    
    htmlstr += '<th>' + 'ImgName'   + '</th>'; 
    htmlstr += '<th>' + 'ImgWidth'  + '</th>';    
    htmlstr += '<th>' + 'ImgHeight' + '</th>'; 
    htmlstr += '</tr>';
-   // Выполняем цикл по сотрудникам              
-   for (var i=0; i<data.length; i++) 
+   // Делаем тело таблицы              
+   for (i=0; i<data.length; i++) 
    {
       htmlstr += '<tr>';
       htmlstr += '<td>' + data[i].DivId     + '</td>';    
@@ -183,37 +192,8 @@ $.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data)
       htmlstr += '</tr>';
    }
    htmlstr += '</table>';
-   // в div с классом info выводим получившуюся таблицу с данными
-   $('div#info').html(htmlstr); 
-})
-.done(function() 
-{
-   console.log( "second success" );
-})
-.fail(function() 
-{
-   console.log( "error" );
-})
-.always(function() 
-{
-   console.log( "complete" );
-});
+   $('div#'+ohInfo).html(htmlstr); 
+   $('#'+ohInfo).dialog({modal:true});
+}
  
-// При необходимости по завершении работы функции выводим сообщение
-//messa='ytОк';
-if (messa != 'Ок')
-{
-   let htmlmessa = '<p>'+messa+'</p>';
-   $('div#info').html(htmlmessa); 
-   $('#info').dialog();
-}
-else
-{
-//   $('div#info').html(htmlstr); 
-}
-
-   
-   
-   
-}  
 // ********************************************************** SignaPhoto.js ***

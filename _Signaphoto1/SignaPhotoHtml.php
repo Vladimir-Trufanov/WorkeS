@@ -50,6 +50,9 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    //
    echo '<link rel="stylesheet" type="text/css" href="SignaReset.css">';
    //echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
+   // Подключаем межязыковые (PHP-JScript) определения внутри HTML
+   require_once 'SignaPhotoDef.php';
+   echo $define; echo $odefine;
    // Подключаем сайтовые(SignaPhoto) функции Js и
    // инициализировать обработчики
    echo '<script src="SignaPhoto.js"></script>';
