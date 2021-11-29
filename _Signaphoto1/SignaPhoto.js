@@ -112,6 +112,7 @@ function onResponse(d) // Функция обработки ответа от с
 function PlaceImgOnDiv()
 {
    // Выбираем размеры окон для первоначального изображения, подписи и окончательного
+   /*
    let oPhoto=document.getElementById("Photo")
    let widthPhoto=oPhoto.offsetWidth;
    let heightPhoto=oPhoto.offsetHeight;
@@ -121,7 +122,7 @@ function PlaceImgOnDiv()
    let oProba=document.getElementById("Proba")
    let widthProba=oProba.offsetWidth;
    let heightProba=oProba.offsetHeight;
-
+   */
    // Делаем ajax-запрос для того, чтобы данные с сервера записались в 
    // переменную data. The jqXHR.success(), jqXHR.error(), and jqXHR.complete() 
    // callback methods are removed as of jQuery 3.0. You can use jqXHR.done(), 
@@ -134,9 +135,10 @@ function PlaceImgOnDiv()
          // Трассируем переданный массив
          // trassData(data);
          
-         // Определяем первичное выравнивание ('по ширине','по высоте')
+         // Определяем спосов выравнивания ('по ширине','по высоте')
          // первоначального изображения и выравниваем его по диву
-         let alignPhoto='по ширине';
+         // let alignPhoto='по ширине';
+         let alignPhoto=getAlignImg("Photo","pic",data[0].ImgWidth,data[0].ImgHeight);
          PlaceUsPic("Photo","pic",data[0].ImgWidth,data[0].ImgHeight,alignPhoto);
       }
    })
@@ -218,14 +220,43 @@ function PlaceUsPic(cDiv,cImg,wImg,hImg,mAligne)
       let nWidth=94;  let nLeft=4;
       $('#'+cImg).css('width',String(nWidth)+'%');
       $('#'+cImg).css('margin-left',String(nLeft)+'%');
-      // Определяем размещение по высоте в пикселах ???
-      let nTop=5;
+      // Определяем ширину изображения  ***   nWidth --> x        ***
+      // в диве из пропорции:           ***     100% --> widthDiv ***
+      let widthImg=nWidth*widthDiv/100;
+      // Определяем высоту изображения  ***     wImg --> hImg     ***  
+      // в диве из пропорции:           *** widthImg --> x        ***
+      let heightImg=widthImg*hImg/wImg;
+      // Определяем центрирование размещения по высоте через пикселы
+      let nTop=(heightDiv-heightImg)/2;
       $('#'+cImg).css('margin-top',String(nTop)+'px');
    }
    // Выравниваем по высоте
    else
    {
+      $('#'+cImg).css('width','20%');
    }
+}
+// ****************************************************************************
+// *   Определить спосов выравнивания ('по ширине','по высоте') изображения   *
+// *                                 по диву                                  *
+// ****************************************************************************
+function getAlignImg(cDiv,cImg,wImg,hImg)
+{
+   // Определяем размеры дива на экране
+   let oDiv=document.getElementById(cDiv)
+   let widthDiv=oDiv.offsetWidth;
+   let heightDiv=oDiv.offsetHeight;
+   // Считаем, что нужно выровнять по ширине
+   let alignImg='по ширине';
+   // Через пропорцию вычисляем высоту     *** widthDiv --> wImg ***
+   // растянутого изображения по ширине:   ***        x --> hImg ***
+   p_heightDiv=(widthDiv*hImg/wImg);
+   // Сравниваем расчетную высоту изображения с высотой дива и,
+   // если высота изображения превышает высоту дива,
+   // то считаем, что изображение нужно растянуть по высоте
+   if (p_heightDiv>heightDiv) alignImg='по высоте';
+   console.log('alignImg='+alignImg);
+   return alignImg;
 }
 // ****************************************************************************
 // *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
