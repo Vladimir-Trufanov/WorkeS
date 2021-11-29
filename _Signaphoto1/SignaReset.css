@@ -71,18 +71,17 @@ body
 #Stamp {height:18%;}
 
 
-#pic
+#pic,#picStamp,#picProba
 {
-   width:30%;
    padding:0;
 }
 #picProba
 {
-width:98%;
+/*width:98%;*/
 }
 #picStamp
 {
-height:80%;
+/*height:80%;*/
 }
 
 .btnLead

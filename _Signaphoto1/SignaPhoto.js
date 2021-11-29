@@ -135,11 +135,14 @@ function PlaceImgOnDiv()
          // Трассируем переданный массив
          // trassData(data);
          
-         // Определяем спосов выравнивания ('по ширине','по высоте')
-         // первоначального изображения и выравниваем его по диву
-         // let alignPhoto='по ширине';
+         // Определяем способы выравнивания ('по ширине','по высоте')
+         // изображений и выравниваем их по дивам
          let alignPhoto=getAlignImg("Photo","pic",data[0].ImgWidth,data[0].ImgHeight);
-         PlaceUsPic("Photo","pic",data[0].ImgWidth,data[0].ImgHeight,alignPhoto);
+         PlacePicOnDiv("Photo","pic",data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4);
+         let alignStamp=getAlignImg("Stamp","picStamp",data[1].ImgWidth,data[1].ImgHeight);
+         PlacePicOnDiv("Stamp","picStamp",data[1].ImgWidth,data[1].ImgHeight,alignStamp,20,50);
+         let alignProba=getAlignImg("Proba","picProba",data[2].ImgWidth,data[2].ImgHeight);
+         PlacePicOnDiv("Proba","picProba",data[2].ImgWidth,data[2].ImgHeight,alignProba,94,2);
       }
    })
    .done(function() 
@@ -205,9 +208,11 @@ function trassData(data)
 // *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
 // *                    cImg - идентификатор изображения,                     *
 // *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
-// *        mAligne - первичное выравнивание ('по ширине','по высоте')        *
+// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
+// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
+// *
 // ****************************************************************************
-function PlaceUsPic(cDiv,cImg,wImg,hImg,mAligne)
+function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft)
 {
    // Определяем размеры дива на экране
    let oDiv=document.getElementById(cDiv)
@@ -217,7 +222,7 @@ function PlaceUsPic(cDiv,cImg,wImg,hImg,mAligne)
    if (mAligne=='по ширине')
    {
       // Вначале определяем размещение по ширине через проценты
-      let nWidth=94;  let nLeft=4;
+      let nWidth=perWidth;  let nLeft=perLeft;
       $('#'+cImg).css('width',String(nWidth)+'%');
       $('#'+cImg).css('margin-left',String(nLeft)+'%');
       // Определяем ширину изображения  ***   nWidth --> x        ***
@@ -233,7 +238,18 @@ function PlaceUsPic(cDiv,cImg,wImg,hImg,mAligne)
    // Выравниваем по высоте
    else
    {
-      $('#'+cImg).css('width','20%');
+      // Вначале определяем высоту изображения в диве через проценты
+      let nHeight=94; 
+      $('#'+cImg).css('height',String(nHeight)+'%');
+      // Определяем высоту изображения в диве через пикселы
+      let heightImg=nHeight*heightDiv/100;
+      // Определяем ширину изображения  *** wImg --> hImg      ***
+      // в диве через пикселы:          ***    x --> heightImg ***
+      let widthImg=wImg*heightImg/hImg;
+      $('#'+cImg).css('width',String(widthImg)+'px');
+      // Центрируем изображение по диву
+      $('#'+cImg).css('margin-left',String((widthDiv-widthImg)/2)+'px');
+      $('#'+cImg).css('margin-top',String((heightDiv-heightImg)/2)+'px');
    }
 }
 // ****************************************************************************

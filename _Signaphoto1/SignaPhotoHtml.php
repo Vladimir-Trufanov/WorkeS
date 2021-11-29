@@ -157,23 +157,23 @@ function ViewPhoto($c_FileImg)
 // Вывести изображение подписи последних размеров
 function ViewStamp($c_FileStamp)
 {
-   
+   /*   
    echo 'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp '.
       'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp'.
       'Stamp Stamp Stamp Stamp Stamp Stamp';
-   
-   //echo '<img src="'.$c_FileStamp.'" alt="" id="picStamp">';
+   */
+   echo '<img src="'.$c_FileStamp.'" alt="" id="picStamp">';
 }
 // Вывести изображение c подписью
 function ViewProba($c_FileProba)
 {  
-   
+   /*
    echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
-   
-   //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
+   */
+   echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
 }
 // ****************************************************************************
 // *     Подготовить кнопки для действий: загрузить изображение, подписать,   *

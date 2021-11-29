@@ -62,7 +62,7 @@ try
       //console.log("window.orientation="+window.orientation);
       //alert("window.orientation="+window.orientation);
       // Размещаем изображения внутри Div-ов
-      //PlaceImgOnDiv();
+      PlaceImgOnDiv();
    });</script>';
    // Начинаем выводить тело страницы 
    echo '</head>';
