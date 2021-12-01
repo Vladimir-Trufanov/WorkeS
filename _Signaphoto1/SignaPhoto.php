@@ -121,6 +121,10 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
    echo '***<br>';
    echo '</div>';
    */
+   // Заготавливаем скрытый фрэйм для обработки загружаемого изображения 
+   // (25.06.2021 убираем из кода для осмысления. Делаем по другому)
+   //echo '<iframe id="rFrame" name="rFrame" style="display: none"> </iframe>';
+
    echo '</div>';
    echo '</div>';
 }

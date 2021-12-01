@@ -73,14 +73,37 @@ Exploration
 			_PureAccordion\license.txt
 			_PureAccordion\PureAccordion.html
 			_PureAccordion\README.txt
-		+_Signaphoto1
-			-buttonsOld
-				_Signaphoto1\buttonsOld\image128.png
-				_Signaphoto1\buttonsOld\input128.png
-				_Signaphoto1\buttonsOld\register128.png
-				_Signaphoto1\buttonsOld\stamp128.png
-				_Signaphoto1\buttonsOld\subscribe128.png
-				_Signaphoto1\buttonsOld\tunein128.png
+		+_Sandbox
+			-buttons
+				_Sandbox\buttons\openfile.png
+			-css
+				_Sandbox\css\style.css
+			-fil
+				-buttons
+					_Sandbox\fil\buttons\openfile.png
+				-css
+					_Sandbox\fil\css\style.css
+				-js
+					_Sandbox\fil\js\upload.js
+				-temp
+					_Sandbox\fil\temp\.htaccess
+					_Sandbox\fil\temp\5740688_cute_emoji_heart_icon.png
+				-view
+					_Sandbox\fil\view\upload.php
+				_Sandbox\fil\index.php
+			+js
+				_Sandbox\js\upload.js
+			-temp
+				_Sandbox\temp\.htaccess
+				_Sandbox\temp\5740688_cute_emoji_heart_icon.png
+				_Sandbox\temp\goggle-eyed.gif
+				_Sandbox\temp\goshan.jpg
+			-view
+				_Sandbox\view\upload.php
+			_Sandbox\goshan.jpg
+			_Sandbox\Sandbox.php
+			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
+		-_Signaphoto1
 			-images
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
@@ -90,6 +113,7 @@ Exploration
 			_Signaphoto1\SignaPhoto.css
 			_Signaphoto1\SignaPhoto.js
 			_Signaphoto1\SignaPhoto.php
+			_Signaphoto1\SignaPhotoDef.php
 			_Signaphoto1\SignaPhotoHtml.php
 			_Signaphoto1\SignaReset.css
 		-_sortable
@@ -166,10 +190,17 @@ Exploration
 				font-awesome-4.7.0\scss\font-awesome.scss
 			font-awesome-4.7.0\HELP-US-OUT.txt
 		-Jsx
+			-images
+				Jsx\images\ui-icons_444444_256x240.png
+				Jsx\images\ui-icons_555555_256x240.png
+				Jsx\images\ui-icons_777620_256x240.png
+				Jsx\images\ui-icons_777777_256x240.png
+				Jsx\images\ui-icons_cc0000_256x240.png
+				Jsx\images\ui-icons_ffffff_256x240.png
 			Jsx\jquery-1.11.1.min.js
 			Jsx\jquery-1.11.1.min.map
-			Jsx\jquery-ui.min.css
-			Jsx\jquery-ui.min.js
+			Jsx\jqueryui-1.13.0.min.css
+			Jsx\jqueryui-1.13.0.min.js
 		-SmartMenus
 			SmartMenus\ColabLig-webfont.ttf
 			SmartMenus\ColabLig-webfont.woff
@@ -195,17 +226,18 @@ Exploration
 4=_Signaphoto1\SignaReset.css
 5=_Signaphoto1\SignaPhotoHtml.php
 6=_Signaphoto1\SignaPhotoDef.php
+7=_Sandbox\Sandbox.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto1\SignaReset.css
+Selected=index.html
 [index.html]
-TopLine=63
-Caret=1,90
+TopLine=72
+Caret=49,75
 [_Signaphoto1\SignaPhoto.php]
-TopLine=81
-Caret=31,96
+TopLine=87
+Caret=6,126
 [_Signaphoto1\SignaPhoto.js]
-TopLine=112
+TopLine=104
 Caret=91,143
 [_Signaphoto1\ajaPicsSizes.php]
 TopLine=41
@@ -214,8 +246,11 @@ Caret=26,56
 TopLine=53
 Caret=25,74
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=153
-Caret=4,176
+TopLine=184
+Caret=6,218
 [_Signaphoto1\SignaPhotoDef.php]
 TopLine=29
 Caret=1,36
+[_Sandbox\Sandbox.php]
+TopLine=1
+Caret=49,8

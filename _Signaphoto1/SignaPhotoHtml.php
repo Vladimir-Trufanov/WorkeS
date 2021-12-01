@@ -104,17 +104,19 @@ function MakeOrient(&$s_Orient,$s_Counter)
 // *   простая разметка на дивах; а для портретной страницы на смартфоне с    *
 // *                              помощью jquery mobile                       *
 // ****************************************************************************
+/*
 function MakeTextPages()
 {
    //  <li><a href="_Signaphoto1/SignaPhoto.php?orient=portrait">SignaPhotoPortrait</a></li>     
    //  <li><a href="_Signaphoto1/SignaPhoto.php?orient=landscape">SignaPhotoLandscape</a></li>     
-   ?> <script>
+   ?> 
+   <script>
    // Определяем защишенность сайта, для того чтобы правильно сформулировать 
    // в запросе http или https
-   let $https='<?php echo $_SERVER["HTTPS"];?>';
-   if ($https=="off") $https="http"
-   else $https="https"; 
-   console.log('$https='+$https);
+   let https='<?php echo $_SERVER["HTTPS"];?>';
+   if (https=="off") https="http"
+   else https="https"; 
+   console.log('https='+https);
    // Готовим URL для мобильно-портретной разметки, то есть разметки
    // для jQuery-мobile c двумя страницами 
    var $SignaPortraitUrl="/_Signaphoto1/SignaPhoto.php?orient=portrait";
@@ -122,7 +124,25 @@ function MakeTextPages()
    // Готовим URL для настольно-ландшафтной разметки (одностраничной)
    var $SignaUrl="/_Signaphoto1/SignaPhoto.php?orient=landscape";
    console.log('$SignaUrl='+$SignaUrl);
-   </script> <?php
+   </script> 
+   <?php
+}
+*/
+function MakeTextPages()
+{
+   ?> 
+   <script>
+   https="http"
+   console.log('https='+https);
+   // Готовим URL для мобильно-портретной разметки, то есть разметки
+   // для jQuery-мobile c двумя страницами 
+   var $SignaPortraitUrl="/_Signaphoto1/SignaPhoto.php?orient=portrait";
+   console.log('$SignaPortraitUrl='+$SignaPortraitUrl);
+   // Готовим URL для настольно-ландшафтной разметки (одностраничной)
+   var $SignaUrl="/_Signaphoto1/SignaPhoto.php?orient=landscape";
+   console.log('$SignaUrl='+$SignaUrl);
+   </script> 
+   <?php
 }
 // ****************************************************************************
 // *           Вывести 3 изображения (оригинал, штамп, с подписью)            *
@@ -173,6 +193,33 @@ function ViewProba($c_FileProba)
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
    */
+   
+   /*  
+   // Начинаем форму запроса изображения по типу: photo, stamp, proba
+   //echo '
+   //   <form action="SignaPhotoUpload.php?img='.$RequestFile.'" '.
+   echo '
+      <form action="SignaPhotoUpload.php?img=file.png" '.
+      'target="rFrame" method="POST" enctype="multipart/form-data">';  
+   // Формируем три inputа для обеспечения ввода в диве с нулевыми размерами,
+   // для того чтобы их скрыть. Разрешенный размер загружаемого файла чуть 
+   // больше, чем указанный в php.ini (где он равем 3Mb)
+   $MaxLoadSize = 4100000;
+   echo'
+   <div class="hiddenInput">
+      <input type="hidden" name="MAX_FILE_SIZE" value="'.$MaxLoadSize.'">
+      <input type="file"    id="my_hidden_fileImg" '.
+         'accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="LoadFileImg();">'.
+      '<input type="submit" id="my_hidden_loadImg" '.
+         'style="display:none" value="Загрузить">'.
+   '</div>';
+   // Завершаем форму запроса
+   echo '</form>';
+   */
+
+   
+   
+   
    echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
 }
 // ****************************************************************************
@@ -193,6 +240,7 @@ function LoadImg()
    */
    echo '<button id="bLoadImg" class="btnLead" title="Загрузить изображение">'.
    '<i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></button>';
+ 
   
    /*
    // Начинаем форму запроса изображения по типу: photo, stamp, proba

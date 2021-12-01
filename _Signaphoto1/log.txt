@@ -17,3 +17,5 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\Webservers\Exploration\_Signaphoto1\ajaPicsSizes.php on line 48
+[01-Dec-2021 14:52:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'file' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 221
+[01-Dec-2021 14:54:05 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'file' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 221
