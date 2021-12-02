@@ -17,6 +17,41 @@ function sayLogic($logic)
    if ($logic) $Result='true';
    return $Result;
 }
+
+
+
+function Proba111()
+{
+   alert('Proba111');
+   $.ajax({
+         type:'POST',            // тип запроса
+         //type: "GET",
+         url: 'ajaProba111.php',  // скрипт обработчика
+         dataType: "json",
+         //async: false,          // гуглом не рекомендуется 'из-за пагубного воздействия'
+         data:  {first:1, second:"second"},         // данные которые мы передаем
+         cache: false,           // по POST отключено, но явно уточняем
+         contentType: false,     // отключаем, так как тип кодирования задан в форме
+         processData: false,     // отключаем, так как передаем файл
+         // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
+         success:function(data)
+         {
+            alert('Proba111.success: ');
+            trassData(data);
+
+         },
+         // Отмечаем  неуспешное выполнение аякс-запроса по причине:
+         error:function(data)
+         {
+            //alert('Proba111.error: '+data);
+            alert('Proba111.error: ');
+         }
+      });
+
+}
+
+
+
 // ****************************************************************************
 // *        Выполнить действия в связи с изменением ориентации смартфона      *
 // ****************************************************************************
@@ -87,8 +122,9 @@ function LoadFileImg() { document.getElementById('my_hidden_loadImg').click(); }
 function FindFileStamp() { document.getElementById('my_hidden_fileStamp').click(); }  
 function LoadFileStamp() { document.getElementById('my_hidden_loadStamp').click(); }  
 
-function AlertMessage(messa='Загрузка новой подписи отключена!')
+function AlertMessage(messa)
 {
+   if (messa==undefined) messa='Загрузка новой подписи отключена!';
    alert(messa);
 }
 function Substi()
@@ -137,11 +173,11 @@ function PlaceImgOnDiv()
          
          // Определяем способы выравнивания ('по ширине','по высоте')
          // изображений и выравниваем их по дивам
-         let alignPhoto=getAlignImg("Photo","pic",data[0].ImgWidth,data[0].ImgHeight);
+         alignPhoto=getAlignImg("Photo","pic",data[0].ImgWidth,data[0].ImgHeight);
          PlacePicOnDiv("Photo","pic",data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4);
-         let alignStamp=getAlignImg("Stamp","picStamp",data[1].ImgWidth,data[1].ImgHeight);
+         alignStamp=getAlignImg("Stamp","picStamp",data[1].ImgWidth,data[1].ImgHeight);
          PlacePicOnDiv("Stamp","picStamp",data[1].ImgWidth,data[1].ImgHeight,alignStamp,20,50);
-         let alignProba=getAlignImg("Proba","picProba",data[2].ImgWidth,data[2].ImgHeight);
+         alignProba=getAlignImg("Proba","picProba",data[2].ImgWidth,data[2].ImgHeight);
          PlacePicOnDiv("Proba","picProba",data[2].ImgWidth,data[2].ImgHeight,alignProba,94,2);
       }
    })
@@ -156,6 +192,7 @@ function PlaceImgOnDiv()
    .always(function() 
    {
       console.log( "complete" );
+      //alert("complete");
    });
 }
 // ****************************************************************************
@@ -165,11 +202,11 @@ function isJSON(data)
 {
    $Result='true';
    // Просматриваем массив и ищем первое сообщение              
-   for (let i=0; i<data.length; i++) 
+   for (i=0; i<data.length; i++) 
    {
       if (data[i].DivId==ohInfo)
       {
-         let htmlmessa = '<p>'+data[i].ImgName+'</p>';
+         htmlmessa = '<p>'+data[i].ImgName+'</p>';
          $('div#'+ohInfo).html(htmlmessa); 
          $('#'+ohInfo).dialog({modal:true});
          $Result='false';
@@ -182,7 +219,7 @@ function isJSON(data)
 // ****************************************************************************
 function trassData(data)
 {
-   let htmlstr = '<table>';
+   htmlstr = '<table>';
    // Делаем шапку таблицы
    htmlstr += '<tr>';
    htmlstr += '<th>' + 'DivId'     + '</th>';    
@@ -215,37 +252,37 @@ function trassData(data)
 function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft)
 {
    // Определяем размеры дива на экране
-   let oDiv=document.getElementById(cDiv)
-   let widthDiv=oDiv.offsetWidth;
-   let heightDiv=oDiv.offsetHeight;
+   oDiv=document.getElementById(cDiv)
+   widthDiv=oDiv.offsetWidth;
+   heightDiv=oDiv.offsetHeight;
    // Выравниваем по ширине
    if (mAligne=='по ширине')
    {
       // Вначале определяем размещение по ширине через проценты
-      let nWidth=perWidth;  let nLeft=perLeft;
+      nWidth=perWidth; nLeft=perLeft;
       $('#'+cImg).css('width',String(nWidth)+'%');
       $('#'+cImg).css('margin-left',String(nLeft)+'%');
       // Определяем ширину изображения  ***   nWidth --> x        ***
       // в диве из пропорции:           ***     100% --> widthDiv ***
-      let widthImg=nWidth*widthDiv/100;
+      widthImg=nWidth*widthDiv/100;
       // Определяем высоту изображения  ***     wImg --> hImg     ***  
       // в диве из пропорции:           *** widthImg --> x        ***
-      let heightImg=widthImg*hImg/wImg;
+      heightImg=widthImg*hImg/wImg;
       // Определяем центрирование размещения по высоте через пикселы
-      let nTop=(heightDiv-heightImg)/2;
+      nTop=(heightDiv-heightImg)/2;
       $('#'+cImg).css('margin-top',String(nTop)+'px');
    }
    // Выравниваем по высоте
    else
    {
       // Вначале определяем высоту изображения в диве через проценты
-      let nHeight=94; 
+      nHeight=94; 
       $('#'+cImg).css('height',String(nHeight)+'%');
       // Определяем высоту изображения в диве через пикселы
-      let heightImg=nHeight*heightDiv/100;
+      heightImg=nHeight*heightDiv/100;
       // Определяем ширину изображения  *** wImg --> hImg      ***
       // в диве через пикселы:          ***    x --> heightImg ***
-      let widthImg=wImg*heightImg/hImg;
+      widthImg=wImg*heightImg/hImg;
       $('#'+cImg).css('width',String(widthImg)+'px');
       // Центрируем изображение по диву
       $('#'+cImg).css('margin-left',String((widthDiv-widthImg)/2)+'px');
@@ -259,11 +296,11 @@ function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft)
 function getAlignImg(cDiv,cImg,wImg,hImg)
 {
    // Определяем размеры дива на экране
-   let oDiv=document.getElementById(cDiv)
-   let widthDiv=oDiv.offsetWidth;
-   let heightDiv=oDiv.offsetHeight;
+   oDiv=document.getElementById(cDiv)
+   widthDiv=oDiv.offsetWidth;
+   heightDiv=oDiv.offsetHeight;
    // Считаем, что нужно выровнять по ширине
-   let alignImg='по ширине';
+   alignImg='по ширине';
    // Через пропорцию вычисляем высоту     *** widthDiv --> wImg ***
    // растянутого изображения по ширине:   ***        x --> hImg ***
    p_heightDiv=(widthDiv*hImg/wImg);
@@ -282,15 +319,15 @@ function getAlignImg(cDiv,cImg,wImg,hImg)
 function PlaceUsStamp(cDiv,cImg,wImg,hImg)
 {
    // Определяем размеры дива на экране
-   let oDiv=document.getElementById(cDiv)
-   let widthDiv=oDiv.offsetWidth;
-   let heightDiv=oDiv.offsetHeight;
+   oDiv=document.getElementById(cDiv)
+   widthDiv=oDiv.offsetWidth;
+   heightDiv=oDiv.offsetHeight;
    // Определяем первичное выравнивание ('по ширине','по высоте')
-   let mAligne='по ширине';
+   mAligne='по ширине';
    // Выравниваем по ширине
    if (mAligne=='по ширине')
    {
-      let nWidth=84;  let nLeft=4;
+      nWidth=84;  nLeft=4;
       $('#'+cImg).css('width',String(nWidth)+'%');
    }
    // Выравниваем по высоте

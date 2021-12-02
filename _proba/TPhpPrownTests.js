@@ -8,7 +8,7 @@ function gali(varName)
       url: 'save.php',
       type: 'POST',
       data: {mess:$mew},
-      //async: false,
+      async: false,
       error: function()
       {
          $('#res').text("Ошибка!");

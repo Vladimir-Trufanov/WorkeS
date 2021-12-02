@@ -24,6 +24,7 @@ try
 {
    session_start(); 
 
+   //echo $_WORKSPACE[wsUserAgent];
    // Подключаем модуль и выодим технологическую информацию
    require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';;
    // Подключаем файлы библиотеки прикладных модулей:
@@ -123,7 +124,7 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
    */
    // Заготавливаем скрытый фрэйм для обработки загружаемого изображения 
    // (25.06.2021 убираем из кода для осмысления. Делаем по другому)
-   //echo '<iframe id="rFrame" name="rFrame" style="display: none"> </iframe>';
+   echo '<iframe id="rFrame" name="rFrame" style="display: none"> </iframe>';
 
    echo '</div>';
    echo '</div>';

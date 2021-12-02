@@ -194,7 +194,7 @@ function ViewProba($c_FileProba)
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
    */
    
-   /*  
+     
    // Начинаем форму запроса изображения по типу: photo, stamp, proba
    //echo '
    //   <form action="SignaPhotoUpload.php?img='.$RequestFile.'" '.
@@ -215,7 +215,7 @@ function ViewProba($c_FileProba)
    '</div>';
    // Завершаем форму запроса
    echo '</form>';
-   */
+   
 
    
    
@@ -241,27 +241,6 @@ function LoadImg()
    echo '<button id="bLoadImg" class="btnLead" title="Загрузить изображение">'.
    '<i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></button>';
  
-  
-   /*
-   // Начинаем форму запроса изображения по типу: photo, stamp, proba
-   echo '
-      <form action="SignaPhotoUpload.php?img='.$RequestFile.'" '.
-      'target="rFrame" method="POST" enctype="multipart/form-data">';  
-   // Формируем три inputа для обеспечения ввода в диве с нулевыми размерами,
-   // для того чтобы их скрыть. Разрешенный размер загружаемого файла чуть 
-   // больше, чем указанный в php.ini (где он равем 3Mb)
-   $MaxLoadSize = 4100000;
-   echo'
-   <div class="hiddenInput">
-      <input type="hidden" name="MAX_FILE_SIZE" value="'.$MaxLoadSize.'">
-      <input type="file"    id="my_hidden_fileImg" '.
-         'accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="LoadFileImg();">'.
-      '<input type="submit" id="my_hidden_loadImg" '.
-         'style="display:none" value="Загрузить">'.
-   '</div>';
-   // Завершаем форму запроса
-   echo '</form>';
-   */
 }
 // "Подписать"
 function Subscribe()
@@ -272,7 +251,7 @@ function Subscribe()
 // "Выполнить настройки"
 function Tunein()
 { 
-   echo '<button id="bTunein" class="btnLead" title="Выполнить настройки">'.
+   echo '<button id="bTunein" class="btnLead" title="Выполнить настройки" onclick="Proba111()">'.
    '<i id="iTunein" class="fa fa-cog fa-3x" aria-hidden="true"></i></button>';
 }
 // "Загрузить подпись"
