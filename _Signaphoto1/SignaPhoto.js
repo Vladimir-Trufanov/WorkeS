@@ -3,11 +3,173 @@
 /**
  * Библиотека прикладных функций страницы "Подписать фотографию"                             
  * 
- * v1.0, 13.06.2021        Автор: Труфанов В.Е. 
- * Copyright © 2019 tve    Дата создания: 03.06.2021
+ * v3.0, 05.12.2021        Автор: Труфанов В.Е. 
+ * Copyright © 2021 tve    Дата создания: 03.06.2021
  * 
 **/ 
 
+// ****************************************************************************
+// *                   Блок функций по выгрузке изображений на сервер         *
+// ****************************************************************************
+// По клику на кнопке активировать клик выбора файла для загрузки
+function alfFindFile() 
+{
+   document.getElementById('ipfLoadPic').click();
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+} 
+// При изменении состояния input file перебрасываем файл на сервер 
+function alfLoadFile() 
+{
+   console.log('alfLoadFile');
+   // ------Подключаем вызов загрузки нового изображения
+   readImage(document.getElementById('ipfLoadPic'));
+}  
+
+
+function fliClick() 
+{
+   console.log("fliClick");
+}
+function fliLoad() 
+{
+   console.log("fliLoad");
+}
+function fliReset() 
+{
+   console.log("fliReset");
+}
+// ****************************************************************************
+// *       Выбрать и скопировать изображение во временное хранилище           *
+// ****************************************************************************
+function readImage(input) 
+{
+   // Если выбран и загружен во временное хранилище хотя бы один файл
+   if (input.files && input.files[0]) 
+   {
+      
+      // Трассируем параметры загружаемого файла
+      console.log(input.files[0]);
+      console.log(input.files[0].name);
+      console.log(input.files[0].type);
+      console.log(input.files[0].lastModified);
+      console.log(input.files[0].size+' байт');
+      
+      console.log('readImage=11');
+      // Определяем расширение файла
+      imageType=input.files[0].type;
+      // Если неверное расширение файла, то выдаем сообщение
+      if (!(imageType=='image/jpeg'||imageType=='image/png'||imageType=='image/gif')) 
+      {
+         //printMessage('#result',ajInvalidType);
+         console.log('ajInvalidType');
+      }
+      // Выполняем считывание файла во временное хранилище
+      else 
+      {
+         // Создаем объект чтения содержимого файла, 
+         // хранящиеся на компьютере пользователя
+         // (асинхронно, чтобы не тормозить браузер)
+         reader = new FileReader();
+         // Прицепляем замену существующего изображения на загруженное
+         // при успешном завершении загрузки страницы
+         reader.onload = function (event) 
+         {
+            $('#pic').attr('src',event.target.result);
+            // Напоминаем о дальнейшем шаге "Загрузите изображение для нанесения подписи"
+            //printMessage('#result',ajInfoLoadImg);
+            console.log('ajInfoLoadImg');
+         }
+         // Прицепляем сообщение об ошибке загрузки во временное хранилище
+         reader.onerror = function(event) 
+         {
+            //printMessage('#result',ajErrTempoFile);
+            console.log('ajErrTempoFile');
+            reader.abort(); 
+         };
+         // Запускаем процесс чтения изображения 
+         reader.readAsDataURL(input.files[0]);
+      }
+   }
+   // Отмечаем, что не загружен файл во временное хранилище
+   else
+   {
+      console.log('ajNoTempoFile');
+      // printMessage('#result',ajNoTempoFile);
+   }
+}
+
+
+
+
+
+
+
+// Вывести сообщение при ошибке перемещения файла из временного хранилища
+function alfOnResponse(d) 
+{
+ alert('var obj = ' + d + ';');  
+ eval('var obj = ' + d + ';');  
+ if(obj.success!=1)
+   {
+    alert('Ошибка!\nФайл ' + obj.filename + " не загружен - "+obj.myres); 
+    return; 
+   }; 
+ alert('Файл загружен'); 
+}
+ 
+function alfMoveFile() 
+{
+   alert('ajaMoveFile');
+   
+   
+   
+   /*
+   $.ajax({
+         type:'POST',            // тип запроса
+         //type: "GET",
+         url: 'ajaMoveFile.php',  // скрипт обработчика
+         dataType: "json",
+         //async: false,          // гуглом не рекомендуется 'из-за пагубного воздействия'
+         data:  {first:1, second:"second"},         // данные которые мы передаем
+         cache: false,           // по POST отключено, но явно уточняем
+         contentType: false,     // отключаем, так как тип кодирования задан в форме
+         processData: false,     // отключаем, так как передаем файл
+         // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
+         success:function(data)
+         {
+            alert('ajaMoveFile.success: ');
+            trassData(data);
+
+         },
+         // Отмечаем  неуспешное выполнение аякс-запроса по причине:
+         error:function(data)
+         {
+            //alert('ajaMoveFile.error: '+data);
+            alert('ajaMoveFile.error: ');
+         }
+      });
+ */     
+} 
+ 
+
+
+// -------------------------------------------------------------------
 // ****************************************************************************
 // *        Преобразовать логическое значение в соответствующий текст         *
 // ****************************************************************************

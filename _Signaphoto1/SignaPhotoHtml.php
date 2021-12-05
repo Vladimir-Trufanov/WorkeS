@@ -47,6 +47,8 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    ';
    // Подключаем font-awesome
    echo '<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">';
+   // Подключаем скрипт изменения заголовка "input file"
+   echo '<script src="/Jsx/jquery-input-file-text.js"></script>';
    //
    echo '<link rel="stylesheet" type="text/css" href="SignaReset.css">';
    //echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
@@ -159,7 +161,7 @@ function ViewPhoto($c_FileImg)
       'Photo Photo Photo';
    */
    // Выводим изображение
-   echo '<img src="'.$c_FileImg.'" alt="" id="pic">';
+   echo '<img src="'.$c_FileImg.'" alt="tttrr" id="pic" title="ghhjjjkk">';
    /* 
    $im = imagecreatefrompng('dave.png');
    if($im && imagefilter($im, IMG_FILTER_GRAYSCALE))
@@ -198,6 +200,7 @@ function ViewProba($c_FileProba)
    // Начинаем форму запроса изображения по типу: photo, stamp, proba
    //echo '
    //   <form action="SignaPhotoUpload.php?img='.$RequestFile.'" '.
+   /*
    echo '
       <form action="SignaPhotoUpload.php?img=file.png" '.
       'target="rFrame" method="POST" enctype="multipart/form-data">';  
@@ -215,12 +218,9 @@ function ViewProba($c_FileProba)
    '</div>';
    // Завершаем форму запроса
    echo '</form>';
-   
-
-   
-   
-   
-   echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
+   */
+   //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
+   \prown\ViewGlobal(avgFILES);
 }
 // ****************************************************************************
 // *     Подготовить кнопки для действий: загрузить изображение, подписать,   *
@@ -238,33 +238,91 @@ function LoadImg()
       </div>
    ';
    */
-   echo '<button id="bLoadImg" class="btnLead" title="Загрузить изображение">'.
-   '<i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></button>';
- 
+   //echo '<button id="bLoadImg" class="btnLead" title="Загрузить изображение">'.
+   //'<i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></button>';
+   //   <iframe id="alfFrame" name="alfFrame" style="display: none"> </iframe>  
+
+   /*
+   echo '
+   <div class="navButtons" onclick="alfFindFile();" title="Загрузка файла"><i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></div>
+   <form action="SignaUpload.php" target="alfFrame" method="POST" enctype="multipart/form-data">  
+   <div class="hiddenInput">
+      <input type="file"   id="select_img" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">  
+      <input type="submit" id="loadin_img" style="display:none" value="Загрузить">  
+   </div>
+   </form>
+   <iframe id="alfFrame" name="alfFrame" style="display:none"></iframe>  
+   ';
+   */
+   
+   /*
+   echo '
+   <div class="navButtons" onclick="alfFindFile();" title="Загрузка файла"><i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></div>
+   <form target="alfFrame" method="POST" enctype="multipart/form-data">  
+   <div class="hiddenInput">
+      <input type="file"   id="select_img" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">  
+      <input type="submit" id="loadin_img" style="display:none" value="Загрузить" onclick="alfMoveFile();">  
+   </div>
+   </form>
+   <iframe id="alfFrame" name="alfFrame" style="display:none"></iframe>  
+   ';
+   */
+   /*
+   echo '
+   <div class="navButtons" onclick="alfFindFile();" title="Загрузка файла"><i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></div>
+   <div class="hiddenInput">
+      <input type="file" id="select_img" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">  
+   </div>
+   ';
+   echo '
+      <input type="file" id="select_img" accept="image/jpeg,image/png,image/gif" onclick="alfLoadFile();">  
+   ';
+   */
+   
+   echo '
+      <div id="ipfDivPic">
+      <input id="ipfLoadPic" type="file" name="image" 
+      onchange="alfLoadFile();" onclick="fliClick();" onload="fliLoad();" onreset="fliReset();">
+      </div>
+   ';
+   echo '
+   <button id="bLoadImg" class="navButtons" onclick="alfFindFile()"  
+   title="Загрузить изображение">
+   <i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i>
+   </button>
+   ';
 }
 // "Подписать"
 function Subscribe()
 { 
-   echo '<button id="bSubscribe" class="btnLead" title="Подписать">'.
-    '<i id="iSubscribe" class="fa fa-user-plus fa-3x" aria-hidden="true"></i></button>';
+   echo '
+   <button id="bSubscribe" class="navButtons"   
+   title="Подписать">
+   <i id="iSubscribe" class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+   </button>
+   ';
 }
 // "Выполнить настройки"
 function Tunein()
 { 
-   echo '<button id="bTunein" class="btnLead" title="Выполнить настройки" onclick="Proba111()">'.
-   '<i id="iTunein" class="fa fa-cog fa-3x" aria-hidden="true"></i></button>';
+   echo '
+   <button id="bTunein" class="navButtons"   
+   title="Выполнить настройки">
+   <i id="iTunein" class="fa fa-cog fa-3x" aria-hidden="true"></i>
+   </button>
+   ';
 }
 // "Загрузить подпись"
 function LoadStamp()
 { 
-   echo '<button id="bLoadStamp" class="btnLead" title="Загрузить подпись">'.
-   '<i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>';
+   echo '
+   <button id="bLoadStamp" class="navButtons"   
+   title="Загрузить подпись">
+   <i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+   </button>
+   ';
 }
-
-
 /*
-
-
 function MakeStamp()
 {
    // Загрузка штампа и фото, для которого применяется водяной знак (называется штамп или печать)

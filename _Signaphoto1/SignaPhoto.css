@@ -106,6 +106,7 @@ body{background:yellow;}
 }
 
 
+/*
 .navButtons
 {  
       border:1px gray solid;
@@ -133,6 +134,12 @@ body{background:yellow;}
       height:0px;  
       width:0px;  
   }
+*/
+
+
+
+
+
 #btnLoadImg
 {
    margin-top:0;

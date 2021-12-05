@@ -19,3 +19,8 @@ Stack trace:
   thrown in C:\Webservers\Exploration\_Signaphoto1\ajaPicsSizes.php on line 48
 [01-Dec-2021 14:52:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'file' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 221
 [01-Dec-2021 14:54:05 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'file' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 221
+[03-Dec-2021 06:09:14 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'Загрузить' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 249
+[03-Dec-2021 06:09:28 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'Загрузить' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 249
+[03-Dec-2021 15:52:38 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'C:/TPhpPrown/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38
+[03-Dec-2021 16:07:53 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38
+[03-Dec-2021 16:11:00 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38

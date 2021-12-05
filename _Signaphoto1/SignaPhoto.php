@@ -28,14 +28,17 @@ try
    // Подключаем модуль и выодим технологическую информацию
    require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';;
    // Подключаем файлы библиотеки прикладных модулей:
-   $TPhpPrown=$SiteHost.'/TPhpPrown';
-   require_once $TPhpPrown."/TPhpPrown/CommonPrown.php";
-   require_once $TPhpPrown."/TPhpPrown/MakeCookie.php";
-   require_once $TPhpPrown."/TPhpPrown/MakeSession.php";
-   require_once $TPhpPrown."/TPhpPrown/ViewGlobal.php";
+   $TPhpPrown  = $SiteHost.'/TPhpPrown/TPhpPrown';
+   require_once $TPhpPrown."/CommonPrown.php";
+   require_once $TPhpPrown."/MakeCookie.php";
+   require_once $TPhpPrown."/MakeSession.php";
+   require_once $TPhpPrown."/ViewGlobal.php";
    // Подключаем файлы библиотеки прикладных классов:
-   $TPhpTools=$SiteHost.'/TPhpTools';
+   //$TPhpTools=$SiteHost.'/TPhpTools';
    //require_once $TPhpTools."/TPhpTools/iniErrMessage.php";
+   // Подключаем файлы библиотеки прикладных классов:
+   $TPhpTools=$SiteHost.'/TPhpTools/TPhpTools';
+   //require_once $TPhpTools."/TUploadToServer/UploadToServerClass.php";
    // Подключаем модули страницы "Подписать фотографию"
    require_once 'SignaPhotoHtml.php';
 
@@ -71,6 +74,9 @@ try
 
    //DebugView($s_Orient);
    MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba);
+
+
+
    
    // Завершаем вывод страницы
    echo '</body>';
@@ -106,27 +112,21 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
    
    // Размечаем область управления загрузкой и подписанием
    echo '<div  id="Lead">';
-   LoadImg();
-   Subscribe();
-   Tunein();
-   LoadStamp();
-  
-   // Делаем кнопку для отладки js-функций
-   echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
-   
-   // Закладываем в разметку див для сообщений через диалоговое окно
-   echo '<div id="'.ohInfo.'">';
-   /*
-   echo '***<br>';
-   echo 'Привет info!<br>';
-   echo '***<br>';
-   echo '</div>';
-   */
-   // Заготавливаем скрытый фрэйм для обработки загружаемого изображения 
-   // (25.06.2021 убираем из кода для осмысления. Делаем по другому)
-   echo '<iframe id="rFrame" name="rFrame" style="display: none"> </iframe>';
-
-   echo '</div>';
+      LoadImg();
+      Subscribe();
+      Tunein();
+      LoadStamp();
+      // Делаем кнопку для отладки js-функций
+      echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
+      // Закладываем в разметку див для сообщений через диалоговое окно
+      echo '<div id="'.ohInfo.'">';
+         /*
+         echo '***<br>';
+         echo 'Привет info!<br>';
+         echo '***<br>';
+         echo '</div>';
+         */
+      echo '</div>';
    echo '</div>';
 }
 
