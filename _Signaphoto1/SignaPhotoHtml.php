@@ -185,6 +185,9 @@ function ViewStamp($c_FileStamp)
       'Stamp Stamp Stamp Stamp Stamp Stamp';
    */
    echo '<img src="'.$c_FileStamp.'" alt="" id="picStamp">';
+   
+   
+   
 }
 // Вывести изображение c подписью
 function ViewProba($c_FileProba)
@@ -220,7 +223,17 @@ function ViewProba($c_FileProba)
    echo '</form>';
    */
    //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
-   \prown\ViewGlobal(avgFILES);
+   
+           
+   echo '<pre>';
+   print_r($_FILES);
+   print "</pre>";
+   
+   echo '
+   <div id="InfoLead">
+   123
+   </div>';
+   //\prown\ViewGlobal(avgFILES);
 }
 // ****************************************************************************
 // *     Подготовить кнопки для действий: загрузить изображение, подписать,   *
@@ -279,12 +292,15 @@ function LoadImg()
    ';
    */
    
+   /*
    echo '
       <div id="ipfDivPic">
       <input id="ipfLoadPic" type="file" name="image" 
       onchange="alfLoadFile();" onclick="fliClick();" onload="fliLoad();" onreset="fliReset();">
       </div>
    ';
+   */
+   
    echo '
    <button id="bLoadImg" class="navButtons" onclick="alfFindFile()"  
    title="Загрузить изображение">

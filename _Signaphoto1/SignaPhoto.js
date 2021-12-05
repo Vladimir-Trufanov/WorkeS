@@ -14,10 +14,20 @@
 // По клику на кнопке активировать клик выбора файла для загрузки
 function alfFindFile() 
 {
-   document.getElementById('ipfLoadPic').click();
+   //document.getElementById('ipfLoadPic').click();
    
    
-   
+   // Настраиваем #InfoLead на загрузку изображения
+   elem=document.getElementById('InfoLead');
+   elem.innerHTML=
+     '<div id="InfoLead">'+
+     '<form method="POST" enctype="multipart/form-data">'+  
+     '<input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">'+  
+     '<input type="submit" id="my_hidden_load" value="Загрузить">'+  
+     '</form>'+
+     '</div>';
+     document.getElementById('my_hidden_file').click();
+
    
    
    
@@ -36,9 +46,10 @@ function alfFindFile()
 // При изменении состояния input file перебрасываем файл на сервер 
 function alfLoadFile() 
 {
-   console.log('alfLoadFile');
+   document.getElementById('my_hidden_load').click();
+   console.log('submit: my_hidden_load.click');
    // ------Подключаем вызов загрузки нового изображения
-   readImage(document.getElementById('ipfLoadPic'));
+   // readImage(document.getElementById('ipfLoadPic'));
 }  
 
 

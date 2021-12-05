@@ -116,6 +116,8 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
       Subscribe();
       Tunein();
       LoadStamp();
+
+      
       // Делаем кнопку для отладки js-функций
       echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
       // Закладываем в разметку див для сообщений через диалоговое окно
@@ -127,6 +129,9 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
          echo '</div>';
          */
       echo '</div>';
+
+      
+      
    echo '</div>';
 }
 
