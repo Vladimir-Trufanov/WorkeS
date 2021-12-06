@@ -79,30 +79,36 @@ body{background:yellow;}
 
 #pic
 {
+/*
    width:99%;
    display:block;
    margin-left:auto;
    margin-right:auto;
    margin-top:.4rem;
    margin-bottom:.3rem;
+*/
 }
 #picStamp
 {
+/*
    height:9%;
    display:block;
    margin-left:auto;
    margin-right:auto;
    margin-top:.3rem;
    margin-bottom:.4rem;
+   */
 }
 #picProba
 {
+/*
    width:99%;
    display:block;
    margin-left:auto;
    margin-right:auto;
    margin-top:.4rem;
    margin-bottom:.4rem;
+   */
 }
 
 

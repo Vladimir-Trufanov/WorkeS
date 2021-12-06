@@ -115,7 +115,7 @@ function MakeTextPages()
    <script>
    // Определяем защишенность сайта, для того чтобы правильно сформулировать 
    // в запросе http или https
-   let https='<?php echo $_SERVER["HTTPS"];?>';
+   https='<?php echo $_SERVER["HTTPS"];?>';
    if (https=="off") https="http"
    else https="https"; 
    console.log('https='+https);
@@ -229,10 +229,7 @@ function ViewProba($c_FileProba)
    print_r($_FILES);
    print "</pre>";
    
-   echo '
-   <div id="InfoLead">
-   123
-   </div>';
+   echo '<div id="InfoLead"></div>';
    //\prown\ViewGlobal(avgFILES);
 }
 // ****************************************************************************

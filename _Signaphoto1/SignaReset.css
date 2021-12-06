@@ -70,19 +70,8 @@ body
 #Photo {height:82%;}
 #Stamp {height:18%;}
 
-
-#pic,#picStamp,#picProba
-{
-   padding:0;
-}
-#picProba
-{
-/*width:98%;*/
-}
-#picStamp
-{
-/*height:80%;*/
-}
+/* Перед раскрытием страницы нулевые размеры изображений */
+#pic,#picStamp,#picProba{width:0;height:0;}
 
 /* Стилизация кнопок */
 .navButtons
@@ -116,7 +105,11 @@ body
 }
 /* Прячем див с кнопкой активации загрузки файла */
 #ipfDivPic {display:none;}
-#InfoLead  {display:none;}
+
+/*Прячем разметочные объекты для загрузки файла изображения*/
+#InfoLead  {width:0;height:0;padding:0;margin:0;}
+#my_hidden_file,#my_hidden_load
+{font-size:0;width:0;border-style:none;background-color:transparent;}
 
 /*
  *********************************************************** SignaReset.css ***

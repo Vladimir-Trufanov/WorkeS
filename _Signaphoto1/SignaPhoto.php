@@ -60,13 +60,16 @@ try
    IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
    // Уточняем ориентацию страницы
    $s_Orient=prown\MakeSession('Orient',MakeOrient($s_Orient,$s_Counter),tStr);
+
+   echo '<script> PlaceImgOnDiv(); </script>';
+
+
    // Подключаем скрипты по завершению загрузки страницы
    echo 
    '<script>$(document).ready(function() {
       //console.log("window.orientation="+window.orientation);
       //alert("window.orientation="+window.orientation);
       // Размещаем изображения внутри Div-ов
-      PlaceImgOnDiv();
    });</script>';
    // Начинаем выводить тело страницы 
    echo '</head>';

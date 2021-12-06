@@ -14,38 +14,25 @@
 // По клику на кнопке активировать клик выбора файла для загрузки
 function alfFindFile() 
 {
+   console.log("alfFindFile");
    //document.getElementById('ipfLoadPic').click();
-   
-   
    // Настраиваем #InfoLead на загрузку изображения
    elem=document.getElementById('InfoLead');
    elem.innerHTML=
      '<div id="InfoLead">'+
      '<form method="POST" enctype="multipart/form-data">'+  
      '<input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">'+  
-     '<input type="submit" id="my_hidden_load" value="Загрузить">'+  
+     '<input type="submit" id="my_hidden_load" value="">'+  
      '</form>'+
      '</div>';
-     document.getElementById('my_hidden_file').click();
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+   document.getElementById('my_hidden_file').click();
+   //$('#my_hidden_file').click();
+    
 } 
 // При изменении состояния input file перебрасываем файл на сервер 
 function alfLoadFile() 
 {
+   console.log("alfLoadFile");
    document.getElementById('my_hidden_load').click();
    console.log('submit: my_hidden_load.click');
    // ------Подключаем вызов загрузки нового изображения
@@ -322,15 +309,15 @@ function PlaceImgOnDiv()
 {
    // Выбираем размеры окон для первоначального изображения, подписи и окончательного
    /*
-   let oPhoto=document.getElementById("Photo")
-   let widthPhoto=oPhoto.offsetWidth;
-   let heightPhoto=oPhoto.offsetHeight;
-   let oStamp=document.getElementById("Stamp")
-   let widthStamp=oStamp.offsetWidth;
-   let heightStamp=oStamp.offsetHeight;
-   let oProba=document.getElementById("Proba")
-   let widthProba=oProba.offsetWidth;
-   let heightProba=oProba.offsetHeight;
+   oPhoto=document.getElementById("Photo")
+   widthPhoto=oPhoto.offsetWidth;
+   heightPhoto=oPhoto.offsetHeight;
+   oStamp=document.getElementById("Stamp")
+   widthStamp=oStamp.offsetWidth;
+   heightStamp=oStamp.offsetHeight;
+   oProba=document.getElementById("Proba")
+   widthProba=oProba.offsetWidth;
+   heightProba=oProba.offsetHeight;
    */
    // Делаем ajax-запрос для того, чтобы данные с сервера записались в 
    // переменную data. The jqXHR.success(), jqXHR.error(), and jqXHR.complete() 
@@ -433,7 +420,6 @@ function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft)
    {
       // Вначале определяем размещение по ширине через проценты
       nWidth=perWidth; nLeft=perLeft;
-      $('#'+cImg).css('width',String(nWidth)+'%');
       $('#'+cImg).css('margin-left',String(nLeft)+'%');
       // Определяем ширину изображения  ***   nWidth --> x        ***
       // в диве из пропорции:           ***     100% --> widthDiv ***
@@ -443,20 +429,22 @@ function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft)
       heightImg=widthImg*hImg/wImg;
       // Определяем центрирование размещения по высоте через пикселы
       nTop=(heightDiv-heightImg)/2;
+      $('#'+cImg).css('width',String(widthImg)+'px');
+      $('#'+cImg).css('height',String(heightImg)+'px');
       $('#'+cImg).css('margin-top',String(nTop)+'px');
    }
    // Выравниваем по высоте
    else
    {
-      // Вначале определяем высоту изображения в диве через проценты
+      // Вначале задаем высоту изображения в диве через проценты
       nHeight=94; 
-      $('#'+cImg).css('height',String(nHeight)+'%');
       // Определяем высоту изображения в диве через пикселы
       heightImg=nHeight*heightDiv/100;
       // Определяем ширину изображения  *** wImg --> hImg      ***
       // в диве через пикселы:          ***    x --> heightImg ***
       widthImg=wImg*heightImg/hImg;
       $('#'+cImg).css('width',String(widthImg)+'px');
+      $('#'+cImg).css('height',String(heightImg)+'px');
       // Центрируем изображение по диву
       $('#'+cImg).css('margin-left',String((widthDiv-widthImg)/2)+'px');
       $('#'+cImg).css('margin-top',String((heightDiv-heightImg)/2)+'px');
@@ -481,32 +469,8 @@ function getAlignImg(cDiv,cImg,wImg,hImg)
    // если высота изображения превышает высоту дива,
    // то считаем, что изображение нужно растянуть по высоте
    if (p_heightDiv>heightDiv) alignImg='по высоте';
-   console.log('alignImg='+alignImg);
+   console.log(cImg+': alignImg='+alignImg);
    return alignImg;
-}
-// ****************************************************************************
-// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
-// *                    cImg - идентификатор изображения,                     *
-// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  * 
-// ****************************************************************************
-function PlaceUsStamp(cDiv,cImg,wImg,hImg)
-{
-   // Определяем размеры дива на экране
-   oDiv=document.getElementById(cDiv)
-   widthDiv=oDiv.offsetWidth;
-   heightDiv=oDiv.offsetHeight;
-   // Определяем первичное выравнивание ('по ширине','по высоте')
-   mAligne='по ширине';
-   // Выравниваем по ширине
-   if (mAligne=='по ширине')
-   {
-      nWidth=84;  nLeft=4;
-      $('#'+cImg).css('width',String(nWidth)+'%');
-   }
-   // Выравниваем по высоте
-   else
-   {
-   }
 }
  
 // ********************************************************** SignaPhoto.js ***

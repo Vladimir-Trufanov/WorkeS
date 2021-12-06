@@ -24,3 +24,4 @@ Stack trace:
 [03-Dec-2021 15:52:38 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'C:/TPhpPrown/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38
 [03-Dec-2021 16:07:53 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38
 [03-Dec-2021 16:11:00 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38
+[06-Dec-2021 15:58:10 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 310
