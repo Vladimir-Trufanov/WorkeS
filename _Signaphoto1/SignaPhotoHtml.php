@@ -229,7 +229,9 @@ function ViewProba($c_FileProba)
    print_r($_FILES);
    print "</pre>";
    
-   echo '<div id="InfoLead"></div>';
+
+   
+   //echo '<div id="InfoLead"></div>';
    //\prown\ViewGlobal(avgFILES);
 }
 // ****************************************************************************
@@ -297,6 +299,18 @@ function LoadImg()
       </div>
    ';
    */
+
+
+   // Stamp
+   // alfFrame
+   echo '
+     <div id="InfoLead">
+     <form target="alfFrame" action="SignaUpload.php" method="POST" enctype="multipart/form-data">  
+     <input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">  
+     <input type="submit" id="my_hidden_load" value="">  
+     </form>
+     </div>
+   ';
    
    echo '
    <button id="bLoadImg" class="navButtons" onclick="alfFindFile()"  

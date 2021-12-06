@@ -110,6 +110,8 @@ body
 #InfoLead  {width:0;height:0;padding:0;margin:0;}
 #my_hidden_file,#my_hidden_load
 {font-size:0;width:0;border-style:none;background-color:transparent;}
+#alfFrame{display:block;}  
+
 
 /*
  *********************************************************** SignaReset.css ***

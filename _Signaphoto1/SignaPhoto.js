@@ -14,9 +14,10 @@
 // По клику на кнопке активировать клик выбора файла для загрузки
 function alfFindFile() 
 {
-   console.log("alfFindFile");
+   //console.log("alfFindFile");
    //document.getElementById('ipfLoadPic').click();
    // Настраиваем #InfoLead на загрузку изображения
+   /*
    elem=document.getElementById('InfoLead');
    elem.innerHTML=
      '<div id="InfoLead">'+
@@ -25,6 +26,7 @@ function alfFindFile()
      '<input type="submit" id="my_hidden_load" value="">'+  
      '</form>'+
      '</div>';
+   */
    document.getElementById('my_hidden_file').click();
    //$('#my_hidden_file').click();
     
@@ -32,11 +34,13 @@ function alfFindFile()
 // При изменении состояния input file перебрасываем файл на сервер 
 function alfLoadFile() 
 {
-   console.log("alfLoadFile");
+   //console.log("alfLoadFile");
    document.getElementById('my_hidden_load').click();
-   console.log('submit: my_hidden_load.click');
+   //console.log('submit: my_hidden_load.click');
    // ------Подключаем вызов загрузки нового изображения
-   // readImage(document.getElementById('ipfLoadPic'));
+   //readImage(document.getElementById('ipfLoadPic'));
+   //readImage(document.getElementById('my_hidden_file'));
+   
 }  
 
 
@@ -53,21 +57,21 @@ function fliReset()
    console.log("fliReset");
 }
 // ****************************************************************************
-// *       Выбрать и скопировать изображение во временное хранилище           *
+// *              Выбрать и скопировать изображение в разметку                *
 // ****************************************************************************
 function readImage(input) 
 {
    // Если выбран и загружен во временное хранилище хотя бы один файл
    if (input.files && input.files[0]) 
    {
-      
+      /*
       // Трассируем параметры загружаемого файла
       console.log(input.files[0]);
       console.log(input.files[0].name);
       console.log(input.files[0].type);
       console.log(input.files[0].lastModified);
       console.log(input.files[0].size+' байт');
-      
+      */
       console.log('readImage=11');
       // Определяем расширение файла
       imageType=input.files[0].type;
@@ -292,7 +296,7 @@ function Substi()
    window.location.replace('/Pages/SignaPhoto/SignaPhotoPortrait.php#page2');
 }
 
-function onResponse(d) // Функция обработки ответа от сервера 
+function alfOnResponse(d) // Функция обработки ответа от сервера 
 {  
  eval('var obj = ' + d + ';');  
  if(obj.success!=1)
@@ -343,7 +347,7 @@ function PlaceImgOnDiv()
    })
    .done(function() 
    {
-      console.log( "second success" );
+      console.log( "second success12" );
    })
    .fail(function() 
    {
@@ -351,7 +355,7 @@ function PlaceImgOnDiv()
    })
    .always(function() 
    {
-      console.log( "complete" );
+      console.log( "complete12" );
       //alert("complete");
    });
 }
