@@ -7,7 +7,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  10.07.2021
-// Copyright © 2021 tve                              Посл.изменение: 26.11.2021
+// Copyright © 2021 tve                              Посл.изменение: 07.12.2021
 
 // Определения сообщений для PHP
 define ("ajErrBigFile",         "Файл превышает максимальный размер"); 
@@ -24,6 +24,7 @@ define ("ajIsFreshStamp",       "На изображение наложена с
 define ("ajLostScriptFile",     "Утерян файл скрипта");   
 define ("ajNoSetFile",          "Не установлен массив файлов и не загружены данные");
 define ("ajNoTempoFile",        "Не загружен файл во временное хранилище");
+define ("ajOk",                 "Все получилось хорошо");
 define ("ajProba",              "Это проверочное сообщение");
 define ("ajStampNotBuilt",      "Не строится изображение штампа - водяного знака");
 define ("ajSuccess",            "Функция/процедура выполнена успешно");     
@@ -49,6 +50,7 @@ $define=
 'ajLostScriptFile="'    .ajLostScriptFile.    '";'.
 'ajNoSetFile="'         .ajNoSetFile.         '";'.
 'ajNoTempoFile="'       .ajNoTempoFile.       '";'.
+'ajOk="'                .ajOk.                '";'.
 'ajProba="'             .ajProba.             '";'.
 'ajStampNotBuilt="'     .ajStampNotBuilt.     '";'.
 'ajSuccess="'           .ajSuccess.           '";'.

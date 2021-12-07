@@ -125,14 +125,21 @@ function readImage(input)
 // Вывести сообщение при ошибке перемещения файла из временного хранилища
 function alfOnResponse(d) 
 {
- alert('var obj = ' + d + ';');  
+ alert(d+'!'); 
+ /* 
  eval('var obj = ' + d + ';');  
  if(obj.success!=1)
    {
     alert('Ошибка!\nФайл ' + obj.filename + " не загружен - "+obj.myres); 
     return; 
    }; 
- alert('Файл загружен'); 
+ alert('Файл '+obj.filename+' загружен'); 
+ */
+}
+// Вывести сообщение при ошибке перемещения файла из временного хранилища
+function alfOnResp(d) 
+{
+ alert('Сообщение');  
 }
  
 function alfMoveFile() 
@@ -296,16 +303,6 @@ function Substi()
    window.location.replace('/Pages/SignaPhoto/SignaPhotoPortrait.php#page2');
 }
 
-function alfOnResponse(d) // Функция обработки ответа от сервера 
-{  
- eval('var obj = ' + d + ';');  
- if(obj.success!=1)
-   {
-    alert('Ошибка!\nФайл ' + obj.filename + " не загружен - "+obj.myres); 
-    return; 
-   }; 
- alert('Файл загружен'); 
-}
 // ****************************************************************************
 // *          Просчитать и установить размеры изображений внутри дивов        *
 // ****************************************************************************

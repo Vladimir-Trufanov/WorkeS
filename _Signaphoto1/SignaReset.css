@@ -50,7 +50,7 @@ ul
 }
 body
 {
-   background:red; 
+   /*background:red;*/
    width:100%;
    height:100%;
    font-size:1rem;
@@ -106,11 +106,12 @@ body
 /* Прячем див с кнопкой активации загрузки файла */
 #ipfDivPic {display:none;}
 
-/*Прячем разметочные объекты для загрузки файла изображения*/
+/* Прячем разметочные объекты для загрузки файла изображения */
 #InfoLead  {width:0;height:0;padding:0;margin:0;}
 #my_hidden_file,#my_hidden_load
 {font-size:0;width:0;border-style:none;background-color:transparent;}
-#alfFrame{display:block;}  
+/* Позиционируем плавающий фрэйм загрузки изображений */
+#alfFrame{display:block;background-color:transparent;position:absolute;z-index:201;width:90%;height:90%;}  
 
 
 /*

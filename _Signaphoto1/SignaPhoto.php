@@ -78,11 +78,11 @@ try
    //DebugView($s_Orient);
    MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba);
 
-   // 
- 
-    echo '
-     <iframe id="alfFrame" name="alfFrame" width="468" height="360" align="left" style="position:absolute; display:block; z-index:201;"></iframe>  
-   ';
+   // Размещаем плавающий фрэйм сообщений при загрузке изображения
+   echo 
+    '<iframe id="alfFrame" name="alfFrame" align="left">'.
+    'Ваш браузер не поддерживает плавающие фреймы!'.
+    '</iframe>';
 
  
   
