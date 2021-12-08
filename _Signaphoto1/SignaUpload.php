@@ -38,7 +38,7 @@ prown\ConsoleLog($TPhpTools."/TUploadToServer/UploadToServerClass.php");
    // Создаем каталог для хранения изображений, если его нет.
    // И отдельно (чтобы сработало на старых Windows) задаем права
    $imgDir="Gallery";
-   $is=CreateDir($imgDir,0777);
+   $is=CreateRightsDir($imgDir,0777);
    //alf_jsOnResponse($is);
    
    /*
@@ -53,14 +53,17 @@ prown\ConsoleLog($TPhpTools."/TUploadToServer/UploadToServerClass.php");
    }
    */
 
-   try 
-   {
+   //try 
+   //{
+       // Регистрируем новую функцию-обработчик для всех типов ошибок
+       //set_error_handler("ProbaHandler",E_WARNING);
+       //$i=0; $j=5/$i; 
        //$fileperms=substr(sprintf('%o', fileperms('/tmp')), -4);
-       $fileperms=substr(sprintf('%o', fileperms($imgDir)), -4);
-       alf_jsOnResponse($fileperms);
-   } catch (Throwable $e) {
-       alf_jsOnResponse('Не удалось получить права доступа каталога');
-   }
+       //$fileperms=substr(sprintf('%o', fileperms($imgDir)), -4);
+       //alf_jsOnResponse($fileperms);
+   //} catch (E_EXCEPTION $e) {
+   //    alf_jsOnResponse('Не удалось получить права доступа каталога');
+   //}
 
 
 
@@ -112,14 +115,38 @@ prown\ConsoleLog($TPhpTools."/TUploadToServer/UploadToServerClass.php");
       alf_jsOnResponse("{'filename':'" . $name . "', 'success':'" . $success . "'}");
       */
 
-
-
-
-// ****************************************************************************
-// *                  Создать новый каталог и задать его режим                *
-// ****************************************************************************
-function CreateDir($imgDir,$modeDir)
+function ProbaHandler($errno,$errstr,$errfile,$errline)
 {
+   //global $TypeErrors;
+   // Если error_reporting нулевой, значит, использован оператор @,
+   // все ошибки должны игнорироваться
+   //if (!error_reporting())
+   //{
+   //   return true;
+   //}
+          alf_jsOnResponse('Не удалось получить права доступа каталога');
+
+   return true;
+}  
+               
+
+// ****************************************************************************
+// *       Создать каталог (проверить существование) и задать его права       *
+// ****************************************************************************
+function CreateRightsDir($Dir,$modeDir)
+// https://habr.com/ru/sandbox/124577/ - хорошая статья про удаление каталога 
+{
+   // Если каталога нет, то будем создавать его
+   if (!is_dir($Dir))
+   {
+      prown\ConsoleLog('Каталога нет, будем создавать его!'); 
+   }
+   // Если каталог существует, то будем проверять его права
+   else
+   {
+      prown\ConsoleLog('Каталог существует, будем проверять его права!'); 
+   }
+/*
    // Если каталог существует, то удаляем его
    if (!is_dir($imgDir))
    {
@@ -150,6 +177,7 @@ function CreateDir($imgDir,$modeDir)
       }
    }
    return ajOk;
+*/
 }
 
 // ******************************************************** SignaUpload.php ***
