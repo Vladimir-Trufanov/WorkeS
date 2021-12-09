@@ -23,6 +23,7 @@ $SiteHost=$_WORKSPACE[wsSiteHost];    // Каталог хостинга
 
 $TPhpPrown  = $SiteHost.'/TPhpPrown/TPhpPrown';
 require_once $TPhpPrown."/CommonPrown.php";
+require_once $TPhpPrown."/CreateRightsDir.php";
 // Подключаем файлы библиотеки прикладных классов:
 $TPhpTools=$SiteHost.'/TPhpTools/TPhpTools';
 require_once $TPhpTools."/TUploadToServer/UploadToServerClass.php";
@@ -38,7 +39,7 @@ prown\ConsoleLog($TPhpTools."/TUploadToServer/UploadToServerClass.php");
    // Создаем каталог для хранения изображений, если его нет.
    // И отдельно (чтобы сработало на старых Windows) задаем права
    $imgDir="Gallery"; $modeDir=05577;
-   CreateRightsDir($imgDir,$modeDir);
+   prown\CreateRightsDir($imgDir,$modeDir);
    //$imgDir="Gallery2"; $modeDir=0755;
    
    
@@ -229,66 +230,5 @@ function ProbaHandler($errno,$errstr,$errfile,$errline)
 
    return true;
 }  
-               
-
-// ****************************************************************************
-// *       Создать каталог (проверить существование) и задать его права       *
-// ****************************************************************************
-function CreateRightsDir($Dir,$modeDir)
-// https://habr.com/ru/sandbox/124577/ - хорошая статья про удаление каталога 
-{
-   // Если каталога нет, то будем создавать его
-   if (!is_dir($Dir))
-   {
-      prown\ConsoleLog('Каталога нет, будем создавать его!'); 
-      // Создаем каталог
-      if (!mkdir($Dir))
-      {
-         prown\ConsoleLog('Ошибка создания каталога: '.$Dir);
-      }
-      // И отдельно (чтобы сработало на старых Windows) задаем права
-      else
-      {
-         if (!chmod($Dir,$modeDir))
-         {
-            prown\ConsoleLog('Ошибка назначения прав каталога: '.$Dir);
-         }
-         // Параметр назначения прав каталога состоит из четырех цифр:
-         //
-         // первая цифра всегда равна нулю (так как указывается восьмеричное число);
-         // вторая цифра указывает разрешения для владельца каталога;
-         // третья цифра указывает разрешения для группы пользователей владельца;
-         // четвертая цифра указывает разрешения для всех остальных.
-         //
-         // Возможные значения (чтобы установить несколько разрешений, сложите следующие числа):
-         //
-         // 1 = выполнение
-         // 2 = права на запись
-         // 4 = разрешения на чтение
-      }
-   }
-   // Если каталог существует, то будем проверять его права
-   else
-   {
-      prown\ConsoleLog('Каталог существует, будем проверять его права!'); 
-   }
-   return ajOk;
-}
-
-function is_octal($x) 
-{
-   return !(decoct(octdec($x)) == $x);
-   
-   // В следующих примерах показан вывод значений в консоль:
-   /*
-   $x=0123;
-   prown\ConsoleLog(decoct(octdec($x)));     // =   3
-   prown\ConsoleLog($x);                     // =  83
-   $x=123;
-   prown\ConsoleLog(decoct(octdec($x)));     // = 123
-   prown\ConsoleLog($x);                     // = 123
-   */
-}
-
 
 // ******************************************************** SignaUpload.php ***
