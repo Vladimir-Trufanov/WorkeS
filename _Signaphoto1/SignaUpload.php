@@ -37,8 +37,109 @@ prown\ConsoleLog($TPhpTools."/TUploadToServer/UploadToServerClass.php");
    //$i=0; $j=5/$i; /*echo $j;*/
    // Создаем каталог для хранения изображений, если его нет.
    // И отдельно (чтобы сработало на старых Windows) задаем права
-   $imgDir="Gallery";
-   $is=CreateRightsDir($imgDir,0777);
+   $imgDir="Gallery"; $modeDir=05577;
+   CreateRightsDir($imgDir,$modeDir);
+   //$imgDir="Gallery2"; $modeDir=0755;
+   
+   
+   
+   
+   
+   
+   
+   
+   //prown\ConsoleLog('$permissions='.$permissions);  
+   //prown\ConsoleLog('$modeDir=    '.$modeDir);  
+
+   $permissions=fileperms($imgDir);
+   // Сравниваем установленные права с желаемыми
+   $fPermissions=substr(sprintf('%o',$permissions),-4);
+   prown\ConsoleLog($fPermissions);
+   $xPermissions='0'.sprintf('%o',$modeDir);
+   prown\ConsoleLog($xPermissions);
+   if ($fPermissions===$xPermissions) prown\ConsoleLog('Установленные и желаемые права совпадают');
+   else prown\ConsoleLog('Установленные и желаемые права НЕ совпадают');
+   
+   //$modeDir=0123;
+   //$modeDir=123;
+   
+   //alf_jsOnResponse(sprintf("%04o",$modeDir)); 
+   //alf_jsOnResponse(octdec(sprintf("%04o",$modeDir))); 
+   //alf_jsOnResponse(decoct(octdec(sprintf("%04o",$modeDir)))); 
+   //alf_jsOnResponse("0".decoct(octdec(sprintf("%04o",$modeDir)))); 
+
+   /*
+   prown\ConsoleLog(sprintf("%04o",0123)); 
+   prown\ConsoleLog(sprintf("%04o",123)); 
+   prown\ConsoleLog(octdec(sprintf("%04o",0123))); 
+   prown\ConsoleLog(octdec(sprintf("%04o",123))); 
+   */
+
+
+   //----
+   /*
+   $expectedPermissions='0123';
+   $permissions=0123;
+   if (intval($expectedPermissions,8) == $permissions) 
+   { // 8 specifies octal base for conversion
+     prown\ConsoleLog('0123 - восьмеричное'); 
+   }
+   $expectedPermissions='123';
+   if (intval($expectedPermissions, 8) == $permissions) { // 8 specifies octal base for conversion
+   prown\ConsoleLog('123 - восьмеричное'); 
+   }
+   */
+   //----
+
+   //prown\ConsoleLog(0123); 
+   //prown\ConsoleLog(intval(0123,8)); 
+   //prown\ConsoleLog(123); 
+   //prown\ConsoleLog(intval(123,8)); 
+   
+   //$x=0123;
+   //prown\ConsoleLog((string)$x); 
+   //prown\ConsoleLog('"'.$x.'"'); 
+   
+   
+   
+   //return decoct(octdec($x)) == $x;
+   /*
+   $x=0123;
+   prown\ConsoleLog(decoct(octdec($x)));     // =   3
+   prown\ConsoleLog($x);                     // =  83
+   if (is_octal($x)) prown\ConsoleLog('0123 - это восьмеричное'); 
+   else prown\ConsoleLog('0123 - это НЕ восьмеричное'); 
+
+   $x=123;
+   prown\ConsoleLog(decoct(octdec($x)));     // = 123
+   prown\ConsoleLog($x);                     // = 123
+   if (is_octal($x)) prown\ConsoleLog('123 - это восьмеричное'); 
+   else prown\ConsoleLog('123 - это НЕ восьмеричное'); 
+
+   $x=0177;
+   prown\ConsoleLog(decoct(octdec($x)));     
+   prown\ConsoleLog($x);                    
+   if (is_octal($x)) prown\ConsoleLog('0177 - это восьмеричное'); 
+   else prown\ConsoleLog('0177 - это НЕ восьмеричное'); 
+
+   $x=177;
+   prown\ConsoleLog(decoct(octdec($x)));     
+   prown\ConsoleLog($x);                     
+   if (is_octal($x)) prown\ConsoleLog('177 - это восьмеричное'); 
+   else prown\ConsoleLog('177 - это НЕ восьмеричное'); 
+   */
+
+ 
+   
+   /*
+   if (is_int($modeDir)) 
+   {
+      if (is_octal($modeDir)) alf_jsOnResponse('восьмеричное число'); 
+      else alf_jsOnResponse('НЕ восьмеричное число'); 
+   }
+   else alf_jsOnResponse('НЕ число'); 
+   */
+   
    //alf_jsOnResponse($is);
    
    /*
@@ -140,35 +241,25 @@ function CreateRightsDir($Dir,$modeDir)
    if (!is_dir($Dir))
    {
       prown\ConsoleLog('Каталога нет, будем создавать его!'); 
-   }
-   // Если каталог существует, то будем проверять его права
-   else
-   {
-      prown\ConsoleLog('Каталог существует, будем проверять его права!'); 
-   }
-/*
-   // Если каталог существует, то удаляем его
-   if (!is_dir($imgDir))
-   {
       // Создаем каталог
-      if (!mkdir($imgDir,$modeDir))
+      if (!mkdir($Dir))
       {
-         return 'Ошибка создания каталога: '.$imgDir;
+         prown\ConsoleLog('Ошибка создания каталога: '.$Dir);
       }
       // И отдельно (чтобы сработало на старых Windows) задаем права
       else
       {
-         if (!chmod($imgDir,$modeDir))
+         if (!chmod($Dir,$modeDir))
          {
-            return 'Ошибка изменения прав каталога: '.$imgDir.
-               ' ['.$modeDir.'] --> ['.substr(sprintf('%o', fileperms($imgDir)),-4).']';
+            prown\ConsoleLog('Ошибка назначения прав каталога: '.$Dir);
          }
-         // Параметр режима состоит из четырех цифр:
+         // Параметр назначения прав каталога состоит из четырех цифр:
          //
-         // Первое число всегда равно нулю
-         // Второе число указывает разрешения для владельца
-         // Третье число указывает разрешения для группы пользователей владельца.
-         // Четвертое число указывает разрешения для всех остальных.
+         // первая цифра всегда равна нулю (так как указывается восьмеричное число);
+         // вторая цифра указывает разрешения для владельца каталога;
+         // третья цифра указывает разрешения для группы пользователей владельца;
+         // четвертая цифра указывает разрешения для всех остальных.
+         //
          // Возможные значения (чтобы установить несколько разрешений, сложите следующие числа):
          //
          // 1 = выполнение
@@ -176,8 +267,28 @@ function CreateRightsDir($Dir,$modeDir)
          // 4 = разрешения на чтение
       }
    }
+   // Если каталог существует, то будем проверять его права
+   else
+   {
+      prown\ConsoleLog('Каталог существует, будем проверять его права!'); 
+   }
    return ajOk;
-*/
 }
+
+function is_octal($x) 
+{
+   return !(decoct(octdec($x)) == $x);
+   
+   // В следующих примерах показан вывод значений в консоль:
+   /*
+   $x=0123;
+   prown\ConsoleLog(decoct(octdec($x)));     // =   3
+   prown\ConsoleLog($x);                     // =  83
+   $x=123;
+   prown\ConsoleLog(decoct(octdec($x)));     // = 123
+   prown\ConsoleLog($x);                     // = 123
+   */
+}
+
 
 // ******************************************************** SignaUpload.php ***

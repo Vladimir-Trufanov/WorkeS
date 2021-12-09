@@ -234,6 +234,8 @@ Exploration
 6=..\SignaPhoto3\SignaPhoto.css
 7=_Signaphoto1\SignaPhotoDef.php
 8=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
+9=..\..\TPhpPrown\TPhpPrown\iniConstMem.php
+10=..\..\TPhpPrown\TPhpPrown\iniErrMessage.php
 [Selected Project Files]
 Main=
 Selected=_Signaphoto1\SignaUpload.php
@@ -253,8 +255,8 @@ Caret=11,128
 TopLine=83
 Caret=57,113
 [_Signaphoto1\SignaUpload.php]
-TopLine=32
-Caret=10,60
+TopLine=34
+Caret=8,49
 [..\SignaPhoto3\SignaPhoto.css]
 TopLine=1
 Caret=1,1
@@ -264,3 +266,9 @@ Caret=14,27
 [..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
 TopLine=53
 Caret=60,84
+[..\..\TPhpPrown\TPhpPrown\iniConstMem.php]
+TopLine=27
+Caret=14,49
+[..\..\TPhpPrown\TPhpPrown\iniErrMessage.php]
+TopLine=6
+Caret=1,1
