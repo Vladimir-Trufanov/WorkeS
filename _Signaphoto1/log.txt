@@ -1,27 +1,2 @@
-[09-Nov-2021 22:08:37 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
-[09-Nov-2021 22:09:14 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
-[09-Nov-2021 22:09:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'isset' (T_ISSET), expecting '(' in C:\Webservers\Exploration\ViewEnviron.php on line 16
-[12-Nov-2021 15:12:41 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '*', expecting end of file in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 171
-[12-Nov-2021 20:17:36 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 't' (T_STRING), expecting '(' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 27
-[12-Nov-2021 20:18:51 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\MakeSession() in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php:49
-Stack trace:
-#0 {main}
-  thrown in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php on line 49
-[23-Nov-2021 18:01:44 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting '{' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 215
-[23-Nov-2021 18:07:04 Asia/Kuwait] PHP Fatal error:  Cannot redeclare Subscribe() (previously declared in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php:217) in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 375
-[24-Nov-2021 12:23:08 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function PlaceImgOnDiv() in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php:64
-Stack trace:
-#0 {main}
-  thrown in C:\Webservers\Exploration\_Signaphoto1\SignaPhoto.php on line 64
-[26-Nov-2021 21:12:30 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\MakeCookie() in C:\Webservers\Exploration\_Signaphoto1\ajaPicsSizes.php:48
-Stack trace:
-#0 {main}
-  thrown in C:\Webservers\Exploration\_Signaphoto1\ajaPicsSizes.php on line 48
-[01-Dec-2021 14:52:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'file' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 221
-[01-Dec-2021 14:54:05 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'file' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 221
-[03-Dec-2021 06:09:14 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'Загрузить' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 249
-[03-Dec-2021 06:09:28 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'Загрузить' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 249
-[03-Dec-2021 15:52:38 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'C:/TPhpPrown/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38
-[03-Dec-2021 16:07:53 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38
-[03-Dec-2021 16:11:00 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '/iniConstMem.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 38
-[06-Dec-2021 15:58:10 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<' in C:\Webservers\Exploration\_Signaphoto1\SignaPhotoHtml.php on line 310
+[02-Jan-2022 13:43:47 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '../CommonPrown.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 60
+[02-Jan-2022 13:45:25 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '../iniToolsMessage.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 60

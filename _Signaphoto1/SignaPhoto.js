@@ -125,7 +125,7 @@ function readImage(input)
 // Вывести сообщение при ошибке перемещения файла из временного хранилища
 function alfOnResponse(d) 
 {
- alert(d+'!'); 
+ alert(d+'!!!'); 
  /* 
  eval('var obj = ' + d + ';');  
  if(obj.success!=1)

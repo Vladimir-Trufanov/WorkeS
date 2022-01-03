@@ -84,6 +84,22 @@ try
     'Ваш браузер не поддерживает плавающие фреймы!'.
     '</iframe>';
 
+
+
+
+/* отладка 03,01,2022
+   define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown'); 
+   define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools'); 
+   require_once pathPhpTools."/iniToolsMessage.php";
+   require_once pathPhpTools."/TUploadToServer/UploadToServerClass.php";
+   $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
+   $upload=new ttools\UploadToServer($imgDir);
+   prown\ConsoleLog('1 $MessUpload=$upload->move()');
+   $MessUpload=$upload->move();
+   prown\ConsoleLog('2 $MessUpload=$upload->move()');
+   prown\ConsoleLog('$MessUpload='.$MessUpload);
+*/
+
  
   
    
