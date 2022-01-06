@@ -17,6 +17,8 @@ $SiteRoot   = $_WORKSPACE[wsSiteRoot];    // Корневой каталог с�
 $SiteAbove  = $_WORKSPACE[wsSiteAbove];   // Надсайтовый каталог
 $SiteHost   = $_WORKSPACE[wsSiteHost];    // Каталог хостинга
 $SiteDevice = $_WORKSPACE[wsSiteDevice];  // 'Computer' | 'Mobile' | 'Tablet'
+$RemoteAddr = $_WORKSPACE[wsRemoteAddr];  // IP-адрес запроса сайта
+
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
@@ -24,7 +26,6 @@ try
 {
    session_start(); 
 
-   //echo $_WORKSPACE[wsUserAgent];
    // Подключаем модуль и выодим технологическую информацию
    require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';;
    // Подключаем файлы библиотеки прикладных модулей:
@@ -76,14 +77,13 @@ try
    echo '<body>';
 
    //DebugView($s_Orient);
-   MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba);
+   MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
 
    // Размещаем плавающий фрэйм сообщений при загрузке изображения
    echo 
     '<iframe id="alfFrame" name="alfFrame" align="left">'.
     'Ваш браузер не поддерживает плавающие фреймы!'.
     '</iframe>';
-
 
 
 
@@ -114,7 +114,7 @@ catch (E_EXCEPTION $e)
 // ****************************************************************************
 // *                    Разметить страницу в варианте LandScape               *
 // ****************************************************************************
-function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
+function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 {
    // Размечаем область изображений
    echo '<div id="All">';
@@ -131,7 +131,7 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba)
       echo '</div>';
       // Размечаем область изображения с подписью
       echo '<div  id="Proba">';
-         ViewProba($c_FileProba);
+         ViewProba($c_FileProba,$RemoteAddr);
       echo '</div>';
    echo '</div>';
    

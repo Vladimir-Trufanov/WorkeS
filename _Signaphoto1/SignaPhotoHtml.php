@@ -24,7 +24,7 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr,true);
    // Определяем Url домашней страницы
    if ($_SERVER["SERVER_NAME"]=='kwinflatht.nichost.ru') $UrlHome='http://kwinflatht.nichost.ru';
-   else $UrlHome='http://localhost:82';   
+   else $UrlHome='http://localhost:82'; 
    // Формируем тексты запросов для вызова страниц (с помощью JS) с портретной 
    // ориентацией и ландшафтной. Так как страница "Подписать фотографию" 
    // использует две разметки: для страницы на компьютере и ландшафтной странице
@@ -190,7 +190,7 @@ function ViewStamp($c_FileStamp)
    
 }
 // Вывести изображение c подписью
-function ViewProba($c_FileProba)
+function ViewProba($c_FileProba,$RemoteAddr)
 {  
    /*
    echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
@@ -223,16 +223,13 @@ function ViewProba($c_FileProba)
    echo '</form>';
    */
    //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
-   
            
    echo '<pre>';
-   print_r($_FILES);
+   echo '*** $RemoteAddr='.$RemoteAddr.' ***<br>';
+   echo '*** browscap='.ini_get('browscap').' ***<br>';
+   $browser = get_browser(null,true);
+   print_r($browser);
    print "</pre>";
-   
-
-   
-   //echo '<div id="InfoLead"></div>';
-   //\prown\ViewGlobal(avgFILES);
 }
 // ****************************************************************************
 // *     Подготовить кнопки для действий: загрузить изображение, подписать,   *

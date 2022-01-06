@@ -91,20 +91,16 @@ Exploration
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
-		+_Signaphoto1
-			-Gallery
+		-_Signaphoto1
 			-images
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
 				_Signaphoto1\images\istamp.png
 				_Signaphoto1\images\photo.png
-			-temp
-				_Signaphoto1\temp\goggle-eyed.png
 			_Signaphoto1\ajaMoveFile.php
 			_Signaphoto1\ajaPicsSizes.php
 			_Signaphoto1\ajaProba111.php
 			_Signaphoto1\log.txt
-			_Signaphoto1\logi.txt
 			_Signaphoto1\SignaPhoto.css
 			_Signaphoto1\SignaPhoto.js
 			_Signaphoto1\SignaPhoto.php
@@ -210,13 +206,11 @@ Exploration
 			SmartMenus\site.css
 			SmartMenus\sm-blue.css
 			SmartMenus\sm-core-css.css
-		-temp
-			temp\goggle-eyed.png
-			temp\goshan.jpg
-			temp\iphoto.jpg
-			temp\Это мы.jpg
+		-Temp
 		-Материалы
 			Материалы\Мои соглашения по программированию на JavaScript.doc
+		.gitignore
+		errors.txt
 		Exploration.ppr
 		favicon.ico
 		index.html
@@ -229,46 +223,30 @@ Exploration
 1=_Signaphoto1\SignaPhoto.php
 2=_Signaphoto1\SignaPhotoHtml.php
 3=_Signaphoto1\SignaPhoto.js
-4=_Signaphoto1\SignaReset.css
-5=_Signaphoto1\SignaUpload.php
-6=..\SignaPhoto3\SignaPhoto.css
-7=_Signaphoto1\SignaPhotoDef.php
-8=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
-9=..\..\TPhpTools\TPhpTools\iniToolsMessage.php
-10=..\..\TPhpPrown\TPhpPrown\iniRegExp.php
+4=_Signaphoto1\SignaUpload.php
+5=_Signaphoto1\SignaPhotoDef.php
+6=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
 [Selected Project Files]
 Main=
-Selected=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
+Selected=_Signaphoto1\SignaPhoto.php
 [index.html]
 TopLine=45
 Caret=49,75
 [_Signaphoto1\SignaPhoto.php]
-TopLine=95
-Caret=3,101
+TopLine=108
+Caret=68,80
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=307
-Caret=56,309
+TopLine=355
+Caret=1,28
 [_Signaphoto1\SignaPhoto.js]
 TopLine=89
 Caret=14,128
-[_Signaphoto1\SignaReset.css]
-TopLine=83
-Caret=57,113
 [_Signaphoto1\SignaUpload.php]
 TopLine=8
 Caret=77,20
-[..\SignaPhoto3\SignaPhoto.css]
-TopLine=1
-Caret=1,1
 [_Signaphoto1\SignaPhotoDef.php]
-TopLine=13
+TopLine=3
 Caret=75,13
 [..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php]
-TopLine=114
-Caret=29,137
-[..\..\TPhpTools\TPhpTools\iniToolsMessage.php]
-TopLine=1
-Caret=70,20
-[..\..\TPhpPrown\TPhpPrown\iniRegExp.php]
-TopLine=7
-Caret=41,42
+TopLine=65
+Caret=51,80

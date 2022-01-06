@@ -1,8 +1,0 @@
-[02-Jan-2022 13:43:47 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '../CommonPrown.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 60
-[02-Jan-2022 13:45:25 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '../iniToolsMessage.php' (include_path='.;C:\php\pear') in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 60
-[03-Jan-2022 14:36:38 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\RecalcToBytes() in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php:254
-Stack trace:
-#0 C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php(123): ttools\UploadToServer->checkSize('goggle-eyed.png', 56980)
-#1 C:\Webservers\Exploration\_Signaphoto1\SignaUpload.php(51): ttools\UploadToServer->move()
-#2 {main}
-  thrown in C:\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php on line 254
