@@ -34,6 +34,7 @@ try
    require_once $TPhpPrown."/MakeCookie.php";
    require_once $TPhpPrown."/MakeSession.php";
    require_once $TPhpPrown."/ViewGlobal.php";
+   require_once $TPhpPrown."/getBrowscap.php";
    // Подключаем файлы библиотеки прикладных классов:
    //$TPhpTools=$SiteHost.'/TPhpTools';
    //require_once $TPhpTools."/TPhpTools/iniErrMessage.php";
@@ -75,9 +76,30 @@ try
    // Начинаем выводить тело страницы 
    echo '</head>';
    echo '<body>';
+   
+   echo '<pre>';
+   echo prown\listBrowscap();
+
+   /*
+   echo '***'.prown\getBrowscap('browser').' ***<br>';
+   echo '***'.prown\getBrowscap('cssversion').' ***<br>';
+   echo '***'.prown\getBrowscap('device_type').' ***<br>';
+   echo '***'.prown\getBrowscap('platform').' ***<br>';
+   
+   echo '*** $RemoteAddr='.$RemoteAddr.' ***<br>';
+   echo '*** browscap='.ini_get('browscap').' ***<br>';
+   $browser = get_browser(null,true);
+   print_r($browser);
+   */
+   
+   echo "</pre>";
+
+   
+   
+   
 
    //DebugView($s_Orient);
-   MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
+   //MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
 
    // Размещаем плавающий фрэйм сообщений при загрузке изображения
    echo 
