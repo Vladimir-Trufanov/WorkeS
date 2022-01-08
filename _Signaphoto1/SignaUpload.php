@@ -27,7 +27,7 @@ $SiteHost=$_WORKSPACE[wsSiteHost];    // Каталог хостинга
 define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown'); 
 require_once pathPhpPrown."/CommonPrown.php";
 require_once pathPhpPrown."/CreateRightsDir.php";
-require_once pathPhpPrown."/MakeRid.php";
+require_once pathPhpPrown."/MakeRID.php";
 // Подключаем файлы библиотеки прикладных классов:
 define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools'); 
 require_once pathPhpTools."/iniToolsMessage.php";
@@ -55,6 +55,7 @@ try
    $NameInput=preg_replace($PatternAfter,$Replacement,$NameInputAfter);
    // Назначаем имя файла в соответствии с RID и для файла изображения,
    // и для файла штампа-подписи
+   $name='x95'; 
    $name=prown\MakeRID();
    if ($NameInput=="loadimg") $NameInput=$name.'img';
    elseif ($NameInput=="loadstamp") $NameInput=$name.'stamp';

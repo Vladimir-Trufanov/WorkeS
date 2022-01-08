@@ -34,7 +34,7 @@ function alfFindFile()
 // При изменении состояния input file перебрасываем файл на сервер 
 function alfLoadFile() 
 {
-   //console.log("alfLoadFile");
+   console.log("alfLoadFile");
    document.getElementById('my_hidden_load').click();
    //console.log('submit: my_hidden_load.click');
    // ------Подключаем вызов загрузки нового изображения

@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Exploration
-	-Exploration
+	+Exploration
 		-_another-button
 			-css
 				_another-button\css\style.css
@@ -100,7 +100,6 @@ Exploration
 			_Signaphoto1\ajaMoveFile.php
 			_Signaphoto1\ajaPicsSizes.php
 			_Signaphoto1\ajaProba111.php
-			_Signaphoto1\log.txt
 			_Signaphoto1\SignaPhoto.css
 			_Signaphoto1\SignaPhoto.js
 			_Signaphoto1\SignaPhoto.php
@@ -207,14 +206,10 @@ Exploration
 			SmartMenus\sm-blue.css
 			SmartMenus\sm-core-css.css
 		-Temp
-			Temp\Win10Ch96De--1.jpeg
-			Temp\Win10Ch96De--1.png
+			Temp\Win10Ch96De--1img.jpeg
 		-Материалы
 			Материалы\Мои соглашения по программированию на JavaScript.doc
 		.gitignore
-		.htaccess
-		.user.ini
-		errors.txt
 		Exploration.ppr
 		favicon.ico
 		index.html
@@ -241,17 +236,17 @@ Selected=_Signaphoto1\SignaUpload.php
 TopLine=45
 Caret=49,75
 [_Signaphoto1\SignaPhoto.php]
-TopLine=58
+TopLine=83
 Caret=30,83
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=278
-Caret=100,307
+TopLine=195
+Caret=6,233
 [_Signaphoto1\SignaPhoto.js]
-TopLine=93
-Caret=14,128
+TopLine=19
+Caret=4,37
 [_Signaphoto1\SignaUpload.php]
-TopLine=58
-Caret=59,76
+TopLine=42
+Caret=10,59
 [_Signaphoto1\SignaPhotoDef.php]
 TopLine=3
 Caret=75,13
