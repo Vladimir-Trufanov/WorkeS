@@ -304,7 +304,7 @@ function LoadImg()
      <div id="InfoLead">
      <form target="alfFrame" action="SignaUpload.php" method="POST" enctype="multipart/form-data"> 
      <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
-     <input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();"/>  
+     <input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadimg" onchange="alfLoadFile();"/>  
      <input type="submit" id="my_hidden_load" value="">  
      </form>
      </div>

@@ -27,6 +27,7 @@ $SiteHost=$_WORKSPACE[wsSiteHost];    // Каталог хостинга
 define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown'); 
 require_once pathPhpPrown."/CommonPrown.php";
 require_once pathPhpPrown."/CreateRightsDir.php";
+require_once pathPhpPrown."/MakeRid.php";
 // Подключаем файлы библиотеки прикладных классов:
 define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools'); 
 require_once pathPhpTools."/iniToolsMessage.php";
@@ -40,6 +41,30 @@ try
    // Трассируем вызов SignaUpload.php
    // alf_jsOnResponse("Выполнен вызов SignaUpload.php");
    
+   // Определяем имя подмассива по INPUT для $_FILES
+   // рассматриваем через сериализацию, когда загружен 1 файл:
+   // или оригинальное изображение, или подпись !!! 
+   $NameInputFile=serialize($_FILES);
+   // Отрезаем часть строки до имени подмассива
+   $PatternBefore="/\/\/\sМодуль([0-9a-zA-Zа-яёА-ЯЁ\s\.\$\n\r\(\)-:,=&;]+)\/\/\s---/u";
+   $PatternBefore="/^a:1:\{s:[0-9]:\"/u";    // "/\/\/\sМодуль([0-9a-zA-Zа-яёА-ЯЁ\s\.\$\n\r\(\)-:,=&;]+)\/\/\s---/u");
+   $Replacement="";
+   $NameInputAfter=preg_replace($PatternBefore,$Replacement,$NameInputFile);
+   // Отрезаем часть строки после имени подмассива
+   $PatternAfter="/\";a:5:\{([\\a-zA-Zа-яёА-ЯЁ\:0-9\";\.\/_\}]*)/u";   
+   $NameInput=preg_replace($PatternAfter,$Replacement,$NameInputAfter);
+   // Назначаем имя файла в соответствии с RID и для файла изображения,
+   // и для файла штампа-подписи
+   $name=prown\MakeRID();
+   if ($NameInput=="loadimg") $NameInput=$name.'img';
+   elseif ($NameInput=="loadstamp") $NameInput=$name.'stamp';
+   else $NameInput=$name;
+   prown\ConsoleLog('$NameInput:'.$NameInput);
+
+   
+   
+   
+   
    // Создаем каталог для хранения изображений, если его нет.
    $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; $modeDir=0777;
    $is=prown\CreateRightsDir($imgDir,$modeDir,rvsReturn);
@@ -47,7 +72,8 @@ try
    if ($is===true)
    {
       //alf_jsOnResponse(ajOk);
-      $upload=new ttools\UploadToServer($imgDir);
+      //$upload=new ttools\UploadToServer($imgDir);
+      $upload=new ttools\UploadToServer($imgDir,$NameInput);
       $MessUpload=$upload->move();
       // Если перемещение завершилось неудачно, то выдаем сообщение
       if ($MessUpload<>imok) alf_jsOnResponse($MessUpload);
@@ -60,6 +86,7 @@ try
    }
    // Если не удалось каталог с правами сделать, сообщаем причину
    else alf_jsOnResponse($is);
+   
 }
 catch (E_EXCEPTION $e) 
 {

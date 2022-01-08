@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Exploration
-	+Exploration
+	-Exploration
 		-_another-button
 			-css
 				_another-button\css\style.css
@@ -207,9 +207,13 @@ Exploration
 			SmartMenus\sm-blue.css
 			SmartMenus\sm-core-css.css
 		-Temp
+			Temp\Win10Ch96De--1.jpeg
+			Temp\Win10Ch96De--1.png
 		-Материалы
 			Материалы\Мои соглашения по программированию на JavaScript.doc
 		.gitignore
+		.htaccess
+		.user.ini
 		errors.txt
 		Exploration.ppr
 		favicon.ico
@@ -225,13 +229,14 @@ Exploration
 3=_Signaphoto1\SignaPhoto.js
 4=_Signaphoto1\SignaUpload.php
 5=_Signaphoto1\SignaPhotoDef.php
-6=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
-7=..\..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php
-8=..\..\TPhpPrown\TPhpPrown\MakeRID.php
-9=..\..\TPhpPrown\TPhpPrown\getBrowscap.php
+6=..\..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php
+7=..\..\TPhpPrown\TPhpPrown\MakeRID.php
+8=..\..\TPhpPrown\TPhpPrown\getBrowscap.php
+9=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
+10=..\..\DoorTry\www\Pages\TPhpPrown\opredelit-obshchie-konstanty.php
 [Selected Project Files]
 Main=
-Selected=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
+Selected=_Signaphoto1\SignaUpload.php
 [index.html]
 TopLine=45
 Caret=49,75
@@ -239,26 +244,29 @@ Caret=49,75
 TopLine=58
 Caret=30,83
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=204
-Caret=1,233
+TopLine=278
+Caret=100,307
 [_Signaphoto1\SignaPhoto.js]
-TopLine=90
+TopLine=93
 Caret=14,128
 [_Signaphoto1\SignaUpload.php]
-TopLine=26
-Caret=77,20
+TopLine=58
+Caret=59,76
 [_Signaphoto1\SignaPhotoDef.php]
 TopLine=3
 Caret=75,13
-[..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php]
-TopLine=118
-Caret=1,139
 [..\..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php]
 TopLine=28
 Caret=49,39
 [..\..\TPhpPrown\TPhpPrown\MakeRID.php]
-TopLine=26
+TopLine=21
 Caret=13,56
 [..\..\TPhpPrown\TPhpPrown\getBrowscap.php]
-TopLine=30
-Caret=1,1
+TopLine=14
+Caret=47,22
+[..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php]
+TopLine=120
+Caret=1,147
+[..\..\DoorTry\www\Pages\TPhpPrown\opredelit-obshchie-konstanty.php]
+TopLine=1
+Caret=1,20
