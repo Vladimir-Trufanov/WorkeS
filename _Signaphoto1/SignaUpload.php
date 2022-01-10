@@ -7,7 +7,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  25.11.2021
-// Copyright © 2021 tve                              Посл.изменение: 29.12.2021
+// Copyright © 2021 tve                              Посл.изменение: 10.01.2022
 
 
 function alf_jsOnResponse($obj)  
@@ -27,6 +27,7 @@ $SiteHost=$_WORKSPACE[wsSiteHost];    // Каталог хостинга
 define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown'); 
 require_once pathPhpPrown."/CommonPrown.php";
 require_once pathPhpPrown."/CreateRightsDir.php";
+require_once pathPhpPrown."/MakeCookie.php";
 require_once pathPhpPrown."/MakeRID.php";
 // Подключаем файлы библиотеки прикладных классов:
 define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools'); 
@@ -57,14 +58,9 @@ try
    // и для файла штампа-подписи
    $name='x95'; 
    $name=prown\MakeRID();
-   if ($NameInput=="loadimg") $NameInput=$name.'img';
-   elseif ($NameInput=="loadstamp") $NameInput=$name.'stamp';
-   else $NameInput=$name;
-   prown\ConsoleLog('$NameInput:'.$NameInput);
-
-   
-   
-   
+   if ($NameInput=="loadimg") $NameLoad=$name.'img';
+   elseif ($NameInput=="loadstamp") $NameLoad=$name.'stamp';
+   else $NameLoad=$name;
    
    // Создаем каталог для хранения изображений, если его нет.
    $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; $modeDir=0777;
@@ -72,17 +68,17 @@ try
    // Если с каталогом все в порядке, то будем перебрасывать файл на сервер
    if ($is===true)
    {
-      //alf_jsOnResponse(ajOk);
-      //$upload=new ttools\UploadToServer($imgDir);
-      $upload=new ttools\UploadToServer($imgDir,$NameInput);
+      $upload=new ttools\UploadToServer($imgDir,$NameLoad);
       $MessUpload=$upload->move();
       // Если перемещение завершилось неудачно, то выдаем сообщение
       if ($MessUpload<>imok) alf_jsOnResponse($MessUpload);
       // Перемещение файла на сервер выполнилось успешно
       else 
       {
-         alf_jsOnResponse($MessUpload);
-         //  alf_jsOnResponse("{'filename':'" . $is . "', 'success':'" . $success . "'}");
+         $LoadImg=$_SERVER['DOCUMENT_ROOT'].'/Temp/'.$NameLoad.'.'.$upload->getExt();
+         alf_jsOnResponse($LoadImg);
+         if ($NameInput=="loadimg") $c_FileImg=prown\MakeCookie('FileImg',$LoadImg,tStr);
+         elseif ($NameInput=="loadstamp") $c_FileStamp=prown\MakeCookie('FileStamp',$LoadImg,tStr);
       }
    }
    // Если не удалось каталог с правами сделать, сообщаем причину
@@ -93,29 +89,5 @@ catch (E_EXCEPTION $e)
 {
    DoorTryPage($e);
 }
-
-      /*
-      $MessUpload=$upload->move(); 
-      if ($MessUpload<>Ok) echo $MessUpload; 
-      if ($thiss!==NULL) $thiss->assertNotEqual($MessUpload,Ok);
-      // '[TUploadToServer] Каталог для загрузки файла отсутствует');
-      if ($thiss!==NULL) $thiss->assertTrue(strpos($MessUpload,DirDownloadMissing)); 
-      OkMessage();
-      
-      // Выполняем "успешную" переброску файла на сервер с верным каталогом
-      $upload = new ttools\UploadToServer($_SERVER['DOCUMENT_ROOT'].'/'.$imgDir.'/');
-      $MessUpload=$upload->move(); echo $MessUpload;
-      //if ($thiss!==NULL) $thiss->assertEqual($MessUpload,Ok);
-      OkMessage();
-      */
-     
-      /*
-      $dir = '../temp/';  
-      $name = basename($_FILES['loadfile']['name']);  
-      $file = $dir . $name;  
-      prown\ConsoleLog('SignaUpload: '.$file); 
-      $success = move_uploaded_file($_FILES['loadfile']['tmp_name'], $file);  
-      alf_jsOnResponse("{'filename':'" . $name . "', 'success':'" . $success . "'}");
-      */
 
 // ******************************************************** SignaUpload.php ***

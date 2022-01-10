@@ -224,14 +224,12 @@ function ViewProba($c_FileProba,$RemoteAddr)
    */
    //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
            
-   //echo '<pre>';
+   echo '<pre>';
    echo '*** $RemoteAddr='.$RemoteAddr.' ***<br>';
-   /*
    echo '*** browscap='.ini_get('browscap').' ***<br>';
    $browser = get_browser(null,true);
    print_r($browser);
-   */
-   //echo "</pre>";
+   echo "</pre>";
 }
 // ****************************************************************************
 // *     Подготовить кнопки для действий: загрузить изображение, подписать,   *
