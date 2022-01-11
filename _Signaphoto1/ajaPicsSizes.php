@@ -29,6 +29,10 @@ try
    require_once $TPhpPrown."/TPhpPrown/MakeCookie.php";
    // Извлекаем из кукисов спецификации изображений (путей с именами файлов)
    $c_FileImg=prown\MakeCookie('FileImg');
+   //$c_FileImg='images/iphoto1.jpg';
+   //prown\ConsoleLog('111-$c_FileImg='.$c_FileImg); 
+
+   //$c_FileImg='http://localhost:82/Temp/proba.jpg';
    $c_FileStamp=prown\MakeCookie('FileStamp');
    $c_FileProba=prown\MakeCookie('FileProba');
    // Создаем массив данных для передачи браузеру

@@ -91,7 +91,7 @@ Exploration
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
-		-_Signaphoto1
+		+_Signaphoto1
 			-images
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
@@ -228,31 +228,32 @@ Exploration
 7=..\..\TPhpPrown\TPhpPrown\MakeRID.php
 8=..\..\TPhpPrown\TPhpPrown\getBrowscap.php
 9=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
-10=..\..\DoorTry\www\Pages\TPhpPrown\opredelit-obshchie-konstanty.php
+10=_Signaphoto1\SignaPhoto.css
+11=_Signaphoto1\ajaPicsSizes.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto1\SignaUpload.php
+Selected=_Signaphoto1\SignaPhoto.js
 [index.html]
-TopLine=45
+TopLine=37
 Caret=49,75
 [_Signaphoto1\SignaPhoto.php]
-TopLine=23
-Caret=1,35
+TopLine=118
+Caret=29,131
 [_Signaphoto1\SignaPhotoHtml.php]
-TopLine=13
-Caret=44,23
+TopLine=147
+Caret=6,164
 [_Signaphoto1\SignaPhoto.js]
-TopLine=19
-Caret=4,37
+TopLine=114
+Caret=14,138
 [_Signaphoto1\SignaUpload.php]
-TopLine=56
-Caret=44,83
+TopLine=64
+Caret=35,89
 [_Signaphoto1\SignaPhotoDef.php]
-TopLine=1
+TopLine=30
 Caret=75,13
 [..\..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php]
-TopLine=28
-Caret=49,39
+TopLine=88
+Caret=1,43
 [..\..\TPhpPrown\TPhpPrown\MakeRID.php]
 TopLine=21
 Caret=13,56
@@ -261,7 +262,10 @@ TopLine=14
 Caret=47,22
 [..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php]
 TopLine=145
-Caret=11,170
-[..\..\DoorTry\www\Pages\TPhpPrown\opredelit-obshchie-konstanty.php]
-TopLine=1
-Caret=1,20
+Caret=1,155
+[_Signaphoto1\SignaPhoto.css]
+TopLine=79
+Caret=48,111
+[_Signaphoto1\ajaPicsSizes.php]
+TopLine=27
+Caret=6,35

@@ -6,9 +6,8 @@
 
                                                      Автор:       Труфанов В.Е.
                                                      Дата создания:  03.06.2021
- Copyright © 2021 tve                                Посл.изменение: 17.06.2021
+ Copyright © 2021 tve                                Посл.изменение: 11.01.2022
 */
-
 html{font-family:'Anonymous Pro',monospace;font-size:16px;}
 
 /* Содержим поля в ширине блока (кроме margin) */
@@ -50,131 +49,66 @@ ul
 }
 body
 {
+   /*background:red;*/
    width:100%;
    height:100%;
    font-size:1rem;
 }
-/**
-  Для отладки расскрашиваем дивы
-body{background:yellow;} 
-#All{background:white;}
-#View{background:magenta;}
-#Photo{background:purple;}
-#Stamp{background:red;}
-#Proba{background:olive;}
-#Lead{background:aqua;}
-*/
-/** Оформляем скелет разметки */
-#All,#Lead {position:fixed; width:100%; overflow:auto;}
-#All  {top:0;    height:82%; }
-#Lead {bottom:0; height:12%;}
-/** Размечаем правую и левую колонки области просмотра */
+/* Оформляем скелет разметки */
+#All{background:yellow;} #Lead{background:aqua;}
+#All,#Lead {position:fixed; height:100%; /*overflow:auto;*/}
+#All  {left:0;  width:92%; }
+#Lead {right:0; width:8%;}
+/* Размечаем правую и левую колонки области просмотра */
+#View{background:lightyellow;} #Proba{background:khaki;}
 #View  {width:48%; float:left;  height:100%;}
 #Proba {width:52%; float:right; height:100%;}
-/** Формируем область для показа загруженной фотографии и подписи */
-/*
-#Photo {width:48%;}
-#Stamp {width:30%; margin-left:35%;}
-*/
-
-#pic
-{
-/*
-   width:99%;
-   display:block;
-   margin-left:auto;
-   margin-right:auto;
-   margin-top:.4rem;
-   margin-bottom:.3rem;
-*/
-}
-#picStamp
-{
-/*
-   height:9%;
-   display:block;
-   margin-left:auto;
-   margin-right:auto;
-   margin-top:.3rem;
-   margin-bottom:.4rem;
-   */
-}
-#picProba
-{
-/*
-   width:99%;
-   display:block;
-   margin-left:auto;
-   margin-right:auto;
-   margin-top:.4rem;
-   margin-bottom:.4rem;
-   */
-}
-
-
-/*
+/* Формируем область для показа загруженной фотографии и подписи */
+#Photo{background:linen;} #Stamp{background:gainsboro;}
+#Photo {height:82%;}
+#Stamp {height:18%;}
+/* Стилизация кнопок */
 .navButtons
 {  
-      border:1px gray solid;
-      position:absolute;
-      overflow: hidden;
-      display:block;  
-      -moz-box-shadow:5px 5px 7px rgba(3,33,33,.7);  
-      -webkit-box-shadow: 5px 5px 7px rgba(3,33,33,.7);  
-      box-shadow: 5px 5px 7px rgba(3,33,33,.7);  
-      -moz-border-radius:4px;
-      -webkit-border-radius:4px;
-      border-radius:4px;
-  }
-
+   border:1px gray solid;
+   /*position:absolute;*/
+   overflow:hidden;
+   display:block;  
+   height:50px;  
+   width:50px;  
+   margin:10px;
+   -moz-box-shadow:5px 5px 7px rgba(3,33,33,.7);  
+   -webkit-box-shadow: 5px 5px 7px rgba(3,33,33,.7);  
+   box-shadow: 5px 5px 7px rgba(3,33,33,.7);  
+   -moz-border-radius:4px;
+   -webkit-border-radius:4px;
+   border-radius:4px;
+}
 .navButtons:hover
 {
-  border:2px solid black;
-  background-color:#fff;
+   border:2px solid black;
+   background-color:#fff;
 }
-
-.hiddenInput{  
-      position:absolute;
-      overflow: hidden;
-      display:block;  
-      height:0px;  
-      width:0px;  
-  }
-*/
-
-
-
-
-
-#btnLoadImg
-{
-   margin-top:0;
-   margin-left:5%;
-}
-#btnLoadStamp
-{
-   margin-top:0;
-   margin-left:23%;
-}
-#btnSubscribe
-{
-   margin-top:0;
-   margin-left:64%;
-}
-#btnTunein
-{
-   margin-top:0;
-   margin-left:82%;
-}
-
-/* Отличное от общего */
-.navButtons
+.hiddenInput
 {  
-   height:4rem; 
-   width:4rem;  
+   /*position:absolute;*/
+   overflow: hidden;
+   display:block;  
+   height:0px;  
+   width:0px;  
 }
+/* Прячем див с кнопкой активации загрузки файла */
+#ipfDivPic {display:none;}
 
+/* Прячем разметочные объекты для загрузки файла изображения */
+#InfoLead  {width:0;height:0;padding:0;margin:0;}
+#my_hidden_file,#my_hidden_load
+{font-size:0;width:0;border-style:none;background-color:transparent;}
+/* Позиционируем плавающий фрэйм загрузки изображений */
+#alfFrame{display:block;background-color:transparent;position:absolute;z-index:201;width:90%;height:90%;}  
 
+/* Перед раскрытием страницы нулевые размеры изображений */
+/*#pic,#picStamp,#picProba{width:0;height:0;}*/
 
 /*
  *********************************************************** SignaPhoto.css ***

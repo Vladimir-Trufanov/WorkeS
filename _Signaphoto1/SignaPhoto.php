@@ -62,10 +62,8 @@ try
    IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
    // Уточняем ориентацию страницы
    $s_Orient=prown\MakeSession('Orient',MakeOrient($s_Orient,$s_Counter),tStr);
-
+   // Подгоняем размеры изображений (здесь устранить бликование)
    echo '<script> PlaceImgOnDiv(); </script>';
-
-
    // Подключаем скрипты по завершению загрузки страницы
    echo 
    '<script>$(document).ready(function() {

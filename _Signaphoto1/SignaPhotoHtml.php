@@ -50,8 +50,7 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    // Подключаем скрипт изменения заголовка "input file"
    echo '<script src="/Jsx/jquery-input-file-text.js"></script>';
    //
-   echo '<link rel="stylesheet" type="text/css" href="SignaReset.css">';
-   //echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
+   echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
    // Подключаем межязыковые (PHP-JScript) определения внутри HTML
    require_once 'SignaPhotoDef.php';
    echo $define; echo $odefine;
@@ -162,6 +161,9 @@ function ViewPhoto($c_FileImg)
    */
    // Выводим изображение
    echo '<img src="'.$c_FileImg.'" alt="tttrr" id="pic" title="ghhjjjkk">';
+   //echo '<img src="'.'http://localhost:82/Temp/proba.jpg'.'" alt="tttrr" id="pic" title="ghhjjjkk">';
+   
+   
    /* 
    $im = imagecreatefrompng('dave.png');
    if($im && imagefilter($im, IMG_FILTER_GRAYSCALE))
@@ -223,13 +225,16 @@ function ViewProba($c_FileProba,$RemoteAddr)
    echo '</form>';
    */
    //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
-           
+   prown\ViewGlobal(avgCOOKIE);
+   /*        
+
    echo '<pre>';
    echo '*** $RemoteAddr='.$RemoteAddr.' ***<br>';
    echo '*** browscap='.ini_get('browscap').' ***<br>';
    $browser = get_browser(null,true);
    print_r($browser);
    echo "</pre>";
+   */
 }
 // ****************************************************************************
 // *     Подготовить кнопки для действий: загрузить изображение, подписать,   *
@@ -300,6 +305,7 @@ function LoadImg()
 
    // Stamp
    // alfFrame
+   
    echo '
      <div id="InfoLead">
      <form target="alfFrame" action="SignaUpload.php" method="POST" enctype="multipart/form-data"> 
@@ -340,12 +346,14 @@ function Tunein()
 // "Загрузить подпись"
 function LoadStamp()
 { 
+
    echo '
    <button id="bLoadStamp" class="navButtons"   
    title="Загрузить подпись">
    <i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
    </button>
    ';
+
 }
 /*
 function MakeStamp()

@@ -126,6 +126,19 @@ function readImage(input)
 function alfOnResponse(d) 
 {
  alert(d+'!!!'); 
+
+htmlstr =  'При';
+htmlstr += 'ветик!';
+
+//echo '<div  id="Photo">';
+//         ViewPhoto($c_FileImg);
+//         echo '</div>';
+
+
+$('div#Photo').html(htmlstr); 
+
+ 
+ 
  /* 
  eval('var obj = ' + d + ';');  
  if(obj.success!=1)
@@ -326,7 +339,7 @@ function PlaceImgOnDiv()
    // jqXHR.fail(), and jqXHR.always() instead.
    $.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data) 
    {
-      console.log( "success" );
+      console.log( "PlaceImgOnDiv(): success" );
       if (isJSON(data)=='true')
       {
          // Трассируем переданный массив
@@ -344,16 +357,15 @@ function PlaceImgOnDiv()
    })
    .done(function() 
    {
-      console.log( "second success12" );
+      console.log( "PlaceImgOnDiv(): second success12" );
    })
    .fail(function() 
    {
-      console.log( "error" );
+      alert( "PlaceImgOnDiv(): error" );
    })
    .always(function() 
    {
-      console.log( "complete12" );
-      //alert("complete");
+      console.log( "PlaceImgOnDiv(): complete12" );
    });
 }
 // ****************************************************************************

@@ -22,7 +22,9 @@ echo $define; echo $odefine;
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
 $_WORKSPACE=iniWorkSpace();
-$SiteHost=$_WORKSPACE[wsSiteHost];    // Каталог хостинга
+$SiteHost=$_WORKSPACE[wsSiteHost];          // Каталог хостинга
+$SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol(), 
+
 // Подключаем файлы библиотеки прикладных модулей:
 define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown'); 
 require_once pathPhpPrown."/CommonPrown.php";
@@ -62,8 +64,14 @@ try
    elseif ($NameInput=="loadstamp") $NameLoad=$name.'stamp';
    else $NameLoad=$name;
    
+   // Определяем полный путь для создания каталога хранения изображений и
+   // его url-аналог для связывания с разметкой через кукис
+   $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
+   prown\ConsoleLog('111-$imgDir='.$imgDir); 
+   $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
+   prown\ConsoleLog('111-$urlDir='.$urlDir); 
    // Создаем каталог для хранения изображений, если его нет.
-   $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; $modeDir=0777;
+   $modeDir=0777;
    $is=prown\CreateRightsDir($imgDir,$modeDir,rvsReturn);
    // Если с каталогом все в порядке, то будем перебрасывать файл на сервер
    if ($is===true)
@@ -75,11 +83,11 @@ try
       // Перемещение файла на сервер выполнилось успешно
       else 
       {
-         $LoadImg=$_SERVER['DOCUMENT_ROOT'].'/Temp/'.$NameLoad.'.'.$upload->getExt();
-         alf_jsOnResponse($LoadImg);
-         if ($NameInput=="loadimg") $c_FileImg=prown\MakeCookie('FileImg',$LoadImg,tStr);
-         elseif ($NameInput=="loadstamp") $c_FileStamp=prown\MakeCookie('FileStamp',$LoadImg,tStr);
-      }
+         $localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
+         if ($NameInput=="loadimg") $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
+         elseif ($NameInput=="loadstamp") $c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
+         alf_jsOnResponse('img: '.$localimg);
+      }  
    }
    // Если не удалось каталог с правами сделать, сообщаем причину
    else alf_jsOnResponse($is);
