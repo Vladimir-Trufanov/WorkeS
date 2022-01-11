@@ -9,10 +9,19 @@
 //                                                   Дата создания:  25.11.2021
 // Copyright © 2021 tve                              Посл.изменение: 10.01.2022
 
-
-function alf_jsOnResponse($obj)  
+// ****************************************************************************
+// *           Вывести диагностическое сообщение в родительском окне          *
+// ****************************************************************************
+function WinParentMessage($mess)  
 {  
-   echo '<script type="text/javascript"> window.parent.alfOnResponse("'.$obj.'"); </script> ';  
+   echo '<script type="text/javascript"> window.parent.jsWinParentMessage("'.$mess.'"); </script> ';  
+}  
+// ****************************************************************************
+// *              Заменить изображение в заданной области страницы            *
+// ****************************************************************************
+function WinParentReplaceImg($mess)  
+{  
+   echo '<script type="text/javascript"> window.parent.jsWinParentReplaceImg("'.$mess.'"); </script> ';  
 }  
 
 // Подключаем межязыковые (PHP-JScript) определения внутри HTML
@@ -42,7 +51,7 @@ require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
    // Трассируем вызов SignaUpload.php
-   // alf_jsOnResponse("Выполнен вызов SignaUpload.php");
+   // WinParentMessage("Выполнен вызов SignaUpload.php");
    
    // Определяем имя подмассива по INPUT для $_FILES
    // рассматриваем через сериализацию, когда загружен 1 файл:
@@ -79,18 +88,25 @@ try
       $upload=new ttools\UploadToServer($imgDir,$NameLoad);
       $MessUpload=$upload->move();
       // Если перемещение завершилось неудачно, то выдаем сообщение
-      if ($MessUpload<>imok) alf_jsOnResponse($MessUpload);
+      if ($MessUpload<>imok) WinParentMessage($MessUpload);
       // Перемещение файла на сервер выполнилось успешно
       else 
       {
          $localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
-         if ($NameInput=="loadimg") $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
-         elseif ($NameInput=="loadstamp") $c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
-         alf_jsOnResponse('img: '.$localimg);
+         if ($NameInput=="loadimg") 
+         {
+            $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
+            WinParentReplaceImg('img='.$localimg.';');
+         }
+         elseif ($NameInput=="loadstamp") 
+         {
+            $c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
+            WinParentReplaceImg('stamp='.$localimg.';');
+         }
       }  
    }
    // Если не удалось каталог с правами сделать, сообщаем причину
-   else alf_jsOnResponse($is);
+   else WinParentMessage($is);
    
 }
 catch (E_EXCEPTION $e) 

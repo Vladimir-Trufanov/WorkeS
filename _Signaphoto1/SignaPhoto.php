@@ -152,15 +152,10 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
       echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
       // Закладываем в разметку див для сообщений через диалоговое окно
       echo '<div id="'.ohInfo.'">';
-         /*
-         echo '***<br>';
-         echo 'Привет info!<br>';
-         echo '***<br>';
-         echo '</div>';
-         */
+      echo '***<br>';
+      echo 'Привет info!<br>';
+      echo '***<br>';
       echo '</div>';
-
-      
       
    echo '</div>';
 }

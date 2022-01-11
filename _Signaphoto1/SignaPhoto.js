@@ -9,6 +9,53 @@
 **/ 
 
 // ****************************************************************************
+// *           Вывести диагностическое сообщение при ошибке перемещения       *
+// *                файла из временного хранилища и других событиях           *
+// ****************************************************************************
+function jsWinParentMessage(mess)
+{
+   alert(mess+'!!!'); 
+} 
+
+// ****************************************************************************
+// *              Заменить изображение в заданной области страницы            *
+// ****************************************************************************
+function jsWinParentReplaceImg(d) 
+{
+   // Выводим контрольный текст в окне изображения
+   htmlstr=d;
+   $('div#Photo').html(htmlstr); 
+   // Делаем запрос для размещения изображения
+   $.getJSON('ajaOnePicSizes.php', {first:1, second:"second"}, function(data) 
+   {
+      console.log( "ajaOnePicSizes: success" );
+      
+      //if (isJSON(data)=='true')
+      //{
+      //}
+      
+   })
+   .done(function() 
+   {
+      console.log( "ajaOnePicSizes: second success12" );
+   })
+   .fail(function() 
+   {
+      alert( "ajaOnePicSizes: error" );
+   })
+   .always(function() 
+   {
+      console.log( "ajaOnePicSizes: complete12" );
+   });
+ 
+}
+
+
+
+// ------------------------------------------------ ОСТАТОЧКИ -----------------
+
+
+// ****************************************************************************
 // *                   Блок функций по выгрузке изображений на сервер         *
 // ****************************************************************************
 // По клику на кнопке активировать клик выбора файла для загрузки
@@ -122,33 +169,6 @@ function readImage(input)
 
 
 
-// Вывести сообщение при ошибке перемещения файла из временного хранилища
-function alfOnResponse(d) 
-{
- alert(d+'!!!'); 
-
-htmlstr =  'При';
-htmlstr += 'ветик!';
-
-//echo '<div  id="Photo">';
-//         ViewPhoto($c_FileImg);
-//         echo '</div>';
-
-
-$('div#Photo').html(htmlstr); 
-
- 
- 
- /* 
- eval('var obj = ' + d + ';');  
- if(obj.success!=1)
-   {
-    alert('Ошибка!\nФайл ' + obj.filename + " не загружен - "+obj.myres); 
-    return; 
-   }; 
- alert('Файл '+obj.filename+' загружен'); 
- */
-}
 // Вывести сообщение при ошибке перемещения файла из временного хранилища
 function alfOnResp(d) 
 {
@@ -340,10 +360,11 @@ function PlaceImgOnDiv()
    $.getJSON('ajaPicsSizes.php', {first:1, second:"second"}, function(data) 
    {
       console.log( "PlaceImgOnDiv(): success" );
+      
       if (isJSON(data)=='true')
       {
          // Трассируем переданный массив
-         // trassData(data);
+         //trassData(data);
          
          // Определяем способы выравнивания ('по ширине','по высоте')
          // изображений и выравниваем их по дивам
@@ -354,6 +375,7 @@ function PlaceImgOnDiv()
          alignProba=getAlignImg("Proba","picProba",data[2].ImgWidth,data[2].ImgHeight);
          PlacePicOnDiv("Proba","picProba",data[2].ImgWidth,data[2].ImgHeight,alignProba,94,2);
       }
+      
    })
    .done(function() 
    {

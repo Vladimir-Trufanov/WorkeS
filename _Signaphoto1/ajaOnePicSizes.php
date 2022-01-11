@@ -1,5 +1,5 @@
 <?php
-// PHP7/HTML5, EDGE/CHROME                             *** ajaPicsSizes.php ***
+// PHP7/HTML5, EDGE/CHROME                           *** ajaOnePicSizes.php ***
 
 // ****************************************************************************
 // * SignaPhoto                  Передать размеры трех изображений через аякс *
@@ -7,7 +7,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  25.11.2021
-// Copyright © 2021 tve                              Посл.изменение: 26.11.2021
+// Copyright © 2021 tve                              Посл.изменение: 11.01.2022
 
 // Подключаем межязыковые (PHP-JScript) определения
 require_once 'SignaPhotoDef.php';
@@ -24,7 +24,7 @@ $SiteDevice = $_WORKSPACE[wsSiteDevice];  // 'Computer' | 'Mobile' | 'Tablet'
 //require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 //try 
 //{
-   set_error_handler("CreateRightsPermsHandler");
+   set_error_handler("ajaOnePicSizesHandler");
    //$i=0; $j=4/$i;
    //restore_error_handler();
 
@@ -57,6 +57,7 @@ $SiteDevice = $_WORKSPACE[wsSiteDevice];  // 'Computer' | 'Mobile' | 'Tablet'
    // готовим данные для передачи: или ширины и высоты всех трех, или одно
    // сообщение об ошибке
    
+   /*
    $is=FillArray('Photo',$c_FileImg,$user_info);
    if ($is) 
    {
@@ -66,6 +67,7 @@ $SiteDevice = $_WORKSPACE[wsSiteDevice];  // 'Computer' | 'Mobile' | 'Tablet'
          FillArray('Proba',$c_FileProba,$user_info);
       }
    }
+   */
    
    // Передаем данные в формате JSON
    // (если нет передачи данных, то по аякс-запросу вернется ошибка)
@@ -80,7 +82,7 @@ $SiteDevice = $_WORKSPACE[wsSiteDevice];  // 'Computer' | 'Mobile' | 'Tablet'
 //}
 
 
-   function CreateRightsPermsHandler($errno,$errstr,$errfile,$errline)
+   function ajaOnePicSizesHandler($errno,$errstr,$errfile,$errline)
    {
      //$user_info = array(); 
      //echo json_encode($user_info);
@@ -122,7 +124,7 @@ function FillArray($DivId,$ImgName,&$user_info)
    // Если объект изображения НЕ получился, то готовим одно сообщение 
    else 
    {
-      // Сбрасываем массиы для возврата, чтобы было одно сообщение 
+      // Сбрасываем массивы для возврата, чтобы было одно сообщение 
       $user_info = array(); 
       $user_info[] = array (
          'DivId'     => ohInfo, 
@@ -178,4 +180,4 @@ function get_file_extension($file_name)
    return substr(strrchr($file_name,'.'),1);
 }
                                 
-// ******************************************************* ajaPicsSizes.php ***
+// ***************************************************** ajaOnePicSizes.php ***
