@@ -21,7 +21,11 @@ function WinParentMessage($mess)
 // ****************************************************************************
 function WinParentReplaceImg($mess)  
 {  
-   echo '<script type="text/javascript"> window.parent.jsWinParentReplaceImg("'.$mess.'"); </script> ';  
+   //echo '<script type="text/javascript"> window.parent.jsWinParentReplaceImg("'.$mess.'"); </script> ';  
+   //echo '<script type=\"text/javascript\"> window.parent.jsWinParentReplaceImg(\"'.$mess.'\"); </script> ';  
+   echo '<script> window.parent.jsWinParentReplaceImg('."'".
+     '[{"DivId":"Photo","ImgName":"http:\/\/localhost:82\/Temp\/Win10Ch97De--1img.jpeg","ImgWidth":1000,"ImgHeight":1333}]'.
+     "'".'); </script>'; 
 }  
 
 // Подключаем межязыковые (PHP-JScript) определения внутри HTML
@@ -50,6 +54,9 @@ require_once pathPhpTools."/TUploadToServer/UploadToServerClass.php";
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
+   // Подключаем блок функций подготовки и обработки изображений 
+   require_once 'SignaPhotoImg.php';
+
    // Трассируем вызов SignaUpload.php
    // WinParentMessage("Выполнен вызов SignaUpload.php");
    
@@ -92,16 +99,23 @@ try
       // Перемещение файла на сервер выполнилось успешно
       else 
       {
+         // Создаем массив данных для передачи браузеру
+         // (либо массив с одним сообщением, либо массив размеров изображений)
+         $user_info = array(); 
+         // Подготавливаем параметры размещения изображения в диве
          $localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
          if ($NameInput=="loadimg") 
          {
             $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
-            WinParentReplaceImg('img='.$localimg.';');
+            // Заполняем массив данными об изображении для размещения в заданном окне
+            $user_info=FillArrayOne('Photo',$c_FileImg);
+            // Отправляем массив в родительское окно
+            WinParentReplaceImg(json_encode($user_info));
+            //WinParentReplaceImg('Photo='.$localimg.';');
          }
          elseif ($NameInput=="loadstamp") 
          {
             $c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
-            WinParentReplaceImg('stamp='.$localimg.';');
          }
       }  
    }

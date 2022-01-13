@@ -20,12 +20,13 @@ function jsWinParentMessage(mess)
 // ****************************************************************************
 // *              Заменить изображение в заданной области страницы            *
 // ****************************************************************************
-function jsWinParentReplaceImg(d) 
+function jsWinParentReplaceImg(mess) 
 {
    // Выводим контрольный текст в окне изображения
-   htmlstr=d;
+   htmlstr=mess;
    $('div#Photo').html(htmlstr); 
-   // Делаем запрос для размещения изображения
+   // Отправляем сообщение Делаем запрос для размещения изображения
+   /*
    $.getJSON('ajaOnePicSizes.php', {first:1, second:"second"}, function(data) 
    {
       console.log( "ajaOnePicSizes: success" );
@@ -47,7 +48,7 @@ function jsWinParentReplaceImg(d)
    {
       console.log( "ajaOnePicSizes: complete12" );
    });
- 
+   */
 }
 
 
