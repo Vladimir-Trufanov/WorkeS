@@ -22,9 +22,38 @@ function jsWinParentMessage(mess)
 // ****************************************************************************
 function jsWinParentReplaceImg(mess) 
 {
+   console.log('ПРИШЛО='+mess);
+   //
+   data=JSON.parse(mess);
+   // Определяем способы выравнивания ('по ширине','по высоте')
+   // изображений и выравниваем их по дивам
+   alignPhoto=getAlignImg("Photo","pic",data[0].ImgWidth,data[0].ImgHeight);
+   console.log(alignPhoto);
+   console.log('ImgName='+data[0].ImgName);
+   PlacePicOnDiv("Photo","pic",data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4);
+
+   //trassData(data);
+   
    // Выводим контрольный текст в окне изображения
-   htmlstr=mess;
+   
+   /*
+   htmlstr=mess+' '+data[0].DivId;
+   console.log(mess);
+   //htmlstr='<img src="images/istamp.png" alt="" id="picStamp">';
+   htmlstr='<img id="pic" src="http://localhost:82/Temp/Win10Ch97De--1img.gif" alt="" id="picStamp">';
+   //htmlstr=mess;
+   //$('div#Photo').css('background','#fff');
+   //$('div#Photo').html('<div id="Photo">'+htmlstr+'</div>'); 
    $('div#Photo').html(htmlstr); 
+   $('#Photo').css('width','400px');
+   $('div#Photo').css('background','Red');
+   
+   cImg='pic'; widthImg=376; heightImg=376;
+   $('#'+cImg).css('width',String(widthImg)+'px');
+   $('#'+cImg).css('height',String(heightImg)+'px');
+   */
+   
+
    // Отправляем сообщение Делаем запрос для размещения изображения
    /*
    $.getJSON('ajaOnePicSizes.php', {first:1, second:"second"}, function(data) 
@@ -49,6 +78,79 @@ function jsWinParentReplaceImg(mess)
       console.log( "ajaOnePicSizes: complete12" );
    });
    */
+}
+// ****************************************************************************
+// *   Определить спосов выравнивания ('по ширине','по высоте') изображения   *
+// *                                 по диву                                  *
+// ****************************************************************************
+function getAlignImg(cDiv,cImg,wImg,hImg)
+{
+   // Определяем размеры дива на экране
+   oDiv=document.getElementById(cDiv)
+   widthDiv=oDiv.offsetWidth;
+   heightDiv=oDiv.offsetHeight;
+   // Считаем, что нужно выровнять по ширине
+   alignImg='по ширине';
+   // Через пропорцию вычисляем высоту     *** widthDiv --> wImg ***
+   // растянутого изображения по ширине:   ***        x --> hImg ***
+   p_heightDiv=(widthDiv*hImg/wImg);
+   // Сравниваем расчетную высоту изображения с высотой дива и,
+   // если высота изображения превышает высоту дива,
+   // то считаем, что изображение нужно растянуть по высоте
+   if (p_heightDiv>heightDiv) alignImg='по высоте';
+   console.log(cImg+': alignImg='+alignImg);
+   return alignImg;
+}
+// ****************************************************************************
+// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
+// *                    cImg - идентификатор изображения,                     *
+// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
+// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
+// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
+// *
+// ****************************************************************************
+function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft)
+{
+   // Определяем размеры дива на экране
+   oDiv=document.getElementById(cDiv)
+   widthDiv=oDiv.offsetWidth;
+   heightDiv=oDiv.offsetHeight;
+   // Выравниваем по ширине
+   if (mAligne=='по ширине')
+   {
+      // Вначале определяем размещение по ширине через проценты
+      nWidth=perWidth; nLeft=perLeft;
+      $('#'+cImg).css('margin-left',String(nLeft)+'%');
+      // Определяем ширину изображения  ***   nWidth --> x        ***
+      // в диве из пропорции:           ***     100% --> widthDiv ***
+      widthImg=nWidth*widthDiv/100;
+      // Определяем высоту изображения  ***     wImg --> hImg     ***  
+      // в диве из пропорции:           *** widthImg --> x        ***
+      heightImg=widthImg*hImg/wImg;
+      // Определяем центрирование размещения по высоте через пикселы
+      nTop=(heightDiv-heightImg)/2;
+      console.log('widthImg='+widthImg);
+      console.log('heightImg='+heightImg);
+      $('#'+cImg).css('width',String(widthImg)+'px');
+      $('#'+cImg).css('height',String(heightImg)+'px');
+      $('#'+cImg).css('margin-top',String(nTop)+'px');
+   }
+   // Выравниваем по высоте
+   else
+   {
+      // Вначале задаем высоту изображения в диве через проценты
+      nHeight=94; 
+      // Определяем высоту изображения в диве через пикселы
+      heightImg=nHeight*heightDiv/100;
+      // Определяем ширину изображения  *** wImg --> hImg      ***
+      // в диве через пикселы:          ***    x --> heightImg ***
+      widthImg=wImg*heightImg/hImg;
+      $('#'+cImg).css('width',String(widthImg)+'px');
+      $('#'+cImg).css('height',String(heightImg)+'px');
+      // Центрируем изображение по диву
+      $('#'+cImg).css('margin-left',String((widthDiv-widthImg)/2)+'px');
+      $('#'+cImg).css('margin-top',String((heightDiv-heightImg)/2)+'px');
+   }
 }
 
 
@@ -436,77 +538,6 @@ function trassData(data)
    htmlstr += '</table>';
    $('div#'+ohInfo).html(htmlstr); 
    $('#'+ohInfo).dialog({modal:true});
-}
-// ****************************************************************************
-// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
-// *                    cImg - идентификатор изображения,                     *
-// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
-// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
-// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
-// *
-// ****************************************************************************
-function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft)
-{
-   // Определяем размеры дива на экране
-   oDiv=document.getElementById(cDiv)
-   widthDiv=oDiv.offsetWidth;
-   heightDiv=oDiv.offsetHeight;
-   // Выравниваем по ширине
-   if (mAligne=='по ширине')
-   {
-      // Вначале определяем размещение по ширине через проценты
-      nWidth=perWidth; nLeft=perLeft;
-      $('#'+cImg).css('margin-left',String(nLeft)+'%');
-      // Определяем ширину изображения  ***   nWidth --> x        ***
-      // в диве из пропорции:           ***     100% --> widthDiv ***
-      widthImg=nWidth*widthDiv/100;
-      // Определяем высоту изображения  ***     wImg --> hImg     ***  
-      // в диве из пропорции:           *** widthImg --> x        ***
-      heightImg=widthImg*hImg/wImg;
-      // Определяем центрирование размещения по высоте через пикселы
-      nTop=(heightDiv-heightImg)/2;
-      $('#'+cImg).css('width',String(widthImg)+'px');
-      $('#'+cImg).css('height',String(heightImg)+'px');
-      $('#'+cImg).css('margin-top',String(nTop)+'px');
-   }
-   // Выравниваем по высоте
-   else
-   {
-      // Вначале задаем высоту изображения в диве через проценты
-      nHeight=94; 
-      // Определяем высоту изображения в диве через пикселы
-      heightImg=nHeight*heightDiv/100;
-      // Определяем ширину изображения  *** wImg --> hImg      ***
-      // в диве через пикселы:          ***    x --> heightImg ***
-      widthImg=wImg*heightImg/hImg;
-      $('#'+cImg).css('width',String(widthImg)+'px');
-      $('#'+cImg).css('height',String(heightImg)+'px');
-      // Центрируем изображение по диву
-      $('#'+cImg).css('margin-left',String((widthDiv-widthImg)/2)+'px');
-      $('#'+cImg).css('margin-top',String((heightDiv-heightImg)/2)+'px');
-   }
-}
-// ****************************************************************************
-// *   Определить спосов выравнивания ('по ширине','по высоте') изображения   *
-// *                                 по диву                                  *
-// ****************************************************************************
-function getAlignImg(cDiv,cImg,wImg,hImg)
-{
-   // Определяем размеры дива на экране
-   oDiv=document.getElementById(cDiv)
-   widthDiv=oDiv.offsetWidth;
-   heightDiv=oDiv.offsetHeight;
-   // Считаем, что нужно выровнять по ширине
-   alignImg='по ширине';
-   // Через пропорцию вычисляем высоту     *** widthDiv --> wImg ***
-   // растянутого изображения по ширине:   ***        x --> hImg ***
-   p_heightDiv=(widthDiv*hImg/wImg);
-   // Сравниваем расчетную высоту изображения с высотой дива и,
-   // если высота изображения превышает высоту дива,
-   // то считаем, что изображение нужно растянуть по высоте
-   if (p_heightDiv>heightDiv) alignImg='по высоте';
-   console.log(cImg+': alignImg='+alignImg);
-   return alignImg;
 }
  
 // ********************************************************** SignaPhoto.js ***

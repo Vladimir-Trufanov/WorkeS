@@ -22,10 +22,14 @@ function WinParentMessage($mess)
 function WinParentReplaceImg($mess)  
 {  
    //echo '<script type="text/javascript"> window.parent.jsWinParentReplaceImg("'.$mess.'"); </script> ';  
-   //echo '<script type=\"text/javascript\"> window.parent.jsWinParentReplaceImg(\"'.$mess.'\"); </script> ';  
+   //$mess='Привет!';
+   echo "<script> window.parent.jsWinParentReplaceImg('".$mess."');</script>";  
+   
+   /*
    echo '<script> window.parent.jsWinParentReplaceImg('."'".
      '[{"DivId":"Photo","ImgName":"http:\/\/localhost:82\/Temp\/Win10Ch97De--1img.jpeg","ImgWidth":1000,"ImgHeight":1333}]'.
      "'".'); </script>'; 
+   */
 }  
 
 // Подключаем межязыковые (PHP-JScript) определения внутри HTML
@@ -104,12 +108,16 @@ try
          $user_info = array(); 
          // Подготавливаем параметры размещения изображения в диве
          $localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
+         prown\ConsoleLog('$localimg='.$localimg);
+
          if ($NameInput=="loadimg") 
          {
             $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
             // Заполняем массив данными об изображении для размещения в заданном окне
             $user_info=FillArrayOne('Photo',$c_FileImg);
             // Отправляем массив в родительское окно
+            prown\ConsoleLog('  УШЛО='.json_encode($user_info));
+
             WinParentReplaceImg(json_encode($user_info));
             //WinParentReplaceImg('Photo='.$localimg.';');
          }
