@@ -20,6 +20,12 @@ function jsWinParentMessage(mess)
 // ****************************************************************************
 // *              Заменить изображение в заданной области страницы            *
 // ****************************************************************************
+function Proba12()
+{
+   htmlstr='Привет!';
+   $('div#Photo').html(htmlstr); 
+
+}
 function jsWinParentReplaceImg(mess) 
 {
    console.log('ПРИШЛО='+mess);
@@ -28,9 +34,27 @@ function jsWinParentReplaceImg(mess)
    // Определяем способы выравнивания ('по ширине','по высоте')
    // изображений и выравниваем их по дивам
    alignPhoto=getAlignImg("Photo","pic",data[0].ImgWidth,data[0].ImgHeight);
-   console.log(alignPhoto);
+   PlacePicOnDiv("Photo","pic",data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4,data[0].ImgName);
+
+
+   // echo '<img src="'.$c_FileImg.'" alt="tttrr" id="pic" title="ghhjjjkk">';
+
+   //htmlstr='<img id="pic" src="'+data[0].ImgName+'">';
+   //console.log('htmlstr='+htmlstr);
+   //$('div#Photo').html(htmlstr); 
+
+   /*
+   $('div#Photo').css('width','1px');
+   $('div#Photo').css('height','1px');
    console.log('ImgName='+data[0].ImgName);
+   htmlstr='<div  id="Photo">'+
+           '<img src="'+data[0].ImgName+'" alt="tttrr" id="pic" title="ghhjjjkk">'+
+           '</div>';
+   $('div#Photo').html(htmlstr); 
    PlacePicOnDiv("Photo","pic",data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4);
+   */
+
+
 
    //trassData(data);
    
@@ -109,8 +133,13 @@ function getAlignImg(cDiv,cImg,wImg,hImg)
 // *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
 // *
 // ****************************************************************************
-function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft)
+function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft,cPlacePicOnDivFile)
 {
+   //
+   htmlstr='<div  id="Photo">'+
+           '<img src="'+cPlacePicOnDivFile+'" alt="tttrr" id="pic" title="ghhjjjkk">'+
+           '</div>';
+   $('div#Photo').html(htmlstr); 
    // Определяем размеры дива на экране
    oDiv=document.getElementById(cDiv)
    widthDiv=oDiv.offsetWidth;

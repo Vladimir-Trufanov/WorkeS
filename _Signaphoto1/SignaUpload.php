@@ -20,16 +20,10 @@ function WinParentMessage($mess)
 // *              Заменить изображение в заданной области страницы            *
 // ****************************************************************************
 function WinParentReplaceImg($mess)  
-{  
-   //echo '<script type="text/javascript"> window.parent.jsWinParentReplaceImg("'.$mess.'"); </script> ';  
-   //$mess='Привет!';
-   echo "<script> window.parent.jsWinParentReplaceImg('".$mess."');</script>";  
-   
-   /*
-   echo '<script> window.parent.jsWinParentReplaceImg('."'".
-     '[{"DivId":"Photo","ImgName":"http:\/\/localhost:82\/Temp\/Win10Ch97De--1img.jpeg","ImgWidth":1000,"ImgHeight":1333}]'.
-     "'".'); </script>'; 
-   */
+{
+   //
+   // echo "<script> window.parent.jsWinParentReplaceImg('".$mess."');</script>";  
+   echo "<script>window.parent.Proba12();</script>";  
 }  
 
 // Подключаем межязыковые (PHP-JScript) определения внутри HTML
