@@ -1,0 +1,11 @@
+[15-Jan-2022 09:20:19 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\ViewGlobal() in C:\Webservers\Exploration\ViewEnviron.php:34
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(86): DebugView(NULL)
+#1 {main}
+  thrown in C:\Webservers\Exploration\ViewEnviron.php on line 34
+[15-Jan-2022 11:56:25 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'SignaPhotoHtml.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 48
+[15-Jan-2022 11:57:09 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'SignaPhotoDef.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 292
+[15-Jan-2022 22:27:13 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function MakeOrient() in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php:67
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 67

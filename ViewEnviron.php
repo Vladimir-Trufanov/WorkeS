@@ -28,7 +28,7 @@ function DebugView($s_Orient)
    echo '***<br>';
    echo 'Всем привет!<br>';
    EnviView();
-   echo 'Ориентация: '.$s_Orient.'<br>';
+   //echo 'Ориентация: '.$s_Orient.'<br>';
    echo "Вы обновили эту страницу ".$_SESSION['Counter']." раз. ";
    //prown\ViewGlobal(avgSERVER);
    prown\ViewGlobal(avgCOOKIE);

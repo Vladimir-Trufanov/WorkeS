@@ -91,6 +91,12 @@ Exploration
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
+		+_Signaphoto
+			_Signaphoto\log.txt
+			_Signaphoto\SignaPhoto.css
+			_Signaphoto\SignaPhoto.js
+			_Signaphoto\SignaPhoto.php
+			_Signaphoto\SignaPhotoDef.php
 		+_Signaphoto1
 			-images
 				_Signaphoto1\images\iphoto.jpg
@@ -229,53 +235,25 @@ Exploration
 		ViewEnviron.php
 [Open project files]
 0=index.html
-1=_Signaphoto1\SignaPhoto.php
-2=_Signaphoto1\SignaPhotoHtml.php
-3=_Signaphoto1\SignaPhoto.js
-4=_Signaphoto1\SignaUpload.php
-5=_Signaphoto1\SignaPhotoDef.php
-6=..\..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php
-7=..\..\TPhpPrown\TPhpPrown\MakeRID.php
-8=..\..\TPhpPrown\TPhpPrown\getBrowscap.php
-9=_Signaphoto1\SignaPhoto.css
-10=_Signaphoto1\SignaPhotoImg.php
-11=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
+1=_Signaphoto\SignaPhoto.php
+2=_Signaphoto\SignaPhoto.css
+3=_Signaphoto\SignaPhoto.js
+4=ViewEnviron.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto1\SignaUpload.php
+Selected=_Signaphoto\SignaPhoto.php
 [index.html]
-TopLine=37
-Caret=49,75
-[_Signaphoto1\SignaPhoto.php]
-TopLine=112
-Caret=1,132
-[_Signaphoto1\SignaPhotoHtml.php]
-TopLine=150
-Caret=1,164
-[_Signaphoto1\SignaPhoto.js]
-TopLine=20
-Caret=19,23
-[_Signaphoto1\SignaUpload.php]
-TopLine=18
-Caret=32,26
-[_Signaphoto1\SignaPhotoDef.php]
-TopLine=11
-Caret=75,13
-[..\..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php]
-TopLine=43
-Caret=1,43
-[..\..\TPhpPrown\TPhpPrown\MakeRID.php]
-TopLine=21
-Caret=13,56
-[..\..\TPhpPrown\TPhpPrown\getBrowscap.php]
-TopLine=14
-Caret=47,22
-[_Signaphoto1\SignaPhoto.css]
-TopLine=67
-Caret=18,67
-[_Signaphoto1\SignaPhotoImg.php]
-TopLine=7
-Caret=18,35
-[..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php]
-TopLine=71
-Caret=1,93
+TopLine=1
+Caret=84,37
+[_Signaphoto\SignaPhoto.php]
+TopLine=127
+Caret=16,139
+[_Signaphoto\SignaPhoto.css]
+TopLine=77
+Caret=109,106
+[_Signaphoto\SignaPhoto.js]
+TopLine=19
+Caret=1,26
+[ViewEnviron.php]
+TopLine=1
+Caret=6,31

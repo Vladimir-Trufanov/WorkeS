@@ -65,7 +65,7 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
 // *    странице на смартфоне - простая разметка на дивах; а для портретной   *
 // *           страницы на смартфоне с помощью jquery mobile                  *
 // ****************************************************************************
-function MakeOrient(&$s_Orient,$s_Counter)
+function MakeOrient1(&$s_Orient,$s_Counter)
 {
    $s_Orient=$s_Orient;
    // Запрос страницы "Подписать фотографию" может осуществляться тремя 
