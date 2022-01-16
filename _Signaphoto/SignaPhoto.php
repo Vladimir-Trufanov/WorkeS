@@ -73,7 +73,7 @@ try
       "console.log('oriLandscape='+oriLandscape);".
       "console.log('oriPortrait='+oriPortrait);".      
       "console.log('Orient='+Orient);".
-      "alert('Orient='+Orient)".
+      "alert('OrientDevice='+Orient)".
       '</script>';
    
    // Уточняем ориентацию страницы

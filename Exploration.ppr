@@ -240,15 +240,17 @@ Exploration
 3=_Signaphoto\SignaPhoto.js
 4=..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php
 5=..\..\TPhpTools\TPhpTools\iniToolsMessage.php
+6=..\..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php
+7=..\..\TPhpTools\TPhpTools\TFixLoadTimer\FixLoadTimerClass.php
 [Selected Project Files]
 Main=
-Selected=..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php
+Selected=_Signaphoto\SignaPhoto.php
 [index.html]
 TopLine=1
 Caret=84,37
 [_Signaphoto\SignaPhoto.php]
-TopLine=49
-Caret=1,78
+TopLine=45
+Caret=32,74
 [_Signaphoto\SignaPhoto.css]
 TopLine=77
 Caret=109,106
@@ -256,8 +258,14 @@ Caret=109,106
 TopLine=23
 Caret=39,43
 [..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php]
-TopLine=47
-Caret=58,61
+TopLine=33
+Caret=1,117
 [..\..\TPhpTools\TPhpTools\iniToolsMessage.php]
 TopLine=2
 Caret=1,1
+[..\..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php]
+TopLine=7
+Caret=48,40
+[..\..\TPhpTools\TPhpTools\TFixLoadTimer\FixLoadTimerClass.php]
+TopLine=17
+Caret=60,44
