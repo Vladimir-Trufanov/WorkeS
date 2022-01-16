@@ -26,23 +26,21 @@ try
 {
    session_start();
    
-   // Подключаем модуль и выодим технологическую информацию
-   require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';;
+   // Подключаем модуль и выводим технологическую информацию
+   require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';
+   
+   // Указываем место размещения библиотеки прикладных функций TPhpPrown
+   define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown');
+   // Указываем место размещения библиотеки прикладных классов TPhpTools
+   define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools');
    // Подключаем файлы библиотеки прикладных модулей:
-   $TPhpPrown  = $SiteHost.'/TPhpPrown/TPhpPrown';
-   require_once $TPhpPrown."/CommonPrown.php";
-   require_once $TPhpPrown."/MakeCookie.php";
-   require_once $TPhpPrown."/MakeRID.php";
-   require_once $TPhpPrown."/MakeSession.php";
-   require_once $TPhpPrown."/ViewGlobal.php";
-   /*
+   require_once pathPhpPrown."/CommonPrown.php";
+   require_once pathPhpPrown."/MakeCookie.php";
+   require_once pathPhpPrown."/MakeSession.php";
+   require_once pathPhpPrown."/ViewGlobal.php";
    // Подключаем файлы библиотеки прикладных классов:
-   //$TPhpTools=$SiteHost.'/TPhpTools';
-   //require_once $TPhpTools."/TPhpTools/iniErrMessage.php";
-   // Подключаем файлы библиотеки прикладных классов:
-   $TPhpTools=$SiteHost.'/TPhpTools/TPhpTools';
-   //require_once $TPhpTools."/TUploadToServer/UploadToServerClass.php";
-   */
+   require_once pathPhpTools."/iniToolsMessage.php";
+   require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
 
    // Подключаем модули страницы "Подписать фотографию"
    //require_once 'SignaPhotoHtml.php';
@@ -60,9 +58,24 @@ try
    // сессионными переменными. Например: $s_ModeImg --> $c_ModeImg)
    $s_Counter=prown\MakeSession('Counter',0,tInt,true);         // посещения за сессию
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
-   $s_Orient=prown\MakeSession('Orient','landscape',tStr,true); // текущая ориентация устройства
+   //$s_Orient=prown\MakeSession('Orient','landscape',tStr,true); // текущая ориентация устройства
+
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
+
+   // Создаем объект класса по контролю за положением устройства
+   $orient = new ttools\DeviceOrientater();
+   // Проверяем, что ориентационные константы появились в PHP/JS
+   prown\ConsoleLog('oriLandscape в PHP='.oriLandscape);
+   prown\ConsoleLog('oriPortrait в PHP='.oriPortrait);
+   echo
+      '<script>'.
+      "console.log('oriLandscape='+oriLandscape);".
+      "console.log('oriPortrait='+oriPortrait);".      
+      "console.log('Orient='+Orient);".
+      "alert('Orient='+Orient)".
+      '</script>';
+   
    // Уточняем ориентацию страницы
    // $s_Orient=prown\MakeSession('Orient',MakeOrient($s_Orient),tStr);
    // Подгоняем размеры изображений (здесь устранить бликование)
@@ -85,7 +98,7 @@ try
    echo "</pre>";
    */
    // Выводим отладочную информацию
-   DebugView($s_Orient);
+   // DebugView($s_Orient);
    // Запускаем построение разметки
    //if ($s_Orient=='landscape') MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
    //else MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
@@ -137,6 +150,8 @@ function MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 {
    echo 'Привет!<br>';
+   prown\ViewGlobal(avgCOOKIE);
+
 /*
    // Размечаем область изображений
    echo '<div id="All">';

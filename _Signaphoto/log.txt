@@ -9,3 +9,19 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 67
+[16-Jan-2022 10:33:45 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Class 'ttools\DeviceOrientater' not found in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php:52
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 52
+[16-Jan-2022 10:34:17 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\MakeSession() in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php:64
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 64
+[16-Jan-2022 10:35:05 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\ViewGlobal() in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php:144
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(97): MarkupLandscape('http://localhos...', 'images/istamp.p...', 'images/iproba.p...', '::1')
+#1 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 144
+[16-Jan-2022 10:40:44 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'C:/TPhpTools/TPhpTools/iniErrMessage.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 42
+[16-Jan-2022 10:44:13 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '$defineDeviceOrientater' (T_VARIABLE), expecting identifier (T_STRING) in C:\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php on line 56
+[16-Jan-2022 11:25:22 Asia/Kuwait] PHP Fatal error:  Cannot redeclare ttools\DeviceOrientater::MakeOrient() in C:\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php on line 94
