@@ -25,3 +25,20 @@ Stack trace:
 [16-Jan-2022 10:40:44 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'C:/TPhpTools/TPhpTools/iniErrMessage.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 42
 [16-Jan-2022 10:44:13 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '$defineDeviceOrientater' (T_VARIABLE), expecting identifier (T_STRING) in C:\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php on line 56
 [16-Jan-2022 11:25:22 Asia/Kuwait] PHP Fatal error:  Cannot redeclare ttools\DeviceOrientater::MakeOrient() in C:\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php on line 94
+[17-Jan-2022 16:40:27 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '.', expecting variable (T_VARIABLE) or '{' or '$' in C:\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php on line 71
+[17-Jan-2022 16:48:22 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '.', expecting variable (T_VARIABLE) or '{' or '$' in C:\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php on line 78
+[17-Jan-2022 18:12:28 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'C:/TPhpTools/TPhpToolsDeviceOrientaterClass.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 44
+[17-Jan-2022 18:42:19 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function ttools\prown\getComRequest() in C:\Webservers\Exploration\_Signaphoto\DeviceOrientaterClass.php:42
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(44): require_once()
+#1 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\DeviceOrientaterClass.php on line 42
+[17-Jan-2022 20:20:19 Asia/Kuwait] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function prown\MakeSession(), 1 passed in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 71 and at least 3 expected in C:\TPhpPrown\TPhpPrown\MakeSession.php:72
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(71): prown\MakeSession('Orient')
+#1 {main}
+  thrown in C:\TPhpPrown\TPhpPrown\MakeSession.php on line 72
+[17-Jan-2022 20:37:08 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 71

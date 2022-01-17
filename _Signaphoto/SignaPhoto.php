@@ -8,7 +8,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 // v4.01                                             Дата создания:  01.06.2021
-// Copyright © 2021 tve                              Посл.изменение: 15.01.2022
+// Copyright © 2021 tve                              Посл.изменение: 17.01.2022
 
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
@@ -40,7 +40,8 @@ try
    require_once pathPhpPrown."/ViewGlobal.php";
    // Подключаем файлы библиотеки прикладных классов:
    require_once pathPhpTools."/iniToolsMessage.php";
-   require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
+   //require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
+   require_once "DeviceOrientaterClass.php";
 
    // Подключаем модули страницы "Подписать фотографию"
    //require_once 'SignaPhotoHtml.php';
@@ -64,18 +65,22 @@ try
    IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
 
    // Создаем объект класса по контролю за положением устройства
+   // и принимаем кукис ориентации устройства
    $orient = new ttools\DeviceOrientater();
+   $orient->MakeCookieOrient();
+   prown\Alert(prown\MakeCookie('Orient'));
    // Проверяем, что ориентационные константы появились в PHP/JS
    prown\ConsoleLog('oriLandscape в PHP='.oriLandscape);
    prown\ConsoleLog('oriPortrait в PHP='.oriPortrait);
+   /*
    echo
       '<script>'.
       "console.log('oriLandscape='+oriLandscape);".
       "console.log('oriPortrait='+oriPortrait);".      
-      "console.log('Orient='+Orient);".
-      "alert('OrientDevice='+Orient)".
+      "console.log('Orient='+DeviceOrientater_Orient);".
+      "alert('OrientDevice='+DeviceOrientater_Orient)".
       '</script>';
-   
+   */
    // Уточняем ориентацию страницы
    // $s_Orient=prown\MakeSession('Orient',MakeOrient($s_Orient),tStr);
    // Подгоняем размеры изображений (здесь устранить бликование)
