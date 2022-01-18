@@ -40,9 +40,8 @@ try
    require_once pathPhpPrown."/ViewGlobal.php";
    // Подключаем файлы библиотеки прикладных классов:
    require_once pathPhpTools."/iniToolsMessage.php";
-   //require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
-   require_once "DeviceOrientaterClass.php";
-
+   require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
+   
    // Подключаем модули страницы "Подписать фотографию"
    //require_once 'SignaPhotoHtml.php';
 
@@ -66,23 +65,13 @@ try
 
    // Создаем объект класса по контролю за положением устройства
    // и принимаем кукис ориентации устройства
-   $orient = new ttools\DeviceOrientater();
-   $orient->MakeCookieOrient();
-   prown\Alert(prown\MakeCookie('Orient'));
-   // Проверяем, что ориентационные константы появились в PHP/JS
-   prown\ConsoleLog('oriLandscape в PHP='.oriLandscape);
-   prown\ConsoleLog('oriPortrait в PHP='.oriPortrait);
-   /*
-   echo
-      '<script>'.
-      "console.log('oriLandscape='+oriLandscape);".
-      "console.log('oriPortrait='+oriPortrait);".      
-      "console.log('Orient='+DeviceOrientater_Orient);".
-      "alert('OrientDevice='+DeviceOrientater_Orient)".
-      '</script>';
-   */
+   $orient = new ttools\DeviceOrientater($SiteDevice);
    // Уточняем ориентацию страницы
-   // $s_Orient=prown\MakeSession('Orient',MakeOrient($s_Orient),tStr);
+   $_Orient=oriLandscape;
+   if (prown\getComRequest('orient')==oriPortrait) $_Orient=oriPortrait;
+   prown\Alert('$_Orient='.$_Orient);
+
+   
    // Подгоняем размеры изображений (здесь устранить бликование)
    //echo '<script> PlaceImgOnDiv(); </script>';
    // Подключаем скрипты по завершению загрузки страницы
