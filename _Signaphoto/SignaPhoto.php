@@ -42,9 +42,6 @@ try
    require_once pathPhpTools."/iniToolsMessage.php";
    require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
    
-   // Подключаем модули страницы "Подписать фотографию"
-   //require_once 'SignaPhotoHtml.php';
-
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
    $c_UserName=prown\MakeCookie('UserName',"Гость",tStr,true);  // логин авторизованного посетителя
@@ -58,7 +55,6 @@ try
    // сессионными переменными. Например: $s_ModeImg --> $c_ModeImg)
    $s_Counter=prown\MakeSession('Counter',0,tInt,true);         // посещения за сессию
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
-   //$s_Orient=prown\MakeSession('Orient','landscape',tStr,true); // текущая ориентация устройства
 
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
@@ -67,8 +63,9 @@ try
    // и принимаем кукис ориентации устройства
    $orient = new ttools\DeviceOrientater($SiteDevice);
    // Уточняем ориентацию страницы
-   $_Orient=oriLandscape;
-   if (prown\getComRequest('orient')==oriPortrait) $_Orient=oriPortrait;
+   //$_Orient=oriLandscape;
+   //if (prown\getComRequest('orient')==oriPortrait) $_Orient=oriPortrait;
+   $_Orient=$orient->getOrient();
    prown\Alert('$_Orient='.$_Orient);
 
    

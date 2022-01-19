@@ -92,8 +92,6 @@ Exploration
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
 		+_Signaphoto
-			_Signaphoto\DeviceOrientaterOld.php
-			_Signaphoto\log.txt
 			_Signaphoto\SignaPhoto.css
 			_Signaphoto\SignaPhoto.js
 			_Signaphoto\SignaPhoto.php
@@ -239,17 +237,17 @@ Exploration
 2=_Signaphoto\SignaPhoto.css
 3=_Signaphoto\SignaPhoto.js
 4=_Signaphoto1\SignaUpload.php
-5=..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php
-6=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
+5=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
+6=..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaPhoto.php
+Selected=..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php
 [index.html]
 TopLine=1
 Caret=84,37
 [_Signaphoto\SignaPhoto.php]
-TopLine=47
-Caret=53,68
+TopLine=40
+Caret=34,68
 [_Signaphoto\SignaPhoto.css]
 TopLine=68
 Caret=109,106
@@ -259,9 +257,9 @@ Caret=39,43
 [_Signaphoto1\SignaUpload.php]
 TopLine=48
 Caret=1,1
-[..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php]
-TopLine=59
-Caret=8,93
 [..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
-TopLine=117
-Caret=36,138
+TopLine=25
+Caret=1,145
+[..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php]
+TopLine=1
+Caret=22,8
