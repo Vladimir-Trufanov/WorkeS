@@ -3,58 +3,58 @@
 /**
  * Библиотека прикладных функций страницы "Подписать фотографию"                             
  * 
- * v3.0, 05.12.2021        Автор: Труфанов В.Е. 
+ * v4.0, 21.01.2021        Автор: Труфанов В.Е. 
  * Copyright © 2021 tve    Дата создания: 03.06.2021
  * 
 **/ 
 
-/*
 // ****************************************************************************
-// *        Выполнить действия в связи с изменением ориентации смартфона      *
+// *                   Блок функций по выгрузке изображений на сервер         *
 // ****************************************************************************
-
-// http://greymag.ru/?p=175, 07.09.2011. При повороте устройства браузер 
-// отсылает событие orientationchange. Это актуально для обеих операционных 
-// систем. Но подписка на это событие может осуществляться по разному. 
-// При проверке на разных устройствах iPhone, iPad и Samsung GT (Android),
-// выяснилось что в iOS срабатывает следующий вариант установки обработчика: 
-// window.onorientationchange = handler; А для Android подписка осуществляется 
-// иначе: window.addEventListener( 'orientationchange', handler, false ); 
-//
-// Примечание: В обоих примерах handler - функция-обработчик. Текущую ориентацию
-// экрана можно узнать проверкой свойства window.orientation, принимающего одно
-// из следующих значений: 0 — нормальная портретная ориентация, -90 —
-// альбомная при повороте по часовой стрелке, 90 — альбомная при повороте 
-// против часовой стрелки, 180 — перевёрнутая портретная ориентация (пока 
-// только для iPad).
-//         
-// Отследить переворот экрана:
-// https://www.cyberforum.ru/javascript/thread2242547.html, 08.05.2018
- 
-// Подключить обработчик изменения положения смартфона
-// ****************************************************************************
-// *     Настроить положение навигационных кнопок в мобильной версии сайта    *
-// ****************************************************************************
-window.addEventListener('orientationchange',doOnOrientationChange);
-
-function doOnOrientationChange() 
+// По клику на кнопке выполнить выбор файла и 
+// активировать клик для загрузки файла
+function alf1FindFile() 
 {
-   if ((window.orientation==0)||(window.orientation==180))
-   {
-      window.location = SignaPortraitUrl;
-   } 
-   if ((window.orientation==90)||(window.orientation==-90)) 
-      window.location = SignaUrl;
-}
-// ****************************************************************************
-// *     Настроить положение навигационных кнопок в мобильной версии сайта    *
-// ****************************************************************************
-function iniOnOrientationChange() 
+   //console.log("alfFindFile");
+   //document.getElementById('ipfLoadPic').click();
+   // Настраиваем #InfoLead на загрузку изображения
+   /*
+   elem=document.getElementById('InfoLead');
+   elem.innerHTML=
+     '<div id="InfoLead">'+
+     '<form method="POST" enctype="multipart/form-data">'+  
+     '<input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">'+  
+     '<input type="submit" id="my_hidden_load" value="">'+  
+     '</form>'+
+     '</div>';
+   */
+   document.getElementById('my_hidden_file').click(); // alf2LoadFile()
+   //$('#my_hidden_file').click();
+} 
+// При изменении состояния input file активизировать кнопку "submit" для
+// загрузки выбранного файла во временное хранилище на сервере 
+function alf2LoadFile() 
 {
-   //alert('SignaPortraitUrl='+SignaPortraitUrl);
-   //console.log('SignaPortraitUrl='+SignaPortraitUrl);
-   if ((window.orientation==0)||(window.orientation==180))
-   window.location = SignaPortraitUrl;
-}
-*/ 
+   //console.log("alfLoadFile");
+   // По нажатию кнопки "submit" отправляем запрос из формы на выполнение
+   // модуля проверки параметров файла, загруженного во временное хранилище,
+   // его переброски на постоянное хранение и переименование  
+   document.getElementById('my_hidden_load').click(); // "SignaUpload.php"
+   //console.log('submit: my_hidden_load.click');
+   // ------Подключаем вызов загрузки нового изображения
+   //readImage(document.getElementById('ipfLoadPic'));
+   //readImage(document.getElementById('my_hidden_file'));
+}  
+
+
+
+// ****************************************************************************
+// *           Вывести диагностическое сообщение при ошибке перемещения       *
+// *                файла из временного хранилища и других событиях           *
+// ****************************************************************************
+function jsWinParentMessage(mess)
+{
+   alert(mess+'!'); 
+} 
+
 // ********************************************************** SignaPhoto.js ***
