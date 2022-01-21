@@ -103,8 +103,9 @@ Exploration
 			_Signaphoto\SignaPhoto.php
 			_Signaphoto\SignaPhotoDef.php
 			_Signaphoto\SignaPhotoHtml.php
+			_Signaphoto\SignaPhotoImg.php
 			_Signaphoto\SignaUpload.php
-		+_Signaphoto1
+		-_Signaphoto1
 			-images
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
@@ -247,7 +248,7 @@ Exploration
 4=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
 5=_Signaphoto\SignaPhotoHtml.php
 6=_Signaphoto\SignaUpload.php
-7=_Signaphoto1\SignaPhoto.js
+7=_Signaphoto\SignaPhotoImg.php
 [Selected Project Files]
 Main=
 Selected=_Signaphoto\SignaPhoto.js
@@ -255,23 +256,23 @@ Selected=_Signaphoto\SignaPhoto.js
 TopLine=23
 Caret=84,37
 [_Signaphoto\SignaPhoto.php]
-TopLine=32
-Caret=30,10
+TopLine=108
+Caret=28,128
 [_Signaphoto\SignaPhoto.css]
 TopLine=75
 Caret=57,104
 [_Signaphoto\SignaPhoto.js]
-TopLine=22
-Caret=17,57
+TopLine=122
+Caret=1,151
 [..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
 TopLine=107
 Caret=1,145
 [_Signaphoto\SignaPhotoHtml.php]
-TopLine=167
-Caret=54,174
+TopLine=5
+Caret=23,28
 [_Signaphoto\SignaUpload.php]
-TopLine=8
-Caret=6,128
-[_Signaphoto1\SignaPhoto.js]
-TopLine=1
-Caret=1,20
+TopLine=68
+Caret=51,96
+[_Signaphoto\SignaPhotoImg.php]
+TopLine=19
+Caret=18,46

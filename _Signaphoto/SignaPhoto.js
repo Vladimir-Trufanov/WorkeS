@@ -15,39 +15,17 @@
 // активировать клик для загрузки файла
 function alf1FindFile() 
 {
-   //console.log("alfFindFile");
-   //document.getElementById('ipfLoadPic').click();
-   // Настраиваем #InfoLead на загрузку изображения
-   /*
-   elem=document.getElementById('InfoLead');
-   elem.innerHTML=
-     '<div id="InfoLead">'+
-     '<form method="POST" enctype="multipart/form-data">'+  
-     '<input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">'+  
-     '<input type="submit" id="my_hidden_load" value="">'+  
-     '</form>'+
-     '</div>';
-   */
    document.getElementById('my_hidden_file').click(); // alf2LoadFile()
-   //$('#my_hidden_file').click();
 } 
 // При изменении состояния input file активизировать кнопку "submit" для
 // загрузки выбранного файла во временное хранилище на сервере 
 function alf2LoadFile() 
 {
-   //console.log("alfLoadFile");
    // По нажатию кнопки "submit" отправляем запрос из формы на выполнение
    // модуля проверки параметров файла, загруженного во временное хранилище,
    // его переброски на постоянное хранение и переименование  
    document.getElementById('my_hidden_load').click(); // "SignaUpload.php"
-   //console.log('submit: my_hidden_load.click');
-   // ------Подключаем вызов загрузки нового изображения
-   //readImage(document.getElementById('ipfLoadPic'));
-   //readImage(document.getElementById('my_hidden_file'));
 }  
-
-
-
 // ****************************************************************************
 // *           Вывести диагностическое сообщение при ошибке перемещения       *
 // *                файла из временного хранилища и других событиях           *
@@ -55,6 +33,128 @@ function alf2LoadFile()
 function jsWinParentMessage(mess)
 {
    alert(mess+'!'); 
-} 
+}
+// ****************************************************************************
+// *              Заменить изображение в заданной области страницы            *
+// ****************************************************************************
+function Proba12()
+{
+   htmlstr='Привет!';
+   $('div#Photo').html(htmlstr); 
+}
+function jsWinParentReplaceImg(mess,IdDiv=null) 
+{
+   if (IdDiv==null)
+   {
+      data=JSON.parse(mess);
+   }
+   else
+   {
+      if (data[0].DivId=="Photo")
+      {
+      }
+      else if (data[0].DivId=="Stamp")
+      {
+      }
+      else if (data[0].DivId=="Proba")
+      {
+      }
+      else
+      {
+      }
+   }
+   //alert(data[0].ImgName); 
+   // Определяем способы выравнивания ('по ширине','по высоте')
+   // изображений и выравниваем их по дивам
+   alignPhoto=getAlignImg(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight);
+   PlacePicOnDiv(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4,data[0].ImgName);
+}
+// ****************************************************************************
+// *   Определить спосов выравнивания ('по ширине','по высоте') изображения   *
+// *                                 по диву                                  *
+// ****************************************************************************
+function getAlignImg(cDiv,cImg,wImg,hImg)
+{
+   // Определяем размеры дива на экране
+   oDiv=document.getElementById(cDiv)
+   widthDiv=oDiv.offsetWidth;
+   heightDiv=oDiv.offsetHeight;
+   // Считаем, что нужно выровнять по ширине
+   alignImg='по ширине';
+   // Через пропорцию вычисляем высоту     *** widthDiv --> wImg ***
+   // растянутого изображения по ширине:   ***        x --> hImg ***
+   p_heightDiv=(widthDiv*hImg/wImg);
+   // Сравниваем расчетную высоту изображения с высотой дива и,
+   // если высота изображения превышает высоту дива,
+   // то считаем, что изображение нужно растянуть по высоте
+   if (p_heightDiv>heightDiv) alignImg='по высоте';
+   console.log(cImg+': alignImg='+alignImg);
+   return alignImg;
+}
+// ****************************************************************************
+// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
+// *                    cImg - идентификатор изображения,                     *
+// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
+// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
+// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
+// *
+// ****************************************************************************
+function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft,cPlacePicOnDivFile)
+{
+   //
+   //htmlstr='<div  id="Photo">'+
+   //        '<img src="'+cPlacePicOnDivFile+'" alt="tttrr" id="pic" title="ghhjjjkk">'+
+   //        '</div>';
+   //$('div#Photo').html(htmlstr); 
 
+   // Определяем размеры дива на экране
+   oDiv=document.getElementById(cDiv)
+   widthDiv=oDiv.offsetWidth;
+   heightDiv=oDiv.offsetHeight;
+   // Выравниваем по ширине
+   if (mAligne=='по ширине')
+   {
+      // Вначале определяем размещение по ширине через проценты
+      nWidth=perWidth; nLeft=perLeft;
+      $('#'+cImg).css('margin-left',String(nLeft)+'%');
+      // Определяем ширину изображения  ***   nWidth --> x        ***
+      // в диве из пропорции:           ***     100% --> widthDiv ***
+      widthImg=nWidth*widthDiv/100;
+      // Определяем высоту изображения  ***     wImg --> hImg     ***  
+      // в диве из пропорции:           *** widthImg --> x        ***
+      heightImg=widthImg*hImg/wImg;
+      // Определяем центрирование размещения по высоте через пикселы
+      nTop=(heightDiv-heightImg)/2;
+      console.log('widthImg='+widthImg);
+      console.log('heightImg='+heightImg);
+      $('#'+cImg).css('width',String(widthImg)+'px');
+      $('#'+cImg).css('height',String(heightImg)+'px');
+      $('#'+cImg).css('margin-top',String(nTop)+'px');
+   }
+   // Выравниваем по высоте
+   else
+   {
+      // Вначале задаем высоту изображения в диве через проценты
+      nHeight=94; 
+      // Определяем высоту изображения в диве через пикселы
+      heightImg=nHeight*heightDiv/100;
+      // Определяем ширину изображения  *** wImg --> hImg      ***
+      // в диве через пикселы:          ***    x --> heightImg ***
+      widthImg=wImg*heightImg/hImg;
+      $('#'+cImg).css('width',String(widthImg)+'px');
+      $('#'+cImg).css('height',String(heightImg)+'px');
+      // Центрируем изображение по диву
+      $('#'+cImg).css('margin-left',String((widthDiv-widthImg)/2)+'px');
+      $('#'+cImg).css('margin-top',String((heightDiv-heightImg)/2)+'px');
+   } 
+
+   $('#pic').attr('src',cPlacePicOnDivFile);
+   
+   /*
+   newPhoto=new Image();
+   newPhoto.src=cPlacePicOnDivFile;
+   photo=$('#pic');
+   pic.attr('src',newPhoto.src);
+   */
+}
 // ********************************************************** SignaPhoto.js ***

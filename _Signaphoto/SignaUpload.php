@@ -21,21 +21,16 @@ function WinParentMessage($mess)
 // ****************************************************************************
 function WinParentReplaceImg($mess)  
 {
-   //
-   // echo "<script> window.parent.jsWinParentReplaceImg('".$mess."');</script>";  
-   echo "<script>window.parent.Proba12();</script>";  
+   echo "<script> window.parent.jsWinParentReplaceImg('".$mess."');</script>";  
 }  
-
 // Подключаем межязыковые (PHP-JScript) определения внутри HTML
 require_once 'SignaPhotoDef.php';
 echo $define; echo $odefine;
-
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
 $_WORKSPACE=iniWorkSpace();
 $SiteHost=$_WORKSPACE[wsSiteHost];          // Каталог хостинга
 $SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol(), 
-
 // Подключаем файлы библиотеки прикладных модулей:
 define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown'); 
 require_once pathPhpPrown."/CommonPrown.php";
@@ -46,20 +41,13 @@ require_once pathPhpPrown."/MakeRID.php";
 define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools'); 
 require_once pathPhpTools."/iniToolsMessage.php";
 require_once pathPhpTools."/TUploadToServer/UploadToServerClass.php";
-
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
    // Подключаем блок функций подготовки и обработки изображений 
-   // require_once 'SignaPhotoImg.php';
-
-   // Трассируем вызов SignaUpload.php
-   WinParentMessage("Выполнен вызов SignaUpload.php");
-   
-   
-   /*
+   require_once 'SignaPhotoImg.php';
    // Определяем имя подмассива по INPUT для $_FILES
    // рассматриваем через сериализацию, когда загружен 1 файл:
    // или оригинальное изображение, или подпись !!! 
@@ -79,13 +67,10 @@ try
    if ($NameInput=="loadimg") $NameLoad=$name.'img';
    elseif ($NameInput=="loadstamp") $NameLoad=$name.'stamp';
    else $NameLoad=$name;
-   
    // Определяем полный путь для создания каталога хранения изображений и
    // его url-аналог для связывания с разметкой через кукис
    $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
-   prown\ConsoleLog('111-$imgDir='.$imgDir); 
    $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
-   prown\ConsoleLog('111-$urlDir='.$urlDir); 
    // Создаем каталог для хранения изображений, если его нет.
    $modeDir=0777;
    $is=prown\CreateRightsDir($imgDir,$modeDir,rvsReturn);
@@ -104,18 +89,13 @@ try
          $user_info = array(); 
          // Подготавливаем параметры размещения изображения в диве
          $localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
-         prown\ConsoleLog('$localimg='.$localimg);
-
          if ($NameInput=="loadimg") 
          {
             $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
             // Заполняем массив данными об изображении для размещения в заданном окне
-            $user_info=FillArrayOne('Photo',$c_FileImg);
+            $user_info=FillArrayOne('Photo','pic',$c_FileImg);
             // Отправляем массив в родительское окно
-            prown\ConsoleLog('  УШЛО='.json_encode($user_info));
-
             WinParentReplaceImg(json_encode($user_info));
-            //WinParentReplaceImg('Photo='.$localimg.';');
          }
          elseif ($NameInput=="loadstamp") 
          {
@@ -125,11 +105,9 @@ try
    }
    // Если не удалось каталог с правами сделать, сообщаем причину
    else WinParentMessage($is);
-   */ 
 }
 catch (E_EXCEPTION $e) 
 {
    DoorTryPage($e);
 }
-
 // ******************************************************** SignaUpload.php ***
