@@ -7,7 +7,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  25.11.2021
-// Copyright © 2021 tve                              Посл.изменение: 13.01.2022
+// Copyright © 2021 tve                              Посл.изменение: 22.01.2022
 
 // Подключаем межязыковые (PHP-JScript) определения
 require_once 'SignaPhotoDef.php';
@@ -93,6 +93,48 @@ function ImgCreate($c_FileImg,&$Img)
       }
    }
    return $Result;
+}
+// ****************************************************************************
+// *    Преодолеть кэширование файла в браузере через именование файла        *
+// ****************************************************************************
+function RemCash($url_name,$file_name,$file_ext)
+// Так как имена загружаемым файлам для текущего пользователя выполняются
+// с помощью prown\MakeRID(), то в случае загрузки файла с одним и тем же 
+// расширением для показа может вызываться файл из кэша, а не тот, который
+// был загружен. Для того, чтобы обойти кэширование, в конце имени файла 
+// функция добавляет поочередно символы 'F','A','X'.
+{
+   prown\ConsoleLog('***'.$url_name.'.'.$file_ext.'***');
+   prown\ConsoleLog('***'.$file_name.'.'.$file_ext.'***');
+   // Если есть файл с постфиксом 'F', удаляем его и возвращаем имя с 'A'
+   if (is_file($file_name.'F.'.$file_ext))
+   {
+      //unlink($file_name.'F.'.$file_ext);
+      $Result=$file_name.'A.'.$file_ext;
+   }
+   // Если есть файл с постфиксом 'A', удаляем его и возвращаем имя с 'X'
+   else if (is_file($file_name.'A.'.$file_ext))
+   {
+      //unlink($file_name.'A.'.$file_ext);
+      $Result=$file_name.'X.'.$file_ext;
+   }
+   // Если есть файл с постфиксом 'X', удаляем его и возвращаем имя с 'F'
+   else if (is_file($file_name.'X.'.$file_ext))
+   {
+      //unlink($file_name.'X.'.$file_ext);
+      $Result=$file_name.'F.'.$file_ext;
+   }
+   // Иначе удаляем заданный файл и возвращаем его имя
+   else 
+   {
+      //unlink('C:/Webservers/Exploration/Temp/Win10Ch97De--1img.jpeg');
+      //             'http://localhost:82/Temp/Win10Ch97De--1img.jpeg'
+      unlink($file_name.'.'.$file_ext);
+      $Result=$url_name.'F.'.$file_ext;
+      
+   }
+   return $Result;
+   
 }
                                
 // ****************************************************** SignaPhotoImg.php ***

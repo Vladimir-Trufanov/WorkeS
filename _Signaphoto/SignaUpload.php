@@ -77,6 +77,18 @@ try
    // Если с каталогом все в порядке, то будем перебрасывать файл на сервер
    if ($is===true)
    {
+   
+      prown\ConsoleLog('$NameLoad='.$NameLoad);
+      $field=current($_FILES);
+      $type=substr($field['type'],strpos($field['type'],'/')+1);
+      prown\ConsoleLog('$type='.$type);
+
+      $localimg=RemCash($urlDir.'/'.$NameLoad,$imgDir.'/'.$NameLoad,$type);
+      prown\ConsoleLog('$localimg='.$localimg);
+      $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
+      prown\ConsoleLog('$localimg='.$localimg);
+   
+      //
       $upload=new ttools\UploadToServer($imgDir,$NameLoad);
       $MessUpload=$upload->move();
       // Если перемещение завершилось неудачно, то выдаем сообщение
@@ -87,8 +99,11 @@ try
          // Создаем массив данных для передачи браузеру
          // (либо массив с одним сообщением, либо массив размеров изображений)
          $user_info = array(); 
+
          // Подготавливаем параметры размещения изображения в диве
-         $localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
+         //$localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
+         prown\ConsoleLog('$localimg='.$localimg);
+         
          if ($NameInput=="loadimg") 
          {
             $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);

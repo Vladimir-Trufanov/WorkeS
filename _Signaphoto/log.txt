@@ -12,3 +12,5 @@ Stack trace:
 #0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(82): MarkupLandscape('http://localhos...', 'images/istamp.p...', 'images/iproba.p...', '::1')
 #1 {main}
   thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 119
+[22-Jan-2022 09:52:50 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'is_file' (T_STRING), expecting '(' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 108
+[22-Jan-2022 18:49:34 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'prown' (T_STRING) in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 130

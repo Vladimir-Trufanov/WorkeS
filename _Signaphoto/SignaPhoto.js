@@ -148,13 +148,11 @@ function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft,cPlacePicOnD
       $('#'+cImg).css('margin-top',String((heightDiv-heightImg)/2)+'px');
    } 
 
-   $('#pic').attr('src',cPlacePicOnDivFile);
+   //$('#pic').attr('src',cPlacePicOnDivFile);
    
-   /*
    newPhoto=new Image();
    newPhoto.src=cPlacePicOnDivFile;
    photo=$('#pic');
-   pic.attr('src',newPhoto.src);
-   */
+   photo.attr('src',newPhoto.src);
 }
 // ********************************************************** SignaPhoto.js ***
