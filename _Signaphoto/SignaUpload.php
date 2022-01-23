@@ -78,17 +78,24 @@ try
    if ($is===true)
    {
    
-      prown\ConsoleLog('$NameLoad='.$NameLoad);
+      //prown\ConsoleLog('$NameLoad='.$NameLoad);
       $field=current($_FILES);
       $type=substr($field['type'],strpos($field['type'],'/')+1);
-      prown\ConsoleLog('$type='.$type);
+      //prown\ConsoleLog('$type='.$type);
 
-      $localimg=RemCash($urlDir.'/'.$NameLoad,$imgDir.'/'.$NameLoad,$type);
-      prown\ConsoleLog('$localimg='.$localimg);
+      //$localimg=
+      //RemCash($urlDir,$imgDir,$NameLoad,$type);
+      //prown\ConsoleLog('$localimg='.$localimg);
+      //$localimg=$urlDir.'/'.$NameLoad.'.'.$type;
+      //prown\ConsoleLog('$localimg='.$localimg);
+
+      // Подготавливаем параметры размещения изображения в диве
       $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
-      prown\ConsoleLog('$localimg='.$localimg);
+      $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
+      //prown\ConsoleLog('$localimg='.$localimg);
+      //prown\ConsoleLog('$nameimg='.$nameimg);
    
-      //
+      //clearstatcache(true,$nameimg);
       $upload=new ttools\UploadToServer($imgDir,$NameLoad);
       $MessUpload=$upload->move();
       // Если перемещение завершилось неудачно, то выдаем сообщение
@@ -102,13 +109,16 @@ try
 
          // Подготавливаем параметры размещения изображения в диве
          //$localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
-         prown\ConsoleLog('$localimg='.$localimg);
+         //$nameimg=$imgDir.'/'.$NameLoad.'.'.$upload->getExt();
+         //prown\ConsoleLog('$localimg='.$localimg);
          
          if ($NameInput=="loadimg") 
          {
-            $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
+            //clearstatcache(true,$nameimg);
+            //$c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
             // Заполняем массив данными об изображении для размещения в заданном окне
-            $user_info=FillArrayOne('Photo','pic',$c_FileImg);
+            //$user_info=FillArrayOne('Photo','pic',$c_FileImg);
+            $user_info=FillArrayOne('Photo','pic',$localimg);
             // Отправляем массив в родительское окно
             WinParentReplaceImg(json_encode($user_info));
          }

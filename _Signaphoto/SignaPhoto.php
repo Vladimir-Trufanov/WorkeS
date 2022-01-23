@@ -82,6 +82,9 @@ try
    // DebugView($s_Orient);
 
    // Запускаем построение разметки
+   
+   //clearstatcache();
+   
    if ($_Orient==oriLandscape) MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
    else MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
 

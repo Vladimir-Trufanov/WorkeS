@@ -97,41 +97,51 @@ function ImgCreate($c_FileImg,&$Img)
 // ****************************************************************************
 // *    Преодолеть кэширование файла в браузере через именование файла        *
 // ****************************************************************************
-function RemCash($url_name,$file_name,$file_ext)
+function RemCash($urlDir,$imgDir,&$NameLoad,$file_ext)
 // Так как имена загружаемым файлам для текущего пользователя выполняются
 // с помощью prown\MakeRID(), то в случае загрузки файла с одним и тем же 
 // расширением для показа может вызываться файл из кэша, а не тот, который
 // был загружен. Для того, чтобы обойти кэширование, в конце имени файла 
 // функция добавляет поочередно символы 'F','A','X'.
 {
-   prown\ConsoleLog('***'.$url_name.'.'.$file_ext.'***');
-   prown\ConsoleLog('***'.$file_name.'.'.$file_ext.'***');
+   $url_name=$urlDir.'/'.$NameLoad;
+   $file_name=$imgDir.'/'.$NameLoad;
+   $Result=$url_name.'.'.$file_ext;
    // Если есть файл с постфиксом 'F', удаляем его и возвращаем имя с 'A'
-   if (is_file($file_name.'F.'.$file_ext))
+   $nameimg=$file_name.'.'.$file_ext;
+   clearstatcache(true,$nameimg);
+   $nameimgF=$file_name.'F.'.$file_ext;
+   clearstatcache(true,$nameimgF);
+   $nameimgA=$file_name.'A.'.$file_ext;
+   clearstatcache(true,$nameimgA);
+   $nameimgX=$file_name.'X.'.$file_ext;
+   clearstatcache(true,$nameimgX);
+   if (is_file($nameimgF))
    {
-      //unlink($file_name.'F.'.$file_ext);
-      $Result=$file_name.'A.'.$file_ext;
+      unlink($nameimgF);
+      $Result=$url_name.'A.'.$file_ext;
+      $NameLoad=$NameLoad.'A';
    }
    // Если есть файл с постфиксом 'A', удаляем его и возвращаем имя с 'X'
-   else if (is_file($file_name.'A.'.$file_ext))
+   else if (is_file($nameimgA))
    {
-      //unlink($file_name.'A.'.$file_ext);
-      $Result=$file_name.'X.'.$file_ext;
+      unlink($nameimgA);
+      $Result=$url_name.'X.'.$file_ext;
+      $NameLoad=$NameLoad.'X';
    }
    // Если есть файл с постфиксом 'X', удаляем его и возвращаем имя с 'F'
-   else if (is_file($file_name.'X.'.$file_ext))
+   else if (is_file($nameimgX))
    {
-      //unlink($file_name.'X.'.$file_ext);
-      $Result=$file_name.'F.'.$file_ext;
+      unlink($nameimgX);
+      $Result=$url_name.'F.'.$file_ext;
+      $NameLoad=$NameLoad.'F';
    }
    // Иначе удаляем заданный файл и возвращаем его имя
-   else 
+   else if (is_file($nameimg))
    {
-      //unlink('C:/Webservers/Exploration/Temp/Win10Ch97De--1img.jpeg');
-      //             'http://localhost:82/Temp/Win10Ch97De--1img.jpeg'
-      unlink($file_name.'.'.$file_ext);
+      unlink($nameimg);
       $Result=$url_name.'F.'.$file_ext;
-      
+      $NameLoad=$NameLoad.'F';
    }
    return $Result;
    

@@ -105,7 +105,7 @@ Exploration
 			_Signaphoto\SignaPhotoHtml.php
 			_Signaphoto\SignaPhotoImg.php
 			_Signaphoto\SignaUpload.php
-		-_Signaphoto1
+		+_Signaphoto1
 			-images
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
@@ -249,7 +249,7 @@ Exploration
 5=_Signaphoto\SignaPhotoHtml.php
 6=_Signaphoto\SignaUpload.php
 7=_Signaphoto\SignaPhotoImg.php
-8=..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php
+8=..\..\TPhpPrown\TPhpPrown\CreateRightsDir.php
 [Selected Project Files]
 Main=
 Selected=_Signaphoto\SignaUpload.php
@@ -257,26 +257,26 @@ Selected=_Signaphoto\SignaUpload.php
 TopLine=23
 Caret=84,37
 [_Signaphoto\SignaPhoto.php]
-TopLine=96
-Caret=28,128
+TopLine=90
+Caret=6,86
 [_Signaphoto\SignaPhoto.css]
 TopLine=75
 Caret=57,104
 [_Signaphoto\SignaPhoto.js]
-TopLine=113
-Caret=6,151
+TopLine=120
+Caret=48,152
 [..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
-TopLine=145
-Caret=1,145
+TopLine=77
+Caret=30,88
 [_Signaphoto\SignaPhotoHtml.php]
 TopLine=7
 Caret=23,28
 [_Signaphoto\SignaUpload.php]
-TopLine=77
-Caret=7,89
+TopLine=89
+Caret=60,121
 [_Signaphoto\SignaPhotoImg.php]
-TopLine=94
-Caret=26,132
-[..\..\TPhpTools\TPhpTools\TUploadToServer\UploadToServerClass.php]
-TopLine=113
-Caret=1,130
+TopLine=99
+Caret=36,112
+[..\..\TPhpPrown\TPhpPrown\CreateRightsDir.php]
+TopLine=129
+Caret=1,1
