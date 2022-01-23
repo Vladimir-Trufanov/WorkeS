@@ -88,6 +88,9 @@ function ViewProba($c_FileProba,$RemoteAddr)
    echo '</form>';
    */
    //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
+   
+   $a=serialize($_FILES);
+   echo '$a='.$a.'<br>';
    prown\ViewGlobal(avgCOOKIE);
    /*        
 

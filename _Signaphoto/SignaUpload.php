@@ -71,31 +71,18 @@ try
    // его url-аналог для связывания с разметкой через кукис
    $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
    $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
+   // Подготавливаем параметры размещения изображения в диве
+   $field=current($_FILES);
+   $type=substr($field['type'],strpos($field['type'],'/')+1);
+   $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
+   $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
    // Создаем каталог для хранения изображений, если его нет.
    $modeDir=0777;
    $is=prown\CreateRightsDir($imgDir,$modeDir,rvsReturn);
    // Если с каталогом все в порядке, то будем перебрасывать файл на сервер
    if ($is===true)
    {
-   
-      //prown\ConsoleLog('$NameLoad='.$NameLoad);
-      $field=current($_FILES);
-      $type=substr($field['type'],strpos($field['type'],'/')+1);
-      //prown\ConsoleLog('$type='.$type);
-
-      //$localimg=
-      //RemCash($urlDir,$imgDir,$NameLoad,$type);
-      //prown\ConsoleLog('$localimg='.$localimg);
-      //$localimg=$urlDir.'/'.$NameLoad.'.'.$type;
-      //prown\ConsoleLog('$localimg='.$localimg);
-
-      // Подготавливаем параметры размещения изображения в диве
-      $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
-      $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
-      //prown\ConsoleLog('$localimg='.$localimg);
-      //prown\ConsoleLog('$nameimg='.$nameimg);
-   
-      //clearstatcache(true,$nameimg);
+      // Перебрасываем файл на постоянное хранение
       $upload=new ttools\UploadToServer($imgDir,$NameLoad);
       $MessUpload=$upload->move();
       // Если перемещение завершилось неудачно, то выдаем сообщение
@@ -106,25 +93,17 @@ try
          // Создаем массив данных для передачи браузеру
          // (либо массив с одним сообщением, либо массив размеров изображений)
          $user_info = array(); 
-
-         // Подготавливаем параметры размещения изображения в диве
-         //$localimg=$urlDir.'/'.$NameLoad.'.'.$upload->getExt();
-         //$nameimg=$imgDir.'/'.$NameLoad.'.'.$upload->getExt();
-         //prown\ConsoleLog('$localimg='.$localimg);
-         
          if ($NameInput=="loadimg") 
          {
-            //clearstatcache(true,$nameimg);
             //$c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
             // Заполняем массив данными об изображении для размещения в заданном окне
-            //$user_info=FillArrayOne('Photo','pic',$c_FileImg);
             $user_info=FillArrayOne('Photo','pic',$localimg);
             // Отправляем массив в родительское окно
             WinParentReplaceImg(json_encode($user_info));
          }
          elseif ($NameInput=="loadstamp") 
          {
-            $c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
+            //$c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
          }
       }  
    }
