@@ -96,7 +96,6 @@ Exploration
 				_Signaphoto\images\iphoto.jpg
 				_Signaphoto\images\iproba.png
 				_Signaphoto\images\istamp.png
-				_Signaphoto\images\photo.png
 			_Signaphoto\log.txt
 			_Signaphoto\SignaPhoto.css
 			_Signaphoto\SignaPhoto.js
@@ -105,7 +104,7 @@ Exploration
 			_Signaphoto\SignaPhotoHtml.php
 			_Signaphoto\SignaPhotoImg.php
 			_Signaphoto\SignaUpload.php
-		+_Signaphoto1
+		-_Signaphoto1
 			-images
 				_Signaphoto1\images\iphoto.jpg
 				_Signaphoto1\images\iproba.png
@@ -127,6 +126,18 @@ Exploration
 			_Signaphoto1\SignaPhotoHtml.php
 			_Signaphoto1\SignaPhotoImg.php
 			_Signaphoto1\SignaUpload.php
+		-_Signaphoto2
+			-images
+				_Signaphoto2\images\iphoto.jpg
+				_Signaphoto2\images\iproba.png
+				_Signaphoto2\images\istamp.png
+			_Signaphoto2\SignaPhoto.css
+			_Signaphoto2\SignaPhoto.js
+			_Signaphoto2\SignaPhoto.php
+			_Signaphoto2\SignaPhotoDef.php
+			_Signaphoto2\SignaPhotoHtml.php
+			_Signaphoto2\SignaPhotoImg.php
+			_Signaphoto2\SignaUpload.php
 		-_sortable
 			-css
 				-images
@@ -226,10 +237,8 @@ Exploration
 			SmartMenus\sm-blue.css
 			SmartMenus\sm-core-css.css
 		-Temp
-			Temp\proba.jpg
 			Temp\Win10Ch97De--1img.gif
 			Temp\Win10Ch97De--1img.jpeg
-			Temp\Win10Ch97De--1img.png
 		-Материалы
 		.gitignore
 		errors.txt
@@ -243,36 +252,36 @@ Exploration
 [Open project files]
 0=index.html
 1=_Signaphoto\SignaPhoto.php
-2=_Signaphoto\SignaPhoto.css
-3=_Signaphoto\SignaPhoto.js
-4=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
-5=_Signaphoto\SignaPhotoHtml.php
-6=_Signaphoto\SignaUpload.php
-7=_Signaphoto\SignaPhotoImg.php
+2=_Signaphoto\SignaPhotoHtml.php
+3=_Signaphoto\SignaUpload.php
+4=_Signaphoto\SignaPhotoDef.php
+5=_Signaphoto\SignaPhoto.js
+6=_Signaphoto\SignaPhoto.css
+7=..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaPhotoHtml.php
+Selected=_Signaphoto\SignaPhoto.php
 [index.html]
-TopLine=23
-Caret=84,37
+TopLine=31
+Caret=1,39
 [_Signaphoto\SignaPhoto.php]
-TopLine=71
-Caret=1,98
-[_Signaphoto\SignaPhoto.css]
-TopLine=75
-Caret=57,104
-[_Signaphoto\SignaPhoto.js]
-TopLine=118
-Caret=48,152
-[..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
-TopLine=77
-Caret=30,88
+TopLine=134
+Caret=1,172
 [_Signaphoto\SignaPhotoHtml.php]
-TopLine=67
-Caret=15,93
+TopLine=11
+Caret=1,16
 [_Signaphoto\SignaUpload.php]
-TopLine=46
-Caret=14,50
-[_Signaphoto\SignaPhotoImg.php]
-TopLine=17
-Caret=3,149
+TopLine=1
+Caret=36,35
+[_Signaphoto\SignaPhotoDef.php]
+TopLine=29
+Caret=1,1
+[_Signaphoto\SignaPhoto.js]
+TopLine=102
+Caret=1,119
+[_Signaphoto\SignaPhoto.css]
+TopLine=29
+Caret=1,104
+[..\..\TPhpTools\TPhpTools\TDeviceOrientater\DeviceOrientaterClass.php]
+TopLine=89
+Caret=1,118

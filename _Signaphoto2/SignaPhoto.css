@@ -101,6 +101,8 @@ body
 #InfoLead  {width:0;height:0;padding:0;margin:0;}
 #my_hidden_file,#my_hidden_load
 {font-size:0;width:0;border-style:none;background-color:transparent;} 
+/* Позиционируем плавающий фрэйм загрузки изображений */
+#alfFrame{display:block;background-color:transparent;position:absolute;z-index:201;width:90%;height:90%;}  
 
 /* Перед раскрытием страницы нулевые размеры изображений */
 /*#pic,#picStamp,#picProba{width:0;height:0;}*/

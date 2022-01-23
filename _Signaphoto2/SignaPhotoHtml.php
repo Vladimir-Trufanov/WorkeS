@@ -13,6 +13,34 @@
 // ****************************************************************************
 // *           Вывести 3 изображения (оригинал, штамп, с подписью)            *
 // ****************************************************************************
+// Вывести изображение последнего загруженного фото
+function ViewPhoto($c_FileImg)
+{
+   /* 
+   // Выводим заполнитель дива вместо изображения
+   echo 
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo Photo'.
+      'Photo Photo Photo';
+   */
+   // Выводим изображение
+   echo '<img id="pic" src="'.$c_FileImg.'"'.
+        'alt="'.$c_FileImg.'" title="Загруженное изображение">';
+   /* 
+   $im = imagecreatefrompng('dave.png');
+   if($im && imagefilter($im, IMG_FILTER_GRAYSCALE))
+   {
+      echo 'Изображение преобразовано к градациям серого.';
+      imagepng($im, 'dave1.png');
+   }
+   else
+   {
+      echo 'Преобразование не удалось.';
+   }
+   imagedestroy($im);
+   */   
+}
 // Вывести изображение подписи последних размеров
 function ViewStamp($c_FileStamp)
 {
@@ -146,7 +174,7 @@ function LoadImg()
    
    echo '
      <div id="InfoLead">
-     <form action="SignaUpload.php" method="POST" enctype="multipart/form-data"> 
+     <form target="alfFrame" action="SignaUpload.php" method="POST" enctype="multipart/form-data"> 
      <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
      <input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadimg" onchange="alf2LoadFile();"/>  
      <input type="submit" id="my_hidden_load" value="">  

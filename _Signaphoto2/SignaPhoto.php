@@ -7,8 +7,8 @@
 // ****************************************************************************
 
 //                                                   Автор:       Труфанов В.Е.
-// v5.1                                              Дата создания:  01.06.2021
-// Copyright © 2021 tve                              Посл.изменение: 23.01.2022
+// v4.1                                              Дата создания:  01.06.2021
+// Copyright © 2021 tve                              Посл.изменение: 17.01.2022
 
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
@@ -44,8 +44,6 @@ try
 
    // Подключаем рабочие модули:
    require_once "SignaPhotoHtml.php";
-   require_once "SignaPhotoImg.php";
-   require_once "SignaUpload.php";
    
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
@@ -63,9 +61,6 @@ try
 
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
-   // Подключаем межязыковые (PHP-JScript) определения внутри HTML
-   require_once 'SignaPhotoDef.php';
-   echo $define; echo $odefine;
 
    // Создаем объект класса по контролю за положением устройства
    // и определяем ориентацию устройства
@@ -87,8 +82,17 @@ try
    // DebugView($s_Orient);
 
    // Запускаем построение разметки
+   
+   //clearstatcache();
+   
    if ($_Orient==oriLandscape) MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
    else MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
+
+   // Размещаем плавающий фрэйм сообщений при загрузке изображения
+   echo 
+    '<iframe id="alfFrame" name="alfFrame" align="left">'.
+    'Ваш браузер не поддерживает плавающие фреймы!'.
+    '</iframe>';
 
    // Завершаем вывод страницы 
    echo '</body>';
@@ -115,15 +119,8 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
       // Размечаем область оригинального изображения и образца подписи
       echo '<div  id="View">';
          // Оригинал
-         echo '<div id="Photo">';
-         /*
-         echo '<img id="pic" src="'.$c_FileImg.'"'.' alt="'.$c_FileImg.'"'.
-            ' style="width:350px; height:350px; margin-left:10px; margin-top:10px"'.
-            ' title="Загруженное изображение">';
-         */
-         echo '<img id="pic" src="'.$c_FileImg.'"'.' alt="'.$c_FileImg.'"'.' title="Загруженное изображение">';
-         MakeImgOnDiv('Photo','pic');
-         //echo '<script> PlacePicOnDiv(); </script>';
+         echo '<div  id="Photo">';
+         ViewPhoto($c_FileImg);
          echo '</div>';
          // Подпись
          echo '<div  id="Stamp">';
@@ -154,26 +151,6 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
       echo '</div>';
       
    echo '</div>';
-}
-// ****************************************************************************
-// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
-// *                   cImg - идентификатор изображения,                      *
-// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
-// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
-// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
-// *
-// ****************************************************************************
-function MakeImgOnDiv($cDiv,$cImg)
-{
-?> <script>
-   cDiv="<?php echo $cDiv; ?>";
-   //console.log('cDiv='+cDiv);
-   cImg="<?php echo $cImg; ?>";
-   $("#"+cImg).css("width","350px");
-   $("#"+cImg).css("height","350px");
-   $("#"+cImg).css("margin-left","10px");
-   $("#"+cImg).css("margin-top","10px");
-</script> <?php
 }
 
 // ****************************************************************************
@@ -207,8 +184,13 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    ';
    // Подключаем font-awesome
    echo '<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">';
+   // Подключаем скрипт изменения заголовка "input file"
+   // echo '<script src="/Jsx/jquery-input-file-text.js"></script>';
    //
    echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
+   // Подключаем межязыковые (PHP-JScript) определения внутри HTML
+   require_once 'SignaPhotoDef.php';
+   echo $define; echo $odefine;
    // Подключаем сайтовые(SignaPhoto) функции Js и
    // инициализируем обработчики
    echo '<script src="SignaPhoto.js"></script>';

@@ -1,0 +1,2 @@
+[23-Jan-2022 13:53:50 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'SignaPhotoHtml.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 46
+[23-Jan-2022 13:55:36 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'SignaPhotoDef.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 190

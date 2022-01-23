@@ -99,24 +99,7 @@ function getAlignImg(cDiv,cImg,wImg,hImg)
 // *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
 // *
 // ****************************************************************************
-//function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft,cPlacePicOnDivFile)
-function PlacePicOnDiv()
-{
-   console.log(cImg+': alignImg='+alignImg);
-   $("#pic").css("width","350px");
-   $("#pic").css("height","350px");
-   $("#pic").css("margin-left","10px");
-   $("#pic").css("margin-top","10px");
-}
-// ****************************************************************************
-// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
-// *                    cImg - идентификатор изображения,                     *
-// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
-// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
-// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
-// *
-// ****************************************************************************
-function PlacePicOnDiv1(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft,cPlacePicOnDivFile)
+function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft,cPlacePicOnDivFile)
 {
    //
    //htmlstr='<div  id="Photo">'+
