@@ -10,22 +10,6 @@
 //                                                   Дата создания:  10.06.2021
 // Copyright © 2021 tve                              Посл.изменение: 21.01.2022
 
-// ****************************************************************************
-// *           Вывести 3 изображения (оригинал, штамп, с подписью)            *
-// ****************************************************************************
-// Вывести изображение подписи последних размеров
-function ViewStamp($c_FileStamp)
-{
-   /*   
-   echo 'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp '.
-      'Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp Stamp'.
-      'Stamp Stamp Stamp Stamp Stamp Stamp';
-   */
-   echo '<img src="'.$c_FileStamp.'" alt="" id="picStamp">';
-   
-   
-   
-}
 // Вывести изображение c подписью
 function ViewProba($c_FileProba,$RemoteAddr,$c_FileImg)
 {  
@@ -80,92 +64,9 @@ function ViewProba($c_FileProba,$RemoteAddr,$c_FileImg)
    */
 }
 // ****************************************************************************
-// *     Подготовить кнопки для действий: загрузить изображение, подписать,   *
+// *                 Подготовить кнопки для действий: подписать,              *
 // *                    загрузить подпись, выполнить настройки                *
 // ****************************************************************************
-// "Загрузить изображение"
-function LoadImg()
-{ 
-   // $RequestFile='photo';
-   // Рисуем нашу кнопку, определяем ей реакцию на нажатие кнопки мыши
-   /*
-   echo '
-      <div id="btnLoadImg" class="navButtons" onclick="FindFileImg();" title="Загрузка изображения">
-         <img src="buttons/image128.png"   width=100% height=100%/></img>
-      </div>
-   ';
-   */
-   //echo '<button id="bLoadImg" class="btnLead" title="Загрузить изображение">'.
-   //'<i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></button>';
-   //   <iframe id="alfFrame" name="alfFrame" style="display: none"> </iframe>  
-
-   /*
-   echo '
-   <div class="navButtons" onclick="alfFindFile();" title="Загрузка файла"><i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></div>
-   <form action="SignaUpload.php" target="alfFrame" method="POST" enctype="multipart/form-data">  
-   <div class="hiddenInput">
-      <input type="file"   id="select_img" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">  
-      <input type="submit" id="loadin_img" style="display:none" value="Загрузить">  
-   </div>
-   </form>
-   <iframe id="alfFrame" name="alfFrame" style="display:none"></iframe>  
-   ';
-   */
-   
-   /*
-   echo '
-   <div class="navButtons" onclick="alfFindFile();" title="Загрузка файла"><i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></div>
-   <form target="alfFrame" method="POST" enctype="multipart/form-data">  
-   <div class="hiddenInput">
-      <input type="file"   id="select_img" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">  
-      <input type="submit" id="loadin_img" style="display:none" value="Загрузить" onclick="alfMoveFile();">  
-   </div>
-   </form>
-   <iframe id="alfFrame" name="alfFrame" style="display:none"></iframe>  
-   ';
-   */
-   /*
-   echo '
-   <div class="navButtons" onclick="alfFindFile();" title="Загрузка файла"><i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i></div>
-   <div class="hiddenInput">
-      <input type="file" id="select_img" accept="image/jpeg,image/png,image/gif" name="loadfile" onchange="alfLoadFile();">  
-   </div>
-   ';
-   echo '
-      <input type="file" id="select_img" accept="image/jpeg,image/png,image/gif" onclick="alfLoadFile();">  
-   ';
-   */
-   
-   /*
-   echo '
-      <div id="ipfDivPic">
-      <input id="ipfLoadPic" type="file" name="image" 
-      onchange="alfLoadFile();" onclick="fliClick();" onload="fliLoad();" onreset="fliReset();">
-      </div>
-   ';
-   */
-
-
-   // Stamp
-   // alfFrame
-   
-   echo '
-     <div id="InfoLead">
-     <form action="SignaUpload.php" method="POST" enctype="multipart/form-data"> 
-     <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
-     <input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadimg" onchange="alf2LoadFile();"/>  
-     <input type="submit" id="my_hidden_load" value="">  
-     </form>
-     </div>
-   ';
-   
-   echo '
-   <button id="bLoadImg" class="navButtons" onclick="alf1FindFile()"  
-   title="Загрузить изображение">
-   <i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i>
-   </button>
-   ';
-}
 // "Подписать"
 function Subscribe()
 { 

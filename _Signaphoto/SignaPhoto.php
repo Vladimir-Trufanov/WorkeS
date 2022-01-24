@@ -8,7 +8,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 // v5.1                                              Дата создания:  01.06.2021
-// Copyright © 2021 tve                              Посл.изменение: 23.01.2022
+// Copyright © 2021 tve                              Посл.изменение: 24.01.2022
 
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
@@ -103,7 +103,7 @@ catch (E_EXCEPTION $e)
 // ****************************************************************************
 function MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 {
-   echo 'Привет Portrait!<br>';
+   echo 'Поверните устройство!';
 }
 // ****************************************************************************
 // *                    Разметить страницу в варианте LandScape               *
@@ -114,72 +114,59 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
   echo '<div id="All">';
     // Размечаем область оригинального изображения и образца подписи
     echo '<div  id="View">';
-      // Оригинал
+      // Показываем оригинал изображения
       echo '<div id="Photo">';
         echo '<img id="pic" src="'.$c_FileImg.'"'.' alt="'.$c_FileImg.'"'.
         ' title="Загруженное изображение">';
-        MakeImgOnDiv('Photo','pic',$c_FileImg);
+        MakeImgOnDiv('Photo','pic',$c_FileImg,94);
       echo '</div>';
-      // Подпись
+      // Показываем образец подписи
       echo '<div  id="Stamp">';
-      ViewStamp($c_FileStamp);
+        echo '<img id="picStamp" src="'.$c_FileStamp.'"'.' alt="'.$c_FileStamp.'"'.
+        ' title="Образец подписи">';
+        MakeImgOnDiv('Stamp','picStamp',$c_FileStamp,50);
       echo '</div>';
     echo '</div>';
     // Размечаем область изображения с подписью
     echo '<div  id="Proba">';
-       ViewProba($c_FileProba,$RemoteAddr,$c_FileImg);
+      ViewProba($c_FileProba,$RemoteAddr,$c_FileImg);
     echo '</div>';
   echo '</div>';
    
   // Размечаем область управления загрузкой и подписанием
   echo '<div  id="Lead">';
-     LoadImg();
-     Subscribe();
-     Tunein();
-     LoadStamp();
-       // Делаем кнопку для отладки js-функций
-     // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
-       // Закладываем в разметку див для сообщений через диалоговое окно
-     echo '<div id="'.ohInfo.'">';
-     echo '***<br>';
-     echo 'Привет info!<br>';
-     echo '***<br>';
-     echo '</div>';
-      
+    // Строим форму и кнопку загрузки изображения для подписи
+    echo '
+      <div id="InfoLead">
+      <form action="SignaPhoto.php" method="GET" enctype="multipart/form-data"> 
+      <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
+      <input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadimg" onchange="alf2LoadFile();"/>  
+      <input type="submit" id="my_hidden_load" value="">  
+      </form>
+      </div>
+    ';
+   
+    echo '
+    <button id="bLoadImg" class="navButtons" onclick="alf1FindFile()"  
+    title="Загрузить изображение">
+    <i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i>
+    </button>
+    ';
+    
+    Subscribe();
+    Tunein();
+    LoadStamp();
+    // Делаем кнопку для отладки js-функций
+    // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
+    
+    // Закладываем в разметку див для сообщений через диалоговое окно
+    echo '<div id="'.ohInfo.'">';
+    echo '***<br>';
+    echo 'Привет info!<br>';
+    echo '***<br>';
+    echo '</div>';
   echo '</div>';
 }
-// ****************************************************************************
-// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
-// *                   cImg - идентификатор изображения,                      *
-// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
-// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
-// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
-// *
-// ****************************************************************************
-function MakeImgOnDiv($cDiv,$cImg,$c_FileImg)
-{
-   // Определяем реальную ширину и высоту изображения
-   $a=getimagesize($c_FileImg);
-   $wImg=$a[0]; $hImg=$a[1];
-   
-   ?> <script>
-   cDiv="<?php echo $cDiv; ?>";
-   cImg="<?php echo $cImg; ?>";
-   wImg="<?php echo $wImg; ?>";
-   hImg="<?php echo $hImg; ?>";
-   // Определяем способ выравнивания изображения диву
-   // ('по ширине','по высоте')
-   alignPhoto=getAlignImg(cDiv,cImg,wImg,hImg);
-   console.log('alignPhoto='+alignPhoto);
-   // Расчитываем выравнивание и устанавливаем CSS
-   aCalcPicOnDiv=CalcPicOnDiv(cDiv,cImg,wImg,hImg,alignPhoto,94)
-   $("#"+cImg).css("width",String(aCalcPicOnDiv.widthImg)+'px');
-   $("#"+cImg).css("height",String(aCalcPicOnDiv.heightImg)+'px');
-   $("#"+cImg).css("margin-left",String(aCalcPicOnDiv.nLeft)+'px');
-   $("#"+cImg).css("margin-top",String(aCalcPicOnDiv.nTop)+'px');
-</script> <?php
-}
-
 // ****************************************************************************
 // *                            Начать HTML-страницу сайта                    *
 // ****************************************************************************
@@ -200,9 +187,9 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    echo '<html lang="ru">';
    echo '<head>';
    echo '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>';
-   echo '<title>Подписать фотографию: _SignaPhoto1</title>';
-   echo '<meta name="description" content="_SignaPhoto1">';
-   echo '<meta name="keywords"    content="_SignaPhoto1">';
+   echo '<title>Подписать фотографию: _SignaPhoto</title>';
+   echo '<meta name="description" content="_SignaPhoto">';
+   echo '<meta name="keywords"    content="_SignaPhoto">';
    // Подключаем jquery/jquery-ui
    echo '
       <link rel="stylesheet" href="/Jsx/jqueryui-1.13.0.min.css"/> 

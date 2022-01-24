@@ -13,6 +13,37 @@
 require_once 'SignaPhotoDef.php';
 
 // ****************************************************************************
+// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
+// *                   cImg - идентификатор изображения,                      *
+// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
+// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
+// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
+// *
+// ****************************************************************************
+function MakeImgOnDiv($cDiv,$cImg,$c_FileImg,$perWidth)
+{
+   // Определяем реальную ширину и высоту изображения
+   $a=getimagesize($c_FileImg);
+   $wImg=$a[0]; $hImg=$a[1];
+   
+   ?> <script>
+   cDiv="<?php echo $cDiv; ?>";
+   cImg="<?php echo $cImg; ?>";
+   wImg="<?php echo $wImg; ?>";
+   hImg="<?php echo $hImg; ?>";
+   perWidth="<?php echo $perWidth; ?>";
+   // Определяем способ выравнивания изображения диву
+   // ('по ширине','по высоте')
+   alignPhoto=getAlignImg(cDiv,cImg,wImg,hImg);
+   // Расчитываем выравнивание и устанавливаем CSS
+   aCalcPicOnDiv=CalcPicOnDiv(cDiv,cImg,wImg,hImg,alignPhoto,perWidth)
+   $("#"+cImg).css("width",String(aCalcPicOnDiv.widthImg)+'px');
+   $("#"+cImg).css("height",String(aCalcPicOnDiv.heightImg)+'px');
+   $("#"+cImg).css("margin-left",String(aCalcPicOnDiv.nLeft)+'px');
+   $("#"+cImg).css("margin-top",String(aCalcPicOnDiv.nTop)+'px');
+</script> <?php
+}
+// ****************************************************************************
 // *  Заполнить массив данными об изображении для размещения в заданном окне, *
 // *     если определить данные не получается, то в этом массиве указать      *
 // *   сообщение для вывода в специальном окне, указанном константой ohInfo   *
