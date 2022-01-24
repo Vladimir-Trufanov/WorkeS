@@ -110,50 +110,43 @@ function MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 // ****************************************************************************
 function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 {
-   // Размечаем область изображений
-   echo '<div id="All">';
-      // Размечаем область оригинального изображения и образца подписи
-      echo '<div  id="View">';
-         // Оригинал
-         echo '<div id="Photo">';
-         /*
-         echo '<img id="pic" src="'.$c_FileImg.'"'.' alt="'.$c_FileImg.'"'.
-            ' style="width:350px; height:350px; margin-left:10px; margin-top:10px"'.
-            ' title="Загруженное изображение">';
-         */
-         echo '<img id="pic" src="'.$c_FileImg.'"'.' alt="'.$c_FileImg.'"'.' title="Загруженное изображение">';
-         MakeImgOnDiv('Photo','pic');
-         //echo '<script> PlacePicOnDiv(); </script>';
-         echo '</div>';
-         // Подпись
-         echo '<div  id="Stamp">';
-         ViewStamp($c_FileStamp);
-         echo '</div>';
+  // Размечаем область изображений
+  echo '<div id="All">';
+    // Размечаем область оригинального изображения и образца подписи
+    echo '<div  id="View">';
+      // Оригинал
+      echo '<div id="Photo">';
+        echo '<img id="pic" src="'.$c_FileImg.'"'.' alt="'.$c_FileImg.'"'.
+        ' title="Загруженное изображение">';
+        MakeImgOnDiv('Photo','pic',$c_FileImg);
       echo '</div>';
-      // Размечаем область изображения с подписью
-      echo '<div  id="Proba">';
-         ViewProba($c_FileProba,$RemoteAddr);
+      // Подпись
+      echo '<div  id="Stamp">';
+      ViewStamp($c_FileStamp);
       echo '</div>';
-   echo '</div>';
+    echo '</div>';
+    // Размечаем область изображения с подписью
+    echo '<div  id="Proba">';
+       ViewProba($c_FileProba,$RemoteAddr,$c_FileImg);
+    echo '</div>';
+  echo '</div>';
    
-   // Размечаем область управления загрузкой и подписанием
-   echo '<div  id="Lead">';
-      LoadImg();
-      Subscribe();
-      Tunein();
-      LoadStamp();
-
-      // Делаем кнопку для отладки js-функций
-      // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
-
-      // Закладываем в разметку див для сообщений через диалоговое окно
-      echo '<div id="'.ohInfo.'">';
-      echo '***<br>';
-      echo 'Привет info!<br>';
-      echo '***<br>';
-      echo '</div>';
+  // Размечаем область управления загрузкой и подписанием
+  echo '<div  id="Lead">';
+     LoadImg();
+     Subscribe();
+     Tunein();
+     LoadStamp();
+       // Делаем кнопку для отладки js-функций
+     // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
+       // Закладываем в разметку див для сообщений через диалоговое окно
+     echo '<div id="'.ohInfo.'">';
+     echo '***<br>';
+     echo 'Привет info!<br>';
+     echo '***<br>';
+     echo '</div>';
       
-   echo '</div>';
+  echo '</div>';
 }
 // ****************************************************************************
 // *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
@@ -163,16 +156,27 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 // *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
 // *
 // ****************************************************************************
-function MakeImgOnDiv($cDiv,$cImg)
+function MakeImgOnDiv($cDiv,$cImg,$c_FileImg)
 {
-?> <script>
+   // Определяем реальную ширину и высоту изображения
+   $a=getimagesize($c_FileImg);
+   $wImg=$a[0]; $hImg=$a[1];
+   
+   ?> <script>
    cDiv="<?php echo $cDiv; ?>";
-   //console.log('cDiv='+cDiv);
    cImg="<?php echo $cImg; ?>";
-   $("#"+cImg).css("width","350px");
-   $("#"+cImg).css("height","350px");
-   $("#"+cImg).css("margin-left","10px");
-   $("#"+cImg).css("margin-top","10px");
+   wImg="<?php echo $wImg; ?>";
+   hImg="<?php echo $hImg; ?>";
+   // Определяем способ выравнивания изображения диву
+   // ('по ширине','по высоте')
+   alignPhoto=getAlignImg(cDiv,cImg,wImg,hImg);
+   console.log('alignPhoto='+alignPhoto);
+   // Расчитываем выравнивание и устанавливаем CSS
+   aCalcPicOnDiv=CalcPicOnDiv(cDiv,cImg,wImg,hImg,alignPhoto,94)
+   $("#"+cImg).css("width",String(aCalcPicOnDiv.widthImg)+'px');
+   $("#"+cImg).css("height",String(aCalcPicOnDiv.heightImg)+'px');
+   $("#"+cImg).css("margin-left",String(aCalcPicOnDiv.nLeft)+'px');
+   $("#"+cImg).css("margin-top",String(aCalcPicOnDiv.nTop)+'px');
 </script> <?php
 }
 

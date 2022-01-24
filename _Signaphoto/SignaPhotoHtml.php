@@ -27,7 +27,7 @@ function ViewStamp($c_FileStamp)
    
 }
 // Вывести изображение c подписью
-function ViewProba($c_FileProba,$RemoteAddr)
+function ViewProba($c_FileProba,$RemoteAddr,$c_FileImg)
 {  
    /*
    echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
@@ -61,6 +61,11 @@ function ViewProba($c_FileProba,$RemoteAddr)
    */
    //echo '<img src="'.$c_FileProba.'" alt="" id="picProba">';
    
+   $a=getimagesize($c_FileImg);
+   echo '<pre>';
+   print_r($a);
+   echo '</pre>';
+
    $a=serialize($_FILES);
    echo '$a='.$a.'<br>';
    prown\ViewGlobal(avgCOOKIE);
