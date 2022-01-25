@@ -13,11 +13,12 @@
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
 $_WORKSPACE=iniWorkSpace();
-$SiteRoot   = $_WORKSPACE[wsSiteRoot];    // Корневой каталог сайта
-$SiteAbove  = $_WORKSPACE[wsSiteAbove];   // Надсайтовый каталог
-$SiteHost   = $_WORKSPACE[wsSiteHost];    // Каталог хостинга
-$SiteDevice = $_WORKSPACE[wsSiteDevice];  // 'Computer' | 'Mobile' | 'Tablet'
-$RemoteAddr = $_WORKSPACE[wsRemoteAddr];  // IP-адрес запроса сайта
+$SiteRoot   = $_WORKSPACE[wsSiteRoot];      // Корневой каталог сайта
+$SiteAbove  = $_WORKSPACE[wsSiteAbove];     // Надсайтовый каталог
+$SiteHost   = $_WORKSPACE[wsSiteHost];      // Каталог хостинга
+$SiteDevice = $_WORKSPACE[wsSiteDevice];    // 'Computer' | 'Mobile' | 'Tablet'
+$SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol() 
+$RemoteAddr = $_WORKSPACE[wsRemoteAddr];    // IP-адрес запроса сайта
 
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
@@ -45,7 +46,6 @@ try
    // Подключаем рабочие модули:
    require_once "SignaPhotoHtml.php";
    require_once "SignaPhotoImg.php";
-   require_once "SignaUpload.php";
    
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
@@ -62,10 +62,12 @@ try
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
 
    // Готовим начало страницы для подписывания фотографий
-   IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba);
+   IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba,$SiteProtocol);
    // Подключаем межязыковые (PHP-JScript) определения внутри HTML
    require_once 'SignaPhotoDef.php';
    echo $define; echo $odefine;
+
+   prown\ConsoleLog('$c_PersEntry='.$c_PersEntry);
 
    // Создаем объект класса по контролю за положением устройства
    // и определяем ориентацию устройства
@@ -138,7 +140,7 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
     // Строим форму и кнопку загрузки изображения для подписи
     echo '
       <div id="InfoLead">
-      <form action="SignaPhoto.php" method="GET" enctype="multipart/form-data"> 
+      <form action="SignaPhoto.php" method="POST" enctype="multipart/form-data"> 
       <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
       <input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadimg" onchange="alf2LoadFile();"/>  
       <input type="submit" id="my_hidden_load" value="">  
@@ -170,7 +172,7 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 // ****************************************************************************
 // *                            Начать HTML-страницу сайта                    *
 // ****************************************************************************
-function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProba)
+function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProba,$SiteProtocol)
 {
    $Result=true;
    // Инициируем или изменяем счетчик числа запросов страницы
@@ -179,6 +181,13 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    $c_FileImg=prown\MakeCookie('FileImg','images/iphoto.jpg',tStr,true);
    $c_FileStamp=prown\MakeCookie('FileStamp','images/istamp.png',tStr,true);
    $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr,true);
+   
+   // Обрабатываем загрузку изображения 
+   if (IsSet($_POST["MAX_FILE_SIZE"]))
+   { 
+      require_once "SignaUpload.php";
+   }
+   
    // Определяем Url домашней страницы
    if ($_SERVER["SERVER_NAME"]=='kwinflatht.nichost.ru') $UrlHome='http://kwinflatht.nichost.ru';
    else $UrlHome='http://localhost:82'; 

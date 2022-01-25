@@ -1,2 +1,18 @@
 [23-Jan-2022 13:53:50 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'SignaPhotoHtml.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 46
 [23-Jan-2022 13:55:36 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'SignaPhotoDef.php' (include_path='.;C:\php\pear') in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 190
+[25-Jan-2022 14:14:27 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function getComRequest() in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php:53
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 53
+[25-Jan-2022 15:37:44 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\CreateRightsDir() in C:\Webservers\Exploration\_Signaphoto\SignaUpload.php:48
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(188): require_once()
+#1 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(65): IniPage(170, NULL, 'images/iphoto.j...', 'images/istamp.p...', 'images/iproba.p...')
+#2 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaUpload.php on line 48
+[25-Jan-2022 15:40:31 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\CreateRightsDir() in C:\Webservers\Exploration\_Signaphoto\SignaUpload.php:48
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(188): require_once()
+#1 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(65): IniPage(175, NULL, 'images/iphoto.j...', 'images/istamp.p...', 'images/iproba.p...', 'http')
+#2 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaUpload.php on line 48

@@ -25,49 +25,6 @@ function alf2LoadFile()
    // модуля проверки параметров файла, загруженного во временное хранилище,
    // его переброски на постоянное хранение и переименование  
    document.getElementById('my_hidden_load').click(); // "SignaUpload.php"
-}  
-// ****************************************************************************
-// *           Вывести диагностическое сообщение при ошибке перемещения       *
-// *                файла из временного хранилища и других событиях           *
-// ****************************************************************************
-function jsWinParentMessage(mess)
-{
-   alert(mess+'!'); 
-}
-// ****************************************************************************
-// *              Заменить изображение в заданной области страницы            *
-// ****************************************************************************
-function Proba12()
-{
-   htmlstr='Привет!';
-   $('div#Photo').html(htmlstr); 
-}
-function jsWinParentReplaceImg(mess,IdDiv=null) 
-{
-   if (IdDiv==null)
-   {
-      data=JSON.parse(mess);
-   }
-   else
-   {
-      if (data[0].DivId=="Photo")
-      {
-      }
-      else if (data[0].DivId=="Stamp")
-      {
-      }
-      else if (data[0].DivId=="Proba")
-      {
-      }
-      else
-      {
-      }
-   }
-   //alert(data[0].ImgName); 
-   // Определяем способы выравнивания ('по ширине','по высоте')
-   // изображений и выравниваем их по дивам
-   alignPhoto=getAlignImg(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight);
-   PlacePicOnDiv(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4,data[0].ImgName);
 }
 // ****************************************************************************
 // *   Определить спосов выравнивания ('по ширине','по высоте') изображения   *
@@ -141,6 +98,57 @@ function CalcPicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth)
    aCalcPicOnDiv.nLeft=(widthDiv-widthImg)/2;
    aCalcPicOnDiv.nTop=(heightDiv-heightImg)/2;
    return aCalcPicOnDiv;
+}
+
+
+
+
+
+
+// ----------
+  
+// ****************************************************************************
+// *           Вывести диагностическое сообщение при ошибке перемещения       *
+// *                файла из временного хранилища и других событиях           *
+// ****************************************************************************
+function jsWinParentMessage(mess)
+{
+   alert(mess+'!'); 
+}
+// ****************************************************************************
+// *              Заменить изображение в заданной области страницы            *
+// ****************************************************************************
+function Proba12()
+{
+   htmlstr='Привет!';
+   $('div#Photo').html(htmlstr); 
+}
+function jsWinParentReplaceImg(mess,IdDiv=null) 
+{
+   if (IdDiv==null)
+   {
+      data=JSON.parse(mess);
+   }
+   else
+   {
+      if (data[0].DivId=="Photo")
+      {
+      }
+      else if (data[0].DivId=="Stamp")
+      {
+      }
+      else if (data[0].DivId=="Proba")
+      {
+      }
+      else
+      {
+      }
+   }
+   //alert(data[0].ImgName); 
+   // Определяем способы выравнивания ('по ширине','по высоте')
+   // изображений и выравниваем их по дивам
+   alignPhoto=getAlignImg(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight);
+   PlacePicOnDiv(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4,data[0].ImgName);
 }
 
 // ****************************************************************************
