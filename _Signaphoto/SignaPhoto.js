@@ -26,6 +26,10 @@ function alf2LoadFile()
    // его переброски на постоянное хранение и переименование  
    document.getElementById('my_hidden_load').click(); // "SignaUpload.php"
 }
+function alf1sFindFile() 
+   {document.getElementById('my_shidden_file').click();} 
+function alf2sLoadFile()
+   {document.getElementById('my_shidden_load').click();}
 // ****************************************************************************
 // *   Определить спосов выравнивания ('по ширине','по высоте') изображения   *
 // *                                 по диву                                  *

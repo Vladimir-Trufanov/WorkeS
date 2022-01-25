@@ -95,15 +95,11 @@ body
    height:0px;  
    width:0px;  
 }                      
-/* Прячем див с кнопкой активации загрузки файла */
-#ipfDivPic {display:none;}                      
-/* Прячем разметочные объекты для загрузки файла изображения */ 
-#InfoLead  {width:0;height:0;padding:0;margin:0;}
-#my_hidden_file,#my_hidden_load
+/* Прячем разметочные объекты для загрузки файла изображения и штампа */ 
+#InfoLead, #StampLead {width:0;height:0;padding:0;margin:0;}
+#my_hidden_file,#my_hidden_load,
+#my_shidden_file,#my_shidden_load
 {font-size:0;width:0;border-style:none;background-color:transparent;} 
-
-/* Перед раскрытием страницы нулевые размеры изображений */
-/*#pic,#picStamp,#picProba{width:0;height:0;}*/
 
 /*
  *********************************************************** SignaPhoto.css ***

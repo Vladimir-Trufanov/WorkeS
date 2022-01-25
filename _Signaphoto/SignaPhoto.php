@@ -38,6 +38,7 @@ try
    require_once pathPhpPrown."/CommonPrown.php";
    require_once pathPhpPrown."/MakeCookie.php";
    require_once pathPhpPrown."/MakeSession.php";
+   require_once pathPhpPrown."/MakeUserError.php";
    require_once pathPhpPrown."/ViewGlobal.php";
    // Подключаем файлы библиотеки прикладных классов:
    require_once pathPhpTools."/iniToolsMessage.php";
@@ -46,6 +47,8 @@ try
    // Подключаем рабочие модули:
    require_once "SignaPhotoHtml.php";
    require_once "SignaPhotoImg.php";
+   
+   $_Prefix='SignaPhoto';
    
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
@@ -105,7 +108,8 @@ catch (E_EXCEPTION $e)
 // ****************************************************************************
 function MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 {
-   echo 'Поверните устройство!';
+   global $_Prefix;
+   prown\MakeUserError('Поверните устройство!',$_Prefix,rvsDialogWindow);
 }
 // ****************************************************************************
 // *                    Разметить страницу в варианте LandScape               *
@@ -147,9 +151,8 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
       </form>
       </div>
     ';
-   
     echo '
-    <button id="bLoadImg" class="navButtons" onclick="alf1FindFile()"  
+    <button class="navButtons" onclick="alf1FindFile()"  
     title="Загрузить изображение">
     <i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i>
     </button>
@@ -157,7 +160,23 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
     
     Subscribe();
     Tunein();
-    LoadStamp();
+    
+    // Строим форму и кнопку загрузки образца подписи
+    echo '
+      <div id="StampLead">
+      <form action="SignaPhoto.php" method="POST" enctype="multipart/form-data"> 
+      <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
+      <input type="file"   id="my_shidden_file" accept="image/jpeg,image/png,image/gif" name="loadstamp" onchange="alf2sLoadFile();"/>  
+      <input type="submit" id="my_shidden_load" value="">  
+      </form>
+      </div>
+    ';
+    echo '
+    <button class="navButtons" onclick="alf1sFindFile()"  
+    title="Загрузить образец подписи">
+    <i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+    </button>
+    ';
     // Делаем кнопку для отладки js-функций
     // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
     

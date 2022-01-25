@@ -87,18 +87,6 @@ function Tunein()
    </button>
    ';
 }
-// "Загрузить подпись"
-function LoadStamp()
-{ 
-
-   echo '
-   <button id="bLoadStamp" class="navButtons"   
-   title="Загрузить подпись">
-   <i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
-   </button>
-   ';
-
-}
 /*
 function MakeStamp()
 {

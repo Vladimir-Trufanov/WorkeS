@@ -57,7 +57,8 @@ if ($is===true)
    // Если перемещение завершилось неудачно, то выдаем сообщение
    if ($MessUpload<>imok) 
    {
-      //WinParentMessage($MessUpload);
+      global $_Prefix;
+      prown\MakeUserError($MessUpload,$_Prefix,rvsDialogWindow);
    }   
    // Перемещение файла на сервер выполнилось успешно
    else 
@@ -68,52 +69,13 @@ if ($is===true)
       if ($NameInput=="loadimg") 
       {
          $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
-         // Заполняем массив данными об изображении для размещения в заданном окне
-         // $user_info=FillArrayOne('Photo','pic',$localimg);
-         // Отправляем массив в родительское окно
-      
          prown\ConsoleLog('$localimg='.$localimg);
          prown\ConsoleLog('$nameimg='.$nameimg);
-   
       }
       elseif ($NameInput=="loadstamp") 
       {
-         //$c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
+         $c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
       }
    }  
 }
-
-/*
-// Подключаем межязыковые (PHP-JScript) определения внутри HTML
-require_once 'SignaPhotoDef.php';
-echo $define; echo $odefine;
-   // Если с каталогом все в порядке, то будем перебрасывать файл на сервер
-   if ($is===true)
-   {
-      // Перебрасываем файл на постоянное хранение
-      $upload=new ttools\UploadToServer($imgDir,$NameLoad);
-      $MessUpload=$upload->move();
-      // Если перемещение завершилось неудачно, то выдаем сообщение
-      if ($MessUpload<>imok) WinParentMessage($MessUpload);
-      // Перемещение файла на сервер выполнилось успешно
-      else 
-      {
-         // Создаем массив данных для передачи браузеру
-         // (либо массив с одним сообщением, либо массив размеров изображений)
-         $user_info = array(); 
-         if ($NameInput=="loadimg") 
-         {
-            //$c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
-            // Заполняем массив данными об изображении для размещения в заданном окне
-            $user_info=FillArrayOne('Photo','pic',$localimg);
-            // Отправляем массив в родительское окно
-            WinParentReplaceImg(json_encode($user_info));
-         }
-         elseif ($NameInput=="loadstamp") 
-         {
-            //$c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
-         }
-      }  
-   }
-*/
 // ******************************************************** SignaUpload.php ***
