@@ -158,7 +158,21 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
     </button>
     ';
     
-    Subscribe();
+    // Строим форму и кнопку для подписания фотографии
+    echo '
+    <div id="StampDo">
+    <form action="SignaPhoto.php" method="POST">
+    <input type="submit" id="my_Stamp_Do" name="Stamp" value="Do">
+    </form>
+    </div>
+    ';
+    echo '
+    <button id="bSubscribe" class="navButtons" onclick="alf1MakeStamp()"   
+    title="Подписать">
+    <i id="iSubscribe" class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+    </button>
+    ';
+
     Tunein();
     
     // Строим форму и кнопку загрузки образца подписи
@@ -205,6 +219,12 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    if (IsSet($_POST["MAX_FILE_SIZE"]))
    { 
       require_once "SignaUpload.php";
+   }
+   // Обрабатываем подписание фотографии 
+   if (prown\isComRequest('Do','Stamp'))
+   { 
+      //require_once "SignaUpload.php";
+      prown\ConsoleLog('Make=Do');
    }
    
    // Определяем Url домашней страницы

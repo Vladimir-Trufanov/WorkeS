@@ -21,3 +21,13 @@ Stack trace:
 #0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(96): MarkupPortrait('http://localhos...', 'images/istamp.p...', 'images/iproba.p...', '::1')
 #1 {main}
   thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 111
+[26-Jan-2022 16:01:57 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function isComRequest() in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php:224
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(68): IniPage(256, NULL, 'http://localhos...', 'http://localhos...', 'images/iproba.p...', 'http')
+#1 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 224
+[26-Jan-2022 16:02:17 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function isComRequest() in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php:224
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(68): IniPage(257, NULL, 'http://localhos...', 'http://localhos...', 'images/iproba.p...', 'http')
+#1 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 224
