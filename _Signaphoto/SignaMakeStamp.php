@@ -1,15 +1,84 @@
 <?php
-// PHP7/HTML5, EDGE/CHROME                             *** ajaMakeStamp.php ***
+// PHP7/HTML5, EDGE/CHROME                           *** SignaMakeStamp.php ***
 
 // ****************************************************************************
 // * SignaPhoto                          Наложить подпись на файл изображения *
-// *                                        и проконтроллировать процесс аякс *
 // ****************************************************************************
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  10.07.2021
-// Copyright © 2021 tve                              Посл.изменение: 21.08.2021
+// Copyright © 2021 tve                              Посл.изменение: 26.01.2022
 
+// Определяем расширение имени файла изображения
+$FileExt=get_file_extension($c_FileImg);
+// Если недопустимое расширение файла, то возвращаем сообщение
+if (($FileExt<>'gif')and($FileExt<>'jpeg')and($FileExt<>'jpg')and($FileExt<>'png')) 
+{ 
+   ViewMess(ajInvalidBuilt);
+}
+// Проверяем расширение файла подписи, он всегда быть должен "*.png"
+// (c прозрачным фоном)
+else if (get_file_extension($c_FileStamp)<>'png')
+{
+   ViewMess(ajMustTransparentPng);
+}
+else
+{
+   prown\ConsoleLog('$FileExt='.$FileExt);
+   /*
+   // Строим изображение штампа (водяного знака)
+   //$stamp = @imagecreatefrompng('images/istamp.png');
+      $stamp = @imagecreatefrompng($c_FileStamp);
+      if (!$stamp) $Result=ajStampNotBuilt;
+      else
+      {
+         // Строим изображение для наложения подписи
+         if (($FileExt=='gif')or($FileExt=='png'))
+         {
+            $Result=makeTransparentImg($im,$c_FileImg,$FileExt);
+         }
+         elseif (($FileExt=='jpeg')or($FileExt=='jpg'))
+         {
+            $im = @imagecreatefromjpeg($c_FileImg);
+         }
+         // 
+         if (!$im) 
+         {
+            imagedestroy($stamp);
+            $Result=ajImageNotBuilt;
+         }
+         else
+         {
+            // Устанавливаем поля для штампа
+            $marge_right = 10;
+            $marge_bottom = 10;
+            // Определяем высоту/ширину штампа
+            $sx = imagesx($stamp);
+            $sy = imagesy($stamp);
+            // Копируем изображения штампа на фотографию с помощью смещения края
+            // и ширины фотографии для расчёта позиционирования штампа.
+            imagecopy($im,$stamp,
+               imagesx($im)-$sx-$marge_right,
+               imagesy($im)-$sy-$marge_bottom,0,0,
+               imagesx($stamp),imagesy($stamp));
+            // Выводим изображение в файл и освобождаем память
+            $fileproba='images/proba.png';
+            imagepng($im,$fileproba);
+            imagedestroy($im);
+            imagedestroy($stamp);
+            // Запоминаем в кукисе имя файла фотографии с подписью
+            $c_FileProba=prown\MakeCookie('FileProba',$fileproba,tStr);
+            // Отмечаем, что на фотографию наложена свежая подпись
+            $Result=ajIsFreshStamp;
+         }
+      }
+*/
+}
+
+
+
+
+/*
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
 $_WORKSPACE=iniWorkSpace();
@@ -155,4 +224,5 @@ function makeTransparentImg(&$im,$c_FileImg,$FileExt)
       return $Result;
    }
 }
-// ******************************************************* ajaMakeStamp.php ***
+*/
+// ***************************************************** SignaMakeStamp.php ***

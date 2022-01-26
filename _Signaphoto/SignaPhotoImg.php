@@ -43,6 +43,7 @@ function MakeImgOnDiv($cDiv,$cImg,$c_FileImg,$perWidth)
    $("#"+cImg).css("margin-top",String(aCalcPicOnDiv.nTop)+'px');
 </script> <?php
 }
+/*
 // ****************************************************************************
 // *  Заполнить массив данными об изображении для размещения в заданном окне, *
 // *     если определить данные не получается, то в этом массиве указать      *
@@ -83,13 +84,6 @@ function FillArrayOne($DivId,$IdImg,$ImgName)
    return $user_info;
 }
 // ****************************************************************************
-// *                       Выделить расширение в имени файла                  *
-// ****************************************************************************
-function get_file_extension($file_name)
-{
-   return substr(strrchr($file_name,'.'),1);
-}
-// ****************************************************************************
 // *                 Создать объект изображения для его обработки             *
 // ****************************************************************************
 function ImgCreate($c_FileImg,&$Img)
@@ -125,57 +119,20 @@ function ImgCreate($c_FileImg,&$Img)
    }
    return $Result;
 }
+*/
 // ****************************************************************************
-// *    Преодолеть кэширование файла в браузере через именование файла        *
+// *                       Выделить расширение в имени файла                  *
 // ****************************************************************************
-/*
-function RemCash($urlDir,$imgDir,&$NameLoad,$file_ext)
-// Так как имена загружаемым файлам для текущего пользователя выполняются
-// с помощью prown\MakeRID(), то в случае загрузки файла с одним и тем же 
-// расширением для показа может вызываться файл из кэша, а не тот, который
-// был загружен. Для того, чтобы обойти кэширование, в конце имени файла 
-// функция добавляет поочередно символы 'F','A','X'.
+function get_file_extension($file_name)
 {
-   $url_name=$urlDir.'/'.$NameLoad;
-   $file_name=$imgDir.'/'.$NameLoad;
-   $Result=$url_name.'.'.$file_ext;
-   // Если есть файл с постфиксом 'F', удаляем его и возвращаем имя с 'A'
-   $nameimg=$file_name.'.'.$file_ext;
-   clearstatcache(true,$nameimg);
-   $nameimgF=$file_name.'F.'.$file_ext;
-   clearstatcache(true,$nameimgF);
-   $nameimgA=$file_name.'A.'.$file_ext;
-   clearstatcache(true,$nameimgA);
-   $nameimgX=$file_name.'X.'.$file_ext;
-   clearstatcache(true,$nameimgX);
-   if (is_file($nameimgF))
-   {
-      unlink($nameimgF);
-      $Result=$url_name.'A.'.$file_ext;
-      $NameLoad=$NameLoad.'A';
-   }
-   // Если есть файл с постфиксом 'A', удаляем его и возвращаем имя с 'X'
-   else if (is_file($nameimgA))
-   {
-      unlink($nameimgA);
-      $Result=$url_name.'X.'.$file_ext;
-      $NameLoad=$NameLoad.'X';
-   }
-   // Если есть файл с постфиксом 'X', удаляем его и возвращаем имя с 'F'
-   else if (is_file($nameimgX))
-   {
-      unlink($nameimgX);
-      $Result=$url_name.'F.'.$file_ext;
-      $NameLoad=$NameLoad.'F';
-   }
-   // Иначе удаляем заданный файл и возвращаем его имя
-   else if (is_file($nameimg))
-   {
-      unlink($nameimg);
-      $Result=$url_name.'F.'.$file_ext;
-      $NameLoad=$NameLoad.'F';
-   }
-   return $Result;
+   return substr(strrchr($file_name,'.'),1);
 }
-*/                               
+// ****************************************************************************
+// *        Вывести информационное сообщение или сообщение об ошибке          *
+// ****************************************************************************
+function ViewMess($Mess)
+{
+   $_Prefix='SignaPhoto';
+   prown\Alert('$_Prefix'.': '.$Mess);
+}
 // ****************************************************** SignaPhotoImg.php ***

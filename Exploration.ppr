@@ -93,7 +93,16 @@ Exploration
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
 		+_Signaphoto
 			-_SignaArch
-				_Signaphoto\_SignaArch\ajaMakeStamp.php
+				_Signaphoto\_SignaArch\ajaPicsSizes.php
+				_Signaphoto\_SignaArch\SignaPhoto.js
+				_Signaphoto\_SignaArch\SignaPhoto.php
+				_Signaphoto\_SignaArch\SignaPhoto2.js
+				_Signaphoto\_SignaArch\SignaPhoto2.php
+				_Signaphoto\_SignaArch\SignaPhotoHtml.php
+				_Signaphoto\_SignaArch\SignaPhotoHtml2.php
+				_Signaphoto\_SignaArch\SignaPhotoImg2.php
+				_Signaphoto\_SignaArch\SignaUpload.php
+				_Signaphoto\_SignaArch\SignaUpload2.php
 			-images
 				_Signaphoto\images\iphoto.jpg
 				_Signaphoto\images\iproba.png
@@ -112,6 +121,7 @@ Exploration
 				_Signaphoto\imgdebug\Танцы в Северном.doc
 				_Signaphoto\imgdebug\Хорошенькая.png
 			_Signaphoto\log.txt
+			_Signaphoto\SignaMakeStamp.php
 			_Signaphoto\SignaPhoto.css
 			_Signaphoto\SignaPhoto.js
 			_Signaphoto\SignaPhoto.php
@@ -119,40 +129,6 @@ Exploration
 			_Signaphoto\SignaPhotoHtml.php
 			_Signaphoto\SignaPhotoImg.php
 			_Signaphoto\SignaUpload.php
-		+_Signaphoto1
-			+images
-				_Signaphoto1\images\iphoto.jpg
-				_Signaphoto1\images\iproba.png
-				_Signaphoto1\images\istamp.png
-				_Signaphoto1\images\photo.png
-			+phpres
-				+Новая папка
-					_Signaphoto1\phpres\Новая папка\php.ini
-				_Signaphoto1\phpres\php.ini
-			_Signaphoto1\ajaMoveFile.php
-			_Signaphoto1\ajaOnePicSizes.php
-			_Signaphoto1\ajaPicsSizes.php
-			_Signaphoto1\ajaProba111.php
-			_Signaphoto1\log.txt
-			_Signaphoto1\SignaPhoto.css
-			_Signaphoto1\SignaPhoto.js
-			_Signaphoto1\SignaPhoto.php
-			_Signaphoto1\SignaPhotoDef.php
-			_Signaphoto1\SignaPhotoHtml.php
-			_Signaphoto1\SignaPhotoImg.php
-			_Signaphoto1\SignaUpload.php
-		-_Signaphoto2
-			-images
-				_Signaphoto2\images\iphoto.jpg
-				_Signaphoto2\images\iproba.png
-				_Signaphoto2\images\istamp.png
-			_Signaphoto2\SignaPhoto.css
-			_Signaphoto2\SignaPhoto.js
-			_Signaphoto2\SignaPhoto.php
-			_Signaphoto2\SignaPhotoDef.php
-			_Signaphoto2\SignaPhotoHtml.php
-			_Signaphoto2\SignaPhotoImg.php
-			_Signaphoto2\SignaUpload.php
 		-_sortable
 			-css
 				-images
@@ -274,39 +250,35 @@ Exploration
 4=_Signaphoto\SignaPhotoDef.php
 5=_Signaphoto\SignaPhoto.js
 6=_Signaphoto\SignaPhoto.css
-7=_Signaphoto\SignaPhotoImg.php
-8=..\..\TPhpPrown\TPhpPrown\ViewGlobal.php
-9=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
+7=_Signaphoto\SignaMakeStamp.php
+8=_Signaphoto\SignaPhotoImg.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaPhoto.php
+Selected=_Signaphoto\SignaMakeStamp.php
 [index.html]
 TopLine=31
 Caret=1,39
 [_Signaphoto\SignaPhoto.php]
-TopLine=205
-Caret=14,224
+TopLine=44
+Caret=1,51
 [_Signaphoto\SignaPhotoHtml.php]
 TopLine=42
 Caret=31,55
 [_Signaphoto\SignaUpload.php]
-TopLine=34
-Caret=1,61
+TopLine=35
+Caret=1,65
 [_Signaphoto\SignaPhotoDef.php]
-TopLine=29
-Caret=1,1
+TopLine=31
+Caret=27,66
 [_Signaphoto\SignaPhoto.js]
 TopLine=3
 Caret=40,21
 [_Signaphoto\SignaPhoto.css]
-TopLine=29
+TopLine=63
 Caret=36,101
+[_Signaphoto\SignaMakeStamp.php]
+TopLine=9
+Caret=4,23
 [_Signaphoto\SignaPhotoImg.php]
-TopLine=16
-Caret=11,44
-[..\..\TPhpPrown\TPhpPrown\ViewGlobal.php]
-TopLine=27
-Caret=20,49
-[..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
-TopLine=143
-Caret=10,170
+TopLine=101
+Caret=1,137

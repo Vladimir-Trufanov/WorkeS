@@ -48,8 +48,6 @@ try
    require_once "SignaPhotoHtml.php";
    require_once "SignaPhotoImg.php";
    
-   $_Prefix='SignaPhoto';
-   
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
    $c_UserName=prown\MakeCookie('UserName',"Гость",tStr,true);  // логин авторизованного посетителя
@@ -84,12 +82,19 @@ try
       //alert("window.orientation="+window.orientation);
       // Размещаем изображения внутри Div-ов
    });</script>';
+
    // Начинаем выводить тело страницы 
    echo '</head>';
    echo '<body>';
    
    // Выводим отладочную информацию
    // DebugView($s_Orient);
+
+   // Сбрасываем кэши состояний файлов изображений, которые будут
+   // показаны на странице 
+   clearstatcache(true,$c_FileImg); 
+   clearstatcache(true,$c_FileStamp); 
+   clearstatcache(true,$c_FileProba); 
 
    // Запускаем построение разметки
    if ($_Orient==oriLandscape) MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
@@ -108,8 +113,8 @@ catch (E_EXCEPTION $e)
 // ****************************************************************************
 function MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 {
-   global $_Prefix;
-   prown\MakeUserError('Поверните устройство!',$_Prefix,rvsDialogWindow);
+   //ViewMess('Поверните устройство!');
+   MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
 }
 // ****************************************************************************
 // *                    Разметить страницу в варианте LandScape               *
@@ -200,6 +205,11 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
     echo 'Привет info!<br>';
     echo '***<br>';
     echo '</div>';
+    
+    echo '<div id="hello">';
+    echo 'Привет';
+    echo '</div>';
+    
   echo '</div>';
 }
 // ****************************************************************************
@@ -223,8 +233,8 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProb
    // Обрабатываем подписание фотографии 
    if (prown\isComRequest('Do','Stamp'))
    { 
-      //require_once "SignaUpload.php";
-      prown\ConsoleLog('Make=Do');
+      require_once "SignaMakeStamp.php";
+      //prown\ConsoleLog('Make=Do');
    }
    
    // Определяем Url домашней страницы

@@ -31,3 +31,11 @@ Stack trace:
 #0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(68): IniPage(257, NULL, 'http://localhos...', 'http://localhos...', 'images/iproba.p...', 'http')
 #1 {main}
   thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php on line 224
+[26-Jan-2022 20:13:01 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function get_file_extension() in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php:13
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(232): require_once()
+#1 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(68): IniPage(311, NULL, 'http://localhos...', 'http://localhos...', 'images/iproba.p...', 'http')
+#2 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php on line 13
+[26-Jan-2022 20:39:16 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ',', expecting ')' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 136
+[26-Jan-2022 20:39:51 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ',', expecting ')' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 136

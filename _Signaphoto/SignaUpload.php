@@ -55,22 +55,13 @@ if ($is===true)
    $upload=new ttools\UploadToServer($imgDir,$NameLoad);
    $MessUpload=$upload->move();
    // Если перемещение завершилось неудачно, то выдаем сообщение
-   if ($MessUpload<>imok) 
-   {
-      global $_Prefix;
-      prown\MakeUserError($MessUpload,$_Prefix,rvsDialogWindow);
-   }   
+   if ($MessUpload<>imok) ViewMess($MessUpload);
    // Перемещение файла на сервер выполнилось успешно
    else 
    {
-      // Создаем массив данных для передачи браузеру
-      // (либо массив с одним сообщением, либо массив размеров изображений)
-      $user_info = array(); 
       if ($NameInput=="loadimg") 
       {
          $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
-         prown\ConsoleLog('$localimg='.$localimg);
-         prown\ConsoleLog('$nameimg='.$nameimg);
       }
       elseif ($NameInput=="loadstamp") 
       {
