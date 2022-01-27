@@ -39,3 +39,4 @@ Stack trace:
   thrown in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php on line 13
 [26-Jan-2022 20:39:16 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ',', expecting ')' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 136
 [26-Jan-2022 20:39:51 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ',', expecting ')' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 136
+[27-Jan-2022 06:34:01 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting ')' in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php on line 37

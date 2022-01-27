@@ -277,8 +277,8 @@ Caret=40,21
 TopLine=63
 Caret=36,101
 [_Signaphoto\SignaMakeStamp.php]
-TopLine=9
-Caret=4,23
+TopLine=35
+Caret=18,37
 [_Signaphoto\SignaPhotoImg.php]
-TopLine=101
+TopLine=1
 Caret=1,137
