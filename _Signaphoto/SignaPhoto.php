@@ -95,6 +95,7 @@ try
    clearstatcache(true,$c_FileImg); 
    clearstatcache(true,$c_FileStamp); 
    clearstatcache(true,$c_FileProba); 
+   //clearstatcache(); 
 
    // Запускаем построение разметки
    if ($_Orient==oriLandscape) MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
@@ -140,7 +141,10 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
     echo '</div>';
     // Размечаем область изображения с подписью
     echo '<div  id="Proba">';
-      ViewProba($c_FileProba,$RemoteAddr,$c_FileImg);
+      //ViewProba($c_FileProba,$RemoteAddr,$c_FileImg);
+      echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
+      ' title="Подписанное изображение">';
+      MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
     echo '</div>';
   echo '</div>';
    

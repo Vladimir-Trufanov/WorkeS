@@ -26,13 +26,10 @@ else
 {
    //prown\ConsoleLog('$FileExt='.$FileExt);
    
-   // Изменяем размеры штампа (водяного знака)
-   makeDestinationStamp($im,$c_FileImg,$FileExt,$c_FileStamp); 
    
-   
-   $ci_FileStamp='images/tempstamp.png';
+
    // Строим изображение штампа (водяного знака)
-   $stamp = @imagecreatefrompng($ci_FileStamp);
+   $stamp = @imagecreatefrompng($c_FileStamp);
    if (!$stamp) ViewMess(ajStampNotBuilt);
    else
    {
@@ -54,7 +51,6 @@ else
       else
       {
          // Устанавливаем поля для штампа
-         // от правого нижнего угла
          $marge_right = 10;
          $marge_bottom = 10;
          // Определяем высоту/ширину штампа
@@ -77,7 +73,6 @@ else
           ViewMess(ajIsFreshStamp);
       }
    }
-   
 }
 // ****************************************************************************
 // *   Сделать требуемое gif или png изображение прозрачным png-изображением  *

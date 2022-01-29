@@ -104,9 +104,15 @@ Exploration
 				_Signaphoto\_SignaArch\SignaUpload.php
 				_Signaphoto\_SignaArch\SignaUpload2.php
 			-images
+				_Signaphoto\images\fil.png
+				_Signaphoto\images\fil1.png
 				_Signaphoto\images\iphoto.jpg
 				_Signaphoto\images\iproba.png
 				_Signaphoto\images\istamp.png
+				_Signaphoto\images\proba.png
+				_Signaphoto\images\probaPng.png
+				_Signaphoto\images\tempimg.png
+				_Signaphoto\images\tempstamp.png
 			-imgdebug
 				_Signaphoto\imgdebug\goggle-eyed.gif
 				_Signaphoto\imgdebug\goggle-eyed.png
@@ -117,11 +123,29 @@ Exploration
 				_Signaphoto\imgdebug\ksiusha.jpg
 				_Signaphoto\imgdebug\stamplbp.png
 				_Signaphoto\imgdebug\stamptve.png
+				_Signaphoto\imgdebug\watermark.png
 				_Signaphoto\imgdebug\Дед-сын-и-внук.png
 				_Signaphoto\imgdebug\Танцы в Северном.doc
 				_Signaphoto\imgdebug\Хорошенькая.png
-			_Signaphoto\log.txt
+			+SignaTunein
+				+_PencilPaper
+					-css
+						_Signaphoto\SignaTunein\_PencilPaper\css\style.css
+					-js
+						_Signaphoto\SignaTunein\_PencilPaper\js\index.js
+					_Signaphoto\SignaTunein\_PencilPaper\index.html
+					_Signaphoto\SignaTunein\_PencilPaper\license.txt
+					_Signaphoto\SignaTunein\_PencilPaper\README.txt
+				+_WhipperSnapper
+					-css
+						_Signaphoto\SignaTunein\_WhipperSnapper\css\style.css
+					-js
+						_Signaphoto\SignaTunein\_WhipperSnapper\js\index.js
+					_Signaphoto\SignaTunein\_WhipperSnapper\index.html
+					_Signaphoto\SignaTunein\_WhipperSnapper\license.txt
+					_Signaphoto\SignaTunein\_WhipperSnapper\README.txt
 			_Signaphoto\SignaMakeStamp.php
+			_Signaphoto\SignaMakeStampOld.php
 			_Signaphoto\SignaPhoto.css
 			_Signaphoto\SignaPhoto.js
 			_Signaphoto\SignaPhoto.php
@@ -229,8 +253,10 @@ Exploration
 			SmartMenus\sm-core-css.css
 		-Temp
 			Temp\AndroidCh97Mo--1img.png
+			Temp\Win10Ch97De--1img.gif
 			Temp\Win10Ch97De--1img.jpeg
 			Temp\Win10Ch97De--1img.png
+			Temp\Win10Ch97De--1stamp.gif
 			Temp\Win10Ch97De--1stamp.png
 		-Материалы
 		.gitignore
@@ -250,19 +276,19 @@ Exploration
 4=_Signaphoto\SignaPhotoDef.php
 5=_Signaphoto\SignaPhoto.js
 6=_Signaphoto\SignaPhoto.css
-7=_Signaphoto\SignaMakeStamp.php
-8=_Signaphoto\SignaPhotoImg.php
+7=_Signaphoto\SignaTunein\_WhipperSnapper\index.html
+8=_Signaphoto\SignaTunein\_PencilPaper\index.html
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaMakeStamp.php
+Selected=index.html
 [index.html]
-TopLine=31
-Caret=1,39
+TopLine=1
+Caret=1,10
 [_Signaphoto\SignaPhoto.php]
-TopLine=44
-Caret=1,51
+TopLine=215
+Caret=1,240
 [_Signaphoto\SignaPhotoHtml.php]
-TopLine=42
+TopLine=22
 Caret=31,55
 [_Signaphoto\SignaUpload.php]
 TopLine=35
@@ -276,9 +302,9 @@ Caret=40,21
 [_Signaphoto\SignaPhoto.css]
 TopLine=63
 Caret=36,101
-[_Signaphoto\SignaMakeStamp.php]
-TopLine=35
-Caret=18,37
-[_Signaphoto\SignaPhotoImg.php]
+[_Signaphoto\SignaTunein\_WhipperSnapper\index.html]
 TopLine=1
-Caret=1,137
+Caret=15,2
+[_Signaphoto\SignaTunein\_PencilPaper\index.html]
+TopLine=1
+Caret=1,7
