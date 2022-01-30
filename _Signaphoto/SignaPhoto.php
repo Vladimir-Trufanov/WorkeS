@@ -62,8 +62,24 @@ try
    $s_Counter=prown\MakeSession('Counter',0,tInt,true);         // посещения за сессию
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
 
+   // Обрабатываем загрузку изображения 
+   if (IsSet($_POST["MAX_FILE_SIZE"]))
+   { 
+      require_once "SignaUpload.php";
+   }
+   // Обрабатываем подписание фотографии 
+   if (prown\isComRequest('Do','Stamp'))
+   { 
+      require_once "SignaMakeStamp.php";
+      //prown\ConsoleLog('Make=Do');
+   }
+
+   // Подключаемся к файлам изображений
+   ConnectImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
+
    // Готовим начало страницы для подписывания фотографий
-   IniPage($c_SignaPhoto,$UrlHome,$c_FileImg,$c_FileStamp,$c_FileProba,$SiteProtocol);
+   IniPage($c_SignaPhoto,$UrlHome,$SiteProtocol);
+
    // Подключаем межязыковые (PHP-JScript) определения внутри HTML
    require_once 'SignaPhotoDef.php';
    echo $define; echo $odefine;
@@ -89,13 +105,6 @@ try
    
    // Выводим отладочную информацию
    // DebugView($s_Orient);
-
-   // Сбрасываем кэши состояний файлов изображений, которые будут
-   // показаны на странице 
-   clearstatcache(true,$c_FileImg); 
-   clearstatcache(true,$c_FileStamp); 
-   clearstatcache(true,$c_FileProba); 
-   //clearstatcache(); 
 
    // Запускаем построение разметки
    if ($_Orient==oriLandscape) MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
@@ -219,27 +228,12 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 // ****************************************************************************
 // *                            Начать HTML-страницу сайта                    *
 // ****************************************************************************
-function IniPage(&$c_SignaPhoto,&$UrlHome,&$c_FileImg,&$c_FileStamp,&$c_FileProba,$SiteProtocol)
+function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
 {
    $Result=true;
    // Инициируем или изменяем счетчик числа запросов страницы
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',0,tInt,true);  
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',$c_SignaPhoto+1,tInt);  
-   $c_FileImg=prown\MakeCookie('FileImg','images/iphoto.jpg',tStr,true);
-   $c_FileStamp=prown\MakeCookie('FileStamp','images/istamp.png',tStr,true);
-   $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr,true);
-   
-   // Обрабатываем загрузку изображения 
-   if (IsSet($_POST["MAX_FILE_SIZE"]))
-   { 
-      require_once "SignaUpload.php";
-   }
-   // Обрабатываем подписание фотографии 
-   if (prown\isComRequest('Do','Stamp'))
-   { 
-      require_once "SignaMakeStamp.php";
-      //prown\ConsoleLog('Make=Do');
-   }
    
    // Определяем Url домашней страницы
    if ($_SERVER["SERVER_NAME"]=='kwinflatht.nichost.ru') $UrlHome='http://kwinflatht.nichost.ru';

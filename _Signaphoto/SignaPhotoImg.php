@@ -7,10 +7,26 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  25.11.2021
-// Copyright © 2021 tve                              Посл.изменение: 22.01.2022
+// Copyright © 2021 tve                              Посл.изменение: 30.01.2022
 
-// Подключаем межязыковые (PHP-JScript) определения
-require_once 'SignaPhotoDef.php';
+// ****************************************************************************
+// *                      Подключиться к файлам изображений                   *
+// ****************************************************************************
+function ConnectImgFiles(&$c_FileImg,&$c_FileStamp,&$c_FileProba)
+{
+   // Обеспечиваем инициацию изображений при первом запуске в браузере
+   $c_FileImg=prown\MakeCookie('FileImg','images/iphoto.jpg',tStr,true);
+   $c_FileStamp=prown\MakeCookie('FileStamp','images/istamp.png',tStr,true);
+   $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr,true);
+   // Проверяем существование изображений, инициируем при отсутствии
+   if (@!fopen($c_FileImg,"r"))   $c_FileImg=prown\MakeCookie('FileImg','images/iphoto.jpg',tStr); 
+   if (@!fopen($c_FileStamp,"r")) $c_FileStamp=prown\MakeCookie('FileStamp','images/istamp.png',tStr); 
+   if (@!fopen($c_FileProba,"r")) $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr); 
+   // Сбрасываем кэши состояний файлов 
+   clearstatcache(true,$c_FileImg); 
+   clearstatcache(true,$c_FileStamp); 
+   clearstatcache(true,$c_FileProba); 
+}
 
 // ****************************************************************************
 // *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
