@@ -7,7 +7,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  10.07.2021
-// Copyright © 2021 tve                              Посл.изменение: 07.12.2021
+// Copyright © 2021 tve                              Посл.изменение: 30.01.2022
 
 // Определения сообщений для PHP
 define ("ajErrBigFile",         "Файл превышает максимальный размер"); 
@@ -34,36 +34,44 @@ define ("ajTransparentSuccess", "Преобразование к прозрач�
 // Определения объектов HTML
 define ("ohInfo", "Info");      // Id дива информационных сообщений
 
-// Переменные JavaScript, соответствующие определениям сообщений в PHP
-$define=
-'<script>'.
-'ajErrBigFile="'        .ajErrBigFile.        '";'.
-'ajErrFreshStamp="'     .ajErrFreshStamp.     '";'.
-'ajErrMoveServer="'     .ajErrMoveServer.     '";'.
-'ajErrorisLabel="'      .ajErrorisLabel.      '";'.
-'ajErrTempoFile="'      .ajErrTempoFile.      '";'.
-'ajImageNotBuilt="'     .ajImageNotBuilt.     '";'.
-'ajInfoLoadImg="'       .ajInfoLoadImg.       '";'.
-'ajInvalidBuilt="'      .ajInvalidBuilt.      '";'.
-'ajInvalidTransparent="'.ajInvalidTransparent.'";'.
-'ajInvalidType="'       .ajInvalidType.       '";'.
-'ajIsFreshStamp="'      .ajIsFreshStamp.      '";'.
-'ajLostScriptFile="'    .ajLostScriptFile.    '";'.
-'ajMustTransparentPng="'.ajMustTransparentPng.'";'.
-'ajNoSetFile="'         .ajNoSetFile.         '";'.
-'ajNoTempoFile="'       .ajNoTempoFile.       '";'.
-'ajOk="'                .ajOk.                '";'.
-'ajProba="'             .ajProba.             '";'.
-'ajStampNotBuilt="'     .ajStampNotBuilt.     '";'.
-'ajSuccess="'           .ajSuccess.           '";'.
-'ajSuccessfully="'      .ajSuccessfully.      '";'.
-'ajTransparentSuccess="'.ajTransparentSuccess.'";'.
-'</script>';
+// ****************************************************************************
+// *         Подключить межязыковые (PHP-JScript) определения внутри HTML     *
+// ****************************************************************************
+function DefinePHPtoJS()
+{
+   // Переменные JavaScript, соответствующие определениям сообщений в PHP
+   $define=
+   '<script>'.
+   'ajErrBigFile="'        .ajErrBigFile.        '";'.
+   'ajErrFreshStamp="'     .ajErrFreshStamp.     '";'.
+   'ajErrMoveServer="'     .ajErrMoveServer.     '";'.
+   'ajErrorisLabel="'      .ajErrorisLabel.      '";'.
+   'ajErrTempoFile="'      .ajErrTempoFile.      '";'.
+   'ajImageNotBuilt="'     .ajImageNotBuilt.     '";'.
+   'ajInfoLoadImg="'       .ajInfoLoadImg.       '";'.
+   'ajInvalidBuilt="'      .ajInvalidBuilt.      '";'.
+   'ajInvalidTransparent="'.ajInvalidTransparent.'";'.
+   'ajInvalidType="'       .ajInvalidType.       '";'.
+   'ajIsFreshStamp="'      .ajIsFreshStamp.      '";'.
+   'ajLostScriptFile="'    .ajLostScriptFile.    '";'.
+   'ajMustTransparentPng="'.ajMustTransparentPng.'";'.
+   'ajNoSetFile="'         .ajNoSetFile.         '";'.
+   'ajNoTempoFile="'       .ajNoTempoFile.       '";'.
+   'ajOk="'                .ajOk.                '";'.
+   'ajProba="'             .ajProba.             '";'.
+   'ajStampNotBuilt="'     .ajStampNotBuilt.     '";'.
+   'ajSuccess="'           .ajSuccess.           '";'.
+   'ajSuccessfully="'      .ajSuccessfully.      '";'.
+   'ajTransparentSuccess="'.ajTransparentSuccess.'";'.
+   '</script>';
+   echo $define;
 
-// Переменные JavaScript, соответствующие определениям объектов HTML
-$odefine=
-'<script>'.
-'const ohInfo="'   .ohInfo. '";'. 
-'</script>';
+   // Переменные JavaScript, соответствующие определениям объектов HTML
+   $odefine=
+   '<script>'.
+   'const ohInfo="'   .ohInfo. '";'. 
+   '</script>';
+   echo $odefine;
+}   
 
 // ****************************************************** SignaPhotoDef.php ***

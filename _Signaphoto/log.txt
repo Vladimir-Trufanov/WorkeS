@@ -1,0 +1,2 @@
+[30-Jan-2022 12:47:59 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '(', expecting '{' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoDef.php on line 41
+[30-Jan-2022 14:58:48 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '}' in C:\Webservers\Exploration\_Signaphoto\SignaUpload.php on line 46

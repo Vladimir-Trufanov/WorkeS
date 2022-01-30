@@ -24,8 +24,6 @@ else if (get_file_extension($c_FileStamp)<>'png')
 }
 else
 {
-   //prown\ConsoleLog('$FileExt='.$FileExt);
-   
    // Изменяем размеры штампа (водяного знака)
    makeDestinationStamp($im,$c_FileImg,$FileExt,$c_FileStamp); 
    

@@ -47,6 +47,7 @@ try
    // Подключаем рабочие модули:
    require_once "SignaPhotoHtml.php";
    require_once "SignaPhotoImg.php";
+   require_once 'SignaPhotoDef.php';
    
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
@@ -62,30 +63,21 @@ try
    $s_Counter=prown\MakeSession('Counter',0,tInt,true);         // посещения за сессию
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
 
-   // Обрабатываем загрузку изображения 
-   if (IsSet($_POST["MAX_FILE_SIZE"]))
-   { 
-      require_once "SignaUpload.php";
-   }
-   // Обрабатываем подписание фотографии 
-   if (prown\isComRequest('Do','Stamp'))
-   { 
-      require_once "SignaMakeStamp.php";
-      //prown\ConsoleLog('Make=Do');
-   }
-
    // Подключаемся к файлам изображений
    ConnectImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
+   // Обрабатываем загрузку изображения 
+   if (IsSet($_POST["MAX_FILE_SIZE"])) require_once "SignaUpload.php";
 
+   // Обрабатываем подписание фотографии 
+   //if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
+
+   // Сбрасываем кэши состояний файлов
+   ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$SiteProtocol);
 
-   // Подключаем межязыковые (PHP-JScript) определения внутри HTML
-   require_once 'SignaPhotoDef.php';
-   echo $define; echo $odefine;
-
    prown\ConsoleLog('$c_PersEntry='.$c_PersEntry);
-
+ 
    // Создаем объект класса по контролю за положением устройства
    // и определяем ориентацию устройства
    $orient = new ttools\DeviceOrientater($SiteDevice);
@@ -94,15 +86,13 @@ try
    // Подключаем скрипты по завершению загрузки страницы
    echo 
    '<script>$(document).ready(function() {
-      //console.log("window.orientation="+window.orientation);
-      //alert("window.orientation="+window.orientation);
-      // Размещаем изображения внутри Div-ов
+      console.log("ajInvalidTransparent="+ajInvalidTransparent);
    });</script>';
 
    // Начинаем выводить тело страницы 
    echo '</head>';
    echo '<body>';
-   
+
    // Выводим отладочную информацию
    // DebugView($s_Orient);
 
@@ -234,10 +224,11 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
    // Инициируем или изменяем счетчик числа запросов страницы
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',0,tInt,true);  
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',$c_SignaPhoto+1,tInt);  
-   
    // Определяем Url домашней страницы
    if ($_SERVER["SERVER_NAME"]=='kwinflatht.nichost.ru') $UrlHome='http://kwinflatht.nichost.ru';
    else $UrlHome='http://localhost:82'; 
+   // Подключаем межязыковые (PHP-JScript) определения внутри HTML
+   DefinePHPtoJS();
    // Загружаем заголовочную часть страницы
    echo '<!DOCTYPE html>';
    echo '<html lang="ru">';
