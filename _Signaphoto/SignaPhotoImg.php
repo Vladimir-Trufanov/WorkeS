@@ -22,10 +22,6 @@ function ConnectImgFiles(&$c_FileImg,&$c_FileStamp,&$c_FileProba)
    if (@!fopen($c_FileImg,"r"))   $c_FileImg=prown\MakeCookie('FileImg','images/iphoto.jpg',tStr); 
    if (@!fopen($c_FileStamp,"r")) $c_FileStamp=prown\MakeCookie('FileStamp','images/istamp.png',tStr); 
    if (@!fopen($c_FileProba,"r")) $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr); 
-   // Обеспечиваем инициацию параметров подписи
-   $c_PointCorner=prown\MakeCookie('FileImg','images/iphoto.jpg',tStr,true);
-   $c_FileStamp=prown\MakeCookie('FileStamp','images/istamp.png',tStr,true);
-   $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr,true);
 }
 // ****************************************************************************
 // *                Сбрасываем кэши состояний файлов изображений              *

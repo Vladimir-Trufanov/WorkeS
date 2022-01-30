@@ -31,7 +31,6 @@ if ($isDir===true)
    // Определяем, загрузка какого файла выполнена: оригинального изображения
    // или образца подписи, через имя массива ("loadimg","loadstamp") из $_FILES         
    $NameInput=getLoadKind();
-   prown\ConsoleLog('$NameInput='.$NameInput);
 
    $field=current($_FILES);
    $type=substr($field['type'],strpos($field['type'],'/')+1);
@@ -52,79 +51,14 @@ if ($isDir===true)
       $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
       $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
       MoveFromUpload($imgDir,$NameLoad,$c_FileImg,'FileImg',$localimg);
-      // Перемещаем копию оригинального изображение для подписи
+      // Создаем копию оригинального изображение для подписи
       $NameLoad=$PrefName.'proba';
-      $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
-      $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
-      // Перемещаем загруженный файл из временного хранилища на сервер,
-      // записываем кукис                            
-      MoveFromUpload($imgDir,$NameLoad,$c_FileProba,'FileProba',$localimg);
+      $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
+      $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
+      if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
+      else ViewMess(ajCopyImageNotCreate);
    }
 }
-
-   /*
-if ($NameInput=="loadimg") {$NameLoad=$PrefName.'img'; $NameLoadp=$PrefName.'proba';}
-elseif ($NameInput=="loadstamp") $NameLoad=$PrefName.'stamp';
-else $NameLoad=$PrefName;
-
-$field=current($_FILES);
-$type=substr($field['type'],strpos($field['type'],'/')+1);
-$localimg=$urlDir.'/'.$NameLoad.'.'.$type;
-$nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
-$localproba=$urlDir.'/'.$NameLoadp.'.'.$type;
-$nameproba=$imgDir.'/'.$NameLoadp.'.'.$type;
-   // Перебрасываем образец подписи
-   if ($NameInput=="loadstamp") 
-   {
-      $upload=new ttools\UploadToServer($imgDir,$NameLoad);
-      $MessUpload=$upload->move();
-      // Если перемещение завершилось неудачно, то выдаем сообщение
-      if ($MessUpload<>imok) ViewMess($MessUpload);
-      // Перемещение файла на сервер выполнилось успешно
-      else $c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr); 
-   }
-   // Перебрасываем оригинал и копию на место подписанного изображения
-   else if ($NameInput=="loadimg") 
-   {
-      // Перебрасываем оригинал 
-      $upload=new ttools\UploadToServer($imgDir,$NameLoad);
-      $MessUpload=$upload->move();
-      // Если перемещение завершилось неудачно, то выдаем сообщение
-      if ($MessUpload<>imok) ViewMess($MessUpload);
-      // Перемещение файла на сервер выполнилось успешно
-      else $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
-      // Перебрасываем копию  
-      $upload=new ttools\UploadToServer($imgDir,$NameLoadp);
-      $MessUpload=$upload->move();
-      // Если перемещение завершилось неудачно, то выдаем сообщение
-      if ($MessUpload<>imok) ViewMess($MessUpload);
-      // Перемещение файла на сервер выполнилось успешно
-      else $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
-   }
-*/
-
-
-
-/*
-   // Перебрасываем файл на постоянное хранение
-   $upload=new ttools\UploadToServer($imgDir,$NameLoad);
-   $MessUpload=$upload->move();
-   // Если перемещение завершилось неудачно, то выдаем сообщение
-   if ($MessUpload<>imok) ViewMess($MessUpload);
-   // Перемещение файла на сервер выполнилось успешно
-   else 
-   {
-      if ($NameInput=="loadimg") 
-      {
-         $c_FileImg=prown\MakeCookie('FileImg',$localimg,tStr);
-      }
-      elseif ($NameInput=="loadstamp") 
-      {
-         $c_FileStamp=prown\MakeCookie('FileStamp',$localimg,tStr);
-      }
-   } 
-*/ 
-
 // ****************************************************************************
 // *       Определить, загрузка какого файла выполнена: оригинального         *
 // *     изображение или образца подписи, через имя массива ("loadimg",       *
@@ -175,7 +109,4 @@ function MoveFromUpload($imgDir,$NameLoadp,&$c_FileImgx,$NameCookie,$localimg)
    // Перемещение файла на сервер выполнилось успешно, меняем кукис
    else $c_FileImgx=prown\MakeCookie($NameCookie,$localimg,tStr);
 }
-
-
-
 // ******************************************************** SignaUpload.php ***

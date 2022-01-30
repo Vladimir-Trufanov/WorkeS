@@ -51,16 +51,22 @@ try
    
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
-   $c_UserName=prown\MakeCookie('UserName',"Гость",tStr,true);  // логин авторизованного посетителя
-   $c_PersName=prown\MakeCookie('PersName',"Гость",tStr,true);  // логин посетителя
-   $c_BrowEntry=prown\MakeCookie('BrowEntry',0,tInt,true);      // число запросов сайта из браузера
+   $c_UserName=prown\MakeCookie('UserName',"Гость",tStr,true);              // логин авторизованного посетителя
+   $c_PersName=prown\MakeCookie('PersName',"Гость",tStr,true);              // логин посетителя
+   $c_BrowEntry=prown\MakeCookie('BrowEntry',0,tInt,true);                  // число запросов сайта из браузера
    $c_BrowEntry=prown\MakeCookie('BrowEntry',$c_BrowEntry+1,tInt);  
-   $c_PersEntry=prown\MakeCookie('PersEntry',0,tInt,true);      // счетчик посещений текущим посетителем
+   $c_PersEntry=prown\MakeCookie('PersEntry',0,tInt,true);                  // счетчик посещений текущим посетителем
    $c_PersEntry=prown\MakeCookie('PersEntry',$c_PersEntry+1,tInt);
+   // Обеспечиваем инициацию параметров подписи
+   $c_PointCorner=prown\MakeCookie('PointCorner',ohRightBottom,tStr,true);  // точка привязки подписи
+   $c_PerSizeImg=prown\MakeCookie('PerSizeImg',20,tInt,true);               // процент размера подписи к изображению
+   $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth',5,tInt,true);          // процент смещения подписи по ширине от точки привязки
+   $c_PerMargeHight=prown\MakeCookie('PerMargeHight',5,tInt,true);          // процент смещения подписи по высоте от точки привязки
+
    // Изменяем сессионные переменные (сессионные переменные инициируются после
    // переменных-кукисов, так как некоторые переменные-кукисы переопределяются появившимися
    // сессионными переменными. Например: $s_ModeImg --> $c_ModeImg)
-   $s_Counter=prown\MakeSession('Counter',0,tInt,true);         // посещения за сессию
+   $s_Counter=prown\MakeSession('Counter',0,tInt,true);                     // посещения за сессию
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
 
    // Подключаемся к файлам изображений

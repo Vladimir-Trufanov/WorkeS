@@ -10,6 +10,7 @@
 // Copyright © 2021 tve                              Посл.изменение: 30.01.2022
 
 // Определения сообщений для PHP
+define ("ajCopyImageNotCreate", "Не создана копия оригинального изображения для подписи"); 
 define ("ajErrBigFile",         "Файл превышает максимальный размер"); 
 define ("ajErrFreshStamp",      "Ошибка при наложении подписи на изображение");
 define ("ajErrMoveServer",      "Ошибка при перемещении файла на сервер");  
@@ -31,8 +32,12 @@ define ("ajStampNotBuilt",      "Не строится изображение ш
 define ("ajSuccess",            "Функция/процедура выполнена успешно");     
 define ("ajSuccessfully",       "Файл успешно загружен sss ОТЛАДКА"); 
 define ("ajTransparentSuccess", "Преобразование к прозрачному виду успешно"); 
-// Определения объектов HTML
-define ("ohInfo", "Info");      // Id дива информационных сообщений
+// Определения к сценариям
+define ("ohInfo",               "Info");  // Id дива информационных сообщений
+define ("ohRightBottom",        "правый нижний угол");  
+define ("ohLeftTop",            "левый верхний угол");  
+define ("ohRightTop",           "правый верхний угол");  
+define ("ohLeftBottom",         "левый нижний угол");  
 
 // ****************************************************************************
 // *         Подключить межязыковые (PHP-JScript) определения внутри HTML     *
@@ -42,6 +47,7 @@ function DefinePHPtoJS()
    // Переменные JavaScript, соответствующие определениям сообщений в PHP
    $define=
    '<script>'.
+   'ajCopyImageNotCreate="'.ajCopyImageNotCreate.'";'.
    'ajErrBigFile="'        .ajErrBigFile.        '";'.
    'ajErrFreshStamp="'     .ajErrFreshStamp.     '";'.
    'ajErrMoveServer="'     .ajErrMoveServer.     '";'.
