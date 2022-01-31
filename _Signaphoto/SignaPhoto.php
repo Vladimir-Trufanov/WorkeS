@@ -37,6 +37,7 @@ try
    // Подключаем файлы библиотеки прикладных модулей:
    require_once pathPhpPrown."/CommonPrown.php";
    require_once pathPhpPrown."/MakeCookie.php";
+   require_once pathPhpPrown."/MakeRID.php";
    require_once pathPhpPrown."/MakeSession.php";
    require_once pathPhpPrown."/MakeUserError.php";
    require_once pathPhpPrown."/ViewGlobal.php";
@@ -75,7 +76,7 @@ try
    if (IsSet($_POST["MAX_FILE_SIZE"])) require_once "SignaUpload.php";
 
    // Обрабатываем подписание фотографии 
-   //if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
+   if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
 
    // Сбрасываем кэши состояний файлов
    ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);

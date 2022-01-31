@@ -11,7 +11,6 @@
 
 // Подключаем файлы библиотеки прикладных модулей:
 require_once pathPhpPrown."/CreateRightsDir.php";
-require_once pathPhpPrown."/MakeRID.php";
 // Подключаем файлы библиотеки прикладных классов:
 require_once pathPhpTools."/TUploadToServer/UploadToServerClass.php";
 
