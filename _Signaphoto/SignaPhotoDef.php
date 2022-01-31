@@ -9,6 +9,13 @@
 //                                                   Дата создания:  10.07.2021
 // Copyright © 2021 tve                              Посл.изменение: 31.01.2022
 
+// Определения к сценариям
+define ("ohInfo",               "Info");  // Id дива информационных сообщений
+define ("ohRightBottom",        "правый нижний угол");  
+define ("ohLeftTop",            "левый верхний угол");  
+define ("ohRightTop",           "правый верхний угол");  
+define ("ohLeftBottom",         "левый нижний угол");  
+
 // Определения сообщений для PHP
 define ("ajCopyImageNotCreate", "Не создана копия оригинального изображения для подписи"); 
 define ("ajErrBigFile",         "Файл превышает максимальный размер"); 
@@ -25,6 +32,7 @@ define ("ajInvalidType",        "Неверный тип файла изобра
 define ("ajIsFreshStamp",       "На изображение наложена свежая подпись");
 define ("ajLostScriptFile",     "Утерян файл скрипта");   
 define ("ajMustTransparentPng", "Изображение подписи должно быть с прозрачным фоном и типа 'png'");
+define ("ajNameFileNoMatchUrl", "Имя файла изображения со штампом не соответствует url-адресу");
 define ("ajNoSetFile",          "Не установлен массив файлов и не загружены данные");
 define ("ajNoTempoFile",        "Не загружен файл во временное хранилище");
 define ("ajOk",                 "Все получилось хорошо");
@@ -32,14 +40,7 @@ define ("ajProba",              "Это проверочное сообщени�
 define ("ajStampNotBuilt",      "Не строится изображение штампа - водяного знака");
 define ("ajSuccess",            "Функция/процедура выполнена успешно");     
 define ("ajSuccessfully",       "Файл успешно загружен sss ОТЛАДКА"); 
-define ("ajTransparentSuccess", "Преобразование к прозрачному виду успешно"); 
-
-// Определения к сценариям
-define ("ohInfo",               "Info");  // Id дива информационных сообщений
-define ("ohRightBottom",        "правый нижний угол");  
-define ("ohLeftTop",            "левый верхний угол");  
-define ("ohRightTop",           "правый верхний угол");  
-define ("ohLeftBottom",         "левый нижний угол");  
+define ("ajTransparentSuccess", "Преобразование к прозрачному виду успешно");
 
 // ****************************************************************************
 // *         Подключить межязыковые (PHP-JScript) определения внутри HTML     *
@@ -55,6 +56,7 @@ function DefinePHPtoJS()
    'ajErrMoveServer="'     .ajErrMoveServer.     '";'.
    'ajErrorisLabel="'      .ajErrorisLabel.      '";'.
    'ajErrTempoFile="'      .ajErrTempoFile.      '";'.
+   'ajFailedResizedStamp="'.ajFailedResizedStamp.     '";'.
    'ajImageNotBuilt="'     .ajImageNotBuilt.     '";'.
    'ajInfoLoadImg="'       .ajInfoLoadImg.       '";'.
    'ajInvalidBuilt="'      .ajInvalidBuilt.      '";'.
@@ -63,6 +65,7 @@ function DefinePHPtoJS()
    'ajIsFreshStamp="'      .ajIsFreshStamp.      '";'.
    'ajLostScriptFile="'    .ajLostScriptFile.    '";'.
    'ajMustTransparentPng="'.ajMustTransparentPng.'";'.
+   'ajNameFileNoMatchUrl="'.ajNameFileNoMatchUrl.'";'.
    'ajNoSetFile="'         .ajNoSetFile.         '";'.
    'ajNoTempoFile="'       .ajNoTempoFile.       '";'.
    'ajOk="'                .ajOk.                '";'.

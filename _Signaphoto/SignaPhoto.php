@@ -63,6 +63,9 @@ try
    $c_PerSizeImg=prown\MakeCookie('PerSizeImg',20,tInt,true);               // процент размера подписи к изображению
    $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth',5,tInt,true);          // процент смещения подписи по ширине от точки привязки
    $c_PerMargeHight=prown\MakeCookie('PerMargeHight',5,tInt,true);          // процент смещения подписи по высоте от точки привязки
+   // Инициируем или изменяем счетчик числа запросов страницы
+   $c_SignaPhoto=prown\MakeCookie('SignaPhoto',0,tInt,true);  
+   $c_SignaPhoto=prown\MakeCookie('SignaPhoto',$c_SignaPhoto+1,tInt);  
 
    // Изменяем сессионные переменные (сессионные переменные инициируются после
    // переменных-кукисов, так как некоторые переменные-кукисы переопределяются появившимися
@@ -228,9 +231,6 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
 function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
 {
    $Result=true;
-   // Инициируем или изменяем счетчик числа запросов страницы
-   $c_SignaPhoto=prown\MakeCookie('SignaPhoto',0,tInt,true);  
-   $c_SignaPhoto=prown\MakeCookie('SignaPhoto',$c_SignaPhoto+1,tInt);  
    // Определяем Url домашней страницы
    if ($_SERVER["SERVER_NAME"]=='kwinflatht.nichost.ru') $UrlHome='http://kwinflatht.nichost.ru';
    else $UrlHome='http://localhost:82'; 

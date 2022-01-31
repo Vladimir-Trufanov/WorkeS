@@ -24,12 +24,13 @@ else if (get_file_extension($c_FileStamp)<>'png')
 }
 else
 {
-   // Изменяем размеры штампа (водяного знака) до заданной пропорции
-   // от основного изображения
-   if (makeDestinationStamp($im,$c_FileImg,$c_FileStamp)==ajTransparentSuccess)
+   // Определяем имя промежуточного файл штампа
+   $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
+   $NameLoad=prown\MakeRID().'stamt';
+   $ci_FileStamp=$imgDir.'/'.$NameLoad.'.'.'png';
+   // Изменяем размеры штампа до заданной пропорции от основного изображения
+   if (makeDestinationStamp($im,$c_FileImg,$c_FileStamp,$ci_FileStamp)==ajTransparentSuccess)
    {
-      /*
-      $ci_FileStamp='images/tempstamp.png';
       // Строим изображение штампа (водяного знака)
       $stamp = @imagecreatefrompng($ci_FileStamp);
       if (!$stamp) ViewMess(ajStampNotBuilt);
@@ -38,7 +39,7 @@ else
          // Строим изображение для наложения подписи
          if (($FileExt=='gif')or($FileExt=='png'))
          {
-            ViewMess(makeTransparentImg($im,$c_FileImg,$FileExt));
+            makeTransparentImg($im,$c_FileImg,$FileExt);
          }
          elseif (($FileExt=='jpeg')or($FileExt=='jpg'))
          {
@@ -52,10 +53,14 @@ else
          }
          else
          {
+            // Копируем изображение штампа на фотографию с учетом смещения края    
+            // и ширины фотографии и расчётом позиционирования штампа        
+            ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol);
+            /*
             // Устанавливаем поля для штампа
             // от правого нижнего угла
             $marge_right = 10;
-             $marge_bottom = 10;
+            $marge_bottom = 10;
             // Определяем высоту/ширину штампа
             $sx = imagesx($stamp);
             $sy = imagesy($stamp);
@@ -66,17 +71,60 @@ else
                imagesy($im)-$sy-$marge_bottom,0,0,
                imagesx($stamp),imagesy($stamp));
             // Выводим изображение в файл и освобождаем память
-            $fileproba='images/proba.png';
-            imagepng($im,$fileproba);
+            $c_FileProba=prown\MakeCookie('FileProba');
+            imagepng($im,$c_FileProba);
             imagedestroy($im);
             imagedestroy($stamp);
-            // Запоминаем в кукисе имя файла фотографии с подписью
-             $c_FileProba=prown\MakeCookie('FileProba',$fileproba,tStr);
-             // Отмечаем, что на фотографию наложена свежая подпись
-             ViewMess(ajIsFreshStamp);
+            //unlink($ci_FileStamp);
+            // Отмечаем, что на фотографию наложена свежая подпись
+            ViewMess(ajIsFreshStamp);
+            */
          }
       }
-   */
+   }
+}
+// ****************************************************************************
+// *   Скопировать изображение штампа на фотографию с учетом смещения края    *
+// *        и ширины фотографии и расчётом позиционирования штампа            *
+// ****************************************************************************
+function ImageAndStamp($im,$stamp,$type,$SiteProtocol)
+{
+   // Определяем имя файла изображения со штампом и его url-адреса
+   $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
+   $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
+   $NameLoad=prown\MakeRID().'proba';
+   $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
+   $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
+   $c_FileProba=prown\MakeCookie('FileProba');
+   //prown\ConsoleLog('$nameimgp='.$nameimgp);
+   //prown\ConsoleLog('$localimgp='.$localimgp);
+   //prown\ConsoleLog('$c_FileProba='.$c_FileProba);
+   // Если имя файла изображения со штампом не соответствует url-адресу,
+   // то выдаем сообщение
+   if ($localimgp<>$c_FileProba) ViewMess(ajNameFileNoMatchUrl);
+   // Иначе наносим изображение штампа на фотографию 
+   else
+   {
+      // Устанавливаем поля для штампа
+      // от правого нижнего угла
+      $marge_right = 10;
+      $marge_bottom = 10;
+      // Определяем высоту/ширину штампа
+      $sx = imagesx($stamp);
+      $sy = imagesy($stamp);
+      // Копируем изображения штампа на фотографию с помощью смещения края
+      // и ширины фотографии для расчёта позиционирования штампа.
+      imagecopy($im,$stamp,
+         imagesx($im)-$sx-$marge_right,
+         imagesy($im)-$sy-$marge_bottom,0,0,
+         imagesx($stamp),imagesy($stamp));
+      // Выводим изображение в файл и освобождаем память
+      imagepng($im,$nameimgp);
+      imagedestroy($im);
+      imagedestroy($stamp);
+      //unlink($nameimgp);
+      // Отмечаем, что на фотографию наложена свежая подпись
+      ViewMess(ajIsFreshStamp);
    }
 }
 // ****************************************************************************
@@ -92,7 +140,7 @@ function makeTransparentImg(&$im,$c_FileImg,$FileExt)
    if (($FileExt<>'gif')and($FileExt<>'png')) 
    { 
      // Если недопустимое расширение файла, то возвращаем сообщение
-     $Result=ajInvalidTransparent;
+     $Result=ajInvalidTransparent; ViewMess(ajInvalidTransparent);
    } 
    else
    {
@@ -113,10 +161,13 @@ function makeTransparentImg(&$im,$c_FileImg,$FileExt)
       imagecopyresampled($destination_resource, $source_resource, 0, 0, 0, 0, 
          $newwidth, $newheight, $oldwidth, $oldheight);
       // Сохраняем изображение в промежуточный файл png
-      $destination_path='images/tempimg.png';
+      $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
+      $NameLoad=prown\MakeRID().'probt';
+      $destination_path=$imgDir.'/'.$NameLoad.'.'.'png';
       imagepng($destination_resource, $destination_path);
       // Извлекаем уже прозрачное изображение
       $im = @imagecreatefrompng($destination_path);
+      //unlink($destination_path);
       return $Result;
    }
 }
@@ -124,9 +175,8 @@ function makeTransparentImg(&$im,$c_FileImg,$FileExt)
 // *      Изменить размеры штампа (водяного знака) до заданной пропорции      *
 // *                             от основного изображения                     *
 // ****************************************************************************
-function makeDestinationStamp(&$im,$c_FileImg,$c_StampImg)
+function makeDestinationStamp(&$im,$c_FileImg,$c_StampImg,$destination_path)
 {
-   //prown\ConsoleLog('$c_StampImg='.$c_StampImg);
    $im=null;
    // Изначально считаем, преобразование к прозрачному виду было успешным
    $Result=ajTransparentSuccess;
@@ -153,10 +203,6 @@ function makeDestinationStamp(&$im,$c_FileImg,$c_StampImg)
    imagecopyresampled($destination_resource, $source_resource, 0, 0, 0, 0, 
       $newwidth, $newheight, $oldwidth, $oldheight);
    // Сохраняем изображение в промежуточный файл png
-   $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
-   $NameLoad=prown\MakeRID().'stamt';
-   $destination_path=$imgDir.'/'.$NameLoad.'.'.'png';
-   //$destination_path='images/tempstamp.png';
    if (!imagepng($destination_resource, $destination_path)) 
    {
       $Result='ajFailedResizedStamp'; ViewMess(ajFailedResizedStamp);
