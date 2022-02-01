@@ -113,6 +113,11 @@ function CalcPicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth)
 
 
 // ----------
+
+function PlaceImgOnDiv()
+{
+   alert( "PlaceImgOnDiv()" );
+}
   
 // ****************************************************************************
 // *           Вывести диагностическое сообщение при ошибке перемещения       *
@@ -130,7 +135,7 @@ function Proba12()
    htmlstr='Привет!';
    $('div#Photo').html(htmlstr); 
 }
-function jsWinParentReplaceImg(mess,IdDiv=null) 
+function jsWinParentReplaceImg(mess,IdDiv) 
 {
    if (IdDiv==null)
    {

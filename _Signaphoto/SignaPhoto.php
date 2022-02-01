@@ -46,9 +46,9 @@ try
    require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
 
    // Подключаем рабочие модули:
-   require_once "SignaPhotoHtml.php";
-   require_once "SignaPhotoImg.php";
+   // require_once "SignaPhotoHtml.php";
    require_once 'SignaPhotoDef.php';
+   require_once "SignaPhotoImg.php";
    
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
@@ -135,25 +135,18 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
   echo '<div id="All">';
     // Размечаем область оригинального изображения и образца подписи
     echo '<div  id="View">';
-      // Показываем оригинал изображения
+      // Показываем загруженное изображение для подписи
       echo '<div id="Photo">';
-        echo '<img id="pic" src="'.$c_FileImg.'"'.' alt="'.$c_FileImg.'"'.
-        ' title="Загруженное изображение">';
-        MakeImgOnDiv('Photo','pic',$c_FileImg,94);
+        ViewPhoto($c_FileImg);
       echo '</div>';
       // Показываем образец подписи
       echo '<div  id="Stamp">';
-        echo '<img id="picStamp" src="'.$c_FileStamp.'"'.' alt="'.$c_FileStamp.'"'.
-        ' title="Образец подписи">';
-        MakeImgOnDiv('Stamp','picStamp',$c_FileStamp,50);
+        ViewStamp($c_FileStamp);
       echo '</div>';
     echo '</div>';
     // Размечаем область изображения с подписью
     echo '<div  id="Proba">';
-      //ViewProba($c_FileProba,$RemoteAddr,$c_FileImg);
-      echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
-      ' title="Подписанное изображение">';
-      MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
+      ViewProba($c_FileProba,$RemoteAddr);
     echo '</div>';
   echo '</div>';
    
@@ -191,7 +184,7 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
     </button>
     ';
 
-    Tunein();
+    //Tunein();
     
     // Строим форму и кнопку загрузки образца подписи
     echo '
@@ -241,6 +234,7 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
    echo '<html lang="ru">';
    echo '<head>';
    echo '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>';
+   //echo '<meta http-equiv="Cache-control" content="no-cache">';
    echo '<title>Подписать фотографию: _SignaPhoto</title>';
    echo '<meta name="description" content="_SignaPhoto">';
    echo '<meta name="keywords"    content="_SignaPhoto">';

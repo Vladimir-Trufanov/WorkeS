@@ -50,6 +50,7 @@ if ($isDir===true)
       $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
       $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
       MoveFromUpload($imgDir,$NameLoad,$c_FileImg,'FileImg',$localimg);
+      //clearstatcache(true,$localimg);
       // Создаем копию оригинального изображение для подписи
       $NameLoad=$PrefName.'proba';
       $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
@@ -57,6 +58,11 @@ if ($isDir===true)
       if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
       else ViewMess(ajCopyImageNotCreate);
    }
+   /*
+   ?> <script>
+   location.reload(true);
+   </script> <?php
+   */
 }
 // ****************************************************************************
 // *       Определить, загрузка какого файла выполнена: оригинального         *
