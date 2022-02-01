@@ -33,6 +33,59 @@ function ConnectImgFiles(&$c_FileImg,&$c_FileStamp,&$c_FileProba)
    if (@!fopen($c_FileProba,"r")) $c_FileProba=prown\MakeCookie('FileProba','images/iproba.png',tStr); 
 }
 // ****************************************************************************
+// *                       Выделить расширение в имени файла                  *
+// ****************************************************************************
+function get_file_extension($file_name)
+{
+   return substr(strrchr($file_name,'.'),1);
+}
+// ****************************************************************************
+// *            Загрузить фотографию для подписи и сделать её копию,          *
+// *                    на которой будет размещена подпись                    *
+// ****************************************************************************
+function LoadImg()
+{ 
+   echo '
+      <div id="InfoLead">
+      <form action="SignaPhoto.php" method="POST" enctype="multipart/form-data"> 
+      <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
+      <input type="file"   id="my_hidden_file" 
+         accept="image/jpeg,image/png,image/gif" 
+         name="loadimg" onchange="alf2LoadFile();"/>  
+      <input type="submit" id="my_hidden_load" value="">  
+      </form>
+      </div>
+   ';
+   echo '
+      <button class="navButtons" onclick="alf1FindFile()"  
+      title="Загрузить изображение">
+      <i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i>
+      </button>
+   ';
+}
+// ****************************************************************************
+// *            Загрузить образец для подписания фотографии                   *
+// ****************************************************************************
+function LoadStamp()
+{ 
+   echo '
+      <div id="StampLead">
+      <form action="SignaPhoto.php" method="POST" enctype="multipart/form-data"> 
+      <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
+      <input type="file"   id="my_shidden_file" accept="image/png" 
+      name="loadstamp" onchange="alf2sLoadFile();"/>  
+      <input type="submit" id="my_shidden_load" value="">  
+      </form>
+      </div>
+   ';
+   echo '
+      <button class="navButtons" onclick="alf1sFindFile()"  
+      title="Загрузить образец подписи">
+      <i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+      </button>
+  ';
+}
+// ****************************************************************************
 // *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
 // *                   cImg - идентификатор изображения,                      *
 // *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
@@ -63,11 +116,36 @@ function MakeImgOnDiv($cDiv,$cImg,$c_FileImg,$perWidth)
 </script> <?php
 }
 // ****************************************************************************
-// *                       Выделить расширение в имени файла                  *
+// *   Наложить изображения штампа на фотографию с учетом ширины фотографии   *
+// *                 и смещения штампа от точка привязки                      *
 // ****************************************************************************
-function get_file_extension($file_name)
+function MakeStamp()
 {
-   return substr(strrchr($file_name,'.'),1);
+   echo '
+     <div id="StampDo">
+     <form action="SignaPhoto.php" method="POST">
+     <input type="submit" id="my_Stamp_Do" name="Stamp" value="Do">
+     </form>
+     </div>
+   ';
+   echo '
+     <button id="bSubscribe" class="navButtons" onclick="alf1MakeStamp()"   
+     title="Подписать">
+     <i id="iSubscribe" class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+     </button>
+    ';
+}
+// ****************************************************************************
+// *                  Изменить настройки подписания фотографии                *
+// ****************************************************************************
+function Tunein()
+{ 
+   echo '
+   <button id="bTunein" class="navButtons"   
+   title="Выполнить настройки">
+   <i id="iTunein" class="fa fa-cog fa-3x" aria-hidden="true"></i>
+   </button>
+   ';
 }
 // ****************************************************************************
 // *        Вывести информационное сообщение или сообщение об ошибке          *

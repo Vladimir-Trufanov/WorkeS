@@ -46,7 +46,6 @@ try
    require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
 
    // Подключаем рабочие модули:
-   // require_once "SignaPhotoHtml.php";
    require_once 'SignaPhotoDef.php';
    require_once "SignaPhotoImg.php";
    
@@ -153,58 +152,16 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
   // Размечаем область управления загрузкой и подписанием
   echo '<div  id="Lead">';
     // Строим форму и кнопку загрузки изображения для подписи
-    echo '
-      <div id="InfoLead">
-      <form action="SignaPhoto.php" method="POST" enctype="multipart/form-data"> 
-      <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
-      <input type="file"   id="my_hidden_file" accept="image/jpeg,image/png,image/gif" name="loadimg" onchange="alf2LoadFile();"/>  
-      <input type="submit" id="my_hidden_load" value="">  
-      </form>
-      </div>
-    ';
-    echo '
-    <button class="navButtons" onclick="alf1FindFile()"  
-    title="Загрузить изображение">
-    <i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i>
-    </button>
-    ';
-    
-    // Строим форму и кнопку для подписания фотографии
-    echo '
-    <div id="StampDo">
-    <form action="SignaPhoto.php" method="POST">
-    <input type="submit" id="my_Stamp_Do" name="Stamp" value="Do">
-    </form>
-    </div>
-    ';
-    echo '
-    <button id="bSubscribe" class="navButtons" onclick="alf1MakeStamp()"   
-    title="Подписать">
-    <i id="iSubscribe" class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
-    </button>
-    ';
-
-    //Tunein();
-    
-    // Строим форму и кнопку загрузки образца подписи
-    echo '
-      <div id="StampLead">
-      <form action="SignaPhoto.php" method="POST" enctype="multipart/form-data"> 
-      <input type="hidden" name="MAX_FILE_SIZE" value="3000024"/> 
-      <input type="file"   id="my_shidden_file" accept="image/jpeg,image/png,image/gif" name="loadstamp" onchange="alf2sLoadFile();"/>  
-      <input type="submit" id="my_shidden_load" value="">  
-      </form>
-      </div>
-    ';
-    echo '
-    <button class="navButtons" onclick="alf1sFindFile()"  
-    title="Загрузить образец подписи">
-    <i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
-    </button>
-    ';
+    LoadImg();
+    // Накладываем изображения штампа на фотографию с учетом ширины фотографии
+    // и смещения штампа от точка привязки       
+    MakeStamp();
+    // Изменяем настройки подписания фотографии
+    Tunein();
+    // Загружаем образец для подписания фотографии
+    LoadStamp();
     // Делаем кнопку для отладки js-функций
     // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
-    
     // Закладываем в разметку див для сообщений через диалоговое окно
     echo '<div id="'.ohInfo.'">';
     echo '***<br>';
