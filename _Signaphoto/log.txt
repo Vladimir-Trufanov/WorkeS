@@ -1,1 +1,2 @@
 [02-Feb-2022 16:21:20 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) or '{' or '$' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 185
+[02-Feb-2022 21:55:14 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'm' (T_STRING), expecting ',' or ';' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 252

@@ -62,6 +62,8 @@ try
    $c_PerSizeImg=prown\MakeCookie('PerSizeImg',20,tInt,true);               // процент размера подписи к изображению
    $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth',5,tInt,true);          // процент смещения подписи по ширине от точки привязки
    $c_PerMargeHight=prown\MakeCookie('PerMargeHight',5,tInt,true);          // процент смещения подписи по высоте от точки привязки
+   $c_MaintainProp=prown\MakeCookie('MaintainProp',false,tBool,true);       // сохранять пропорции подписи
+   
    // Инициируем или изменяем счетчик числа запросов страницы
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',0,tInt,true);  
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',$c_SignaPhoto+1,tInt);  
@@ -207,6 +209,7 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
       <link rel="stylesheet" href="/Jsx/jqueryui-1.13.0.min.css"/> 
       <script src="/Jsx/jquery-1.11.1.min.js"></script>
       <script src="/Jsx/jqueryui-1.13.0.min.js"></script>
+      <link rel="stylesheet" href="reset.min.css">
    ';
    // Подключаем font-awesome
    echo '<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">';
@@ -215,7 +218,20 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
    // Подключаем сайтовые(SignaPhoto) функции Js и
    // инициализируем обработчики
    echo '<script src="SignaPhoto.js"></script>';
+   
+   
+  echo '
+  <style>
+  </style>
+  <script src="prefixfree.min.js"></script> 
+  '; 
+   
+   
+   
+   
+   
    return $Result;
 }
+
 
 ?> <?php // *** <!-- --> *********************************** SignaPhoto.php ***

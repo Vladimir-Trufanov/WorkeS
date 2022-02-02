@@ -210,10 +210,69 @@ function ViewStamp($c_FileStamp)
 // ****************************************************************************
 function ViewTuneIn()
 {
-   echo '<pre>';
-   echo '*** browscap='.ini_get('browscap').' ***<br>';
-   $browser = get_browser(null,true);
-   print_r($browser);
-   echo "</pre>";
+   echo '<div  id="ViewTuneIn">';
+   echo '
+      <form name="test" method="GET" action="SignaPhoto.php">
+      
+      <!-- 
+      <b>Процент размера подписи к изображению:</b><br>
+      <input name="PerSizeImg" value="20"
+      type="number" min="1" max="99" step="1"><br><br>
+
+      <b>Точка привязки подписи:</b><br>
+      <input name="PointCorner" value="ohLeftTop" 
+         type="radio">Левый верхний угол<br>
+      <input name="PointCorner" value="ohRightTop" 
+         type="radio">Правый верхний угол<br>
+      <input name="PointCorner" value="ohRightBottom" 
+         type="radio">Правый нижний угол<br>
+      <input name="PointCorner" value="ohLeftBottom" 
+         type="radio">Левый нижний угол<br><br>
+      
+      <b>Процент смещения подписи по ширине от точки привязки:</b><br>
+      <input name="PerMargeWidth" value="5" 
+         type="number" min="1" max="99" step="1"><br>      
+
+      <b>Процент смещения подписи по высоте от точки привязки:</b><br>
+      <input name="PerMargeHight" value="5" 
+         type="number" min="1" max="99" step="1"><br><br>      
+
+      <b>Сохранять пропорции подписи:</b><br>
+      <input name="MaintainProp" value="true" 
+         type="checkbox"><br><br>
+      -->
+
+      <input type="submit" value="Изменить настройки"><br>
+      </form>
+   ';
+   echo '</div>';
+   
+   echo '<div  id="ViewSwitch">';
+   echo '
+      <input class="checkbox" id="checkbox1" type="checkbox"/>
+      <label for="checkbox1" class="checkbox-label">
+      <span class="on">I am on!</span>
+      <span class="off">I am off</span>
+      </label>
+
+      <input class="rcheckbox" id="checkbox3" type="radio"/>
+      <label for="checkbox3" class="rcheckbox-label">
+      <span class="on">I am on!</span>
+      <span class="off">I am off</span>
+      </label>
+
+      <input class="rcheckbox" id="checkbox4" type="radio"/>
+      <label for="checkbox4" class="rcheckbox-label">
+      <span class="on">I am on!</span>
+      <span class="off">I am off</span>
+      </label>
+
+      <input class="checkbox blue" id="checkbox2" type="checkbox"/>
+      <label for="checkbox2" class="checkbox-label">
+      <span class="on">We are both longer than that guy up there</span>
+      <span class="off">It works with much longer labels too</span>
+      </label>
+   ';
+   echo '</div>';
 }
 // ****************************************************** SignaPhotoImg.php ***

@@ -11,10 +11,10 @@
 
 // Определения к сценариям
 define ("ohInfo",               "Info");  // Id дива информационных сообщений
-define ("ohRightBottom",        "правый нижний угол");  
-define ("ohLeftTop",            "левый верхний угол");  
-define ("ohRightTop",           "правый верхний угол");  
-define ("ohLeftBottom",         "левый нижний угол");  
+define ("ohLeftTop",            "Левый верхний угол");  
+define ("ohRightTop",           "Правый верхний угол");  
+define ("ohRightBottom",        "Правый нижний угол");  
+define ("ohLeftBottom",         "Левый нижний угол");  
 
 // Определения сообщений для PHP
 define ("ajCopyImageNotCreate", "Не создана копия оригинального изображения для подписи"); 
