@@ -18,7 +18,13 @@ function alf1FindFile()
 // активировать клик на форме для подписания файла
 function alf1MakeStamp()
 {
-   document.getElementById('my_Stamp_Do').click(); // alf2LoadFile()
+   document.getElementById('my_Stamp_Do').click(); 
+} 
+// По клику на кнопке  
+// активировать клик на форме для изменения настроек
+function alf1Tunein()
+{
+   document.getElementById('my_Tune_In').click(); 
 } 
 // При изменении состояния input file активизировать кнопку "submit" для
 // загрузки выбранного файла во временное хранилище на сервере 

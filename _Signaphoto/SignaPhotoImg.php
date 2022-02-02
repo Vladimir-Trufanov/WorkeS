@@ -141,11 +141,18 @@ function MakeStamp()
 function Tunein()
 { 
    echo '
-   <button id="bTunein" class="navButtons"   
-   title="Выполнить настройки">
-   <i id="iTunein" class="fa fa-cog fa-3x" aria-hidden="true"></i>
-   </button>
+     <div id="TuneIn">
+     <form action="SignaPhoto.php" method="POST">
+     <input type="submit" id="my_Tune_In" name="Tune" value="In">
+     </form>
+     </div>
    ';
+   echo '
+     <button id="bTunein" class="navButtons" onclick="alf1Tunein()"   
+     title="Подписать">
+     <i id="iTunein" class="fa fa-cog fa-3x" aria-hidden="true"></i>
+     </button>
+    ';
 }
 // ****************************************************************************
 // *        Вывести информационное сообщение или сообщение об ошибке          *
@@ -175,11 +182,9 @@ function ViewProba($c_FileProba,$RemoteAddr)
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
    */
-
    echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
      ' title="Подписанное изображение">';
    MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
-
    /*        
    prown\ViewGlobal(avgREQUEST);
    prown\ViewGlobal(avgCOOKIE);
@@ -191,7 +196,6 @@ function ViewProba($c_FileProba,$RemoteAddr)
    echo "</pre>";
    */
 }
-
 // ****************************************************************************
 // *                     Вывести загруженный образец подписи                  *
 // ****************************************************************************
@@ -201,5 +205,15 @@ function ViewStamp($c_FileStamp)
      ' title="Образец подписи">';
    MakeImgOnDiv('Stamp','picStamp',$c_FileStamp,50);
 }
-
+// ****************************************************************************
+// *                     Изменить настройки для подписи                       *
+// ****************************************************************************
+function ViewTuneIn()
+{
+   echo '<pre>';
+   echo '*** browscap='.ini_get('browscap').' ***<br>';
+   $browser = get_browser(null,true);
+   print_r($browser);
+   echo "</pre>";
+}
 // ****************************************************** SignaPhotoImg.php ***

@@ -93,10 +93,16 @@ try
    $_Orient=$orient->getOrient();
    
    // Подключаем скрипты по завершению загрузки страницы
-   echo 
-   '<script>$(document).ready(function() {
-      console.log("ajInvalidTransparent="+ajInvalidTransparent);
-   });</script>';
+   if (prown\isComRequest('In','Tune')) $NamePage='Tunein';
+   else $NamePage='Other';
+   ?> <script>
+   NamePage="<?php echo $NamePage;?>";
+   $(document).ready(function() {
+      // Устанавливаем фон настроек
+      if (NamePage=='Tunein') $("#Proba").css("background-image",'url(images/bg_page.png)')
+      else $("#Proba").css("background",'khaki');
+   });
+   </script> <?php
 
    // Начинаем выводить тело страницы 
    echo '</head>';
@@ -145,7 +151,8 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
     echo '</div>';
     // Размечаем область изображения с подписью
     echo '<div  id="Proba">';
-      ViewProba($c_FileProba,$RemoteAddr);
+      if (prown\isComRequest('In','Tune')) ViewTuneIn();
+      else ViewProba($c_FileProba,$RemoteAddr);
     echo '</div>';
   echo '</div>';
    

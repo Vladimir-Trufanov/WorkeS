@@ -57,7 +57,7 @@ Exploration
 			_Lobster\Lobster.html
 		-_minsectimer
 			_minsectimer\index.html
-		-_proba
+		+_proba
 			-smartmenus
 				_proba\smartmenus\jquery.min.js
 				_proba\smartmenus\jquery.smartmenus.min.js
@@ -92,7 +92,7 @@ Exploration
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
 		+_Signaphoto
-			-_SignaArch
+			+_SignaArch
 				_Signaphoto\_SignaArch\ajaPicsSizes.php
 				_Signaphoto\_SignaArch\SignaPhoto.js
 				_Signaphoto\_SignaArch\SignaPhoto.php
@@ -294,15 +294,18 @@ Exploration
 5=_Signaphoto\SignaPhoto.css
 6=_Signaphoto\SignaPhotoImg.php
 7=_Signaphoto\SignaMakeStamp.php
+8=..\..\fil\css_4e\css_4e\02_finished\index.html
+9=..\..\fil\css_4e\css_4e\02_finished\styles.css
+10=_Signaphoto\_SignaArch\SignaPhoto2.js
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaPhoto.php
+Selected=_Signaphoto\SignaPhotoImg.php
 [index.html]
 TopLine=1
 Caret=1,10
 [_Signaphoto\SignaPhoto.php]
-TopLine=43
-Caret=1,49
+TopLine=85
+Caret=4,104
 [_Signaphoto\SignaUpload.php]
 TopLine=53
 Caret=9,53
@@ -310,14 +313,23 @@ Caret=9,53
 TopLine=11
 Caret=30,35
 [_Signaphoto\SignaPhoto.js]
-TopLine=122
-Caret=42,138
+TopLine=12
+Caret=39,27
 [_Signaphoto\SignaPhoto.css]
-TopLine=63
-Caret=36,101
+TopLine=39
+Caret=39,63
 [_Signaphoto\SignaPhotoImg.php]
-TopLine=117
-Caret=1,150
+TopLine=182
+Caret=1,188
 [_Signaphoto\SignaMakeStamp.php]
-TopLine=63
+TopLine=61
 Caret=6,101
+[..\..\fil\css_4e\css_4e\02_finished\index.html]
+TopLine=1
+Caret=1,1
+[..\..\fil\css_4e\css_4e\02_finished\styles.css]
+TopLine=1
+Caret=1,5
+[_Signaphoto\_SignaArch\SignaPhoto2.js]
+TopLine=97
+Caret=1,131
