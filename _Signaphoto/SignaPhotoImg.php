@@ -228,7 +228,7 @@ function ViewTuneIn()
          type="radio">Правый нижний угол<br>
       <input name="PointCorner" value="ohLeftBottom" 
          type="radio">Левый нижний угол<br><br>
-      
+
       <b>Процент смещения подписи по ширине от точки привязки:</b><br>
       <input name="PerMargeWidth" value="5" 
          type="number" min="1" max="99" step="1"><br>      
@@ -255,14 +255,14 @@ function ViewTuneIn()
       <span class="off">I am off</span>
       </label>
 
-      <input class="rcheckbox" id="checkbox3" type="radio"/>
-      <label for="checkbox3" class="rcheckbox-label">
+      <input name="PointCorner1" class="checkbox" id="checkbox3" type="radio">
+      <label for="checkbox3" class="checkbox-label"> 
       <span class="on">I am on!</span>
       <span class="off">I am off</span>
       </label>
 
-      <input class="rcheckbox" id="checkbox4" type="radio"/>
-      <label for="checkbox4" class="rcheckbox-label">
+      <input name="PointCorner1" class="checkbox" id="checkbox4" type="radio">
+      <label for="checkbox4" class="checkbox-label">
       <span class="on">I am on!</span>
       <span class="off">I am off</span>
       </label>

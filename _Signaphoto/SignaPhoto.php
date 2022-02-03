@@ -219,17 +219,7 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
    // инициализируем обработчики
    echo '<script src="SignaPhoto.js"></script>';
    
-   
-  echo '
-  <style>
-  </style>
-  <script src="prefixfree.min.js"></script> 
-  '; 
-   
-   
-   
-   
-   
+   echo '<script src="prefixfree.min.js"></script>'; 
    return $Result;
 }
 

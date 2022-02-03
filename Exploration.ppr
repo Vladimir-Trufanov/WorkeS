@@ -297,13 +297,13 @@ Exploration
 8=_Signaphoto\css-only-toggle-with-labels260817\index.html
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaPhotoImg.php
+Selected=_Signaphoto\SignaPhoto.css
 [index.html]
 TopLine=1
 Caret=1,10
 [_Signaphoto\SignaPhoto.php]
-TopLine=200
-Caret=1,226
+TopLine=190
+Caret=1,223
 [_Signaphoto\SignaUpload.php]
 TopLine=53
 Caret=9,53
@@ -314,11 +314,11 @@ Caret=22,17
 TopLine=12
 Caret=39,27
 [_Signaphoto\SignaPhoto.css]
-TopLine=282
-Caret=29,319
+TopLine=159
+Caret=64,179
 [_Signaphoto\SignaPhotoImg.php]
-TopLine=241
-Caret=28,265
+TopLine=239
+Caret=41,264
 [_Signaphoto\SignaMakeStamp.php]
 TopLine=87
 Caret=6,101
