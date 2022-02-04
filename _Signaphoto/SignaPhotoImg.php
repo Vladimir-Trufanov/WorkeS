@@ -214,64 +214,58 @@ function ViewTuneIn()
    echo '
       <form name="test" method="GET" action="SignaPhoto.php">
       
-      <!-- 
       <b>Процент размера подписи к изображению:</b><br>
-      <input name="PerSizeImg" value="20"
-      type="number" min="1" max="99" step="1"><br><br>
+      <input name="PerSizeImg" class="Infield" value="20"
+      type="number" min="1" max="99" step="1">
+      %<br><br>
 
-      <b>Точка привязки подписи:</b><br>
-      <input name="PointCorner" value="ohLeftTop" 
-         type="radio">Левый верхний угол<br>
-      <input name="PointCorner" value="ohRightTop" 
-         type="radio">Правый верхний угол<br>
-      <input name="PointCorner" value="ohRightBottom" 
-         type="radio">Правый нижний угол<br>
-      <input name="PointCorner" value="ohLeftBottom" 
-         type="radio">Левый нижний угол<br><br>
+      <b>Точка привязки подписи:</b>
+
+      <input name="PointCorner" class="checkbox" id="r1" type="radio" value="ohLeftTop">
+      <label for="r1" class="checkbox-label"> 
+      <span class="on">Левый верхний угол</span>
+      <span class="off">Левый верхний угол</span>
+      </label>
+
+      <input name="PointCorner" class="checkbox" id="r2" type="radio" value="ohRightTop">
+      <label for="r2" class="checkbox-label"> 
+      <span class="on">Правый верхний угол</span>
+      <span class="off">Правый верхний угол</span>
+      </label>
+
+      <input name="PointCorner" class="checkbox" id="r3" type="radio" value="ohRightBottom">
+      <label for="r3" class="checkbox-label"> 
+      <span class="on">Правый нижний угол</span>
+      <span class="off">Правый нижний угол</span>
+      </label>
+
+      <input name="PointCorner" class="checkbox" id="r4" type="radio" value="ohLeftBottom">
+      <label for="r4" class="checkbox-label"> 
+      <span class="on">Левый нижний угол</span>
+      <span class="off">Левый нижний угол</span>
+      </label>
 
       <b>Процент смещения подписи по ширине от точки привязки:</b><br>
-      <input name="PerMargeWidth" value="5" 
-         type="number" min="1" max="99" step="1"><br>      
+      <input name="PerMargeWidth" class="Infield" value="5" 
+         type="number" min="1" max="99" step="1">
+      %<br>      
 
       <b>Процент смещения подписи по высоте от точки привязки:</b><br>
-      <input name="PerMargeHight" value="5" 
-         type="number" min="1" max="99" step="1"><br><br>      
+      <input name="PerMargeHight" class="Infield" value="5" 
+         type="number" min="1" max="99" step="1">
+      %<br>      
 
-      <b>Сохранять пропорции подписи:</b><br>
-      <input name="MaintainProp" value="true" 
-         type="checkbox"><br><br>
-      -->
+      <b>Сохранять пропорции подписи:</b>
+
+      <input name="MaintainProp" class="checkbox blue" id="ch" type="checkbox" value="true">
+      <label for="ch" class="checkbox-label">
+      <span class="on">Да, сохранять</span>
+      <span class="off">Не сохранять</span>
+      </label>
 
       <input type="submit" value="Изменить настройки"><br>
+      <button id="btnTune">CONTACT US</button>
       </form>
-   ';
-   echo '</div>';
-   
-   echo '<div  id="ViewSwitch">';
-   echo '
-      <input class="checkbox" id="checkbox1" type="checkbox"/>
-      <label for="checkbox1" class="checkbox-label">
-      <span class="on">I am on!</span>
-      <span class="off">I am off</span>
-      </label>
-
-      <input name="PointCorner1" class="checkbox" id="checkbox3" type="radio">
-      <label for="checkbox3" class="checkbox-label"> 
-      <span class="on">I am on!</span>
-      <span class="off">I am off</span>
-      </label>
-
-      <input name="PointCorner1" class="checkbox" id="checkbox4" type="radio">
-      <label for="checkbox4" class="checkbox-label">
-      <span class="on">I am on!</span>
-      <span class="off">I am off</span>
-      </label>
-
-      <input class="checkbox blue" id="checkbox2" type="checkbox"/>
-      <label for="checkbox2" class="checkbox-label">
-      <span class="on">We are both longer than that guy up there</span>
-      <span class="off">It works with much longer labels too</span>
-      </label>
    ';
    echo '</div>';
 }
