@@ -101,8 +101,10 @@ try
    NamePage="<?php echo $NamePage;?>";
    $(document).ready(function() {
       // Устанавливаем фон настроек
+      /*
       if (NamePage=='Tunein') $("#Proba").css("background-image",'url(images/bg_page.png)')
       else $("#Proba").css("background",'khaki');
+      */
    });
    </script> <?php
 

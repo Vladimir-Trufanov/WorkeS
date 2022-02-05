@@ -53,18 +53,29 @@ body
    width:100%;
    height:100%;
    font-size:1rem;
+   background-image: url(images/bg_page.png);
 }
+
+#All, #Lead, #View, #Proba, #Photo, #Stamp
+{background:transparent;}
+
+/*
+#All{background:yellow;}
+#Lead{background:aqua;}
+#View{background:lightyellow;}
+#Proba{background:khaki;}
+#Photo{background:linen;}
+#Stamp{background:gainsboro;} 
+*/
+
 /* Оформляем скелет разметки */ 
-#All{background:yellow;} #Lead{background:aqua;}
 #All,#Lead {position:fixed; height:100%;}
 #All  {left:0;  width:92%; }
 #Lead {right:0; width:8%;}  
 /* Размечаем правую и левую колонки области просмотра */
-#View{background:lightyellow;} #Proba{;}
 #View  {width:48%; float:left;  height:100%;}
 #Proba {width:52%; float:right; height:100%;}         
 /* Формируем область для показа загруженной фотографии и подписи */
-#Photo{background:linen;} #Stamp{background:gainsboro;}
 #Photo {height:82%;}
 #Stamp {height:18%;}    
 /* Стилизуем кнопки */
@@ -114,69 +125,68 @@ body
 .Infield
 {
    font-weight: 600;
-   background-color:#E1EDEB;
-   text-align:right;
-   height:2rem;
-   width:3.8rem;
-   margin:.6rem auto;
-   /*border-radius:2rem;*/
+   background-color: #E1EDEB;
+   text-align: right;
+   height: 2rem;
+   width: 3.8rem;
+   margin: .6rem auto;
    border: 2px solid #4AB9F2;
    border-radius: 5px;
 }
 .checkbox-label 
 {
-   display:block;
-   background:#E1EDEB; 
-   height:2rem;
-   width:3.8rem;
-   border-radius:2rem;
-   margin:.6rem auto;
-   position:relative;
-   box-shadow:0 0 0 2px #dddddd;
+   display: block;
+   background: #E1EDEB; 
+   height: 2rem;
+   width: 3.8rem;
+   border-radius: 2rem;
+   margin: .6rem auto;
+   position: relative;
+   box-shadow: 0 0 0 2px #dddddd;
 }
 .checkbox-label .on 
 {
-   display:block;
-   position:absolute;
-   z-index:0;
-   left:0;
-   opacity:1;
-   min-width:30rem;
-   line-height:2rem;
-   opacity:0;
-   color:#13bf11;
+   display: block;
+   position: absolute;
+   z-index: 0;
+   left: 0;
+   opacity: 1;
+   min-width: 30rem;
+   line-height: 2rem;
+   opacity: 0;
+   color: #13bf11;
 }
 .checkbox-label .off 
 {
-   display:block;
-   position:absolute;
+   display: block;
+   position: absolute;
    z-index: 0;
    right: 4.2rem;
-   text-align:right;
-   opacity:1;
-   min-width:30rem;
-   line-height:2rem;
-   opacity:1;
-   color:#bbbbbb;
+   text-align: right;
+   opacity: 1;
+   min-width: 30rem;
+   line-height: 2rem;
+   opacity: 1;
+   color: #bbbbbb;
 }
 .checkbox-label:before 
 {
-   content:'';
-   display:block;
-   position:absolute;
-   z-index:1;
-   top:0;
-   left:0;
-   border-radius:2rem;
-   height:2rem;
-   width:2rem;
+   content: '';
+   display: block;
+   position: absolute;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   border-radius: 2rem;
+   height: 2rem;
+   width: 2rem;
    background: linear-gradient(to right, LightYellow, Goldenrod);
    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd;
 }
 .checkbox, .checkbox.blue
 {
-   position:absolute;
-   left:-500rem
+   position: absolute;
+   left: -500rem
 }
 .checkbox:checked + .checkbox-label 
 {
@@ -192,8 +202,8 @@ body
 .checkbox:checked + .checkbox-label .on,
 .checkbox.blue:checked + .checkbox-label .on 
 {
-   left:4.4rem;
-   opacity:1;
+   left: 4.4rem;
+   opacity: 1;
 }
 .checkbox:checked + .checkbox-label .off 
 {
@@ -219,24 +229,22 @@ body
   left: 30px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #1fc1c8;
 }
-/*@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700");*/
-#btnTune {
+#btnTune 
+{
   border: none;
   background: transparent;
-  /*background: #4AB9F2;*/
   padding: 0 14px;
   
   font-size: 14px;
   font-weight: bold;
   line-height: 52px;
-  /*font-family: 'Open Sans Condensed', sans-serif;*/
   position: relative;
   color: #3E4651;
   cursor: pointer;
   letter-spacing: 0.5px;
-  /*z-index: 100;*/
 }
-#btnTune:before {
+#btnTune:before 
+{
   content: '';
   position: absolute;
   left: 0;
@@ -249,64 +257,26 @@ body
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
-/*
-#btnTune:after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  background: transparent;
-  height: 30px;
-  width: 80%;
-  z-index:90;
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
-}
-#btnTune:after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  background: transparent;
-  height: 30px;
-  width: 80%;
-  z-index:90;
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
-}
-*/
-
-#btnTune:hover:after {
+#btnTune:hover:after 
+{
   opacity: 0;
-  /*background: #4AB9F2;*/
   background: transparent;
-       /*background: linear-gradient(to right, LightYellow, Goldenrod);*/
-
-  /*z-index: 100;*/
 }
-#btnTune:hover {
+#btnTune:hover 
+{
   color: #fff;
   background: linear-gradient(to right, LightYellow, Goldenrod);
   border-radius: 5px;
-  
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
-   /* box-shadow: .51rem .51rem .51rem rgba(0,0,0,.5); */
-  box-shadow: 0 10px 90px -2px rgba(0, 0, 0, 0.2);
+  /*box-shadow: 0 10px 90px -2px rgba(0, 0, 0, 0.2);*/
+  box-shadow: 4px 4px 2rem #4AB9F2;
 }
-#btnTune:hover:before {
+#btnTune:hover:before 
+{
   width: 98%;
-  /*background: #4AB9F2;*/
   background: transparent;
   border: 0;
-
-       /*background: linear-gradient(to right, LightYellow, Goldenrod);*/
-  /*box-shadow: 0 10px 90px -2px rgba(0, 0, 0, 0.2);*/
-  /*z-index: 100;*/
 }
 
 /*

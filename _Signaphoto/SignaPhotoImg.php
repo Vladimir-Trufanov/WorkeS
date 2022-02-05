@@ -149,7 +149,7 @@ function Tunein()
    ';
    echo '
      <button id="bTunein" class="navButtons" onclick="alf1Tunein()"   
-     title="Подписать">
+     title="Выполнить настройки">
      <i id="iTunein" class="fa fa-cog fa-3x" aria-hidden="true"></i>
      </button>
     ';
