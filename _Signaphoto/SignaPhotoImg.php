@@ -263,8 +263,8 @@ function ViewTuneIn()
       <span class="off">Не сохранять</span>
       </label>
 
-      <input type="submit" value="Изменить настройки"><br>
-      <button id="btnTune">CONTACT US</button>
+      <input type="submit" id="my_Tune_Submit"><br>
+      <button id="btnTune" onclick="alfSubmitTunein()">Изменить настройки</button>
       </form>
    ';
    echo '</div>';

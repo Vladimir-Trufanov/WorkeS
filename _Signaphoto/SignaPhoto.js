@@ -26,6 +26,10 @@ function alf1Tunein()
 {
    document.getElementById('my_Tune_In').click(); 
 } 
+function alfSubmitTunein()
+{
+   document.getElementById('my_Tune_Submit').click(); 
+} 
 // При изменении состояния input file активизировать кнопку "submit" для
 // загрузки выбранного файла во временное хранилище на сервере 
 function alf2LoadFile() 

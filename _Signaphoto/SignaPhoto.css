@@ -98,7 +98,7 @@ body
 /* Прячем разметочные объекты для загрузки файла изображения и штампа */ 
 #InfoLead, #StampLead, #StampDo, #TuneIn {width:0;height:0;padding:0;margin:0;}
 #my_hidden_file,#my_hidden_load,
-#my_shidden_file,#my_shidden_load,#my_Stamp_Do,#my_Tune_In
+#my_shidden_file,#my_shidden_load,#my_Stamp_Do,#my_Tune_In,#my_Tune_Submit
 {font-size:0;width:0;border-style:none;background-color:transparent;} 
 
 /* Форматируем радиокнопки, переключатель, поля ввода в настройках */
@@ -119,7 +119,9 @@ body
    height:2rem;
    width:3.8rem;
    margin:.6rem auto;
-   border-radius:2rem;
+   /*border-radius:2rem;*/
+   border: 2px solid #4AB9F2;
+   border-radius: 5px;
 }
 .checkbox-label 
 {
@@ -168,7 +170,7 @@ body
    border-radius:2rem;
    height:2rem;
    width:2rem;
-   background-image: url(images/bg_page.png);
+   background: linear-gradient(to right, LightYellow, Goldenrod);
    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd;
 }
 .checkbox, .checkbox.blue
@@ -221,8 +223,11 @@ body
 #btnTune {
   border: none;
   background: transparent;
-  padding: 0 24px;
-  font-size: 16px;
+  /*background: #4AB9F2;*/
+  padding: 0 14px;
+  
+  font-size: 14px;
+  font-weight: bold;
   line-height: 52px;
   /*font-family: 'Open Sans Condensed', sans-serif;*/
   position: relative;
@@ -236,14 +241,28 @@ body
   position: absolute;
   left: 0;
   top: 0;
-  width: 50%;
+  width: 47%;
   height: 48px;
   background: transparent;
   border: 2px solid #4AB9F2;
-  /*z-index:100;*/
   border-radius: 5px;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+}
+/*
+#btnTune:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: transparent;
+  height: 30px;
+  width: 80%;
+  z-index:90;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 #btnTune:after {
   content: '';
@@ -252,30 +271,41 @@ body
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  /*background: #fff;*/
   background: transparent;
   height: 30px;
   width: 80%;
-  /*z-index:100;*/
+  z-index:90;
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
 }
+*/
+
 #btnTune:hover:after {
   opacity: 0;
   /*background: #4AB9F2;*/
   background: transparent;
+       /*background: linear-gradient(to right, LightYellow, Goldenrod);*/
+
   /*z-index: 100;*/
 }
 #btnTune:hover {
   color: #fff;
-  background: transparent;
-  /*z-index: 100;*/
+  background: linear-gradient(to right, LightYellow, Goldenrod);
+  border-radius: 5px;
+  
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+   /* box-shadow: .51rem .51rem .51rem rgba(0,0,0,.5); */
+  box-shadow: 0 10px 90px -2px rgba(0, 0, 0, 0.2);
 }
 #btnTune:hover:before {
-  width: 100%;
+  width: 98%;
   /*background: #4AB9F2;*/
   background: transparent;
-  box-shadow: 0 10px 90px -2px rgba(0, 0, 0, 0.2);
+  border: 0;
+
+       /*background: linear-gradient(to right, LightYellow, Goldenrod);*/
+  /*box-shadow: 0 10px 90px -2px rgba(0, 0, 0, 0.2);*/
   /*z-index: 100;*/
 }
 
