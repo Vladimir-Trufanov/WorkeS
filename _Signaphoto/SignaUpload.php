@@ -42,6 +42,10 @@ if ($isDir===true)
       // Перемещаем загруженный файл из временного хранилища на сервер,
       // записываем кукис                            
       MoveFromUpload($imgDir,$NameLoad,$c_FileStamp,'FileStamp',$localimg);
+      
+      //header("Location: ".$_SERVER["REQUEST_URI"]);
+      //exit;
+      
    }
    else if ($NameInput=="loadimg") 
    {

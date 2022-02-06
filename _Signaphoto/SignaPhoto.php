@@ -48,6 +48,7 @@ try
    // Подключаем рабочие модули:
    require_once 'SignaPhotoDef.php';
    require_once "SignaPhotoImg.php";
+   require_once "SignaTunein.php";
    
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
@@ -57,12 +58,6 @@ try
    $c_BrowEntry=prown\MakeCookie('BrowEntry',$c_BrowEntry+1,tInt);  
    $c_PersEntry=prown\MakeCookie('PersEntry',0,tInt,true);                  // счетчик посещений текущим посетителем
    $c_PersEntry=prown\MakeCookie('PersEntry',$c_PersEntry+1,tInt);
-   // Обеспечиваем инициацию параметров подписи
-   $c_PointCorner=prown\MakeCookie('PointCorner',ohRightBottom,tStr,true);  // точка привязки подписи
-   $c_PerSizeImg=prown\MakeCookie('PerSizeImg',20,tInt,true);               // процент размера подписи к изображению
-   $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth',5,tInt,true);          // процент смещения подписи по ширине от точки привязки
-   $c_PerMargeHight=prown\MakeCookie('PerMargeHight',5,tInt,true);          // процент смещения подписи по высоте от точки привязки
-   $c_MaintainProp=prown\MakeCookie('MaintainProp',false,tBool,true);       // сохранять пропорции подписи
    
    // Инициируем или изменяем счетчик числа запросов страницы
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',0,tInt,true);  
@@ -71,14 +66,17 @@ try
    // Изменяем сессионные переменные (сессионные переменные инициируются после
    // переменных-кукисов, так как некоторые переменные-кукисы переопределяются появившимися
    // сессионными переменными. Например: $s_ModeImg --> $c_ModeImg)
-   $s_Counter=prown\MakeSession('Counter',0,tInt,true);                     // посещения за сессию
+   $s_Counter=prown\MakeSession('Counter',0,tInt,true);      // посещения за сессию
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
+
+   // Обрабатываем параметры HTTP-запроса по настройкам подписания изображений
+   // и записываем данные в кукисы
+   TuneinRequest($c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
 
    // Подключаемся к файлам изображений
    ConnectImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Обрабатываем загрузку изображения 
    if (IsSet($_POST["MAX_FILE_SIZE"])) require_once "SignaUpload.php";
-
    // Обрабатываем подписание фотографии 
    if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
 
@@ -86,8 +84,6 @@ try
    ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$SiteProtocol);
-
-   prown\ConsoleLog('$c_PersEntry='.$c_PersEntry);
  
    // Создаем объект класса по контролю за положением устройства
    // и определяем ориентацию устройства

@@ -2,7 +2,7 @@
 // PHP7/HTML5, EDGE/CHROME                            *** SignaPhotoImg.php ***
 
 // ****************************************************************************
-// * SignaPhoto               Блок функций подготовки и обработки изображений *
+// * SignaPhoto                          Подготовить и обработать изображения *
 // ****************************************************************************
 
 //                                                   Автор:       Труфанов В.Е.
@@ -208,50 +208,68 @@ function ViewStamp($c_FileStamp)
 // ****************************************************************************
 // *                     Изменить настройки для подписи                       *
 // ****************************************************************************
+function ischecked($c_PointCorner,$isPointCorner)
+{
+   $Result='';
+   if ($c_PointCorner==$isPointCorner) $Result=' checked';
+   return $Result;
+}
 function ViewTuneIn()
 {
+   // Выбираем кукисы для формы
+   $c_PerSizeImg=prown\MakeCookie('PerSizeImg');
+   $c_PointCorner=prown\MakeCookie('PointCorner');
+   $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth');
+   $c_PerMargeHight=prown\MakeCookie('PerMargeHight');
+   prown\ConsoleLog('$c_PerMargeHightView='.$c_PerMargeHight);
+
+   // Выводим форму в разметку
    echo '<div  id="ViewTuneIn">';
    echo '
       <form name="test" method="GET" action="SignaPhoto.php">
       
       <b>Процент размера подписи к изображению:</b><br>
-      <input name="PerSizeImg" class="Infield" value="20"
+      <input name="PerSizeImg" class="Infield" value="'.$c_PerSizeImg.'"
       type="number" min="1" max="99" step="1">
       %<br><br>
 
       <b>Точка привязки подписи:</b>
 
-      <input name="PointCorner" class="checkbox" id="r1" type="radio" value="ohLeftTop">
-      <label for="r1" class="checkbox-label"> 
-      <span class="on">Левый верхний угол</span>
-      <span class="off">Левый верхний угол</span>
+      <input name="PointCorner" class="checkbox" id="r1" type="radio" value="'.ohLeftTop.'"'.
+      ischecked($c_PointCorner,ohLeftTop).'>'.
+      '<label for="r1" class="checkbox-label"> 
+      <span class="on">'.ohLeftTop.'</span>
+      <span class="off">'.ohLeftTop.'</span>
+      </label>
+                                                                             
+      <input name="PointCorner" class="checkbox" id="r2" type="radio" value="'.ohRightTop.'"'.
+      ischecked($c_PointCorner,ohRightTop).'>'.
+      '<label for="r2" class="checkbox-label"> 
+      <span class="on">'.ohRightTop.'</span>
+      <span class="off">'.ohRightTop.'</span>
       </label>
 
-      <input name="PointCorner" class="checkbox" id="r2" type="radio" value="ohRightTop">
-      <label for="r2" class="checkbox-label"> 
-      <span class="on">Правый верхний угол</span>
-      <span class="off">Правый верхний угол</span>
+      <input name="PointCorner" class="checkbox" id="r3" type="radio" value="'.ohRightBottom.'"'.
+      ischecked($c_PointCorner,ohRightBottom).'>'.
+      '<label for="r3" class="checkbox-label"> 
+      <span class="on">'.ohRightBottom.'</span>
+      <span class="off">'.ohRightBottom.'</span>
       </label>
 
-      <input name="PointCorner" class="checkbox" id="r3" type="radio" value="ohRightBottom">
-      <label for="r3" class="checkbox-label"> 
-      <span class="on">Правый нижний угол</span>
-      <span class="off">Правый нижний угол</span>
-      </label>
-
-      <input name="PointCorner" class="checkbox" id="r4" type="radio" value="ohLeftBottom">
-      <label for="r4" class="checkbox-label"> 
-      <span class="on">Левый нижний угол</span>
-      <span class="off">Левый нижний угол</span>
+      <input name="PointCorner" class="checkbox" id="r4" type="radio" value="'.ohLeftBottom.'"'.
+      ischecked($c_PointCorner,ohLeftBottom).'>'.
+      '<label for="r4" class="checkbox-label"> 
+      <span class="on">'.ohLeftBottom.'</span>
+      <span class="off">'.ohLeftBottom.'</span>
       </label>
 
       <b>Процент смещения подписи по ширине от точки привязки:</b><br>
-      <input name="PerMargeWidth" class="Infield" value="5" 
+      <input name="PerMargeWidth" class="Infield" value="'.$c_PerMargeWidth.'" 
          type="number" min="1" max="99" step="1">
       %<br>      
 
       <b>Процент смещения подписи по высоте от точки привязки:</b><br>
-      <input name="PerMargeHight" class="Infield" value="5" 
+      <input name="PerMargeHight" class="Infield" value="'.$c_PerMargeHight.'" 
          type="number" min="1" max="99" step="1">
       %<br>      
 
