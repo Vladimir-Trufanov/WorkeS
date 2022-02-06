@@ -54,6 +54,9 @@ else
          }
          else
          {
+            prown\ConsoleLog('$wStamp='.$wStamp);
+            prown\ConsoleLog('imagesx($stamp)='.imagesx($stamp));
+         
             // Копируем изображение штампа на фотографию с учетом смещения края    
             // и ширины фотографии и расчётом позиционирования штампа        
             ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol);
@@ -65,28 +68,46 @@ else
 // *   Скопировать изображение штампа на фотографию с учетом смещения края    *
 // *        и ширины фотографии и расчётом позиционирования штампа            *
 // ****************************************************************************
-// Расчитать величины смещения по горизонтали от точки привязки
-function MakeOffsets(&$xOffset,&$yOffset)
-{
-   // Определяем проценты смещения от точки привязки
-   $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth');
-   $c_PerMargeHight=prown\MakeCookie('PerMargeHight');
-}
 // Расчитать целевую точку (левый-верхний угол) в целевом изображении
 // для переноса подписи
 function MakePointDesc(&$xDesc,&$yDesc,$im,$stamp)
 {
    // Определяем точку привязки подписи
    $c_PointCorner=prown\MakeCookie('PointCorner');
+   // Определяем проценты смещения от точки привязки
+   $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth');
+   $c_PerMargeHight=prown\MakeCookie('PerMargeHight');
+   // Пересчитываем проценты смещения от точки привязки в пикселы
+   $xOffset=imagesx($im)*$c_PerMargeWidth/100;  // imagesx($im) -> 100%
+   $yOffset=imagesy($im)*$c_PerMargeHight/100;  // $xOffset -> $c_PerMargeWidth
    // Определяем высоту/ширину штампа
    $sx = imagesx($stamp);
    $sy = imagesy($stamp);
    // Рассчитываем целевую точку, если привязка к правому-нижнему углу
    if ($c_PointCorner==ohRightBottom)
    {
-      //prown\ConsoleLog('$c_PointCorner_getPointDesc='.$c_PointCorner);
-      //   imagesx($im)-$sx-$marge_right,
-      //   imagesy($im)-$sy-$marge_bottom
+      $xDesc=imagesx($im)-$sx-$xOffset; // Контроль размещения if ($xDesc<1) $xDesc=1; 
+      $yDesc=imagesy($im)-$sy-$yOffset; // Контроль размещения if ($yDesc<1) $yDesc=1; 
+   }
+   // Рассчитываем целевую точку, если привязка к левому-верхнему углу
+   if ($c_PointCorner==ohLeftTop)
+   {
+      $xDesc=$xOffset; // Контроль размещения if ($xDesc<1) $xDesc=1; 
+      $yDesc=$yOffset; // Контроль размещения if ($yDesc<1) $yDesc=1; 
+   }
+   // Рассчитываем целевую точку, если привязка к правому-верхнему углу
+   if ($c_PointCorner==ohRightTop)
+   {
+      $xDesc=imagesx($im)-$sx-$xOffset; // Контроль размещения if ($xDesc<1) $xDesc=1; 
+      $yDesc=$yOffset;                  // Контроль размещения if ($yDesc<1) $yDesc=1; 
+   }
+   // Рассчитываем целевую точку, если привязка к левому-нижнему углу
+   if ($c_PointCorner==ohLeftBottom)
+   {
+      prown\ConsoleLog(imagesx($im).': '.$c_PerMargeWidth.'%= '.$xOffset);
+      prown\ConsoleLog(imagesy($im).': '.$c_PerMargeHight.'%= '.$yOffset);
+      $xDesc=$xOffset;                  // Контроль размещения if ($xDesc<1) $xDesc=1; 
+      $yDesc=imagesy($im)-$sy-$yOffset; // Контроль размещения if ($yDesc<1) $yDesc=1; 
    }
 }
 // Скопировать изображение штампа на фотографию с учетом смещения края    
@@ -106,22 +127,15 @@ function ImageAndStamp($im,$stamp,$type,$SiteProtocol)
    // Иначе наносим изображение штампа на фотографию 
    else
    {
-      // Устанавливаем поля для штампа
-      // от правого нижнего угла
-      $marge_right = 10;
-      $marge_bottom = 10;
-      // Определяем высоту/ширину штампа
-      $sx = imagesx($stamp);
-      $sy = imagesy($stamp);
       // Расчитываем целевую точку (левый-верхний угол) в целевом изображении
       // для переноса подписи
       MakePointDesc($xDesc,$yDesc,$im,$stamp);
+      
+      // Контроль размещения !!!
+      
       // Копируем изображения штампа на фотографию с помощью смещения края
       // и ширины фотографии для расчёта позиционирования штампа.
-      imagecopy($im,$stamp,
-         imagesx($im)-$sx-$marge_right,
-         imagesy($im)-$sy-$marge_bottom,0,0,
-         imagesx($stamp),imagesy($stamp));
+      imagecopy($im,$stamp,$xDesc,$yDesc,0,0,imagesx($stamp),imagesy($stamp));
       // Выводим изображение в файл и освобождаем память
       imagepng($im,$nameimgp);
       imagedestroy($im);

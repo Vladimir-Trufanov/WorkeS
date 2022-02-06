@@ -4,3 +4,4 @@ Stack trace:
 #1 {main}
   thrown in C:\Webservers\Exploration\_Signaphoto\SignaTunein.php on line 33
 [06-Feb-2022 14:04:35 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php on line 33
+[06-Feb-2022 16:03:30 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '&' in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php on line 120
