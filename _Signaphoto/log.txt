@@ -1,7 +1,0 @@
-[06-Feb-2022 10:12:00 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function getComRequest() in C:\Webservers\Exploration\_Signaphoto\SignaTunein.php:33
-Stack trace:
-#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(74): TuneinRequest('\xD0\xBF\xD1\x80\xD0\xB0\xD0\xB2\xD1\x8B\xD0\xB9 \xD0\xBD...', '20', '5', '5', false)
-#1 {main}
-  thrown in C:\Webservers\Exploration\_Signaphoto\SignaTunein.php on line 33
-[06-Feb-2022 14:04:35 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php on line 33
-[06-Feb-2022 16:03:30 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '&' in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php on line 120

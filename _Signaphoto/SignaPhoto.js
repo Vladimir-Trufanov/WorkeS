@@ -30,6 +30,29 @@ function alfSubmitTunein()
 {
    document.getElementById('my_Tune_Submit').click(); 
 } 
+// ****************************************************************************
+// *     Изменить цвет поля ввода процентов смещения штампа в малозаметный,   *
+// * указав таким образом пользователю, что при сохранении пропорциональности *
+// *                    штампа, данное поле не работает                       *
+// ****************************************************************************
+function alf1MaintainProp()
+{
+   if (document.getElementById('ch').checked) 
+   { 
+      console.log('alf1MaintainProp='+'Вкл');
+      $('#PerMargeHight').css('border','2px solid #dddddd');  
+      //$('#PerMargeHighti').attr('value',10.1);      
+      $('#PerMargeHight').css('color','#dddddd'); 
+      $('.PerMargeSpan').css('color','#dddddd'); 
+   } 
+   else 
+   {
+      console.log('alf1MaintainProp='+'Выключен');
+      $('#PerMargeHight').css('border','2px solid #4AB9F2'); 
+      $('#PerMargeHight').css('color','black'); 
+      $('.PerMargeSpan').css('color','black'); 
+   }   
+} 
 // При изменении состояния input file активизировать кнопку "submit" для
 // загрузки выбранного файла во временное хранилище на сервере 
 function alf2LoadFile() 

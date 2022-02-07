@@ -268,14 +268,15 @@ function ViewTuneIn()
          type="number" min="1" max="99" step="1">
       %<br>      
 
-      <b>Процент смещения подписи по высоте от точки привязки:</b><br>
+      <span class="PerMargeSpan"<b>Процент смещения подписи по высоте от точки привязки:</b></span><br>
       <input name="PerMargeHight" class="Infield" value="'.$c_PerMargeHight.'" 
-         type="number" min="1" max="99" step="1">
-      %<br>      
+         id="PerMargeHight" type="number" min="1" max="99" step="1">
+      <span class="PerMargeSpan">%</span><br>      
 
       <b>Сохранять пропорции подписи:</b>
 
-      <input name="MaintainProp" class="checkbox blue" id="ch" type="checkbox" value="true">
+      <input name="MaintainProp" class="checkbox blue" id="ch" type="checkbox" 
+         value="true" onchange="alf1MaintainProp()">
       <label for="ch" class="checkbox-label">
       <span class="on">Да, сохранять</span>
       <span class="off">Не сохранять</span>
