@@ -15,6 +15,9 @@ define ("ohLeftTop",            "Левый верхний угол");
 define ("ohRightTop",           "Правый верхний угол");  
 define ("ohRightBottom",        "Правый нижний угол");  
 define ("ohLeftBottom",         "Левый нижний угол");  
+// Определения переключателя "сохранять пропорции подписи"
+define ("ohMaintainTrue",       "Да, сохранять");  
+define ("ohMaintainFalse",      "Не сохранять");  
 
 // Определения сообщений для PHP
 define ("ajCopyImageNotCreate", "Не создана копия оригинального изображения для подписи"); 
@@ -74,6 +77,9 @@ function DefinePHPtoJS()
    'ajSuccess="'           .ajSuccess.           '";'.
    'ajSuccessfully="'      .ajSuccessfully.      '";'.
    'ajTransparentSuccess="'.ajTransparentSuccess.'";'.
+   
+   'ohMaintainTrue="'      .ohMaintainTrue.      '";'.  
+   'ohMaintainFalse="'     .ohMaintainFalse.     '";'.  
    '</script>';
    echo $define;
 

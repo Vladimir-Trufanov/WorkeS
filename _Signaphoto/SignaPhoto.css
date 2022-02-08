@@ -184,7 +184,7 @@ body
    background: linear-gradient(to right, LightYellow, Goldenrod);
    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd;
 }
-.checkbox, .checkbox.blue
+.checkbox, .checkbox.blue, .checkboxctrl
 {
    position: absolute;
    left: -500rem

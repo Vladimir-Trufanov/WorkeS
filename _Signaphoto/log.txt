@@ -1,0 +1,7 @@
+[08-Feb-2022 06:40:41 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function sayLogic() in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php:225
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(154): ViewTuneIn()
+#1 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(115): MarkupLandscape('http://localhos...', 'http://localhos...', 'http://localhos...', '::1')
+#2 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 225
+[08-Feb-2022 12:53:18 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '}', expecting end of file in C:\Webservers\Exploration\_Signaphoto\SignaTunein.php on line 71

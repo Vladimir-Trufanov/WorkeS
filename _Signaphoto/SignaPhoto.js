@@ -37,20 +37,23 @@ function alfSubmitTunein()
 // ****************************************************************************
 function alf1MaintainProp()
 {
-   if (document.getElementById('ch').checked) 
+   if (document.getElementById('MaintainProp').checked) 
    { 
-      console.log('alf1MaintainProp='+'Вкл');
       $('#PerMargeHight').css('border','2px solid #dddddd');  
-      //$('#PerMargeHighti').attr('value',10.1);      
       $('#PerMargeHight').css('color','#dddddd'); 
       $('.PerMargeSpan').css('color','#dddddd'); 
+      $('#MaintainProp').attr('value',ohMaintainTrue);
+      $('#MaintainCtrl').attr('value',ohMaintainFalse);
+      $('#MaintainCtrl').prop('checked',false);
    } 
    else 
    {
-      console.log('alf1MaintainProp='+'Выключен');
       $('#PerMargeHight').css('border','2px solid #4AB9F2'); 
       $('#PerMargeHight').css('color','black'); 
       $('.PerMargeSpan').css('color','black'); 
+      $('#MaintainCtrl').attr('value',ohMaintainTrue);
+      $('#MaintainProp').attr('value',ohMaintainFalse);
+      $('#MaintainCtrl').prop('checked',true);
    }   
 } 
 // При изменении состояния input file активизировать кнопку "submit" для
@@ -146,6 +149,7 @@ function CalcPicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth)
 
 
 // ----------
+/*
 
 function PlaceImgOnDiv()
 {
@@ -195,7 +199,7 @@ function jsWinParentReplaceImg(mess,IdDiv)
    alignPhoto=getAlignImg(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight);
    PlacePicOnDiv(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4,data[0].ImgName);
 }
-
+*/
 // ****************************************************************************
 // *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
 // *                    cImg - идентификатор изображения,                     *

@@ -113,7 +113,7 @@ function MakeImgOnDiv($cDiv,$cImg,$c_FileImg,$perWidth)
    $("#"+cImg).css("height",String(aCalcPicOnDiv.heightImg)+'px');
    $("#"+cImg).css("margin-left",String(aCalcPicOnDiv.nLeft)+'px');
    $("#"+cImg).css("margin-top",String(aCalcPicOnDiv.nTop)+'px');
-</script> <?php
+   </script> <?php
 }
 // ****************************************************************************
 // *   Наложить изображения штампа на фотографию с учетом ширины фотографии   *
@@ -174,7 +174,7 @@ function ViewPhoto($c_FileImg)
 // ****************************************************************************
 // *            Вывести изображение для подписи или уже с подписью            *
 // ****************************************************************************
-function ViewProba($c_FileProba,$RemoteAddr)
+function ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
 {  
    /*
    echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
@@ -182,9 +182,20 @@ function ViewProba($c_FileProba,$RemoteAddr)
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
    */
+   
+   /*
    echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
      ' title="Подписанное изображение">';
    MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
+   */
+   
+   echo '$c_PointCorner='.$c_PointCorner.'<br>';     
+   echo '$c_PerSizeImg='.$c_PerSizeImg.'<br>';     
+   echo '$c_PerMargeWidth='.$c_PerMargeWidth.'<br>';     
+   echo '$c_PerMargeHight='.$c_PerMargeHight.'<br>';     
+   echo '$c_MaintainProp='.$c_MaintainProp.'<br>';     
+   //prown\ViewGlobal(avgPOST);
+
    /*        
    prown\ViewGlobal(avgREQUEST);
    prown\ViewGlobal(avgCOOKIE);
@@ -214,19 +225,21 @@ function ischecked($c_PointCorner,$isPointCorner)
    if ($c_PointCorner==$isPointCorner) $Result=' checked';
    return $Result;
 }
-function ViewTuneIn()
+function isMaintainProp($c_MaintainProp)
 {
-   // Выбираем кукисы для формы
-   $c_PerSizeImg=prown\MakeCookie('PerSizeImg');
-   $c_PointCorner=prown\MakeCookie('PointCorner');
-   $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth');
-   $c_PerMargeHight=prown\MakeCookie('PerMargeHight');
-   prown\ConsoleLog('$c_PerMargeHightView='.$c_PerMargeHight);
+   if ($c_MaintainProp==ohMaintainTrue) $Result=' value="'.ohMaintainTrue.'" checked ';
+   else $Result=' value="'.ohMaintainFalse.'" ';
+   return $Result;
+}
+function ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
+{
+  
+   prown\ConsoleLog('$c_MaintainProp_ViewTuneIn='.$c_MaintainProp);
 
    // Выводим форму в разметку
    echo '<div  id="ViewTuneIn">';
    echo '
-      <form name="test" method="GET" action="SignaPhoto.php">
+      <form name="test" method="POST" action="SignaPhoto.php">
       
       <b>Процент размера подписи к изображению:</b><br>
       <input name="PerSizeImg" class="Infield" value="'.$c_PerSizeImg.'"
@@ -275,11 +288,13 @@ function ViewTuneIn()
 
       <b>Сохранять пропорции подписи:</b>
 
-      <input name="MaintainProp" class="checkbox blue" id="ch" type="checkbox" 
-         value="true" onchange="alf1MaintainProp()">
-      <label for="ch" class="checkbox-label">
-      <span class="on">Да, сохранять</span>
-      <span class="off">Не сохранять</span>
+       <input name="MaintainCtrl" class="checkboxctrl"  id="MaintainCtrl" type="checkbox">'. 
+      '<input name="MaintainProp" class="checkbox blue" id="MaintainProp" type="checkbox"'. 
+         isMaintainProp($c_MaintainProp).
+         'onchange="alf1MaintainProp()">'.
+      '<label for="MaintainProp" class="checkbox-label">
+      <span class="on">'.ohMaintainTrue.'</span>
+      <span class="off">'.ohMaintainFalse.'</span>
       </label>
 
       <input type="submit" id="my_Tune_Submit"><br>

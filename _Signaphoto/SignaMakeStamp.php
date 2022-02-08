@@ -59,7 +59,7 @@ else
          
             // Копируем изображение штампа на фотографию с учетом смещения края    
             // и ширины фотографии и расчётом позиционирования штампа        
-            ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol);
+            ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight);
          }
       }
    }
@@ -70,13 +70,8 @@ else
 // ****************************************************************************
 // Расчитать целевую точку (левый-верхний угол) в целевом изображении
 // для переноса подписи
-function MakePointDesc(&$xDesc,&$yDesc,$im,$stamp)
+function MakePointDesc(&$xDesc,&$yDesc,$im,$stamp,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight)
 {
-   // Определяем точку привязки подписи
-   $c_PointCorner=prown\MakeCookie('PointCorner');
-   // Определяем проценты смещения от точки привязки
-   $c_PerMargeWidth=prown\MakeCookie('PerMargeWidth');
-   $c_PerMargeHight=prown\MakeCookie('PerMargeHight');
    // Пересчитываем проценты смещения от точки привязки в пикселы
    $xOffset=imagesx($im)*$c_PerMargeWidth/100;  // imagesx($im) -> 100%
    $yOffset=imagesy($im)*$c_PerMargeHight/100;  // $xOffset -> $c_PerMargeWidth
@@ -112,7 +107,7 @@ function MakePointDesc(&$xDesc,&$yDesc,$im,$stamp)
 }
 // Скопировать изображение штампа на фотографию с учетом смещения края    
 // и ширины фотографии и расчётом позиционирования штампа     
-function ImageAndStamp($im,$stamp,$type,$SiteProtocol)
+function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight)
 {
    // Определяем имя файла изображения со штампом и его url-адреса
    $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
@@ -129,7 +124,7 @@ function ImageAndStamp($im,$stamp,$type,$SiteProtocol)
    {
       // Расчитываем целевую точку (левый-верхний угол) в целевом изображении
       // для переноса подписи
-      MakePointDesc($xDesc,$yDesc,$im,$stamp);
+      MakePointDesc($xDesc,$yDesc,$im,$stamp,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight);
       
       // Контроль размещения !!!
       

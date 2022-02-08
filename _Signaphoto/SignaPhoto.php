@@ -19,6 +19,7 @@ $SiteHost   = $_WORKSPACE[wsSiteHost];      // Каталог хостинга
 $SiteDevice = $_WORKSPACE[wsSiteDevice];    // 'Computer' | 'Mobile' | 'Tablet'
 $SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol() 
 $RemoteAddr = $_WORKSPACE[wsRemoteAddr];    // IP-адрес запроса сайта
+$urlPage=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/_Signaphoto/SignaPhoto.php'; 
 
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
@@ -71,7 +72,7 @@ try
 
    // Обрабатываем параметры HTTP-запроса по настройкам подписания изображений
    // и записываем данные в кукисы
-   TuneinRequest($c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
+   TuneinRequest($urlPage,$c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
 
    // Подключаемся к файлам изображений
    ConnectImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
@@ -84,6 +85,12 @@ try
    ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$SiteProtocol);
+
+   prown\ConsoleLog('$c_PointCorner='.$c_PointCorner);
+   prown\ConsoleLog('$c_PerSizeImg='.$c_PerSizeImg);
+   prown\ConsoleLog('$c_PerMargeWidth='.$c_PerMargeWidth);
+   prown\ConsoleLog('$c_PerMargeHight='.$c_PerMargeHight);
+   prown\ConsoleLog('$c_MaintainProp='.$c_MaintainProp);
  
    // Создаем объект класса по контролю за положением устройства
    // и определяем ориентацию устройства
@@ -112,8 +119,10 @@ try
    // DebugView($s_Orient);
 
    // Запускаем построение разметки
-   if ($_Orient==oriLandscape) MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
-   else MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
+   if ($_Orient==oriLandscape) 
+      MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
+   else 
+      MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
 
    // Завершаем вывод страницы 
    echo '</body>';
@@ -126,15 +135,15 @@ catch (E_EXCEPTION $e)
 // ****************************************************************************
 // *                    Разметить страницу в варианте Portrait                *
 // ****************************************************************************
-function MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
+function MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
 {
    //ViewMess('Поверните устройство!');
-   MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr);
+   MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
 }
 // ****************************************************************************
 // *                    Разметить страницу в варианте LandScape               *
 // ****************************************************************************
-function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
+function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
 {
   // Размечаем область изображений
   echo '<div id="All">';
@@ -151,8 +160,8 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr)
     echo '</div>';
     // Размечаем область изображения с подписью
     echo '<div  id="Proba">';
-      if (prown\isComRequest('In','Tune')) ViewTuneIn();
-      else ViewProba($c_FileProba,$RemoteAddr);
+      if (prown\isComRequest('In','Tune')) ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
+      else ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
     echo '</div>';
   echo '</div>';
    
