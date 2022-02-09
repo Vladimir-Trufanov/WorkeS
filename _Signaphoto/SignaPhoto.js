@@ -38,19 +38,19 @@ function alfSubmitTunein()
 function alf1MaintainProp()
 {
    if (document.getElementById('MaintainProp').checked) 
-   { 
-      $('#PerMargeHight').css('border','2px solid #dddddd');  
-      $('#PerMargeHight').css('color','#dddddd'); 
-      $('.PerMargeSpan').css('color','#dddddd'); 
+   {
+      $('.PerSizeImg').css('color','DarkGoldenRod');
+      $('#PerSizeInput').css('color','DarkGoldenRod');
+      $('#PerSizeImg').html('Процент размера подписи по ширине изображения:');
       $('#MaintainProp').attr('value',ohMaintainTrue);
       $('#MaintainCtrl').attr('value',ohMaintainFalse);
       $('#MaintainCtrl').prop('checked',false);
    } 
    else 
    {
-      $('#PerMargeHight').css('border','2px solid #4AB9F2'); 
-      $('#PerMargeHight').css('color','black'); 
-      $('.PerMargeSpan').css('color','black'); 
+      $('.PerSizeImg').css('color','black'); 
+      $('#PerSizeInput').css('color','black');
+      $('#PerSizeImg').html('Процент размера подписи к изображению:');
       $('#MaintainCtrl').attr('value',ohMaintainTrue);
       $('#MaintainProp').attr('value',ohMaintainFalse);
       $('#MaintainCtrl').prop('checked',true);
@@ -143,124 +143,4 @@ function CalcPicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth)
    return aCalcPicOnDiv;
 }
 
-
-
-
-
-
-// ----------
-/*
-
-function PlaceImgOnDiv()
-{
-   alert( "PlaceImgOnDiv()" );
-}
-  
-// ****************************************************************************
-// *           Вывести диагностическое сообщение при ошибке перемещения       *
-// *                файла из временного хранилища и других событиях           *
-// ****************************************************************************
-function jsWinParentMessage(mess)
-{
-   alert(mess+'!'); 
-}
-// ****************************************************************************
-// *              Заменить изображение в заданной области страницы            *
-// ****************************************************************************
-function Proba12()
-{
-   htmlstr='Привет!';
-   $('div#Photo').html(htmlstr); 
-}
-function jsWinParentReplaceImg(mess,IdDiv) 
-{
-   if (IdDiv==null)
-   {
-      data=JSON.parse(mess);
-   }
-   else
-   {
-      if (data[0].DivId=="Photo")
-      {
-      }
-      else if (data[0].DivId=="Stamp")
-      {
-      }
-      else if (data[0].DivId=="Proba")
-      {
-      }
-      else
-      {
-      }
-   }
-   //alert(data[0].ImgName); 
-   // Определяем способы выравнивания ('по ширине','по высоте')
-   // изображений и выравниваем их по дивам
-   alignPhoto=getAlignImg(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight);
-   PlacePicOnDiv(data[0].DivId,data[0].IdImg,data[0].ImgWidth,data[0].ImgHeight,alignPhoto,94,4,data[0].ImgName);
-}
-*/
-// ****************************************************************************
-// *     Разместить изображение по центру дива: cDiv - идентификатор дива,    *
-// *                    cImg - идентификатор изображения,                     *
-// *  wImg - реальная ширина изображения, hImg - реальная высота изображения  *
-// *        mAligne - первичное выравнивание ('по ширине','по высоте'),       *
-// *    perWidth - процент ширины изображения от ширины дива (или высоты),    *
-// *
-// ****************************************************************************
-/*
-function PlacePicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth,perLeft,cPlacePicOnDivFile)
-{
-   //
-   //htmlstr='<div  id="Photo">'+
-   //        '<img src="'+cPlacePicOnDivFile+'" alt="tttrr" id="pic" title="ghhjjjkk">'+
-   //        '</div>';
-   //$('div#Photo').html(htmlstr); 
-
-   // Определяем размеры дива на экране
-   oDiv=document.getElementById(cDiv)
-   widthDiv=oDiv.offsetWidth;
-   heightDiv=oDiv.offsetHeight;
-   // Выравниваем по ширине
-   if (mAligne=='по ширине')
-   {
-      // Вначале определяем размещение по ширине через проценты
-      nWidth=perWidth; nLeft=perLeft;
-      $('#'+cImg).css('margin-left',String(nLeft)+'%');
-      // Определяем ширину изображения  ***   nWidth --> x        ***
-      // в диве из пропорции:           ***     100% --> widthDiv ***
-      widthImg=nWidth*widthDiv/100;
-      // Определяем высоту изображения  ***     wImg --> hImg     ***  
-      // в диве из пропорции:           *** widthImg --> x        ***
-      heightImg=widthImg*hImg/wImg;
-      // Определяем центрирование размещения по высоте через пикселы
-      nTop=(heightDiv-heightImg)/2;
-      console.log('widthImg='+widthImg);
-      console.log('heightImg='+heightImg);
-      $('#'+cImg).css('width',String(widthImg)+'px');
-      $('#'+cImg).css('height',String(heightImg)+'px');
-      $('#'+cImg).css('margin-top',String(nTop)+'px');
-   }
-   // Выравниваем по высоте
-   else
-   {
-      // Вначале задаем высоту изображения в диве через проценты
-      nHeight=94; 
-      // Определяем высоту изображения в диве через пикселы
-      heightImg=nHeight*heightDiv/100;
-      // Определяем ширину изображения  *** wImg --> hImg      ***
-      // в диве через пикселы:          ***    x --> heightImg ***
-      widthImg=wImg*heightImg/hImg;
-      $('#'+cImg).css('width',String(widthImg)+'px');
-      $('#'+cImg).css('height',String(heightImg)+'px');
-      // Центрируем изображение по диву
-      $('#'+cImg).css('margin-left',String((widthDiv-widthImg)/2)+'px');
-      $('#'+cImg).css('margin-top',String((heightDiv-heightImg)/2)+'px');
-   } 
-
-   console.log('cPlacePicOnDivFile='+cPlacePicOnDivFile);
-   $('#pic').attr('src',cPlacePicOnDivFile);
-   
-}
-*/
 // ********************************************************** SignaPhoto.js ***

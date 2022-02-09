@@ -241,10 +241,10 @@ function ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHig
    echo '
       <form name="test" method="POST" action="SignaPhoto.php">
       
-      <b>Процент размера подписи к изображению:</b><br>
+      <span class="PerSizeImg" id="PerSizeImg"><b>Процент размера подписи к изображению:</b></span><br>
       <input name="PerSizeImg" class="Infield" value="'.$c_PerSizeImg.'"
-      type="number" min="1" max="99" step="1">
-      %<br><br>
+      id="PerSizeInput" type="number" min="1" max="99" step="1">
+      <span class="PerSizeImg">%</span><br><br>
 
       <b>Точка привязки подписи:</b>
 
@@ -281,7 +281,7 @@ function ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHig
          type="number" min="1" max="99" step="1">
       %<br>      
 
-      <span class="PerMargeSpan"<b>Процент смещения подписи по высоте от точки привязки:</b></span><br>
+      <span class="PerMargeSpan"><b>Процент смещения подписи по высоте от точки привязки:</b></span><br>
       <input name="PerMargeHight" class="Infield" value="'.$c_PerMargeHight.'" 
          id="PerMargeHight" type="number" min="1" max="99" step="1">
       <span class="PerMargeSpan">%</span><br>      
@@ -302,5 +302,8 @@ function ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHig
       </form>
    ';
    echo '</div>';
+   ?> <script>
+   alf1MaintainProp();
+   </script> <?php
 }
 // ****************************************************** SignaPhotoImg.php ***

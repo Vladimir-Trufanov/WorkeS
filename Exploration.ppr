@@ -120,7 +120,7 @@ Exploration
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
 		+_Signaphoto
-			-_SignaArch
+			+_SignaArch
 				_Signaphoto\_SignaArch\ajaPicsSizes.php
 				_Signaphoto\_SignaArch\SignaPhoto.js
 				_Signaphoto\_SignaArch\SignaPhoto.php
@@ -315,25 +315,24 @@ Exploration
 6=_Signaphoto\SignaPhoto.css
 7=_Signaphoto\SignaTunein.php
 8=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
-9=..\..\TPhpPrown\TPhpPrown\ViewGlobal.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaPhoto.php
+Selected=_Signaphoto\SignaPhoto.js
 [index.html]
 TopLine=10
 Caret=1,10
 [_Signaphoto\SignaPhoto.php]
-TopLine=197
-Caret=6,229
+TopLine=99
+Caret=1,106
 [_Signaphoto\SignaPhotoDef.php]
-TopLine=20
+TopLine=15
 Caret=25,20
 [_Signaphoto\SignaPhoto.js]
-TopLine=115
-Caret=3,152
+TopLine=33
+Caret=1,54
 [_Signaphoto\SignaPhotoImg.php]
-TopLine=180
-Caret=4,189
+TopLine=228
+Caret=23,246
 [_Signaphoto\SignaMakeStamp.php]
 TopLine=190
 Caret=1,207
@@ -346,6 +345,3 @@ Caret=19,23
 [..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
 TopLine=111
 Caret=1,1
-[..\..\TPhpPrown\TPhpPrown\ViewGlobal.php]
-TopLine=48
-Caret=17,48
