@@ -29,7 +29,7 @@ else
    $NameLoad=prown\MakeRID().'stamt';
    $ci_FileStamp=$imgDir.'/'.$NameLoad.'.'.'png';
    // Изменяем размеры штампа до заданной пропорции от основного изображения
-   $mds=makeDestinationStamp($im,$wStamp,$hStamp,$wImg,$hImg,$c_FileImg,$c_FileStamp,$ci_FileStamp);
+   $mds=makeDestinationStamp($im,$wStamp,$hStamp,$wImg,$hImg,$c_FileImg,$c_FileStamp,$ci_FileStamp,$c_PerSizeImg,$c_MaintainProp);
    if ($mds==ajTransparentSuccess)
    {
       // Строим изображение штампа (водяного знака)
@@ -54,9 +54,6 @@ else
          }
          else
          {
-            prown\ConsoleLog('$wStamp='.$wStamp);
-            prown\ConsoleLog('imagesx($stamp)='.imagesx($stamp));
-         
             // Копируем изображение штампа на фотографию с учетом смещения края    
             // и ширины фотографии и расчётом позиционирования штампа        
             ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight);
@@ -99,8 +96,6 @@ function MakePointDesc(&$xDesc,&$yDesc,$im,$stamp,$c_PointCorner,$c_PerMargeWidt
    // Рассчитываем целевую точку, если привязка к левому-нижнему углу
    if ($c_PointCorner==ohLeftBottom)
    {
-      prown\ConsoleLog(imagesx($im).': '.$c_PerMargeWidth.'%= '.$xOffset);
-      prown\ConsoleLog(imagesy($im).': '.$c_PerMargeHight.'%= '.$yOffset);
       $xDesc=$xOffset;                  // Контроль размещения if ($xDesc<1) $xDesc=1; 
       $yDesc=imagesy($im)-$sy-$yOffset; // Контроль размещения if ($yDesc<1) $yDesc=1; 
    }
@@ -183,22 +178,32 @@ function makeTransparentImg(&$im,$wImg,$hImg,$c_FileImg,$FileExt)
 // *      Изменить размеры штампа (водяного знака) до заданной пропорции      *
 // *                             от основного изображения                     *
 // ****************************************************************************
-function makeDestinationStamp(&$im,&$wStamp,&$hStamp,&$wImg,&$hImg,$c_FileImg,$c_StampImg,$destination_path)
+function makeDestinationStamp(&$im,&$wStamp,&$hStamp,&$wImg,&$hImg,$c_FileImg,$c_StampImg,$destination_path,$c_PerSizeImg,$c_MaintainProp)
 {
    $im=null;
    // Изначально считаем, преобразование к прозрачному виду было успешным
    $Result=ajTransparentSuccess;
-   // Определяем размеры штампа для подписания
-   $c_PerSizeImg=prown\MakeCookie('PerSizeImg'); 
-   $size=getimagesize($c_FileImg);
-   $wImg=$size[0];                       // old --> 100%
-   $wStamp=$wImg*$c_PerSizeImg/100;      // x   --> 20%
-   $hImg=$size[1];                       //
-   $hStamp=$hImg*$c_PerSizeImg/100;      // new = old*20/100
    // Определяем исходные размеры штампа
    $size = getimagesize($c_StampImg);
    $oldwidth=$size[0];                     
-   $oldheight=$size[1];                   
+   $oldheight=$size[1];  
+   // Определяем размеры исходного изображения
+   $size=getimagesize($c_FileImg);
+   $wImg=$size[0];                      
+   $hImg=$size[1];                     
+   // Определяем размеры штампа для подписания
+   if ($c_MaintainProp==ohMaintainFalse) 
+   {
+      $wStamp=$wImg*$c_PerSizeImg/100;        // old --> 100%
+      $hStamp=$hImg*$c_PerSizeImg/100;        // x   --> 20%
+   }
+   else
+   {
+      // Определяем ширину штампа
+      $wStamp=$wImg*$c_PerSizeImg/100;  
+      // Определяем высоту штампа             // $oldheight --> $oldwidth
+      $hStamp=$oldheight*$wStamp/$oldwidth;   // x          --> $wStamp
+   }
    // Выбираем изображение
    $source_resource=@imagecreatefrompng($c_StampImg);
    // Создаем пустое изображение в заданных размерах
@@ -213,7 +218,7 @@ function makeDestinationStamp(&$im,&$wStamp,&$hStamp,&$wImg,&$hImg,$c_FileImg,$c
    // Сохраняем изображение в промежуточный файл png
    if (!imagepng($destination_resource, $destination_path)) 
    {
-      $Result='ajFailedResizedStamp'; ViewMess(ajFailedResizedStamp);
+      $Result=ajFailedResizedStamp; ViewMess(ajFailedResizedStamp);
       // Извлекаем уже прозрачное изображение
       $im = @imagecreatefrompng($destination_path);
    }

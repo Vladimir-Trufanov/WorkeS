@@ -183,19 +183,19 @@ function ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerM
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
    */
    
-   /*
    echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
      ' title="Подписанное изображение">';
    MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
-   */
    
+   
+   /*
    echo '$c_PointCorner='.$c_PointCorner.'<br>';     
    echo '$c_PerSizeImg='.$c_PerSizeImg.'<br>';     
    echo '$c_PerMargeWidth='.$c_PerMargeWidth.'<br>';     
    echo '$c_PerMargeHight='.$c_PerMargeHight.'<br>';     
    echo '$c_MaintainProp='.$c_MaintainProp.'<br>';     
    //prown\ViewGlobal(avgPOST);
-
+   */
    /*        
    prown\ViewGlobal(avgREQUEST);
    prown\ViewGlobal(avgCOOKIE);
