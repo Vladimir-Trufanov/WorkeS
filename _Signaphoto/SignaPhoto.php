@@ -85,13 +85,6 @@ try
    ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$SiteProtocol);
-
-   prown\ConsoleLog('$c_PointCorner='.$c_PointCorner);
-   prown\ConsoleLog('$c_PerSizeImg='.$c_PerSizeImg);
-   prown\ConsoleLog('$c_PerMargeWidth='.$c_PerMargeWidth);
-   prown\ConsoleLog('$c_PerMargeHight='.$c_PerMargeHight);
-   prown\ConsoleLog('$c_MaintainProp='.$c_MaintainProp);
- 
    // Создаем объект класса по контролю за положением устройства
    // и определяем ориентацию устройства
    $orient = new ttools\DeviceOrientater($SiteDevice);

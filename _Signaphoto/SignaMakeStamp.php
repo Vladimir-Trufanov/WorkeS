@@ -54,55 +54,85 @@ else
          }
          else
          {
-            // Копируем изображение штампа на фотографию с учетом смещения края    
-            // и ширины фотографии и расчётом позиционирования штампа        
-            ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight);
+            // Расчитываем целевую точку (левый-верхний угол) в целевом изображении
+            // для переноса подписи
+            $mds=MakePointDesc($xDesc,$yDesc,$im,$stamp,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight);
+            if ($mds==ajStampPlaceDetermin)
+            {
+               // Копируем изображение штампа на фотографию с учетом смещения края    
+               // и ширины фотографии и расчётом позиционирования штампа        
+               //ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$xDesc,$yDesc);
+               ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$xDesc,$yDesc);
+            }
          }
       }
    }
 }
 // ****************************************************************************
-// *   Скопировать изображение штампа на фотографию с учетом смещения края    *
-// *        и ширины фотографии и расчётом позиционирования штампа            *
+// *    Расчитать целевую точку (левый-верхний угол) в целевом изображении    *
+// *                             для переноса подписи                         *
 // ****************************************************************************
-// Расчитать целевую точку (левый-верхний угол) в целевом изображении
-// для переноса подписи
 function MakePointDesc(&$xDesc,&$yDesc,$im,$stamp,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight)
 {
-   // Пересчитываем проценты смещения от точки привязки в пикселы
-   $xOffset=imagesx($im)*$c_PerMargeWidth/100;  // imagesx($im) -> 100%
-   $yOffset=imagesy($im)*$c_PerMargeHight/100;  // $xOffset -> $c_PerMargeWidth
-   // Определяем высоту/ширину штампа
-   $sx = imagesx($stamp);
-   $sy = imagesy($stamp);
+   $Result=ajStampPlaceDetermin;
+   // Определяем высоту и ширину изображения и штампа
+   $imgx=imagesx($im);
+   $imgy=imagesy($im);
+   $sx=imagesx($stamp);
+   $sy=imagesy($stamp);
+   // Пересчитываем проценты смещения к точке привязки в пикселы
+   $xOffset=$imgx*$c_PerMargeWidth/100;  // imagesx($im) -> 100%
+   $yOffset=$imgy*$c_PerMargeHight/100;  // $xOffset     -> $c_PerMargeWidth
    // Рассчитываем целевую точку, если привязка к правому-нижнему углу
    if ($c_PointCorner==ohRightBottom)
    {
-      $xDesc=imagesx($im)-$sx-$xOffset; // Контроль размещения if ($xDesc<1) $xDesc=1; 
-      $yDesc=imagesy($im)-$sy-$yOffset; // Контроль размещения if ($yDesc<1) $yDesc=1; 
+      $xDesc=$imgx-$sx-$xOffset;
+      $yDesc=$imgy-$sy-$yOffset; 
    }
    // Рассчитываем целевую точку, если привязка к левому-верхнему углу
    if ($c_PointCorner==ohLeftTop)
    {
-      $xDesc=$xOffset; // Контроль размещения if ($xDesc<1) $xDesc=1; 
-      $yDesc=$yOffset; // Контроль размещения if ($yDesc<1) $yDesc=1; 
+      $xDesc=$xOffset;
+      $yDesc=$yOffset;  
    }
    // Рассчитываем целевую точку, если привязка к правому-верхнему углу
    if ($c_PointCorner==ohRightTop)
    {
-      $xDesc=imagesx($im)-$sx-$xOffset; // Контроль размещения if ($xDesc<1) $xDesc=1; 
-      $yDesc=$yOffset;                  // Контроль размещения if ($yDesc<1) $yDesc=1; 
+      $xDesc=$imgx-$sx-$xOffset;  
+      $yDesc=$yOffset;                  
    }
    // Рассчитываем целевую точку, если привязка к левому-нижнему углу
    if ($c_PointCorner==ohLeftBottom)
    {
-      $xDesc=$xOffset;                  // Контроль размещения if ($xDesc<1) $xDesc=1; 
-      $yDesc=imagesy($im)-$sy-$yOffset; // Контроль размещения if ($yDesc<1) $yDesc=1; 
+      $xDesc=$xOffset;                  
+      $yDesc=imagesy($im)-$sy-$yOffset;
    }
+   // Контроллируем возможность размещения штамп на изображении 
+   $mds=CtrlStampPlaceDetermin($imgx,$imgy,$sx,$sy,$xDesc,$yDesc);
+   if ($mds<>ajPlaceIsPossible) $Result=$mds;
+   return $Result;
 }
-// Скопировать изображение штампа на фотографию с учетом смещения края    
-// и ширины фотографии и расчётом позиционирования штампа     
-function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight)
+// ****************************************************************************
+// *         Определить возможность размещения штамп на изображении           *
+// ****************************************************************************
+function CtrlStampPlaceDetermin($imgx,$imgy,$sx,$sy,$xDesc,$yDesc)
+{
+   $Result=ajPlaceIsPossible;
+   // "Штамп зашел за правый край изображения"
+   if (($xDesc+$sx)>$imgx) ViewMess(ajStampBeyondRight);                                   
+   // "Штамп зашел за верхний край изображения"
+   else if ($yDesc<0) ViewMess(ajStampBeyondTop);                                   
+   // "Штамп зашел за левый край изображения"
+   else if ($xDesc<0) ViewMess(ajStampBeyondLeft);                                   
+   // "Штамп зашел за нижний край изображения"
+   else if (($yDesc+$sy)>$imgy) ViewMess(ajStampBeyondBottom);                                   
+   return $Result;
+}
+// ****************************************************************************
+// *   Скопировать изображение штампа на фотографию с учетом смещения края    *
+// *        и ширины фотографии и расчётом позиционирования штампа            *
+// ****************************************************************************
+function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$xDesc,$yDesc)
 {
    // Определяем имя файла изображения со штампом и его url-адреса
    $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
@@ -117,12 +147,6 @@ function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$c_PointCorner,$c_PerMarge
    // Иначе наносим изображение штампа на фотографию 
    else
    {
-      // Расчитываем целевую точку (левый-верхний угол) в целевом изображении
-      // для переноса подписи
-      MakePointDesc($xDesc,$yDesc,$im,$stamp,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight);
-      
-      // Контроль размещения !!!
-      
       // Копируем изображения штампа на фотографию с помощью смещения края
       // и ширины фотографии для расчёта позиционирования штампа.
       imagecopy($im,$stamp,$xDesc,$yDesc,0,0,imagesx($stamp),imagesy($stamp));

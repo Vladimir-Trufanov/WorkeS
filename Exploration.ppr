@@ -317,16 +317,16 @@ Exploration
 8=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaPhoto.js
+Selected=_Signaphoto\SignaPhoto.php
 [index.html]
 TopLine=10
 Caret=1,10
 [_Signaphoto\SignaPhoto.php]
-TopLine=99
-Caret=1,106
+TopLine=79
+Caret=1,88
 [_Signaphoto\SignaPhotoDef.php]
-TopLine=15
-Caret=25,20
+TopLine=64
+Caret=49,83
 [_Signaphoto\SignaPhoto.js]
 TopLine=33
 Caret=1,54
@@ -334,8 +334,8 @@ Caret=1,54
 TopLine=228
 Caret=23,246
 [_Signaphoto\SignaMakeStamp.php]
-TopLine=190
-Caret=1,207
+TopLine=23
+Caret=1,86
 [_Signaphoto\SignaPhoto.css]
 TopLine=163
 Caret=29,187

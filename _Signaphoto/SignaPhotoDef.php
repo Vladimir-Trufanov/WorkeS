@@ -39,8 +39,14 @@ define ("ajNameFileNoMatchUrl", "Имя файла изображения со �
 define ("ajNoSetFile",          "Не установлен массив файлов и не загружены данные");
 define ("ajNoTempoFile",        "Не загружен файл во временное хранилище");
 define ("ajOk",                 "Все получилось хорошо");
+define ("ajPlaceIsPossible",    "Размещение штампа на изображении возможно");
 define ("ajProba",              "Это проверочное сообщение");
+define ("ajStampBeyondBottom",  "Штамп зашел за нижний край изображения");
+define ("ajStampBeyondLeft",    "Штамп зашел за левый край изображения");
+define ("ajStampBeyondRight",   "Штамп зашел за правый край изображения");
+define ("ajStampBeyondTop",     "Штамп зашел за верхний край изображения");
 define ("ajStampNotBuilt",      "Не строится изображение штампа - водяного знака");
+define ("ajStampPlaceDetermin", "Размещение штампа определено успешно");
 define ("ajSuccess",            "Функция/процедура выполнена успешно");     
 define ("ajSuccessfully",       "Файл успешно загружен sss ОТЛАДКА"); 
 define ("ajTransparentSuccess", "Преобразование к прозрачному виду успешно");
@@ -59,7 +65,7 @@ function DefinePHPtoJS()
    'ajErrMoveServer="'     .ajErrMoveServer.     '";'.
    'ajErrorisLabel="'      .ajErrorisLabel.      '";'.
    'ajErrTempoFile="'      .ajErrTempoFile.      '";'.
-   'ajFailedResizedStamp="'.ajFailedResizedStamp.     '";'.
+   'ajFailedResizedStamp="'.ajFailedResizedStamp.'";'.
    'ajImageNotBuilt="'     .ajImageNotBuilt.     '";'.
    'ajInfoLoadImg="'       .ajInfoLoadImg.       '";'.
    'ajInvalidBuilt="'      .ajInvalidBuilt.      '";'.
@@ -72,8 +78,14 @@ function DefinePHPtoJS()
    'ajNoSetFile="'         .ajNoSetFile.         '";'.
    'ajNoTempoFile="'       .ajNoTempoFile.       '";'.
    'ajOk="'                .ajOk.                '";'.
+   'ajPlaceIsPossible="'   .ajPlaceIsPossible.   '";'.
    'ajProba="'             .ajProba.             '";'.
+   'ajStampBeyondBottom="' .ajStampBeyondBottom. '";'.
+   'ajStampBeyondLeft="'   .ajStampBeyondLeft.   '";'.
+   'ajStampBeyondRight="'  .ajStampBeyondRight.  '";'.
+   'ajStampBeyondTop="'    .ajStampBeyondTop.    '";'.
    'ajStampNotBuilt="'     .ajStampNotBuilt.     '";'.
+   'ajStampPlaceDetermin="'.ajStampPlaceDetermin.'";'.
    'ajSuccess="'           .ajSuccess.           '";'.
    'ajSuccessfully="'      .ajSuccessfully.      '";'.
    'ajTransparentSuccess="'.ajTransparentSuccess.'";'.
