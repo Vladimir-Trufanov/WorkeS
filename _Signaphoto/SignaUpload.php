@@ -42,10 +42,8 @@ if ($isDir===true)
       // Перемещаем загруженный файл из временного хранилища на сервер,
       // записываем кукис                            
       MoveFromUpload($imgDir,$NameLoad,$c_FileStamp,'FileStamp',$localimg);
-      
-      //header("Location: ".$_SERVER["REQUEST_URI"]);
-      //exit;
-      
+      // Чистим кэш файла
+      //clearstatcache(true,$c_FileStamp); 
    }
    else if ($NameInput=="loadimg") 
    {
@@ -62,11 +60,15 @@ if ($isDir===true)
       if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
       else ViewMess(ajCopyImageNotCreate);
    }
-   /*
+   // Перезагружаем начальную страницу
+   //PageOnLoad();
    ?> <script>
-   location.reload(true);
+   urlPage1="<?php echo $urlPage;?>";
+   console.log('urlPage1='+urlPage1);
+   //location=urlPage1;
+   //location.reload(true);
    </script> <?php
-   */
+
 }
 // ****************************************************************************
 // *       Определить, загрузка какого файла выполнена: оригинального         *

@@ -82,7 +82,7 @@ try
    if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
 
    // Сбрасываем кэши состояний файлов
-   ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
+   // ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$SiteProtocol);
    // Создаем объект класса по контролю за положением устройства
@@ -95,6 +95,7 @@ try
    else $NamePage='Other';
    ?> <script>
    NamePage="<?php echo $NamePage;?>";
+   urlPage2="<?php echo $urlPage;?>";
    $(document).ready(function() {
       // Устанавливаем фон настроек
       /*
@@ -125,6 +126,8 @@ catch (E_EXCEPTION $e)
 {
    DoorTryPage($e);
 }
+
+
 // ****************************************************************************
 // *                    Разметить страницу в варианте Portrait                *
 // ****************************************************************************
@@ -169,6 +172,8 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_Per
     Tunein();
     // Загружаем образец для подписания фотографии
     LoadStamp();
+    // Перезагружаем страницу ('с очисткой кукисов?')
+    Home();
     // Делаем кнопку для отладки js-функций
     // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
     // Закладываем в разметку див для сообщений через диалоговое окно
@@ -179,7 +184,7 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_Per
     echo '</div>';
     
     echo '<div id="hello">';
-    echo 'Привет';
+    echo '$c_FileStamp';
     echo '</div>';
     
   echo '</div>';

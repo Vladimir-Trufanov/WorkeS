@@ -109,7 +109,7 @@ body
 /* Прячем разметочные объекты для загрузки файла изображения и штампа */ 
 #InfoLead, #StampLead, #StampDo, #TuneIn {width:0;height:0;padding:0;margin:0;}
 #my_hidden_file,#my_hidden_load,
-#my_shidden_file,#my_shidden_load,#my_Stamp_Do,#my_Tune_In,#my_Tune_Submit
+#my_shidden_file,#my_shidden_load,#my_Stamp_Do,#my_Tune_In,#my_Tune_Submit,#my_Home
 {font-size:0;width:0;border-style:none;background-color:transparent;} 
 
 /* Форматируем радиокнопки, переключатель, поля ввода в настройках */

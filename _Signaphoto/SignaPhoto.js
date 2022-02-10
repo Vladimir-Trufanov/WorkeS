@@ -69,6 +69,15 @@ function alf1sFindFile()
    {document.getElementById('my_shidden_file').click();} 
 function alf2sLoadFile()
    {document.getElementById('my_shidden_load').click();}
+
+// Перезагружаем начальную страницу
+function alf1Home()
+{
+   console.log('urlPage2='+urlPage2);
+   //location=urlPage2;
+   //location.reload(true);
+}   
+   
 // ****************************************************************************
 // *   Определить спосов выравнивания ('по ширине','по высоте') изображения   *
 // *                                 по диву                                  *
