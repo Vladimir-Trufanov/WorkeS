@@ -81,8 +81,6 @@ try
    // Обрабатываем подписание фотографии 
    if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
 
-   // Сбрасываем кэши состояний файлов
-   // ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$UrlHome,$SiteProtocol);
    // Создаем объект класса по контролю за положением устройства
@@ -173,7 +171,7 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_Per
     // Загружаем образец для подписания фотографии
     LoadStamp();
     // Перезагружаем страницу ('с очисткой кукисов?')
-    Home();
+    // Home();
     // Делаем кнопку для отладки js-функций
     // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
     // Закладываем в разметку див для сообщений через диалоговое окно

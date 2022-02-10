@@ -196,6 +196,14 @@ function ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerM
    'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
    */
    
+   /*
+   clearstatcache(true,'C:\TPhpTools/TPhpTools/TDeviceOrientater/DeviceOrientaterClass.php');    
+   echo '<pre>';
+   var_dump(realpath_cache_get());
+   echo "</pre>";
+   */
+
+   //clearstatcache(true,$c_FileProba);    
    echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
      ' title="Подписанное изображение">';
    MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
@@ -225,6 +233,7 @@ function ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerM
 // ****************************************************************************
 function ViewStamp($c_FileStamp)
 {
+   //clearstatcache(true,$c_FileStamp);    
    echo '<img id="picStamp" src="'.$c_FileStamp.'"'.' alt="'.$c_FileStamp.'"'.
      ' title="Образец подписи">';
    MakeImgOnDiv('Stamp','picStamp',$c_FileStamp,50);
