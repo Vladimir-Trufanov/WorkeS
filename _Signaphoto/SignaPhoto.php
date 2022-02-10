@@ -203,7 +203,7 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
    echo '<html lang="ru">';
    echo '<head>';
    echo '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>';
-   //echo '<meta http-equiv="Cache-control" content="no-cache">';
+   echo '<meta http-equiv="Cache-control" content="no-cache">';
    echo '<title>Подписать фотографию: _SignaPhoto</title>';
    echo '<meta name="description" content="_SignaPhoto">';
    echo '<meta name="keywords"    content="_SignaPhoto">';
