@@ -61,7 +61,6 @@ else
             {
                // Копируем изображение штампа на фотографию с учетом смещения края    
                // и ширины фотографии и расчётом позиционирования штампа        
-               //ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$xDesc,$yDesc);
                ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$xDesc,$yDesc);
             }
          }
@@ -154,9 +153,8 @@ function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$xDesc,$yDesc)
       imagepng($im,$nameimgp);
       imagedestroy($im);
       imagedestroy($stamp);
-      //unlink($nameimgp);
       // Отмечаем, что на фотографию наложена свежая подпись
-      ViewMess(ajIsFreshStamp);
+      //ViewMess(ajIsFreshStamp);
    }
 }
 // ****************************************************************************

@@ -70,13 +70,12 @@ function alf1sFindFile()
 function alf2sLoadFile()
    {document.getElementById('my_shidden_load').click();}
 // ****************************************************************************
-// *          Перезагрузить главную страницу подписания фотографий            *
+// *                      Выйти на главную страницу сайта                     *
 // ****************************************************************************
 function alf1Home()
 {
-   console.log('urlPage2='+urlPage2);
-   location=urlPage2+'?Com=WasHome';
-   location.reload(true);
+   //console.log('urlHome='+urlHome);
+   location.replace(urlHome);
 }   
 // ****************************************************************************
 // *   Определить спосов выравнивания ('по ширине','по высоте') изображения   *

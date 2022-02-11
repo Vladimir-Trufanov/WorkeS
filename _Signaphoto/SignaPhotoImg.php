@@ -7,17 +7,8 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  25.11.2021
-// Copyright © 2021 tve                              Посл.изменение: 01.02.2022
+// Copyright © 2021 tve                              Посл.изменение: 11.02.2022
 
-// ****************************************************************************
-// *                  Сбросить кэши состояний файлов изображений              *
-// ****************************************************************************
-function ClearCacheImgFiles($c_FileImg,$c_FileStamp,$c_FileProba)
-{
-   clearstatcache(true,$c_FileImg); 
-   clearstatcache(true,$c_FileStamp); 
-   clearstatcache(true,$c_FileProba); 
-}
 // ****************************************************************************
 // *                      Подключиться к файлам изображений                   *
 // ****************************************************************************
@@ -155,14 +146,14 @@ function Tunein()
     ';
 }
 // ****************************************************************************
-// *              Перезагрузить страницу ('с очисткой кукисов?')              *
+// *                      Выйти на главную страницу сайта                     *
 // ****************************************************************************
 function Home()
 {
    echo '
      <div> <form> <input id="my_Home"> </form> </div>
      <button id="bHome" class="navButtons" onclick="alf1Home()"   
-     title="Перезагрузить страницу">
+     title="Выйти на главную страницу">
      <i id="iTunein" class="fa fa-home fa-3x" aria-hidden="true"></i>
      </button>
     ';
@@ -190,38 +181,17 @@ function ViewPhoto($c_FileImg)
 function ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
 {  
    /*
-   echo 'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba '.
-   'Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba Proba';
-   */
-   
-   /*
    clearstatcache(true,'C:\TPhpTools/TPhpTools/TDeviceOrientater/DeviceOrientaterClass.php');    
    echo '<pre>';
    var_dump(realpath_cache_get());
    echo "</pre>";
    */
-
-   //clearstatcache(true,$c_FileProba);    
    echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
      ' title="Подписанное изображение">';
    MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
-   
-   
-   /*
-   echo '$c_PointCorner='.$c_PointCorner.'<br>';     
-   echo '$c_PerSizeImg='.$c_PerSizeImg.'<br>';     
-   echo '$c_PerMargeWidth='.$c_PerMargeWidth.'<br>';     
-   echo '$c_PerMargeHight='.$c_PerMargeHight.'<br>';     
-   echo '$c_MaintainProp='.$c_MaintainProp.'<br>';     
-   //prown\ViewGlobal(avgPOST);
-   */
    /*        
-   prown\ViewGlobal(avgREQUEST);
    prown\ViewGlobal(avgCOOKIE);
    echo '<pre>';
-   echo '*** $RemoteAddr='.$RemoteAddr.' ***<br>';
    echo '*** browscap='.ini_get('browscap').' ***<br>';
    $browser = get_browser(null,true);
    print_r($browser);
@@ -233,7 +203,6 @@ function ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerM
 // ****************************************************************************
 function ViewStamp($c_FileStamp)
 {
-   //clearstatcache(true,$c_FileStamp);    
    echo '<img id="picStamp" src="'.$c_FileStamp.'"'.' alt="'.$c_FileStamp.'"'.
      ' title="Образец подписи">';
    MakeImgOnDiv('Stamp','picStamp',$c_FileStamp,50);
@@ -255,9 +224,6 @@ function isMaintainProp($c_MaintainProp)
 }
 function ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
 {
-  
-   prown\ConsoleLog('$c_MaintainProp_ViewTuneIn='.$c_MaintainProp);
-
    // Выводим форму в разметку
    echo '<div  id="ViewTuneIn">';
    echo '

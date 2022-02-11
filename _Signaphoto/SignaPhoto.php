@@ -8,7 +8,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 // v5.1                                              Дата создания:  01.06.2021
-// Copyright © 2021 tve                              Посл.изменение: 24.01.2022
+// Copyright © 2021 tve                              Посл.изменение: 11.02.2022
 
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
@@ -19,6 +19,8 @@ $SiteHost   = $_WORKSPACE[wsSiteHost];      // Каталог хостинга
 $SiteDevice = $_WORKSPACE[wsSiteDevice];    // 'Computer' | 'Mobile' | 'Tablet'
 $SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol() 
 $RemoteAddr = $_WORKSPACE[wsRemoteAddr];    // IP-адрес запроса сайта
+// Определяем URL сайта и URL страницы приложения "Подписать фотографию"
+$urlHome=$SiteProtocol.'://'.$_SERVER['HTTP_HOST']; 
 $urlPage=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/_Signaphoto/SignaPhoto.php'; 
 
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
@@ -82,7 +84,7 @@ try
    if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
 
    // Готовим начало страницы для подписывания фотографий
-   IniPage($c_SignaPhoto,$UrlHome,$SiteProtocol);
+   IniPage($c_SignaPhoto,$SiteProtocol);
    // Создаем объект класса по контролю за положением устройства
    // и определяем ориентацию устройства
    $orient = new ttools\DeviceOrientater($SiteDevice);
@@ -93,7 +95,8 @@ try
    else $NamePage='Other';
    ?> <script>
    NamePage="<?php echo $NamePage;?>";
-   urlPage2="<?php echo $urlPage;?>";
+   urlPage="<?php echo $urlPage;?>";
+   urlHome="<?php echo $urlHome;?>";
    $(document).ready(function() {
       // Устанавливаем фон настроек
       /*
@@ -124,7 +127,6 @@ catch (E_EXCEPTION $e)
 {
    DoorTryPage($e);
 }
-
 
 // ****************************************************************************
 // *                    Разметить страницу в варианте Portrait                *
@@ -170,40 +172,41 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_Per
     Tunein();
     // Загружаем образец для подписания фотографии
     LoadStamp();
-    // Перезагружаем страницу ('с очисткой кукисов?')
-    // Home();
-    // Делаем кнопку для отладки js-функций
-    // echo '<button id="bQuest" title="Вопрос?" onclick="PlaceImgOnDiv()">Вопросик?</button>';
+    // Выходим на главную страницу сайта
+    Home();
     // Закладываем в разметку див для сообщений через диалоговое окно
     echo '<div id="'.ohInfo.'">';
-    echo '***<br>';
-    echo 'Привет info!<br>';
-    echo '***<br>';
     echo '</div>';
-    
-    echo '<div id="hello">';
-    echo '$c_FileStamp';
-    echo '</div>';
-    
   echo '</div>';
 }
 // ****************************************************************************
 // *                            Начать HTML-страницу сайта                    *
 // ****************************************************************************
-function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
+function IniPage(&$c_SignaPhoto,$SiteProtocol)
 {
    $Result=true;
-   // Определяем Url домашней страницы
-   if ($_SERVER["SERVER_NAME"]=='kwinflatht.nichost.ru') $UrlHome='http://kwinflatht.nichost.ru';
-   else $UrlHome='http://localhost:82'; 
+   /*   
+   header("Cache-Control: no-cache, no-store, must-revalidate"); 
+   header("Pragma: no-cache"); 
+   header("Expires: 0");
+   */
+   
    // Подключаем межязыковые (PHP-JScript) определения внутри HTML
    DefinePHPtoJS();
    // Загружаем заголовочную часть страницы
    echo '<!DOCTYPE html>';
    echo '<html lang="ru">';
+   
+   
+   
    echo '<head>';
-   echo '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>';
-   echo '<meta http-equiv="Cache-control" content="no-cache">';
+   echo '<meta charset="UTF-8">';
+   echo '<meta http-equiv="pragma" content="no-cache">';
+   echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+   /*
+   echo '<meta http-equiv="cache-control" content="no-cache">';
+   echo '<meta http-equiv="expires" content="Mon, 22 Jul 2002 11:12:01 GMT">';
+   */
    echo '<title>Подписать фотографию: _SignaPhoto</title>';
    echo '<meta name="description" content="_SignaPhoto">';
    echo '<meta name="keywords"    content="_SignaPhoto">';
@@ -221,10 +224,7 @@ function IniPage(&$c_SignaPhoto,&$UrlHome,$SiteProtocol)
    // Подключаем сайтовые(SignaPhoto) функции Js и
    // инициализируем обработчики
    echo '<script src="SignaPhoto.js"></script>';
-   
-   //echo '<script src="prefixfree.min.js"></script>'; 
    return $Result;
 }
-
 
 ?> <?php // *** <!-- --> *********************************** SignaPhoto.php ***

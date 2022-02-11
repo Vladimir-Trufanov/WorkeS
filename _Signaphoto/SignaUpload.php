@@ -57,19 +57,11 @@ if ($isDir===true)
       if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
       else ViewMess(ajCopyImageNotCreate);
    }
-   //clearstatcache(true); 
    // Перезагружаем начальную страницу
-   //prown\ConsoleLog('$urlPage='.$urlPage);
-   //header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
-   //header('Pragma: no-cache'); // HTTP 1.0.
-   //header('Expires: 0'); // Proxies.
+   Header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
+   Header('Pragma: no-cache');                                   // HTTP 1.0.
+   Header('Expires: 0');                                         // Proxies.
    Header('Location: '.$urlPage);
-   /*
-   ?> <script>
-   urlPage1="<?php echo $urlPage;?>";  
-   console.log('urlPage1='+urlPage1);
-   </script> <?php */
-
 }
 // ****************************************************************************
 // *       Определить, загрузка какого файла выполнена: оригинального         *
