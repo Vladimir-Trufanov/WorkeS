@@ -12,3 +12,9 @@ Stack trace:
 [12-Feb-2022 21:40:17 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting '{' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 183
 [12-Feb-2022 21:41:18 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting '{' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 183
 [12-Feb-2022 21:41:53 Asia/Kuwait] PHP Fatal error:  Redefinition of parameter $c_FileProba in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 181
+[12-Feb-2022 22:38:11 Asia/Kuwait] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function prown\MakeNumRID(), 0 passed in C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php on line 29 and at least 3 expected in C:\TPhpPrown\TPhpPrown\MakeRID.php:67
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaMakeStamp.php(29): prown\MakeNumRID()
+#1 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(84): require_once('C:\\Webservers\\E...')
+#2 {main}
+  thrown in C:\TPhpPrown\TPhpPrown\MakeRID.php on line 67

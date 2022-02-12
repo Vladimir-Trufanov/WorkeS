@@ -26,7 +26,7 @@ else
 {
    // Определяем имя промежуточного файл штампа
    $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
-   $NameLoad=prown\MakeRID().'stamt';
+   $NameLoad=prown\MakeNumRID($imgDir,'stamt','png',true);
    $ci_FileStamp=$imgDir.'/'.$NameLoad.'.'.'png';
    // Изменяем размеры штампа до заданной пропорции от основного изображения
    $mds=makeDestinationStamp($im,$wStamp,$hStamp,$wImg,$hImg,$c_FileImg,$c_FileStamp,$ci_FileStamp,$c_PerSizeImg,$c_MaintainProp);
@@ -136,10 +136,12 @@ function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$xDesc,$yDesc)
    // Определяем имя файла изображения со штампом и его url-адреса
    $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
    $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
-   $NameLoad=prown\MakeRID().'proba';
+   $NameLoad=prown\MakeNumRID($imgDir,'proba',$type,true);
    $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
    $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
-   $c_FileProba=prown\MakeCookie('FileProba');
+   
+   $c_FileProba=prown\MakeCookie('FileProba');  // !!!!!!!!!!!!!!!!!!!!!
+
    // Если имя файла изображения со штампом не соответствует url-адресу,
    // то выдаем сообщение
    if ($localimgp<>$c_FileProba) ViewMess(ajNameFileNoMatchUrl);
@@ -187,7 +189,7 @@ function makeTransparentImg(&$im,$wImg,$hImg,$c_FileImg,$FileExt)
       imagecopyresampled($destination_resource,$source_resource,0,0,0,0,$wImg,$hImg,$wImg,$hImg);
       // Сохраняем изображение в промежуточный файл png
       $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
-      $NameLoad=prown\MakeRID().'probt';
+      $NameLoad=prown\MakeNumRID($imgDir,'probt',$type,true);
       $destination_path=$imgDir.'/'.$NameLoad.'.'.'png';
       imagepng($destination_resource, $destination_path);
       // Извлекаем уже прозрачное изображение
