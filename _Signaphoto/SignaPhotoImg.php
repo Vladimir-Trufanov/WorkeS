@@ -178,7 +178,9 @@ function ViewPhoto($c_FileImg)
 // ****************************************************************************
 // *            Вывести изображение для подписи или уже с подписью            *
 // ****************************************************************************
-function ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
+function ViewProba($c_FileProba,$RemoteAddr,
+   $c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,
+   $c_FileImg,$c_FileStamp)
 {  
    /*
    clearstatcache(true,'C:\TPhpTools/TPhpTools/TDeviceOrientater/DeviceOrientaterClass.php');    
@@ -186,9 +188,20 @@ function ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerM
    var_dump(realpath_cache_get());
    echo "</pre>";
    */
+   
+   
    echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
      ' title="Подписанное изображение">';
    MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
+   
+   
+   /*
+   echo '$c_FileImg='.$c_FileImg.'<br>';
+   echo '$c_FileStamp='.$c_FileStamp.'<br>';
+   echo '$c_FileProba='.$c_FileProba.'<br>';
+   prown\ViewGlobal(avgCOOKIE);
+   */
+   
    /*        
    prown\ViewGlobal(avgCOOKIE);
    echo '<pre>';

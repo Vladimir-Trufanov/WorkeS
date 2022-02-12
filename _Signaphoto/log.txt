@@ -1,0 +1,14 @@
+[12-Feb-2022 09:30:19 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\prown\MakeRID() in C:\TPhpPrown\TPhpPrown\MakeRID.php:75
+Stack trace:
+#0 C:\Webservers\Exploration\_Signaphoto\SignaUpload.php(50): prown\MakeNumRID('C:\\Webservers\\E...', 'img', 'gif')
+#1 C:\Webservers\Exploration\_Signaphoto\SignaPhoto.php(82): require_once('C:\\Webservers\\E...')
+#2 {main}
+  thrown in C:\TPhpPrown\TPhpPrown\MakeRID.php on line 75
+[12-Feb-2022 13:02:51 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';' in C:\TPhpPrown\TPhpPrown\MakeRID.php on line 86
+[12-Feb-2022 19:56:43 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '$i' (T_VARIABLE) in C:\TPhpPrown\TPhpPrown\MakeRID.php on line 139
+[12-Feb-2022 20:03:52 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '$i' (T_VARIABLE) in C:\TPhpPrown\TPhpPrown\MakeRID.php on line 140
+[12-Feb-2022 20:05:14 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '$i' (T_VARIABLE) in C:\TPhpPrown\TPhpPrown\MakeRID.php on line 141
+[12-Feb-2022 20:05:48 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '$i' (T_VARIABLE) in C:\TPhpPrown\TPhpPrown\MakeRID.php on line 141
+[12-Feb-2022 21:40:17 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting '{' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 183
+[12-Feb-2022 21:41:18 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting '{' in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 183
+[12-Feb-2022 21:41:53 Asia/Kuwait] PHP Fatal error:  Redefinition of parameter $c_FileProba in C:\Webservers\Exploration\_Signaphoto\SignaPhotoImg.php on line 181

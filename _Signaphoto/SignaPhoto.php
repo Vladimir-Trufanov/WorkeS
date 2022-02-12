@@ -157,7 +157,9 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_Per
     // Размечаем область изображения с подписью
     echo '<div  id="Proba">';
       if (prown\isComRequest('In','Tune')) ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
-      else ViewProba($c_FileProba,$RemoteAddr,$c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
+      else ViewProba($c_FileProba,$RemoteAddr,
+         $c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,
+         $c_FileImg,$c_FileStamp);
     echo '</div>';
   echo '</div>';
    
@@ -185,23 +187,14 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_Per
 function IniPage(&$c_SignaPhoto,$SiteProtocol)
 {
    $Result=true;
-   /*   
-   header("Cache-Control: no-cache, no-store, must-revalidate"); 
-   header("Pragma: no-cache"); 
-   header("Expires: 0");
-   */
-   
    // Подключаем межязыковые (PHP-JScript) определения внутри HTML
    DefinePHPtoJS();
    // Загружаем заголовочную часть страницы
    echo '<!DOCTYPE html>';
    echo '<html lang="ru">';
-   
-   
-   
    echo '<head>';
    echo '<meta charset="UTF-8">';
-   echo '<meta http-equiv="pragma" content="no-cache">';
+   // 12/02/2022 echo '<meta http-equiv="pragma" content="no-cache">';
    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
    /*
    echo '<meta http-equiv="cache-control" content="no-cache">';

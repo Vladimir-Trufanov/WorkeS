@@ -7,7 +7,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  25.11.2021
-// Copyright © 2021 tve                              Посл.изменение: 30.01.2022
+// Copyright © 2021 tve                              Посл.изменение: 12.02.2022
 
 // Подключаем файлы библиотеки прикладных модулей:
 require_once pathPhpPrown."/CreateRightsDir.php";
@@ -24,9 +24,6 @@ $isDir=prown\CreateRightsDir($imgDir,$modeDir,rvsReturn);
 // Если с каталогом все в порядке, то будем перебрасывать файл на сервер
 if ($isDir===true)
 {
-   // Назначаем префикс имени файла в соответствии с RID и для файла изображения,
-   // изображения с подписью и для файла штампа-подписи
-   $PrefName=prown\MakeRID();
    // Определяем, загрузка какого файла выполнена: оригинального изображения
    // или образца подписи, через имя массива ("loadimg","loadstamp") из $_FILES         
    $NameInput=getLoadKind();
@@ -36,7 +33,10 @@ if ($isDir===true)
 
    if ($NameInput=="loadstamp") 
    {
-      $NameLoad=$PrefName.'stamp';
+      // Назначаем префикс имени файла в соответствии с RID и для файла штампа
+      $PostFix='stamp';
+      $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
+      $NameLoad=$PrefName.$PostFix;
       $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
       $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
       // Перемещаем загруженный файл из временного хранилища на сервер,
@@ -46,22 +46,30 @@ if ($isDir===true)
    else if ($NameInput=="loadimg") 
    {
       // Перемещаем оригинальное изображение
-      $NameLoad=$PrefName.'img';
+      $PostFix='img';
+      $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
+      $NameLoad=$PrefName.$PostFix;
       $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
       $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
       MoveFromUpload($imgDir,$NameLoad,$c_FileImg,'FileImg',$localimg);
       // Создаем копию оригинального изображение для подписи
-      $NameLoad=$PrefName.'proba';
+      // Важно: здесь имена создаем через MakeNumRID, как и для оригинального
+      // изображения для того чтобы автоматически удалялся старый файл
+      $PostFix='proba';
+      $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
+      $NameLoad=$PrefName.$PostFix;
       $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
       $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
       if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
       else ViewMess(ajCopyImageNotCreate);
    }
+   /* 12/02/2022
    // Перезагружаем начальную страницу
    Header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
    Header('Pragma: no-cache');                                   // HTTP 1.0.
    Header('Expires: 0');                                         // Proxies.
    Header('Location: '.$urlPage);
+   */
 }
 // ****************************************************************************
 // *       Определить, загрузка какого файла выполнена: оригинального         *
