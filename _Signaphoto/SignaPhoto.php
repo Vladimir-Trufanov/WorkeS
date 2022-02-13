@@ -19,9 +19,15 @@ $SiteHost   = $_WORKSPACE[wsSiteHost];      // Каталог хостинга
 $SiteDevice = $_WORKSPACE[wsSiteDevice];    // 'Computer' | 'Mobile' | 'Tablet'
 $SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol() 
 $RemoteAddr = $_WORKSPACE[wsRemoteAddr];    // IP-адрес запроса сайта
+
 // Определяем URL сайта и URL страницы приложения "Подписать фотографию"
 $urlHome=$SiteProtocol.'://'.$_SERVER['HTTP_HOST']; 
 $urlPage=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/_Signaphoto/SignaPhoto.php'; 
+
+// Определяем полный путь каталога хранения изображений и
+// его url-аналог для связывания с разметкой через кукис
+$imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
+$urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
 
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7

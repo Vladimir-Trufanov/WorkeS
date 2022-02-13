@@ -311,6 +311,7 @@ Exploration
 5=_Signaphoto\SignaPhotoImg.php
 6=_Signaphoto\SignaTunein.php
 7=_Signaphoto\SignaUpload.php
+8=..\..\TPhpPrown\TPhpPrown\MakeRID.php
 [Selected Project Files]
 Main=
 Selected=_Signaphoto\SignaMakeStamp.php
@@ -318,11 +319,11 @@ Selected=_Signaphoto\SignaMakeStamp.php
 TopLine=1
 Caret=1,5
 [_Signaphoto\SignaPhoto.php]
-TopLine=162
-Caret=33,162
+TopLine=21
+Caret=1,30
 [_Signaphoto\SignaMakeStamp.php]
-TopLine=132
-Caret=73,143
+TopLine=133
+Caret=9,160
 [_Signaphoto\SignaPhoto.js]
 TopLine=77
 Caret=6,77
@@ -330,11 +331,14 @@ Caret=6,77
 TopLine=68
 Caret=1,1
 [_Signaphoto\SignaPhotoImg.php]
-TopLine=196
+TopLine=1
 Caret=4,196
 [_Signaphoto\SignaTunein.php]
 TopLine=1
 Caret=1,1
 [_Signaphoto\SignaUpload.php]
-TopLine=39
-Caret=61,50
+TopLine=83
+Caret=1,101
+[..\..\TPhpPrown\TPhpPrown\MakeRID.php]
+TopLine=105
+Caret=1,140

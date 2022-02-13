@@ -14,10 +14,6 @@ require_once pathPhpPrown."/CreateRightsDir.php";
 // Подключаем файлы библиотеки прикладных классов:
 require_once pathPhpTools."/TUploadToServer/UploadToServerClass.php";
 
-// Определяем полный путь для создания каталога хранения изображений и
-// его url-аналог для связывания с разметкой через кукис
-$imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
-$urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
 // Создаем каталог для хранения изображений, если его нет.
 $modeDir=0777;
 $isDir=prown\CreateRightsDir($imgDir,$modeDir,rvsReturn);

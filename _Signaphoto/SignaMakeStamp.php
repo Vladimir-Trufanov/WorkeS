@@ -7,7 +7,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  10.07.2021
-// Copyright © 2021 tve                              Посл.изменение: 06.02.2022
+// Copyright © 2021 tve                              Посл.изменение: 13.02.2022
 
 // Определяем расширение имени файла изображения
 $FileExt=get_file_extension($c_FileImg);
@@ -25,13 +25,21 @@ else if (get_file_extension($c_FileStamp)<>'png')
 else
 {
    // Определяем имя промежуточного файл штампа
-   $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
-   $NameLoad=prown\MakeNumRID($imgDir,'stamt','png',true);
+   $PostFix='stamt';
+   $PrefName=prown\MakeNumRID($imgDir,$PostFix,'png',true);
+   $NameLoad=$PrefName.$PostFix;
    $ci_FileStamp=$imgDir.'/'.$NameLoad.'.'.'png';
+   prown\ConsoleLog('$ci_FileStamp='.$ci_FileStamp);
    // Изменяем размеры штампа до заданной пропорции от основного изображения
    $mds=makeDestinationStamp($im,$wStamp,$hStamp,$wImg,$hImg,$c_FileImg,$c_FileStamp,$ci_FileStamp,$c_PerSizeImg,$c_MaintainProp);
    if ($mds==ajTransparentSuccess)
    {
+      // $im - строковое представление измененного штампа, прозрачного
+      // $wStamp - ширина штампа
+      // $hStamp - высота штампа
+      // $wImg - ширина изображения
+      // $hImg - высота изображения
+      prown\ConsoleLog('ajTransparentSuccess='.ajTransparentSuccess);
       // Строим изображение штампа (водяного знака)
       $stamp = @imagecreatefrompng($ci_FileStamp);
       if (!$stamp) ViewMess(ajStampNotBuilt);
@@ -40,7 +48,7 @@ else
          // Строим изображение для наложения подписи
          if (($FileExt=='gif')or($FileExt=='png'))
          {
-            makeTransparentImg($im,$wImg,$hImg,$c_FileImg,$FileExt);
+            makeTransparentImg($im,$wImg,$hImg,$c_FileImg,$FileExt,$imgDir);
          }
          elseif (($FileExt=='jpeg')or($FileExt=='jpg'))
          {
@@ -61,7 +69,7 @@ else
             {
                // Копируем изображение штампа на фотографию с учетом смещения края    
                // и ширины фотографии и расчётом позиционирования штампа        
-               ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$xDesc,$yDesc);
+               ImageAndStamp($im,$stamp,$FileExt,$SiteProtocol,$xDesc,$yDesc,$c_FileProba,$imgDir,$urlDir);
             }
          }
       }
@@ -131,23 +139,16 @@ function CtrlStampPlaceDetermin($imgx,$imgy,$sx,$sy,$xDesc,$yDesc)
 // *   Скопировать изображение штампа на фотографию с учетом смещения края    *
 // *        и ширины фотографии и расчётом позиционирования штампа            *
 // ****************************************************************************
-function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$xDesc,$yDesc)
+function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$xDesc,$yDesc,$c_FileProba,$imgDir,$urlDir)
 {
-   // Определяем имя файла изображения со штампом и его url-адреса
-   $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
-   $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
-   $NameLoad=prown\MakeNumRID($imgDir,'proba',$type,true);
-   $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
-   $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
-   
-   $c_FileProba=prown\MakeCookie('FileProba');  // !!!!!!!!!!!!!!!!!!!!!
-
-   // Если имя файла изображения со штампом не соответствует url-адресу,
-   // то выдаем сообщение
-   if ($localimgp<>$c_FileProba) ViewMess(ajNameFileNoMatchUrl);
-   // Иначе наносим изображение штампа на фотографию 
+   // Заменяем URL-адрес на путь в файловой системе
+   $Point=strpos($c_FileProba,$urlDir);
+   if ($Point===false) ViewMess(ajNameFileNoMatchUrl);
    else
    {
+      $Point=strlen($urlDir);
+      $NameLoad=substr($c_FileProba,$Point);
+      $nameimgp=$imgDir.$NameLoad;
       // Копируем изображения штампа на фотографию с помощью смещения края
       // и ширины фотографии для расчёта позиционирования штампа.
       imagecopy($im,$stamp,$xDesc,$yDesc,0,0,imagesx($stamp),imagesy($stamp));
@@ -163,7 +164,7 @@ function ImageAndStamp($im,$stamp,$type,$SiteProtocol,$xDesc,$yDesc)
 // *   Сделать требуемое gif или png изображение прозрачным png-изображением  *
 // *     (так как на 20/08/2021 tve не знает способа проверки прозрачности)   *
 // ****************************************************************************
-function makeTransparentImg(&$im,$wImg,$hImg,$c_FileImg,$FileExt)
+function makeTransparentImg(&$im,$wImg,$hImg,$c_FileImg,$FileExt,$imgDir)
 {
    $im=null;
    // Изначально считаем, преобразование к прозрачному виду было успешным
@@ -188,13 +189,14 @@ function makeTransparentImg(&$im,$wImg,$hImg,$c_FileImg,$FileExt)
       // Копируем изображение
       imagecopyresampled($destination_resource,$source_resource,0,0,0,0,$wImg,$hImg,$wImg,$hImg);
       // Сохраняем изображение в промежуточный файл png
-      $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
-      $NameLoad=prown\MakeNumRID($imgDir,'probt',$type,true);
+      $PostFix='probt';
+      $PrefName=prown\MakeNumRID($imgDir,$PostFix,'png',true);
+      $NameLoad=$PrefName.$PostFix;
       $destination_path=$imgDir.'/'.$NameLoad.'.'.'png';
+      prown\ConsoleLog('$destination_path='.$destination_path);
       imagepng($destination_resource, $destination_path);
       // Извлекаем уже прозрачное изображение
       $im = @imagecreatefrompng($destination_path);
-      //unlink($destination_path);
       return $Result;
    }
 }
@@ -202,6 +204,11 @@ function makeTransparentImg(&$im,$wImg,$hImg,$c_FileImg,$FileExt)
 // *      Изменить размеры штампа (водяного знака) до заданной пропорции      *
 // *                             от основного изображения                     *
 // ****************************************************************************
+// $im - строковое представление измененного штампа, прозрачного
+// $wStamp - ширина штампа
+// $hStamp - высота штампа
+// $wImg - ширина изображения
+// $hImg - высота изображения
 function makeDestinationStamp(&$im,&$wStamp,&$hStamp,&$wImg,&$hImg,$c_FileImg,$c_StampImg,$destination_path,$c_PerSizeImg,$c_MaintainProp)
 {
    $im=null;
