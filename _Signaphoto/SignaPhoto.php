@@ -66,10 +66,16 @@ try
    $c_BrowEntry=prown\MakeCookie('BrowEntry',$c_BrowEntry+1,tInt);  
    $c_PersEntry=prown\MakeCookie('PersEntry',0,tInt,true);                  // счетчик посещений текущим посетителем
    $c_PersEntry=prown\MakeCookie('PersEntry',$c_PersEntry+1,tInt);
-   
    // Инициируем или изменяем счетчик числа запросов страницы
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',0,tInt,true);  
    $c_SignaPhoto=prown\MakeCookie('SignaPhoto',$c_SignaPhoto+1,tInt);  
+   // Меняем кукис ориентации устройства 
+   $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr,true);             // ориентация устройства
+   if (IsSet($_GET["orient"]))
+   {
+      if ($_GET["orient"]==oriLandscape) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
+      if ($_GET["orient"]==oriPortrait)  $c_Orient=prown\MakeCookie('Orient',oriPortrait,tStr); 
+   }
 
    // Изменяем сессионные переменные (сессионные переменные инициируются после
    // переменных-кукисов, так как некоторые переменные-кукисы переопределяются появившимися
@@ -87,12 +93,8 @@ try
    if (IsSet($_POST["MAX_FILE_SIZE"])) require_once "SignaUpload.php";
    // Обрабатываем подписание фотографии 
    if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
-
-   // контролю за положением устройства
-   // и определяем ориентацию устройства
-   $_Orient=oriLandscape;
    // Готовим начало страницы для подписывания фотографий
-   IniPage($c_SignaPhoto,$SiteProtocol,$SiteDevice,$_Orient);
+   IniPage($c_SignaPhoto,$SiteProtocol,$SiteDevice,$c_Orient);
    
    // Подключаем скрипты по завершению загрузки страницы
    if (prown\isComRequest('In','Tune')) $NamePage='Tunein';
@@ -101,9 +103,11 @@ try
    NamePage="<?php echo $NamePage;?>";
    urlPage="<?php echo $urlPage;?>";
    urlHome="<?php echo $urlHome;?>";
+   xOrient="<?php echo $c_Orient;?>";
 
    $(document).ready(function() {
-      OnOrientationChange();
+      window.addEventListener('orientationchange',doOnOrientationChange);
+      OnOrientationChange(xOrient);
       // Устанавливаем фон настроек
       /*
       if (NamePage=='Tunein') $("#Proba").css("background-image",'url(images/bg_page.png)')
@@ -120,7 +124,8 @@ try
    // DebugView($s_Orient);
 
    // Запускаем построение базовой разметки
-   MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
+   MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,
+      $c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient);
 
    // Завершаем вывод страницы 
    echo '</body>';
@@ -133,7 +138,8 @@ catch (E_EXCEPTION $e)
 // ****************************************************************************
 // *                           Выполняем базовую разметку                     *
 // ****************************************************************************
-function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
+function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,
+   $c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient)
 {
   // Размечаем область изображений
   echo '<div id="All">';
@@ -153,7 +159,7 @@ function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeI
       if (prown\isComRequest('In','Tune')) ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
       else ViewProba($c_FileProba,$RemoteAddr,
          $c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,
-         $c_FileImg,$c_FileStamp);
+         $c_FileImg,$c_FileStamp,$c_Orient);
     echo '</div>';
   echo '</div>';
    

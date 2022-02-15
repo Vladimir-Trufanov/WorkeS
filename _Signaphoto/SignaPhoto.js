@@ -8,29 +8,48 @@
  * 
 **/ 
 
-function OnOrientationChange() 
+// Готовим обработку события при изменении положения устройства
+function doOnOrientationChange()
+// http://greymag.ru/?p=175, 07.09.2011. При повороте устройства браузер 
+// отсылает событие orientationchange. Это актуально для обеих операционных 
+// систем. Но подписка на это событие может осуществляться по разному. 
+// При проверке на разных устройствах iPhone, iPad и Samsung GT (Android),
+// выяснилось что в iOS срабатывает следующий вариант установки обработчика: 
+// window.onorientationchange = handler; А для Android подписка осуществляется 
+// иначе: window.addEventListener( 'orientationchange', handler, false ); 
+//
+// Примечание: В обоих примерах handler - функция-обработчик. Текущую ориентацию
+// экрана можно узнать проверкой свойства window.orientation, принимающего одно
+// из следующих значений: 0 — нормальная портретная ориентация, -90 —
+// альбомная при повороте по часовой стрелке, 90 — альбомная при повороте 
+// против часовой стрелки, 180 — перевёрнутая портретная ориентация (пока 
+// только для iPad).
+//         
+// Отследить переворот экрана:
+// https://www.cyberforum.ru/javascript/thread2242547.html, 08.05.2018
 {
-   // Готовим обработку события при изменении положения устройства
-   window.addEventListener('orientationchange',doOnOrientationChange);
-   function doOnOrientationChange() 
+   if ((window.orientation==0)||(window.orientation==180))
    {
-      if ((window.orientation==0)||(window.orientation==180))
-      {
-         alert('SignaPortraitUrl');
-         //window.location = SignaPortraitUrl;
-      } 
-      if ((window.orientation==90)||(window.orientation==-90))
-      { 
-         alert('SignaUrl');
-         //window.location = SignaUrl;
-      }
+      window.location=SignaPortraitUrl;
+   } 
+   if ((window.orientation==90)||(window.orientation==-90))
+   { 
+      window.location=SignaUrl;
    }
 }
-
-
-
-
-
+function OnOrientationChange(xOrient) 
+{
+   // Если фактически портрет, а кукис ландшафт, то перегружаем на портрет
+   if ((window.orientation==0)||(window.orientation==180))
+   {
+      if (xOrient==oriLandscape) window.location=SignaPortraitUrl;
+   } 
+   // Если фактически альбом, а кукис портрет, то перегружаем на альбом
+   if ((window.orientation==90)||(window.orientation==-90))
+   { 
+      if (xOrient==oriPortrait) window.location=SignaUrl;
+   }
+}
 // По клику на кнопке выполнить выбор файла и 
 // активировать клик для загрузки файла
 function alf1FindFile() 
