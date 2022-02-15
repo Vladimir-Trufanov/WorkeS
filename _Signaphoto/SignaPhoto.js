@@ -8,6 +8,29 @@
  * 
 **/ 
 
+function OnOrientationChange() 
+{
+   // Готовим обработку события при изменении положения устройства
+   window.addEventListener('orientationchange',doOnOrientationChange);
+   function doOnOrientationChange() 
+   {
+      if ((window.orientation==0)||(window.orientation==180))
+      {
+         alert('SignaPortraitUrl');
+         //window.location = SignaPortraitUrl;
+      } 
+      if ((window.orientation==90)||(window.orientation==-90))
+      { 
+         alert('SignaUrl');
+         //window.location = SignaUrl;
+      }
+   }
+}
+
+
+
+
+
 // По клику на кнопке выполнить выбор файла и 
 // активировать клик для загрузки файла
 function alf1FindFile() 

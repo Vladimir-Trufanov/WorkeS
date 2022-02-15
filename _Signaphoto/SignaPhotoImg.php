@@ -48,7 +48,7 @@ function LoadImg()
       </div>
    ';
    echo '
-      <button class="navButtons" onclick="alf1FindFile()"  
+      <button id="bLoadImg"  class="navButtons" onclick="alf1FindFile()"  
       title="Загрузить изображение">
       <i id="iLoadImg" class="fa fa-file-image-o fa-3x" aria-hidden="true"></i>
       </button>
@@ -70,7 +70,7 @@ function LoadStamp()
       </div>
    ';
    echo '
-      <button class="navButtons" onclick="alf1sFindFile()"  
+      <button id="bLoadStamp" class="navButtons" onclick="alf1sFindFile()"  
       title="Загрузить образец подписи">
       <i id="iLoadStamp" class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
       </button>

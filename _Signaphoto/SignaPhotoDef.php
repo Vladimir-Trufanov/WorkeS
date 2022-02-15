@@ -17,7 +17,10 @@ define ("ohRightBottom",        "Правый нижний угол");
 define ("ohLeftBottom",         "Левый нижний угол");  
 // Определения переключателя "сохранять пропорции подписи"
 define ("ohMaintainTrue",       "Да, сохранять");  
-define ("ohMaintainFalse",      "Не сохранять");  
+define ("ohMaintainFalse",      "Не сохранять"); 
+
+define ("oriLandscape", 'landscape');  // Ландшафтное расположение устройства
+define ("oriPortrait",  'portrait');   // Портретное расположение устройства
 
 // Определения сообщений для PHP
 define ("ajCopyImageNotCreate", "Не создана копия оригинального изображения для подписи"); 
@@ -92,6 +95,10 @@ function DefinePHPtoJS()
    
    'ohMaintainTrue="'      .ohMaintainTrue.      '";'.  
    'ohMaintainFalse="'     .ohMaintainFalse.     '";'.  
+   
+   'oriLandscape="'        .oriLandscape. '";'.
+   'oriPortrait="'         .oriPortrait.  '";'.
+
    '</script>';
    echo $define;
 

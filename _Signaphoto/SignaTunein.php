@@ -52,4 +52,56 @@ function TuneinRequest($urlPage,&$c_PointCorner,&$c_PerSizeImg,&$c_PerMargeWidth
       $c_MaintainProp=prown\MakeCookie('MaintainProp',ohMaintainTrue,tStr);    
    }
 }
+// ****************************************************************************
+// *                              Настроить мобильный экран                   *
+// ****************************************************************************
+function cssViewport($SiteDevice)
+{
+   if ($SiteDevice<>Computer)
+   {
+      echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+   }
+}
+// ****************************************************************************
+// *                       Спозиционировать основные дивы                     *
+// ****************************************************************************
+function cssDivPosition($SiteDevice,$_Orient)
+{
+   if ($_Orient==oriLandscape)
+   {
+      ?> 
+      <style>
+      #All,#Lead {position:fixed; height:100%;}
+      #All {left:0;  width:92%; }
+      #Lead {right:0; width:8%;}  
+      #View  {width:48%; float:left;  height:100%;}
+      #Proba {width:52%; float:right; height:100%;}         
+      #Photo {height:82%;}
+      #Stamp {height:18%;} 
+      
+      .navButtons {margin-top:1rem;}
+      </style>
+      <?php
+   }
+   else
+   {
+      ?> 
+      <style>
+      #All,#Lead {position:fixed; width:100%;}
+      #All {top:0; height:85%;}
+      #Lead {bottom:0; height:15%;}  
+      
+      #View  {width:48%; float:left;  height:100%;}
+      #Proba {width:52%; float:right; height:100%;}         
+      #Photo {height:82%;}
+      #Stamp {height:18%;} 
+      
+      #bLoadImg,#bSubscribe,#bTunein {float:left;}
+      #bLoadStamp,#bHome {float:right;}
+      .navButtons {margin-left:1rem;}
+         
+      </style>
+      <?php
+   }
+}
 // ******************************************************** SignaTunein.php ***

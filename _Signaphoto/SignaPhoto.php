@@ -52,7 +52,6 @@ try
    require_once pathPhpPrown."/ViewGlobal.php";
    // Подключаем файлы библиотеки прикладных классов:
    require_once pathPhpTools."/iniToolsMessage.php";
-   require_once pathPhpTools."/TDeviceOrientater/DeviceOrientaterClass.php";
 
    // Подключаем рабочие модули:
    require_once 'SignaPhotoDef.php';
@@ -89,12 +88,11 @@ try
    // Обрабатываем подписание фотографии 
    if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
 
-   // Готовим начало страницы для подписывания фотографий
-   IniPage($c_SignaPhoto,$SiteProtocol);
-   // Создаем объект класса по контролю за положением устройства
+   // контролю за положением устройства
    // и определяем ориентацию устройства
-   $orient = new ttools\DeviceOrientater($SiteDevice);
-   $_Orient=$orient->getOrient();
+   $_Orient=oriLandscape;
+   // Готовим начало страницы для подписывания фотографий
+   IniPage($c_SignaPhoto,$SiteProtocol,$SiteDevice,$_Orient);
    
    // Подключаем скрипты по завершению загрузки страницы
    if (prown\isComRequest('In','Tune')) $NamePage='Tunein';
@@ -103,7 +101,9 @@ try
    NamePage="<?php echo $NamePage;?>";
    urlPage="<?php echo $urlPage;?>";
    urlHome="<?php echo $urlHome;?>";
+
    $(document).ready(function() {
+      OnOrientationChange();
       // Устанавливаем фон настроек
       /*
       if (NamePage=='Tunein') $("#Proba").css("background-image",'url(images/bg_page.png)')
@@ -119,11 +119,8 @@ try
    // Выводим отладочную информацию
    // DebugView($s_Orient);
 
-   // Запускаем построение разметки
-   if ($_Orient==oriLandscape) 
-      MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
-   else 
-      MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
+   // Запускаем построение базовой разметки
+   MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
 
    // Завершаем вывод страницы 
    echo '</body>';
@@ -133,19 +130,10 @@ catch (E_EXCEPTION $e)
 {
    DoorTryPage($e);
 }
-
 // ****************************************************************************
-// *                    Разметить страницу в варианте Portrait                *
+// *                           Выполняем базовую разметку                     *
 // ****************************************************************************
-function MarkupPortrait($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
-{
-   //ViewMess('Поверните устройство!');
-   MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
-}
-// ****************************************************************************
-// *                    Разметить страницу в варианте LandScape               *
-// ****************************************************************************
-function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
+function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
 {
   // Размечаем область изображений
   echo '<div id="All">';
@@ -190,7 +178,7 @@ function MarkupLandscape($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_Per
 // ****************************************************************************
 // *                            Начать HTML-страницу сайта                    *
 // ****************************************************************************
-function IniPage(&$c_SignaPhoto,$SiteProtocol)
+function IniPage(&$c_SignaPhoto,$SiteProtocol,$SiteDevice,$_Orient)
 {
    $Result=true;
    // Подключаем межязыковые (PHP-JScript) определения внутри HTML
@@ -201,7 +189,7 @@ function IniPage(&$c_SignaPhoto,$SiteProtocol)
    echo '<head>';
    echo '<meta charset="UTF-8">';
    // 12/02/2022 echo '<meta http-equiv="pragma" content="no-cache">';
-   echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+   cssViewport($SiteDevice);
    /*
    echo '<meta http-equiv="cache-control" content="no-cache">';
    echo '<meta http-equiv="expires" content="Mon, 22 Jul 2002 11:12:01 GMT">';
@@ -220,8 +208,17 @@ function IniPage(&$c_SignaPhoto,$SiteProtocol)
    echo '<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">';
    //
    echo '<link rel="stylesheet" type="text/css" href="SignaPhoto.css">';
+   cssDivPosition($SiteDevice,$_Orient);
+   // Определяем uri вызова страниц с различной ориентацией
+   $SignaUrl=$_SERVER['SCRIPT_NAME'].'?orient='.oriLandscape;
+   $SignaPortraitUrl=$_SERVER['SCRIPT_NAME'].'?orient='.oriPortrait;
    // Подключаем сайтовые(SignaPhoto) функции Js и
    // инициализируем обработчики
+   ?> <script>
+      // Назначаем uri вызова страниц с различной ориентацией
+      SignaUrl="<?php echo $SignaUrl;?>";
+      SignaPortraitUrl="<?php echo $SignaPortraitUrl;?>";
+   </script> <?php
    echo '<script src="SignaPhoto.js"></script>';
    return $Result;
 }
