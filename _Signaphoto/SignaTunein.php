@@ -69,19 +69,53 @@ function cssDivPosition($SiteDevice,$_Orient)
 {
    if ($_Orient==oriLandscape)
    {
-      ?> 
-      <style>
-      #All,#Lead {position:fixed; height:100%;}
-      #All {left:0;  width:92%; }
-      #Lead {right:0; width:8%;}  
-      #View  {width:48%; float:left;  height:100%;}
-      #Proba {width:52%; float:right; height:100%;}         
-      #Photo {height:82%;}
-      #Stamp {height:18%;} 
-      
-      .navButtons {margin-top:1rem;}
-      </style>
-      <?php
+      // Мобильный телефон
+      if ($SiteDevice==Mobile)
+      {
+         ?> <style>
+         #All,#Lead {position:fixed; height:100%;}
+         #All {left:0;  width:80%; }
+         #Lead {right:0; width:20%;}  
+         #View  {width:48%; float:left;  height:100%;}
+         #Proba {width:52%; float:right; height:100%;}         
+         #Photo {height:82%;}
+         #Stamp {height:18%;} 
+         
+         .navButtons {position:fixed;}
+         #bLoadimg {top:7px; right:108px;}
+         #bSubscribe {top:7px; right:54px;}
+         #bTunein {top:64px; right:108px;}
+         #bHome {bottom:7px; right:7px}
+         #bLoadStamp {bottom:7px; right:64px}
+                                           
+         /*
+         #bLoadimg,#bSubscribe,bTunein {float:left; margin-left:8px;}
+         #bLoadimg,#bSubscribe {margin-top:8px;}
+         bTunein {margin-top:.58rem;}
+         #bHome,#bLoadStamp {float:right; margin-bottom:.8rem;}
+         */
+         
+         /*
+         #bLoadimg,#bSubscribe,bTunein {float:left; margin:.8rem 0 0 .8rem;}
+         #bLoadStamp,#bHome {float:right; margin:.8rem 0 0 .8rem;}
+         */
+         </style> <?php
+      }
+      // Компьютер
+      else
+      {
+         ?> <style>
+         #All,#Lead {position:fixed; height:100%;}
+         #All {left:0;  width:92%; }
+         #Lead {right:0; width:8%;}  
+         #View  {width:48%; float:left;  height:100%;}
+         #Proba {width:52%; float:right; height:100%;}         
+         #Photo {height:82%;}
+         #Stamp {height:18%;} 
+         .navButtons {margin-top:1rem;}
+         .navButtons {position:relative;}
+         </style> <?php
+      };
    }
    else
    {
@@ -96,9 +130,10 @@ function cssDivPosition($SiteDevice,$_Orient)
       #Photo {height:82%;}
       #Stamp {height:18%;} 
       
-      #bLoadImg,#bSubscribe,#bTunein {float:left;}
-      #bLoadStamp,#bHome {float:right;}
-      .navButtons {margin-left:1rem;}
+      #bLoadImg,#bSubscribe,#bTunein,#bLoadStamp {float:left;}
+      #bHome{float:right; margin-right:1rem;}
+      .navButtons {margin-left:1rem; margin-top:.4rem;}
+      .navButtons {position:relative;}
          
       </style>
       <?php

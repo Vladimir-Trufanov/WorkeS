@@ -68,16 +68,6 @@ body
 #Stamp{background:gainsboro;} 
 */
 
-/* Оформляем скелет разметки 
-#All,#Lead {position:fixed; height:100%;}
-#All  {left:0;  width:92%; }
-#Lead {right:0; width:8%;}  
-#View  {width:48%; float:left;  height:100%;}
-#Proba {width:52%; float:right; height:100%;}         
-#Photo {height:82%;}
-#Stamp {height:18%;}    
-*/ 
-
 /* Стилизуем кнопки */
 .navButtons
 {  
@@ -86,7 +76,6 @@ body
    display:block;  
    height:50px;  
    width:50px;  
-   /*margin:10px;*/
    -moz-box-shadow:5px 5px 7px rgba(3,33,33,.7);  
    -webkit-box-shadow: 5px 5px 7px rgba(3,33,33,.7);  
    box-shadow: 5px 5px 7px rgba(3,33,33,.7);  
