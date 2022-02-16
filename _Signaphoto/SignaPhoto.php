@@ -119,7 +119,7 @@ try
 
    // Запускаем построение базовой разметки
    MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,
-      $c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient);
+      $c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient,$SiteDevice);
 
    // Завершаем вывод страницы 
    echo '</body>';
@@ -132,6 +132,57 @@ catch (E_EXCEPTION $e)
 // ****************************************************************************
 // *                           Выполняем базовую разметку                     *
 // ****************************************************************************
+function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,
+   $c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient,$SiteDevice)
+{
+  // Размечаем область изображений
+  echo '<div id="All">';
+    
+    if (prown\isComRequest('In','Tune')) 
+       ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient,$SiteDevice);
+    else 
+    {
+    // Размечаем область оригинального изображения и образца подписи
+    echo '<div  id="View">';
+      // Показываем загруженное изображение для подписи
+      echo '<div id="Photo">';
+        ViewPhoto($c_FileImg);
+      echo '</div>';
+      // Показываем образец подписи
+      echo '<div  id="Stamp">';
+        ViewStamp($c_FileStamp);
+      echo '</div>';
+    echo '</div>';
+    // Размечаем область изображения с подписью
+    echo '<div  id="Proba">';
+      ViewProba($c_FileProba,$RemoteAddr,
+         $c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,
+         $c_FileImg,$c_FileStamp,$c_Orient);
+    echo '</div>';
+    }
+    
+  echo '</div>';
+   
+  // Размечаем область управления загрузкой и подписанием
+  echo '<div  id="Lead">';
+    // Строим форму и кнопку загрузки изображения для подписи
+    LoadImg();
+    // Накладываем изображения штампа на фотографию с учетом ширины фотографии
+    // и смещения штампа от точка привязки       
+    MakeStamp();
+    // Изменяем настройки подписания фотографии
+    Tunein();
+    // Загружаем образец для подписания фотографии
+    LoadStamp();
+    // Выходим на главную страницу сайта
+    Home();
+    // Закладываем в разметку див для сообщений через диалоговое окно
+    echo '<div id="'.ohInfo.'">';
+    echo '</div>';
+  echo '</div>';
+}
+
+/*
 function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,
    $c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient)
 {
@@ -175,6 +226,7 @@ function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,
     echo '</div>';
   echo '</div>';
 }
+*/
 // ****************************************************************************
 // *                            Начать HTML-страницу сайта                    *
 // ****************************************************************************

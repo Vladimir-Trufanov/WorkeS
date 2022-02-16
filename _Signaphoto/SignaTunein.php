@@ -73,6 +73,16 @@ function cssDivPosition($SiteDevice,$_Orient)
       if ($SiteDevice==Mobile)
       {
          ?> <style>
+         
+         body{font-size:.6rem;}
+         #ViewTuneIn{padding:.2rem;margin:.2rem;}
+         .checkbox-label{height:1rem;width:1.9rem;margin:.3rem auto;}
+
+         #percML{float:left;width:40%;}
+         #checkML{float:right;width:60%;}
+         
+         
+         
          #All,#Lead {position:fixed; height:100%;}
          #All {left:0;  width:80%; }
          #Lead {right:0; width:20%;}  
@@ -82,11 +92,6 @@ function cssDivPosition($SiteDevice,$_Orient)
          #Stamp {height:18%;} 
          
          .navButtons {position:fixed;}
-         /*
-         #bLoadimg {top:10px; right:110px;}
-         #bSubscribe {top:10px; right:51px;}
-         #bTunein {top:70px; right:110px;}
-         */
          #bLoadimg {top:10px; right:68px;}
          #bSubscribe {top:10px; right:9px;}
          #bTunein {top:70px; right:68px;}
@@ -98,6 +103,14 @@ function cssDivPosition($SiteDevice,$_Orient)
       else
       {
          ?> <style>
+         
+         body{font-size:1rem;}
+         #ViewTuneIn{padding:2rem;margin:2rem;}
+         
+         .checkbox-label{height:2rem;width:3.8rem;margin:.6rem auto;}
+
+         
+         
          #All,#Lead {position:fixed; height:100%;}
          #All {left:0;  width:92%; }
          #Lead {right:0; width:8%;}  
@@ -114,9 +127,15 @@ function cssDivPosition($SiteDevice,$_Orient)
    {
       ?> 
       <style>
+      
+      body{font-size:.7rem;}
+      #ViewTuneIn{padding:.7rem;margin:.7rem;}
+      .checkbox-label{height:2rem;width:3.8rem;margin:.6rem auto;}
+
+      
       #All,#Lead {position:fixed; width:100%;}
-      #All {top:0; height:85%;}
-      #Lead {bottom:0; height:15%;}  
+      #All {top:0; height:88%;}
+      #Lead {bottom:0; height:12%;}  
       
       #View  {width:48%; float:left;  height:100%;}
       #Proba {width:52%; float:right; height:100%;}         

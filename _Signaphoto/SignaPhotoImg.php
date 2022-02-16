@@ -233,7 +233,16 @@ function isMaintainProp($c_MaintainProp)
    else $Result=' value="'.ohMaintainFalse.'" ';
    return $Result;
 }
-function ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
+
+function ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$_Orient,$SiteDevice)
+{
+   if (($_Orient==oriLandscape)and($SiteDevice==Mobile))
+      ViewTuneInML($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
+   else 
+      ViewTuneInPP($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
+}
+
+function ViewTuneInPP($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
 {
    // Выводим форму в разметку
    echo '<div  id="ViewTuneIn">';
@@ -298,6 +307,84 @@ function ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHig
 
       <input type="submit" id="my_Tune_Submit"><br>
       <button id="btnTune" onclick="alfSubmitTunein()">Изменить настройки</button>
+      </form>
+   ';
+   echo '</div>';
+   ?> <script>
+   alf1MaintainProp();
+   </script> <?php
+}
+function ViewTuneInML($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp)
+{
+   // Выводим форму в разметку
+   echo '<div  id="ViewTuneIn">';
+   echo '
+      <form name="test" method="POST" action="SignaPhoto.php">
+      
+      <div id=percML>
+      
+      <span class="PerSizeImg" id="PerSizeImg"><b>Процент размера подписи к изображению:</b></span><br>
+      <input name="PerSizeImg" class="Infield" value="'.$c_PerSizeImg.'"
+      id="PerSizeInput" type="number" min="1" max="99" step="1">
+      <span class="PerSizeImg">%</span><br><br>
+ 
+      <b>Процент смещения подписи по ширине от точки привязки:</b><br>
+      <input name="PerMargeWidth" class="Infield" value="'.$c_PerMargeWidth.'" 
+         type="number" min="1" max="99" step="1">
+      %<br>      
+
+      <span class="PerMargeSpan"><b>Процент смещения подписи по высоте от точки привязки:</b></span><br>
+      <input name="PerMargeHight" class="Infield" value="'.$c_PerMargeHight.'" 
+         id="PerMargeHight" type="number" min="1" max="99" step="1">
+      <span class="PerMargeSpan">%</span><br>      
+
+      <input type="submit" id="my_Tune_Submit"><br>
+      <button id="btnTune" onclick="alfSubmitTunein()">Изменить настройки</button>
+      
+      </div>
+      
+      <div id=checkML>
+
+      <b>Точка привязки подписи:</b>
+      <input name="PointCorner" class="checkbox" id="r1" type="radio" value="'.ohLeftTop.'"'.
+      ischecked($c_PointCorner,ohLeftTop).'>'.
+      '<label for="r1" class="checkbox-label"> 
+      <span class="on">'.ohLeftTop.'</span>
+      <span class="off">'.ohLeftTop.'</span>
+      </label>
+
+      <input name="PointCorner" class="checkbox" id="r2" type="radio" value="'.ohRightTop.'"'.
+      ischecked($c_PointCorner,ohRightTop).'>'.
+      '<label for="r2" class="checkbox-label"> 
+      <span class="on">'.ohRightTop.'</span>
+      <span class="off">'.ohRightTop.'</span>
+      </label>
+
+      <input name="PointCorner" class="checkbox" id="r3" type="radio" value="'.ohRightBottom.'"'.
+      ischecked($c_PointCorner,ohRightBottom).'>'.
+      '<label for="r3" class="checkbox-label"> 
+      <span class="on">'.ohRightBottom.'</span>
+      <span class="off">'.ohRightBottom.'</span>
+      </label>
+
+      <input name="PointCorner" class="checkbox" id="r4" type="radio" value="'.ohLeftBottom.'"'.
+      ischecked($c_PointCorner,ohLeftBottom).'>'.
+      '<label for="r4" class="checkbox-label"> 
+      <span class="on">'.ohLeftBottom.'</span>
+      <span class="off">'.ohLeftBottom.'</span>
+      </label>
+
+      <b>Сохранять пропорции подписи:</b>
+       <input name="MaintainCtrl" class="checkboxctrl"  id="MaintainCtrl" type="checkbox">'. 
+      '<input name="MaintainProp" class="checkbox blue" id="MaintainProp" type="checkbox"'. 
+         isMaintainProp($c_MaintainProp).
+         'onchange="alf1MaintainProp()">'.
+      '<label for="MaintainProp" class="checkbox-label">
+      <span class="on">'.ohMaintainTrue.'</span>
+      <span class="off">'.ohMaintainFalse.'</span>
+      </label>
+
+      </div>
       </form>
    ';
    echo '</div>';
