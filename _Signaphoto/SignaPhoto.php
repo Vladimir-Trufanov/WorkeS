@@ -104,15 +104,9 @@ try
    urlPage="<?php echo $urlPage;?>";
    urlHome="<?php echo $urlHome;?>";
    xOrient="<?php echo $c_Orient;?>";
-
    $(document).ready(function() {
       window.addEventListener('orientationchange',doOnOrientationChange);
       OnOrientationChange(xOrient);
-      // Устанавливаем фон настроек
-      /*
-      if (NamePage=='Tunein') $("#Proba").css("background-image",'url(images/bg_page.png)')
-      else $("#Proba").css("background",'khaki');
-      */
    });
    </script> <?php
 

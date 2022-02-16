@@ -82,23 +82,16 @@ function cssDivPosition($SiteDevice,$_Orient)
          #Stamp {height:18%;} 
          
          .navButtons {position:fixed;}
-         #bLoadimg {top:7px; right:108px;}
-         #bSubscribe {top:7px; right:54px;}
-         #bTunein {top:64px; right:108px;}
-         #bHome {bottom:7px; right:7px}
-         #bLoadStamp {bottom:7px; right:64px}
-                                           
          /*
-         #bLoadimg,#bSubscribe,bTunein {float:left; margin-left:8px;}
-         #bLoadimg,#bSubscribe {margin-top:8px;}
-         bTunein {margin-top:.58rem;}
-         #bHome,#bLoadStamp {float:right; margin-bottom:.8rem;}
+         #bLoadimg {top:10px; right:110px;}
+         #bSubscribe {top:10px; right:51px;}
+         #bTunein {top:70px; right:110px;}
          */
-         
-         /*
-         #bLoadimg,#bSubscribe,bTunein {float:left; margin:.8rem 0 0 .8rem;}
-         #bLoadStamp,#bHome {float:right; margin:.8rem 0 0 .8rem;}
-         */
+         #bLoadimg {top:10px; right:68px;}
+         #bSubscribe {top:10px; right:9px;}
+         #bTunein {top:70px; right:68px;}
+         #bHome {bottom:10px; right:9px}
+         #bLoadStamp {bottom:10px; right:68px}
          </style> <?php
       }
       // Компьютер
