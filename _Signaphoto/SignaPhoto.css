@@ -68,6 +68,9 @@ body
 #Stamp{background:gainsboro;} 
 */
 
+@font-face{font-family:Pompadur; src:url(Fonts/Lobster/Lobster-Regular.ttf);}
+#ViewTuneIn,#btnTune{font-family:Pompadur;}
+
 /* Стилизуем кнопки */
 .navButtons {height:50px; width:50px;}
 .navButtons
@@ -117,11 +120,6 @@ body
 {
    display: block;
    background: #E1EDEB; 
-   /*
-   height: 2rem;
-   width: 3.8rem;
-   margin: .6rem auto;
-   */
    border-radius: 2rem;
    position: relative;
    box-shadow: 0 0 0 2px #dddddd;
@@ -215,15 +213,12 @@ body
 {
   border: none;
   background: transparent;
-  padding: 0 14px;
-  
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 52px;
+  padding: 0 .4rem;
+  line-height:2.6rem;
   position: relative;
   color: #3E4651;
   cursor: pointer;
-  letter-spacing: 0.5px;
+  word-spacing:.3rem;
 }
 #btnTune:before 
 {
@@ -231,8 +226,8 @@ body
   position: absolute;
   left: 0;
   top: 0;
-  width: 47%;
-  height: 48px;
+  width: 48%;
+  height:2.4rem;
   background: transparent;
   border: 2px solid #4AB9F2;
   border-radius: 5px;

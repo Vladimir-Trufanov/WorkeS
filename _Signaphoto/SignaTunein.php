@@ -74,13 +74,13 @@ function cssDivPosition($SiteDevice,$_Orient)
       {
          ?> <style>
          
-         body{font-size:1rem;}
-         #ViewTuneIn{padding:.7rem;margin:.7rem;}
-         /*.checkbox-label{height:1rem;width:1.9rem;margin:.6rem auto;}*/
+         body{font-size:.6rem;}
+        
+         #ViewTuneIn{padding:0;margin:0;width:100%;hight:100%;}
          .checkbox-label{height:2rem;width:3.8rem;margin:.6rem auto;}
 
-         #percML{float:left;width:37%;}
-         #checkML{float:right;width:63%;}
+         #percML{float:left;width:40%;padding:.4rem .4rem;margin:0;}
+         #checkML{float:right;width:60%;padding:.4rem .4rem;margin:0;}
          
          #All,#Lead {position:fixed; height:100%;}
          #All {left:0;  width:80%; }
@@ -103,7 +103,7 @@ function cssDivPosition($SiteDevice,$_Orient)
       {
          ?> <style>
          
-         body{font-size:1rem;}
+         body,#btnTune{font-size:1rem;}
          #ViewTuneIn{padding:2rem;margin:2rem;}
          
          .checkbox-label{height:2rem;width:3.8rem;margin:.6rem auto;}
@@ -125,7 +125,7 @@ function cssDivPosition($SiteDevice,$_Orient)
       ?> 
       <style>
       
-      body{font-size:.9rem;}
+      body,#btnTune{font-size:.9rem;}
       #ViewTuneIn{padding:.7rem;margin:.7rem;}
       .checkbox-label{height:2rem;width:3.8rem;margin:.6rem auto;}
 
