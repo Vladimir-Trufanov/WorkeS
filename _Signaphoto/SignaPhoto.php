@@ -100,6 +100,25 @@ try
    if (prown\isComRequest('In','Tune')) $NamePage='Tunein';
    else $NamePage='Other';
    ?> <script>
+   
+  
+function jsViewMess()
+{   
+   SignaInnerWidth = document.documentElement.clientWidth*0.7;
+   $('#Info').dialog({
+      modal: true,
+      width: SignaInnerWidth,
+      position: {my: 'center center', at: 'center center'},
+      show: {effect:'slideDown'},
+      hide: {effect:'explode', delay:250, duration:1000, easing:'easeInQuad'}
+   });
+}
+
+ 
+   
+   
+   
+   
    NamePage="<?php echo $NamePage;?>";
    urlPage="<?php echo $urlPage;?>";
    urlHome="<?php echo $urlHome;?>";
@@ -177,56 +196,12 @@ function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,
     // Выходим на главную страницу сайта
     Home();
     // Закладываем в разметку див для сообщений через диалоговое окно
-    echo '<div id="'.ohInfo.'">';
+    //echo '<div id="'.ohInfo.'">';
+    echo '<div id="Info" title="SignaPhoto">';
+    echo 'Накладываем изображения штампа на фотографию с учетом ширины фотографии';
     echo '</div>';
   echo '</div>';
 }
-
-/*
-function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,
-   $c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient)
-{
-  // Размечаем область изображений
-  echo '<div id="All">';
-    // Размечаем область оригинального изображения и образца подписи
-    echo '<div  id="View">';
-      // Показываем загруженное изображение для подписи
-      echo '<div id="Photo">';
-        ViewPhoto($c_FileImg);
-      echo '</div>';
-      // Показываем образец подписи
-      echo '<div  id="Stamp">';
-        ViewStamp($c_FileStamp);
-      echo '</div>';
-    echo '</div>';
-    // Размечаем область изображения с подписью
-    echo '<div  id="Proba">';
-      if (prown\isComRequest('In','Tune')) ViewTuneIn($c_PerSizeImg,$c_PointCorner,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
-      else ViewProba($c_FileProba,$RemoteAddr,
-         $c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,
-         $c_FileImg,$c_FileStamp,$c_Orient);
-    echo '</div>';
-  echo '</div>';
-   
-  // Размечаем область управления загрузкой и подписанием
-  echo '<div  id="Lead">';
-    // Строим форму и кнопку загрузки изображения для подписи
-    LoadImg();
-    // Накладываем изображения штампа на фотографию с учетом ширины фотографии
-    // и смещения штампа от точка привязки       
-    MakeStamp();
-    // Изменяем настройки подписания фотографии
-    Tunein();
-    // Загружаем образец для подписания фотографии
-    LoadStamp();
-    // Выходим на главную страницу сайта
-    Home();
-    // Закладываем в разметку див для сообщений через диалоговое окно
-    echo '<div id="'.ohInfo.'">';
-    echo '</div>';
-  echo '</div>';
-}
-*/
 // ****************************************************************************
 // *                            Начать HTML-страницу сайта                    *
 // ****************************************************************************

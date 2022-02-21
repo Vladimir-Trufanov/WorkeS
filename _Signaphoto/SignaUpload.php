@@ -47,25 +47,20 @@ if ($isDir===true)
       $NameLoad=$PrefName.$PostFix;
       $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
       $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
-      MoveFromUpload($imgDir,$NameLoad,$c_FileImg,'FileImg',$localimg);
-      // Создаем копию оригинального изображение для подписи
-      // Важно: здесь имена создаем через MakeNumRID, как и для оригинального
-      // изображения для того чтобы автоматически удалялся старый файл
-      $PostFix='proba';
-      $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
-      $NameLoad=$PrefName.$PostFix;
-      $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
-      $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
-      if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
-      else ViewMess(ajCopyImageNotCreate);
+      if (MoveFromUpload($imgDir,$NameLoad,$c_FileImg,'FileImg',$localimg))
+      {
+         // Создаем копию оригинального изображение для подписи
+         // Важно: здесь имена создаем через MakeNumRID, как и для оригинального
+         // изображения для того чтобы автоматически удалялся старый файл
+         $PostFix='proba';
+         $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
+         $NameLoad=$PrefName.$PostFix;
+         $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
+         $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
+         if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
+         else ViewMess(ajCopyImageNotCreate);
+      }
    }
-   /* 12/02/2022
-   // Перезагружаем начальную страницу
-   Header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
-   Header('Pragma: no-cache');                                   // HTTP 1.0.
-   Header('Expires: 0');                                         // Proxies.
-   Header('Location: '.$urlPage);
-   */
 }
 // ****************************************************************************
 // *       Определить, загрузка какого файла выполнена: оригинального         *
@@ -109,12 +104,18 @@ function getLoadKind()
 // ****************************************************************************
 function MoveFromUpload($imgDir,$NameLoadp,&$c_FileImgx,$NameCookie,$localimg)
 {
+   $Result=true;
    // Перебрасываем файл  
    $upload=new ttools\UploadToServer($imgDir,$NameLoadp);
    $MessUpload=$upload->move();
    // Если перемещение завершилось неудачно, то выдаем сообщение
-   if ($MessUpload<>imok) ViewMess($MessUpload);
+   if ($MessUpload<>imok) 
+   {
+      ViewMess($MessUpload);
+      $Result=false;
+   }
    // Перемещение файла на сервер выполнилось успешно, меняем кукис
    else $c_FileImgx=prown\MakeCookie($NameCookie,$localimg,tStr);
+   return $Result; 
 }
 // ******************************************************** SignaUpload.php ***

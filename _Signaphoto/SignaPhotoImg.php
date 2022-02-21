@@ -163,8 +163,12 @@ function Home()
 // ****************************************************************************
 function ViewMess($Mess)
 {
-   $_Prefix='SignaPhoto';
-   prown\Alert($_Prefix.': '.$Mess);
+   //$_Prefix='SignaPhoto';
+   //prown\Alert($_Prefix.': '.$Mess);
+   
+   ?> <script>
+   jsViewMess();
+   </script> <?php
 }
 // ****************************************************************************
 // *                  Вывести загруженное изображение для подписи             *
