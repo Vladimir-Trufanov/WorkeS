@@ -19,32 +19,28 @@ $SiteHost   = $_WORKSPACE[wsSiteHost];      // Каталог хостинга
 $SiteDevice = $_WORKSPACE[wsSiteDevice];    // 'Computer' | 'Mobile' | 'Tablet'
 $SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol() 
 $RemoteAddr = $_WORKSPACE[wsRemoteAddr];    // IP-адрес запроса сайта
-
 // Определяем URL сайта и URL страницы приложения "Подписать фотографию"
 $urlHome=$SiteProtocol.'://'.$_SERVER['HTTP_HOST']; 
 $urlPage=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/_Signaphoto/SignaPhoto.php'; 
-
 // Определяем полный путь каталога хранения изображений и
 // его url-аналог для связывания с разметкой через кукис
 $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
 $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
-
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
    session_start();
-   
    // Подключаем модуль и выводим технологическую информацию
    require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';
-   
    // Указываем место размещения библиотеки прикладных функций TPhpPrown
    define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown');
    // Указываем место размещения библиотеки прикладных классов TPhpTools
    define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools');
    // Подключаем файлы библиотеки прикладных модулей:
    require_once pathPhpPrown."/CommonPrown.php";
+   require_once pathPhpPrown."/CreateRightsDir.php";
    require_once pathPhpPrown."/MakeCookie.php";
    require_once pathPhpPrown."/MakeRID.php";
    require_once pathPhpPrown."/MakeSession.php";
@@ -52,12 +48,14 @@ try
    require_once pathPhpPrown."/ViewGlobal.php";
    // Подключаем файлы библиотеки прикладных классов:
    require_once pathPhpTools."/iniToolsMessage.php";
-
+   require_once pathPhpTools."/TUploadToServer/UploadToServerClass.php";
    // Подключаем рабочие модули:
    require_once 'SignaPhotoDef.php';
    require_once "SignaPhotoImg.php";
    require_once "SignaTunein.php";
-   
+   require_once "SignaUpload.php";
+   // Инициируем сообщения
+   $InfoMess=ajSuccess;
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
    // регистрируем новую загрузку страницы
    $c_UserName=prown\MakeCookie('UserName',"Гость",tStr,true);              // логин авторизованного посетителя
@@ -76,49 +74,26 @@ try
       if ($_GET["orient"]==oriLandscape) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
       if ($_GET["orient"]==oriPortrait)  $c_Orient=prown\MakeCookie('Orient',oriPortrait,tStr); 
    }
-
    // Изменяем сессионные переменные (сессионные переменные инициируются после
    // переменных-кукисов, так как некоторые переменные-кукисы переопределяются появившимися
    // сессионными переменными. Например: $s_ModeImg --> $c_ModeImg)
    $s_Counter=prown\MakeSession('Counter',0,tInt,true);      // посещения за сессию
    $s_Counter=prown\MakeSession('Counter',$s_Counter+1,tInt);   
-
    // Обрабатываем параметры HTTP-запроса по настройкам подписания изображений
    // и записываем данные в кукисы
    TuneinRequest($urlPage,$c_PointCorner,$c_PerSizeImg,$c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp);
-
    // Подключаемся к файлам изображений
    ConnectImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Обрабатываем загрузку изображения 
-   if (IsSet($_POST["MAX_FILE_SIZE"])) require_once "SignaUpload.php";
+   ifSignaUpload($InfoMess,$imgDir,$urlDir,$c_FileStamp,$c_FileImg,$c_FileProba);
    // Обрабатываем подписание фотографии 
    if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$SiteProtocol,$SiteDevice,$c_Orient);
-   
    // Подключаем скрипты по завершению загрузки страницы
    if (prown\isComRequest('In','Tune')) $NamePage='Tunein';
    else $NamePage='Other';
    ?> <script>
-   
-  
-function jsViewMess()
-{   
-   SignaInnerWidth = document.documentElement.clientWidth*0.7;
-   $('#Info').dialog({
-      modal: true,
-      width: SignaInnerWidth,
-      position: {my: 'center center', at: 'center center'},
-      show: {effect:'slideDown'},
-      hide: {effect:'explode', delay:250, duration:1000, easing:'easeInQuad'}
-   });
-}
-
- 
-   
-   
-   
-   
    NamePage="<?php echo $NamePage;?>";
    urlPage="<?php echo $urlPage;?>";
    urlHome="<?php echo $urlHome;?>";
@@ -139,14 +114,35 @@ function jsViewMess()
    // Запускаем построение базовой разметки
    MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,
       $c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient,$SiteDevice);
-
    // Завершаем вывод страницы 
+   ViewMess($InfoMess);
    echo '</body>';
    echo '</html>';
 }
 catch (E_EXCEPTION $e) 
 {
    DoorTryPage($e);
+}
+// ****************************************************************************
+// *        Вывести информационное сообщение или сообщение об ошибке          *
+// ****************************************************************************
+function ViewMess($InfoMess)
+{
+   if ($InfoMess<>ajSuccess)
+   {
+      ?> <script>
+      InfoMess="<?php echo $InfoMess;?>";
+      $('#'+ohInfo).html(InfoMess);
+      SignaInnerWidth = document.documentElement.clientWidth*0.7;
+      $('#'+ohInfo).dialog({
+         modal: true,
+        width: SignaInnerWidth,
+        position: {my: 'center center', at: 'center center'},
+        show: {effect:'slideDown'},
+        hide: {effect:'explode', delay:250, duration:1000, easing:'easeInQuad'}
+      });
+      </script> <?php
+   }
 }
 // ****************************************************************************
 // *                           Выполняем базовую разметку                     *
@@ -196,9 +192,7 @@ function MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,
     // Выходим на главную страницу сайта
     Home();
     // Закладываем в разметку див для сообщений через диалоговое окно
-    //echo '<div id="'.ohInfo.'">';
-    echo '<div id="Info" title="SignaPhoto">';
-    echo 'Накладываем изображения штампа на фотографию с учетом ширины фотографии';
+    echo '<div id="'.ohInfo.'"'.' title="SignaPhoto">';
     echo '</div>';
   echo '</div>';
 }

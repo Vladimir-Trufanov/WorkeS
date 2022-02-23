@@ -7,58 +7,65 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  25.11.2021
-// Copyright © 2021 tve                              Посл.изменение: 12.02.2022
+// Copyright © 2021 tve                              Посл.изменение: 23.02.2022
 
-// Подключаем файлы библиотеки прикладных модулей:
-require_once pathPhpPrown."/CreateRightsDir.php";
-// Подключаем файлы библиотеки прикладных классов:
-require_once pathPhpTools."/TUploadToServer/UploadToServerClass.php";
-
-// Создаем каталог для хранения изображений, если его нет.
-$modeDir=0777;
-$isDir=prown\CreateRightsDir($imgDir,$modeDir,rvsReturn);
-// Если с каталогом все в порядке, то будем перебрасывать файл на сервер
-if ($isDir===true)
+function ifSignaUpload(&$InfoMess,$imgDir,$urlDir,&$c_FileStamp,&$c_FileImg,&$c_FileProba)
 {
-   // Определяем, загрузка какого файла выполнена: оригинального изображения
-   // или образца подписи, через имя массива ("loadimg","loadstamp") из $_FILES         
-   $NameInput=getLoadKind();
-
-   $field=current($_FILES);
-   $type=substr($field['type'],strpos($field['type'],'/')+1);
-
-   if ($NameInput=="loadstamp") 
+   // Отрабатываем функцию только тогда, когда нет ошибки
+   if ($InfoMess===ajSuccess)
    {
-      // Назначаем префикс имени файла в соответствии с RID и для файла штампа
-      $PostFix='stamp';
-      $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
-      $NameLoad=$PrefName.$PostFix;
-      $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
-      $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
-      // Перемещаем загруженный файл из временного хранилища на сервер,
-      // записываем кукис                            
-      MoveFromUpload($imgDir,$NameLoad,$c_FileStamp,'FileStamp',$localimg);
+      if (IsSet($_POST["MAX_FILE_SIZE"])) 
+      MakeSignaUpload($InfoMess,$imgDir,$urlDir,$c_FileStamp,$c_FileImg,$c_FileProba);
    }
-   else if ($NameInput=="loadimg") 
+}
+function MakeSignaUpload(&$InfoMess,$imgDir,$urlDir,&$c_FileStamp,&$c_FileImg,&$c_FileProba)
+{
+   // Создаем каталог для хранения изображений, если его нет.
+   $modeDir=0777;
+   $isDir=prown\CreateRightsDir($imgDir,$modeDir,rvsReturn);
+   // Если с каталогом все в порядке, то будем перебрасывать файл на сервер
+   if ($isDir===true)
    {
-      // Перемещаем оригинальное изображение
-      $PostFix='img';
-      $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
-      $NameLoad=$PrefName.$PostFix;
-      $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
-      $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
-      if (MoveFromUpload($imgDir,$NameLoad,$c_FileImg,'FileImg',$localimg))
+      // Определяем, загрузка какого файла выполнена: оригинального изображения
+      // или образца подписи, через имя массива ("loadimg","loadstamp") из $_FILES         
+      $NameInput=getLoadKind();
+      $field=current($_FILES);
+      $type=substr($field['type'],strpos($field['type'],'/')+1);
+      // Перемещаем штамп
+      if ($NameInput=="loadstamp") 
       {
-         // Создаем копию оригинального изображение для подписи
-         // Важно: здесь имена создаем через MakeNumRID, как и для оригинального
-         // изображения для того чтобы автоматически удалялся старый файл
-         $PostFix='proba';
+         // Назначаем префикс имени файла в соответствии с RID и для файла штампа
+         $PostFix='stamp';
          $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
          $NameLoad=$PrefName.$PostFix;
-         $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
-         $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
-         if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
-         else ViewMess(ajCopyImageNotCreate);
+         $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
+         $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
+         // Перемещаем загруженный файл из временного хранилища на сервер,
+         // записываем кукис                            
+         MoveFromUpload($InfoMess,$imgDir,$NameLoad,$c_FileStamp,'FileStamp',$localimg);
+      }
+      // Перемещаем оригинальное изображение и делаем копию, как пописанное фото
+      else if ($NameInput=="loadimg") 
+      {
+         // Перемещаем оригинальное изображение
+         $PostFix='img';
+         $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
+         $NameLoad=$PrefName.$PostFix;
+         $localimg=$urlDir.'/'.$NameLoad.'.'.$type;
+         $nameimg=$imgDir.'/'.$NameLoad.'.'.$type;
+         if (MoveFromUpload($InfoMess,$imgDir,$NameLoad,$c_FileImg,'FileImg',$localimg))
+         {
+            // Создаем копию оригинального изображение для подписи
+            // Важно: здесь имена создаем через MakeNumRID, как и для оригинального
+            // изображения для того чтобы автоматически удалялся старый файл
+            $PostFix='proba';
+            $PrefName=prown\MakeNumRID($imgDir,$PostFix,$type,true);
+            $NameLoad=$PrefName.$PostFix;
+            $localimgp=$urlDir.'/'.$NameLoad.'.'.$type;
+            $nameimgp=$imgDir.'/'.$NameLoad.'.'.$type;
+            if (copy($nameimg,$nameimgp)) $c_FileProba=prown\MakeCookie('FileProba',$localimgp,tStr);
+            else $InfoMess=ajCopyImageNotCreate;
+         }
       }
    }
 }
@@ -102,7 +109,7 @@ function getLoadKind()
 // *       Переместить загруженный файл из временного хранилища на сервер     *
 // *                           и записать в кукис                             *
 // ****************************************************************************
-function MoveFromUpload($imgDir,$NameLoadp,&$c_FileImgx,$NameCookie,$localimg)
+function MoveFromUpload(&$InfoMess,$imgDir,$NameLoadp,&$c_FileImgx,$NameCookie,$localimg)
 {
    $Result=true;
    // Перебрасываем файл  
@@ -111,7 +118,7 @@ function MoveFromUpload($imgDir,$NameLoadp,&$c_FileImgx,$NameCookie,$localimg)
    // Если перемещение завершилось неудачно, то выдаем сообщение
    if ($MessUpload<>imok) 
    {
-      ViewMess($MessUpload);
+      $InfoMess=$MessUpload;
       $Result=false;
    }
    // Перемещение файла на сервер выполнилось успешно, меняем кукис
