@@ -54,6 +54,7 @@ try
    require_once "SignaPhotoImg.php";
    require_once "SignaTunein.php";
    require_once "SignaUpload.php";
+   require_once "SignaMakeStamp.php";
    // Инициируем сообщения
    $InfoMess=ajSuccess;
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
@@ -86,8 +87,11 @@ try
    ConnectImgFiles($c_FileImg,$c_FileStamp,$c_FileProba);
    // Обрабатываем загрузку изображения 
    ifSignaUpload($InfoMess,$imgDir,$urlDir,$c_FileStamp,$c_FileImg,$c_FileProba);
-   // Обрабатываем подписание фотографии 
-   if (prown\isComRequest('Do','Stamp')) require_once "SignaMakeStamp.php";
+   // Обрабатываем подписание фотографии
+   //prown\ConsoleLog('$c_FileStamp::'.$c_FileStamp); 
+   ifSignaMakeStamp($InfoMess,$c_FileImg,$c_FileStamp,$imgDir,
+      $c_PerSizeImg,$c_MaintainProp,$c_PointCorner,$c_PerMargeWidth,
+      $c_PerMargeHight,$SiteProtocol,$c_FileProba,$urlDir);
    // Готовим начало страницы для подписывания фотографий
    IniPage($c_SignaPhoto,$SiteProtocol,$SiteDevice,$c_Orient);
    // Подключаем скрипты по завершению загрузки страницы
