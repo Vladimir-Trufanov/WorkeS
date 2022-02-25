@@ -163,7 +163,7 @@ function ImageAndStamp(&$InfoMess,$im,$stamp,$type,$SiteProtocol,$xDesc,$yDesc,
 {
    // Заменяем URL-адрес на путь в файловой системе
    $Point=strpos($c_FileProba,$urlDir);
-   if ($Point===false) ViewMess(ajNameFileNoMatchUrl);
+   if ($Point===false) $InfoMess=ajNameFileNoMatchUrl;
    else
    {
       $Point=strlen($urlDir);
@@ -182,42 +182,30 @@ function ImageAndStamp(&$InfoMess,$im,$stamp,$type,$SiteProtocol,$xDesc,$yDesc,
 }
 // ****************************************************************************
 // *   Сделать требуемое gif или png изображение прозрачным png-изображением  *
-// *     (так как на 20/08/2021 tve не знает способа проверки прозрачности)   *
+// *          для того, чтобы на него можно было наложить подпись             *
 // ****************************************************************************
 function makeTransparentImg(&$im,$wImg,$hImg,$c_FileImg,$FileExt,$imgDir)
 {
    $im=null;
-   // Изначально считаем, преобразование к прозрачному виду было успешным
-   $Result=ajTransparentSuccess;
-   // Выдаем сообщение, если файл не в заданном формате
-   if (($FileExt<>'gif')and($FileExt<>'png')) 
-   { 
-     // Если недопустимое расширение файла, то возвращаем сообщение
-     $Result=ajInvalidTransparent; ViewMess(ajInvalidTransparent);
-   } 
-   else
-   {
-      // Выбираем изображение
-      if ($FileExt=='gif') $source_resource=@imagecreatefromgif($c_FileImg);
-      else $source_resource=@imagecreatefrompng($c_FileImg);
-      // Создаем новое изображение
-      $destination_resource=@imagecreatetruecolor($wImg,$hImg);
-      // Отключаем режим сопряжения цветов
-      imagealphablending($destination_resource, false);
-      // Включаем сохранение альфа канала
-      imagesavealpha($destination_resource, true);
-      // Копируем изображение
-      imagecopyresampled($destination_resource,$source_resource,0,0,0,0,$wImg,$hImg,$wImg,$hImg);
-      // Сохраняем изображение в промежуточный файл png
-      $PostFix='probt';
-      $PrefName=prown\MakeNumRID($imgDir,$PostFix,'png',true);
-      $NameLoad=$PrefName.$PostFix;
-      $destination_path=$imgDir.'/'.$NameLoad.'.'.'png';
-      imagepng($destination_resource, $destination_path);
-      // Извлекаем уже прозрачное изображение
-      $im = @imagecreatefrompng($destination_path);
-      return $Result;
-   }
+   // Выбираем изображение
+   if ($FileExt=='gif') $source_resource=@imagecreatefromgif($c_FileImg);
+   else $source_resource=@imagecreatefrompng($c_FileImg);
+   // Создаем новое изображение
+   $destination_resource=@imagecreatetruecolor($wImg,$hImg);
+   // Отключаем режим сопряжения цветов
+  imagealphablending($destination_resource, false);
+  // Включаем сохранение альфа канала
+  imagesavealpha($destination_resource, true);
+  // Копируем изображение
+  imagecopyresampled($destination_resource,$source_resource,0,0,0,0,$wImg,$hImg,$wImg,$hImg);
+  // Сохраняем изображение в промежуточный файл png
+  $PostFix='probt';
+  $PrefName=prown\MakeNumRID($imgDir,$PostFix,'png',true);
+  $NameLoad=$PrefName.$PostFix;
+  $destination_path=$imgDir.'/'.$NameLoad.'.'.'png';
+  imagepng($destination_resource, $destination_path);
+  // Извлекаем уже прозрачное изображение
+  $im = @imagecreatefrompng($destination_path);
 }
 // ****************************************************************************
 // *      Изменить размеры штампа (водяного знака) до заданной пропорции      *

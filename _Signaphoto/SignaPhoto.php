@@ -88,7 +88,6 @@ try
    // Обрабатываем загрузку изображения 
    ifSignaUpload($InfoMess,$imgDir,$urlDir,$c_FileStamp,$c_FileImg,$c_FileProba);
    // Обрабатываем подписание фотографии
-   //prown\ConsoleLog('$c_FileStamp::'.$c_FileStamp); 
    ifSignaMakeStamp($InfoMess,$c_FileImg,$c_FileStamp,$imgDir,
       $c_PerSizeImg,$c_MaintainProp,$c_PointCorner,$c_PerMargeWidth,
       $c_PerMargeHight,$SiteProtocol,$c_FileProba,$urlDir);
@@ -113,11 +112,11 @@ try
    echo '<body>';
 
    // Выводим отладочную информацию
-   // DebugView($s_Orient);
-
+   // DebugView($c_Orient);
    // Запускаем построение базовой разметки
    MarkupBase($c_FileImg,$c_FileStamp,$c_FileProba,$RemoteAddr,$c_PerSizeImg,$c_PointCorner,
       $c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient,$SiteDevice);
+
    // Завершаем вывод страницы 
    ViewMess($InfoMess);
    echo '</body>';
@@ -213,12 +212,7 @@ function IniPage(&$c_SignaPhoto,$SiteProtocol,$SiteDevice,$_Orient)
    echo '<html lang="ru">';
    echo '<head>';
    echo '<meta charset="UTF-8">';
-   // 12/02/2022 echo '<meta http-equiv="pragma" content="no-cache">';
    cssViewport($SiteDevice);
-   /*
-   echo '<meta http-equiv="cache-control" content="no-cache">';
-   echo '<meta http-equiv="expires" content="Mon, 22 Jul 2002 11:12:01 GMT">';
-   */
    echo '<title>Подписать фотографию: _SignaPhoto</title>';
    echo '<meta name="description" content="_SignaPhoto">';
    echo '<meta name="keywords"    content="_SignaPhoto">';
@@ -247,5 +241,4 @@ function IniPage(&$c_SignaPhoto,$SiteProtocol,$SiteDevice,$_Orient)
    echo '<script src="SignaPhoto.js"></script>';
    return $Result;
 }
-
 ?> <?php // *** <!-- --> *********************************** SignaPhoto.php ***
