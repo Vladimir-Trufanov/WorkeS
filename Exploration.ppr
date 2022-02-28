@@ -93,7 +93,7 @@ Exploration
 			_PencilPaper\index.html
 			_PencilPaper\license.txt
 			_PencilPaper\README.txt
-		-_Proba
+		+_Proba
 			-smartmenus
 				_Proba\smartmenus\jquery.min.js
 				_Proba\smartmenus\jquery.smartmenus.min.js
@@ -127,7 +127,7 @@ Exploration
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
-		+_Signaphoto
+		-_Signaphoto
 			-images
 				_Signaphoto\images\bg_page.png
 				_Signaphoto\images\iphoto.jpg
@@ -313,21 +313,23 @@ Exploration
 7=_Signaphoto\SignaUpload.php
 8=_Signaphoto\SignaPhoto.css
 9=ViewEnviron.php
+10=_Proba\index.html
+11=_Signaphoto\ajaEraseFiles.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\SignaPhoto.php
+Selected=_Signaphoto\ajaEraseFiles.php
 [index.html]
 TopLine=5
 Caret=1,5
 [_Signaphoto\SignaPhoto.php]
-TopLine=97
-Caret=4,118
+TopLine=105
+Caret=49,123
 [_Signaphoto\SignaMakeStamp.php]
 TopLine=159
 Caret=1,165
 [_Signaphoto\SignaPhoto.js]
-TopLine=10
-Caret=1,10
+TopLine=195
+Caret=1,220
 [_Signaphoto\SignaPhotoDef.php]
 TopLine=17
 Caret=19,53
@@ -346,3 +348,9 @@ Caret=8,66
 [ViewEnviron.php]
 TopLine=4
 Caret=6,37
+[_Proba\index.html]
+TopLine=19
+Caret=1,1
+[_Signaphoto\ajaEraseFiles.php]
+TopLine=1
+Caret=1,32

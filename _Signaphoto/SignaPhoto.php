@@ -104,6 +104,40 @@ try
    $(document).ready(function() {
       window.addEventListener('orientationchange',doOnOrientationChange);
       OnOrientationChange(xOrient);
+      //
+      window.onbeforeunload = function(e) 
+      {
+      
+     $.ajax({
+      type:'POST',                        // тип запроса
+      url: 'ajaEraseFiles.php',           // скрипт обработчика
+      dataType: "json",
+      async: false,                       // гуглом не рекомендуется 'из-за пагубного воздействия'
+      data:  {first:1, second:"second"},  // данные которые мы передаем
+      cache: false,                       // по POST отключено, но явно уточняем
+      contentType: false,                 // отключаем, так как тип кодирования задан в форме
+      processData: false,                 // отключаем, так как передаем файл
+      // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
+      success:function(data)
+      {
+         dialogText='Возвращаемое сообщение БЫЛО!';
+      },
+      // Отмечаем  неуспешное выполнение аякс-запроса по причине:
+      error:function(data)
+      {
+         dialogText='Возвращаемое сообщение НЕ пришло!';
+      }
+   });
+    
+      
+      
+      
+      
+      
+      
+         e.returnValue=dialogText;
+         return dialogText;
+      };
    });
    </script> <?php
 
@@ -119,6 +153,7 @@ try
 
    // Завершаем вывод страницы 
    ViewMess($InfoMess);
+
    echo '</body>';
    echo '</html>';
 }

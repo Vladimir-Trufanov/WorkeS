@@ -191,5 +191,69 @@ function CalcPicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth)
    aCalcPicOnDiv.nTop=(heightDiv-heightImg)/2;
    return aCalcPicOnDiv;
 }
+// ****************************************************************************
+// *       Отработать ajax-запрос при закрытии окна, для удаления старых      *
+// *                  файлов в связи с подписанием фотографий                 *
+// ****************************************************************************
+function alfEraseFiles() 
+{
+   /*
+   $.ajax({
+      type:'POST',                        // тип запроса
+      url: 'ajaEraseFiles.php',           // скрипт обработчика
+      dataType: "json",
+      async: false,                       // гуглом не рекомендуется 'из-за пагубного воздействия'
+      data:  {first:1, second:"second"},  // данные которые мы передаем
+      cache: false,                       // по POST отключено, но явно уточняем
+      contentType: false,                 // отключаем, так как тип кодирования задан в форме
+      processData: false,                 // отключаем, так как передаем файл
+      // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
+      success:function(data)
+      {
+         //trassData(data);
+      },
+      // Отмечаем  неуспешное выполнение аякс-запроса по причине:
+      error:function(data)
+      {
+      }
+   });
+   */
+      
+   dialogText = 'Возвращаемое сообщение<br>пришло!';
+   // e.returnValue = dialogText;
+   return dialogText;
+
+} 
+// ****************************************************************************
+// *         Трассировать переданные параметры через диалоговое окно          *
+// ****************************************************************************
+function trassData(data)
+{
+   htmlstr = '<table>';
+   // Делаем шапку таблицы
+   htmlstr += '<tr>';
+   htmlstr += '<th>' + 'DivId'     + '</th>';    
+   htmlstr += '<th>' + 'ImgName'   + '</th>'; 
+   htmlstr += '<th>' + 'ImgWidth'  + '</th>';    
+   htmlstr += '<th>' + 'ImgHeight' + '</th>'; 
+   htmlstr += '</tr>';
+   // Делаем тело таблицы              
+   for (i=0; i<data.length; i++) 
+   {
+      htmlstr += '<tr>';
+      htmlstr += '<td>' + data[i].DivId     + '</td>';    
+      htmlstr += '<td>' + data[i].ImgName   + '</td>'; 
+      htmlstr += '<td>' + data[i].ImgWidth  + '</td>';    
+      htmlstr += '<td>' + data[i].ImgHeight + '</td>'; 
+      htmlstr += '</tr>';
+   }
+   htmlstr += '</table>';
+   $('div#'+ohInfo).html(htmlstr); 
+   $('#'+ohInfo).dialog({modal:true});
+}
+
+
+
+
 
 // ********************************************************** SignaPhoto.js ***
