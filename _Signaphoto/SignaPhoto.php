@@ -31,7 +31,6 @@ $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp';
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
-   session_start();
    // Подключаем модуль и выводим технологическую информацию
    require_once $_SERVER['DOCUMENT_ROOT'].'/ViewEnviron.php';
    // Указываем место размещения библиотеки прикладных функций TPhpPrown
@@ -49,12 +48,18 @@ try
    // Подключаем файлы библиотеки прикладных классов:
    require_once pathPhpTools."/iniToolsMessage.php";
    require_once pathPhpTools."/TUploadToServer/UploadToServerClass.php";
+   require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
    // Подключаем рабочие модули:
    require_once 'SignaPhotoDef.php';
    require_once "SignaPhotoImg.php";
    require_once "SignaTunein.php";
    require_once "SignaUpload.php";
    require_once "SignaMakeStamp.php";
+   
+   // Выполняем запуск сессии и начальную инициализацию
+   // session_start();
+   $oMainStarter = new PageStarter('sph','SignaPhoto');
+   
    // Инициируем сообщения
    $InfoMess=ajSuccess;
    // Изменяем счетчики запросов сайта из браузера и, таким образом,       
@@ -137,6 +142,8 @@ try
       
          e.returnValue=dialogText;
          return dialogText;
+         //return true;
+         //return null;
       };
    });
    </script> <?php
