@@ -93,7 +93,7 @@ Exploration
 			_PencilPaper\index.html
 			_PencilPaper\license.txt
 			_PencilPaper\README.txt
-		+_Proba
+		-_Proba
 			-smartmenus
 				_Proba\smartmenus\jquery.min.js
 				_Proba\smartmenus\jquery.smartmenus.min.js
@@ -127,32 +127,6 @@ Exploration
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
-		-_Signaphoto
-			-images
-				_Signaphoto\images\bg_page.png
-				_Signaphoto\images\iphoto.jpg
-				_Signaphoto\images\iproba.png
-				_Signaphoto\images\istamp.png
-			-imgdebug
-				_Signaphoto\imgdebug\goggle-eyed.gif
-				_Signaphoto\imgdebug\goggle-eyed.png
-				_Signaphoto\imgdebug\goshan.jpg
-				_Signaphoto\imgdebug\ksiusha.jpg
-				_Signaphoto\imgdebug\stamplbp.png
-				_Signaphoto\imgdebug\stamptve.png
-				_Signaphoto\imgdebug\watermark.png
-				_Signaphoto\imgdebug\Дед-сын-и-внук.png
-				_Signaphoto\imgdebug\Танцы в Северном.doc
-				_Signaphoto\imgdebug\Хорошенькая.png
-			_Signaphoto\reset.min.css
-			_Signaphoto\SignaMakeStamp.php
-			_Signaphoto\SignaPhoto.css
-			_Signaphoto\SignaPhoto.js
-			_Signaphoto\SignaPhoto.php
-			_Signaphoto\SignaPhotoDef.php
-			_Signaphoto\SignaPhotoImg.php
-			_Signaphoto\SignaTunein.php
-			_Signaphoto\SignaUpload.php
 		-_Sortable
 			-css
 				-images
@@ -268,6 +242,47 @@ Exploration
 			Jsx\jquery-input-file-text.js
 			Jsx\jqueryui-1.13.0.min.css
 			Jsx\jqueryui-1.13.0.min.js
+		+Signaphoto
+			-Fonts
+				-Lobster
+					Signaphoto\Fonts\Lobster\Lobster-Regular.ttf
+					Signaphoto\Fonts\Lobster\OFL.txt
+			-images
+				Signaphoto\images\bg_page.png
+				Signaphoto\images\iphoto.jpg
+				Signaphoto\images\iproba.png
+				Signaphoto\images\istamp.png
+			-imgdebug
+				Signaphoto\imgdebug\goggle-eyed.gif
+				Signaphoto\imgdebug\goggle-eyed.png
+				Signaphoto\imgdebug\goshan.jpg
+				Signaphoto\imgdebug\ksiusha.jpg
+				Signaphoto\imgdebug\stamplbp.png
+				Signaphoto\imgdebug\stamptve.png
+				Signaphoto\imgdebug\watermark.png
+				Signaphoto\imgdebug\Дед-сын-и-внук.png
+				Signaphoto\imgdebug\Танцы в Северном.doc
+				Signaphoto\imgdebug\Хорошенькая.png
+			-visualize-master
+				-images
+					Signaphoto\visualize-master\images\screenshot.jpg
+				Signaphoto\visualize-master\index.html
+				Signaphoto\visualize-master\README.md
+				Signaphoto\visualize-master\visualize.jquery.json
+				Signaphoto\visualize-master\visualize.js
+			Signaphoto\ajaEraseFiles.php
+			Signaphoto\log.txt
+			Signaphoto\LogName.txt
+			Signaphoto\reset.min.css
+			Signaphoto\SignaMakeStamp.php
+			Signaphoto\SignaPhoto.css
+			Signaphoto\SignaPhoto.js
+			Signaphoto\SignaPhoto.php
+			Signaphoto\SignaPhoto.txt
+			Signaphoto\SignaPhotoDef.php
+			Signaphoto\SignaPhotoImg.php
+			Signaphoto\SignaTunein.php
+			Signaphoto\SignaUpload.php
 		-SmartMenus
 			SmartMenus\ColabLig-webfont.ttf
 			SmartMenus\ColabLig-webfont.woff
@@ -279,20 +294,15 @@ Exploration
 			SmartMenus\sm-blue.css
 			SmartMenus\sm-core-css.css
 		-Temp
-			Temp\Win10Ch98De--1img.gif
-			Temp\Win10Ch98De--1img.jpeg
-			Temp\Win10Ch98De--1img.png
-			Temp\Win10Ch98De--1proba.gif
-			Temp\Win10Ch98De--1proba.jpeg
-			Temp\Win10Ch98De--1proba.png
-			Temp\Win10Ch98De--1probt.png
-			Temp\Win10Ch98De--1stamp.png
-			Temp\Win10Ch98De--1stamt.png
-			Temp\Win32IE11De--1img.jpeg
-			Temp\Win32IE11De--1proba.jpeg
-			Temp\Win32IE11De--1stamp.png
-			Temp\Win32IE11De--1stamt.png
+			Temp\Win10Ch98De--15probt.png
+			Temp\Win10Ch98De--15stamt.png
+			Temp\Win10Ch98De--18img.png
+			Temp\Win10Ch98De--18proba.png
+			Temp\Win10Ch98De--18stamp.png
 		-Материалы
+			Материалы\PHP и realpath.doc
+			Материалы\Метаданные в HTML.doc
+			Материалы\Усовершенствованное кэширование страниц.doc
 		.gitignore
 		errors.txt
 		Exploration.ppr
@@ -304,49 +314,25 @@ Exploration
 		ViewEnviron.php
 [Open project files]
 0=index.html
-1=_Signaphoto\SignaPhoto.php
-2=_Signaphoto\SignaMakeStamp.php
-3=_Signaphoto\SignaPhoto.js
-4=_Signaphoto\SignaPhotoDef.php
-5=_Signaphoto\SignaPhotoImg.php
-6=_Signaphoto\SignaTunein.php
-7=_Signaphoto\SignaUpload.php
-8=_Signaphoto\SignaPhoto.css
-9=_Signaphoto\ajaEraseFiles.php
-10=..\..\TPhpTools\TPhpTools\TPageStarter\PageStarterClass.php
+1=..\..\TPhpPrown\TPhpPrown\CommonPrown.php
+2=Signaphoto\SignaPhotoDef.php
+3=Signaphoto\SignaPhoto.php
+4=Signaphoto\ajaEraseFiles.php
 [Selected Project Files]
 Main=
-Selected=_Signaphoto\ajaEraseFiles.php
+Selected=Signaphoto\ajaEraseFiles.php
 [index.html]
-TopLine=5
-Caret=1,5
-[_Signaphoto\SignaPhoto.php]
-TopLine=43
-Caret=54,61
-[_Signaphoto\SignaMakeStamp.php]
-TopLine=127
-Caret=1,165
-[_Signaphoto\SignaPhoto.js]
-TopLine=195
-Caret=1,220
-[_Signaphoto\SignaPhotoDef.php]
-TopLine=17
-Caret=19,53
-[_Signaphoto\SignaPhotoImg.php]
-TopLine=123
-Caret=1,161
-[_Signaphoto\SignaTunein.php]
-TopLine=67
-Caret=41,79
-[_Signaphoto\SignaUpload.php]
-TopLine=83
-Caret=1,118
-[_Signaphoto\SignaPhoto.css]
-TopLine=66
-Caret=8,66
-[_Signaphoto\ajaEraseFiles.php]
-TopLine=4
-Caret=50,28
-[..\..\TPhpTools\TPhpTools\TPageStarter\PageStarterClass.php]
-TopLine=101
-Caret=30,121
+TopLine=31
+Caret=27,40
+[..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
+TopLine=229
+Caret=72,240
+[Signaphoto\SignaPhotoDef.php]
+TopLine=1
+Caret=72,16
+[Signaphoto\SignaPhoto.php]
+TopLine=15
+Caret=48,27
+[Signaphoto\ajaEraseFiles.php]
+TopLine=35
+Caret=3,32

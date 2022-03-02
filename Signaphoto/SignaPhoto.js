@@ -110,7 +110,10 @@ function alf2LoadFile()
 function alf1sFindFile() 
    {document.getElementById('my_shidden_file').click();} 
 function alf2sLoadFile()
-   {document.getElementById('my_shidden_load').click();}
+{
+   document.getElementById('my_shidden_load').click();
+   alfEraseFiles();
+}
 // ****************************************************************************
 // *                      Выйти на главную страницу сайта                     *
 // ****************************************************************************
@@ -192,37 +195,27 @@ function CalcPicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth)
    return aCalcPicOnDiv;
 }
 // ****************************************************************************
-// *       Отработать ajax-запрос при закрытии окна, для удаления старых      *
-// *                  файлов в связи с подписанием фотографий                 *
+// *          Отработать ajax-запрос для удаления старых файлов               *
 // ****************************************************************************
 function alfEraseFiles() 
 {
-   /*
    $.ajax({
       type:'POST',                        // тип запроса
       url: 'ajaEraseFiles.php',           // скрипт обработчика
       dataType: "json",
-      async: false,                       // гуглом не рекомендуется 'из-за пагубного воздействия'
       data:  {first:1, second:"second"},  // данные которые мы передаем
-      cache: false,                       // по POST отключено, но явно уточняем
-      contentType: false,                 // отключаем, так как тип кодирования задан в форме
+      cache: true,  // запрошенные страницы кэшировать браузером (задаем явно для IE)
       processData: false,                 // отключаем, так как передаем файл
       // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
       success:function(data)
       {
-         //trassData(data);
       },
-      // Отмечаем  неуспешное выполнение аякс-запроса по причине:
+      // Отмечаем безуспешное удаление старых файлов
       error:function(data)
       {
+         alert(ajUndeletionOldFiles+'!');
       }
    });
-   */
-      
-   dialogText = 'Возвращаемое сообщение<br>пришло!';
-   // e.returnValue = dialogText;
-   return dialogText;
-
 } 
 // ****************************************************************************
 // *         Трассировать переданные параметры через диалоговое окно          *

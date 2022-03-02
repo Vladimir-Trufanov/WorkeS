@@ -1,0 +1,12 @@
+[01-Mar-2022 14:09:27 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Class 'PageStarter' not found in C:\Webservers\Exploration\_Signaphoto\ajaEraseFiles.php:24
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\ajaEraseFiles.php on line 24
+[01-Mar-2022 16:14:10 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Class 'ttools\PageStarter' not found in C:\Webservers\Exploration\_Signaphoto\ajaEraseFiles.php:27
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\ajaEraseFiles.php on line 27
+[01-Mar-2022 16:15:10 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Class 'ttools\PageStarter' not found in C:\Webservers\Exploration\_Signaphoto\ajaEraseFiles.php:27
+Stack trace:
+#0 {main}
+  thrown in C:\Webservers\Exploration\_Signaphoto\ajaEraseFiles.php on line 27

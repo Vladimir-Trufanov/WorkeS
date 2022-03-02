@@ -184,7 +184,7 @@ function ViewProba($c_FileProba,$RemoteAddr,
    echo '<img id="picProba" src="'.$c_FileProba.'"'.' alt="'.$c_FileProba.'"'.
      ' title="Подписанное изображение">';
    MakeImgOnDiv('Proba','picProba',$c_FileProba,94);
-   
+      
    /*
    echo '$c_FileImg='.$c_FileImg.'<br>';
    echo '$c_FileStamp='.$c_FileStamp.'<br>';

@@ -8,7 +8,7 @@
 
 //                                                   Автор:       Труфанов В.Е.
 // v5.1                                              Дата создания:  01.06.2021
-// Copyright © 2021 tve                              Посл.изменение: 11.02.2022
+// Copyright © 2021 tve                              Посл.изменение: 02.03.2022
 
 // Инициируем рабочее пространство страницы
 require_once $_SERVER['DOCUMENT_ROOT'].'/iniWorkSpace.php';
@@ -21,9 +21,10 @@ $SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol()
 $RemoteAddr = $_WORKSPACE[wsRemoteAddr];    // IP-адрес запроса сайта
 // Определяем URL сайта и URL страницы приложения "Подписать фотографию"
 $urlHome=$SiteProtocol.'://'.$_SERVER['HTTP_HOST']; 
-$urlPage=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/_Signaphoto/SignaPhoto.php'; 
+$urlPage=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Signaphoto/SignaPhoto.php'; 
 // Определяем полный путь каталога хранения изображений и
 // его url-аналог для связывания с разметкой через кукис
+$sceDir=$_SERVER['DOCUMENT_ROOT'].'/Signaphoto'; 
 $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
 $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
@@ -109,42 +110,6 @@ try
    $(document).ready(function() {
       window.addEventListener('orientationchange',doOnOrientationChange);
       OnOrientationChange(xOrient);
-      //
-      window.onbeforeunload = function(e) 
-      {
-      
-     $.ajax({
-      type:'POST',                        // тип запроса
-      url: 'ajaEraseFiles.php',           // скрипт обработчика
-      dataType: "json",
-      async: false,                       // гуглом не рекомендуется 'из-за пагубного воздействия'
-      data:  {first:1, second:"second"},  // данные которые мы передаем
-      cache: false,                       // по POST отключено, но явно уточняем
-      contentType: false,                 // отключаем, так как тип кодирования задан в форме
-      processData: false,                 // отключаем, так как передаем файл
-      // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
-      success:function(data)
-      {
-         dialogText='Возвращаемое сообщение БЫЛО!';
-      },
-      // Отмечаем  неуспешное выполнение аякс-запроса по причине:
-      error:function(data)
-      {
-         dialogText='Возвращаемое сообщение НЕ пришло!';
-      }
-   });
-    
-      
-      
-      
-      
-      
-      
-         e.returnValue=dialogText;
-         return dialogText;
-         //return true;
-         //return null;
-      };
    });
    </script> <?php
 
