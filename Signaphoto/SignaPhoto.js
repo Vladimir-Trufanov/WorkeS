@@ -197,6 +197,23 @@ function CalcPicOnDiv(cDiv,cImg,wImg,hImg,mAligne,perWidth)
 // ****************************************************************************
 // *          Отработать ajax-запрос для удаления старых файлов               *
 // ****************************************************************************
+function formatDateTime(date) 
+{
+   dd=date.getDate();
+   if (dd < 10) dd = '0' + dd;
+   mm = date.getMonth() + 1;
+   if (mm < 10) mm = '0' + mm;
+   yy = date.getFullYear();
+   if (yy < 10) yy = '0' + yy;
+
+   hh=date.getHours();
+   if (hh < 10) hh = '0' + hh;
+   ii=date.getMinutes();
+   if (ii < 10) ii = '0' + ii;
+   ss=date.getSeconds();
+   if (ss < 10) ss = '0' + ss;
+   return yy+'-'+mm+'-'+dd+' '+hh+':'+ii+':'+ss;
+}
 function alfEraseFiles() 
 {
    $.ajax({
@@ -209,44 +226,13 @@ function alfEraseFiles()
       // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
       success:function(data)
       {
+         alert(data[0].text);
       },
       // Отмечаем безуспешное удаление старых файлов
       error:function(data)
       {
-         alert(ajUndeletionOldFiles+'!');
+         alert(formatDateTime(new Date())+' '+ajUndeletionOldFiles+'!');
       }
    });
 } 
-// ****************************************************************************
-// *         Трассировать переданные параметры через диалоговое окно          *
-// ****************************************************************************
-function trassData(data)
-{
-   htmlstr = '<table>';
-   // Делаем шапку таблицы
-   htmlstr += '<tr>';
-   htmlstr += '<th>' + 'DivId'     + '</th>';    
-   htmlstr += '<th>' + 'ImgName'   + '</th>'; 
-   htmlstr += '<th>' + 'ImgWidth'  + '</th>';    
-   htmlstr += '<th>' + 'ImgHeight' + '</th>'; 
-   htmlstr += '</tr>';
-   // Делаем тело таблицы              
-   for (i=0; i<data.length; i++) 
-   {
-      htmlstr += '<tr>';
-      htmlstr += '<td>' + data[i].DivId     + '</td>';    
-      htmlstr += '<td>' + data[i].ImgName   + '</td>'; 
-      htmlstr += '<td>' + data[i].ImgWidth  + '</td>';    
-      htmlstr += '<td>' + data[i].ImgHeight + '</td>'; 
-      htmlstr += '</tr>';
-   }
-   htmlstr += '</table>';
-   $('div#'+ohInfo).html(htmlstr); 
-   $('#'+ohInfo).dialog({modal:true});
-}
-
-
-
-
-
 // ********************************************************** SignaPhoto.js ***

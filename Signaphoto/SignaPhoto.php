@@ -124,7 +124,7 @@ try
       $c_PerMargeWidth,$c_PerMargeHight,$c_MaintainProp,$c_Orient,$SiteDevice);
 
    // Завершаем вывод страницы 
-   ViewMess($InfoMess);
+   //ViewMess($InfoMess);
 
    echo '</body>';
    echo '</html>';

@@ -242,7 +242,7 @@ Exploration
 			Jsx\jquery-input-file-text.js
 			Jsx\jqueryui-1.13.0.min.css
 			Jsx\jqueryui-1.13.0.min.js
-		-Signaphoto
+		+Signaphoto
 			-Fonts
 				-Lobster
 					Signaphoto\Fonts\Lobster\Lobster-Regular.ttf
@@ -318,9 +318,11 @@ Exploration
 2=Signaphoto\SignaPhotoDef.php
 3=Signaphoto\SignaPhoto.php
 4=Signaphoto\ajaEraseFiles.php
+5=Signaphoto\SignaPhoto.js
+6=Signaphoto\SignaUpload.php
 [Selected Project Files]
 Main=
-Selected=index.html
+Selected=Signaphoto\ajaEraseFiles.php
 [index.html]
 TopLine=31
 Caret=74,38
@@ -328,11 +330,17 @@ Caret=74,38
 TopLine=229
 Caret=72,240
 [Signaphoto\SignaPhotoDef.php]
-TopLine=1
-Caret=72,16
+TopLine=55
+Caret=49,62
 [Signaphoto\SignaPhoto.php]
-TopLine=15
-Caret=48,27
+TopLine=170
+Caret=6,127
 [Signaphoto\ajaEraseFiles.php]
-TopLine=1
-Caret=76,2
+TopLine=25
+Caret=23,42
+[Signaphoto\SignaPhoto.js]
+TopLine=197
+Caret=65,198
+[Signaphoto\SignaUpload.php]
+TopLine=90
+Caret=1,1

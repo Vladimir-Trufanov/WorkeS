@@ -59,7 +59,7 @@ define ("ajStampPlaceDetermin", "Размещение штампа опреде�
 define ("ajSuccess",            "Функция/процедура выполнена успешно");     
 define ("ajSuccessfully",       "Файл успешно загружен"); 
 define ("ajTransparentSuccess", "Преобразование к прозрачному виду успешно");
-define ("ajUndeletionOldFiles", "Безуспешное удаление старых файлов");
+define ("ajUndeletionOldFiles", "Ошибка удаления старых файлов");
 
 // ****************************************************************************
 // *         Подключить межязыковые (PHP-JScript) определения внутри HTML     *
@@ -102,6 +102,7 @@ function DefinePHPtoJS()
    'ajSuccess="'           .ajSuccess.           '";'.
    'ajSuccessfully="'      .ajSuccessfully.      '";'.
    'ajTransparentSuccess="'.ajTransparentSuccess.'";'.
+   'ajUndeletionOldFiles="'.ajUndeletionOldFiles.'";'.
    
    'ohMaintainTrue="'      .ohMaintainTrue.      '";'.  
    'ohMaintainFalse="'     .ohMaintainFalse.     '";'.  
