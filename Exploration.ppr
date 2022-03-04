@@ -321,20 +321,21 @@ Exploration
 5=Signaphoto\SignaPhoto.js
 6=Signaphoto\SignaUpload.php
 7=Signaphoto\SignaPhotoImg.php
+8=Signaphoto\SignaMakeStamp.php
 [Selected Project Files]
 Main=
-Selected=Signaphoto\SignaPhotoImg.php
+Selected=Signaphoto\SignaPhotoDef.php
 [index.html]
 TopLine=31
 Caret=74,38
 [..\..\TPhpPrown\TPhpPrown\CommonPrown.php]
-TopLine=17
+TopLine=202
 Caret=72,240
 [Signaphoto\SignaPhotoDef.php]
-TopLine=55
-Caret=49,62
+TopLine=32
+Caret=30,48
 [Signaphoto\SignaPhoto.php]
-TopLine=101
+TopLine=83
 Caret=90,83
 [Signaphoto\ajaEraseFiles.php]
 TopLine=19
@@ -348,3 +349,6 @@ Caret=1,1
 [Signaphoto\SignaPhotoImg.php]
 TopLine=169
 Caret=6,201
+[Signaphoto\SignaMakeStamp.php]
+TopLine=227
+Caret=1,1
