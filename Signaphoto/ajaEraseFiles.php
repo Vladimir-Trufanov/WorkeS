@@ -35,11 +35,29 @@ set_error_handler("EraseFilesHandler");
 $date=date('Y-m-d'); // date('r'); date("Y-m-d H:i:s");
 $text='Удалены старые файлы!';
 // ДЛЯ ОТЛАДЫ: Запускаем стартер сессии страницы и регистратор пользовательских данных
-// $oEraseFilesStarter = new PageStarter('EraseFiles','SignaPhoto');
-// $oEraseFilesStarter->Message($date.' '.$text.'='.imgDir.'='.sceDir.chr(10));
+$oEraseFilesStarter = new PageStarter('EraseFiles','SignaPhoto');
+$oEraseFilesStarter->Message($date.' '.$text.'='.imgDir.'='.sceDir.chr(10));
 
 // Вытаскиваем упорядоченный список файлов каталога
 $files1=scandir(imgDir);
+foreach ($files1 as $filename) 
+{
+   // Для файлов (не каталогов) поднимаем дату создания
+   $specfile=imgDir.'/'.$filename;
+   if (!is_dir($specfile)) 
+   {
+      $curdate=date("Ymd");
+      $datefile=date("Ymd", filemtime($specfile));
+      $delta=$curdate-$datefile;
+      // Удаляем старые файлы (разница 100 - это примерно 1 месяц')
+      if ($delta>90)
+      {
+         unlink($specfile);
+         $txt='!'.$delta.'='.$curdate.'-'.$datefile;
+         $oEraseFilesStarter->Message($txt.' '.$specfile.chr(10));
+      }
+   }
+}
    
 // Передаем данные в формате JSON
 // (если нет передачи данных, то по аякс-запросу вернется ошибка)

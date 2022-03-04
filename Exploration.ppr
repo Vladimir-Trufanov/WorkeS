@@ -333,11 +333,11 @@ Caret=72,240
 TopLine=55
 Caret=49,62
 [Signaphoto\SignaPhoto.php]
-TopLine=170
+TopLine=127
 Caret=6,127
 [Signaphoto\ajaEraseFiles.php]
 TopLine=25
-Caret=23,42
+Caret=26,55
 [Signaphoto\SignaPhoto.js]
 TopLine=197
 Caret=65,198
