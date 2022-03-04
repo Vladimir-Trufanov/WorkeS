@@ -80,6 +80,7 @@ try
    {
       if ($_GET["orient"]==oriLandscape) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
       if ($_GET["orient"]==oriPortrait)  $c_Orient=prown\MakeCookie('Orient',oriPortrait,tStr); 
+      if ($SiteDevice==Computer) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
    }
    // Изменяем сессионные переменные (сессионные переменные инициируются после
    // переменных-кукисов, так как некоторые переменные-кукисы переопределяются появившимися

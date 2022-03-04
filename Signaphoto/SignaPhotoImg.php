@@ -191,8 +191,7 @@ function ViewProba($c_FileProba,$RemoteAddr,
    echo '$c_FileProba='.$c_FileProba.'<br>';
    echo '$c_OrientIC='.$c_Orient.'<br>';
    */
-   
-   /*        
+   /*
    prown\ViewGlobal(avgCOOKIE);
    echo '<pre>';
    echo '*** browscap='.ini_get('browscap').' ***<br>';

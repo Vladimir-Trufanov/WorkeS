@@ -39,13 +39,14 @@ function doOnOrientationChange()
 }
 function OnOrientationChange(xOrient) 
 {
+   console.log(window.orientation);
    // Если фактически портрет, а кукис ландшафт, то перегружаем на портрет
    if ((window.orientation==0)||(window.orientation==180))
    {
       if (xOrient==oriLandscape) window.location=SignaPortraitUrl;
    } 
    // Если фактически альбом, а кукис портрет, то перегружаем на альбом
-   if ((window.orientation==90)||(window.orientation==-90))
+   if ((window.orientation==90)||(window.orientation==-90)||(window.orientation==undefined))
    { 
       if (xOrient==oriPortrait) window.location=SignaUrl;
    }
@@ -71,6 +72,7 @@ function alf1Tunein()
 function alfSubmitTunein()
 {
    document.getElementById('my_Tune_Submit').click(); 
+   alfEraseFiles();
 } 
 // ****************************************************************************
 // *     Изменить цвет поля ввода процентов смещения штампа в малозаметный,   *
@@ -106,6 +108,8 @@ function alf2LoadFile()
    // модуля проверки параметров файла, загруженного во временное хранилище,
    // его переброски на постоянное хранение и переименование  
    document.getElementById('my_hidden_load').click(); // "SignaUpload.php"
+   // Удаляем старые файлы
+   alfEraseFiles();
 }
 function alf1sFindFile() 
    {document.getElementById('my_shidden_file').click();} 
@@ -119,6 +123,7 @@ function alf2sLoadFile()
 // ****************************************************************************
 function alf1Home()
 {
+   alfEraseFiles();
    location.replace(urlHome);
 }   
 // ****************************************************************************
@@ -226,7 +231,7 @@ function alfEraseFiles()
       // Отмечаем результат выполнения скрипта по аякс-запросу (успешный или нет)
       success:function(data)
       {
-         alert(data[0].text);
+         //alert(data[0].text);
       },
       // Отмечаем безуспешное удаление старых файлов
       error:function(data)
