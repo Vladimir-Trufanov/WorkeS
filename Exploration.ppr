@@ -64,8 +64,8 @@ Exploration
 			_InterSpooky\license.txt
 			_InterSpooky\README.txt
 		-_Lobster
-			-Fonts
-				-Lobster
+			+Fonts
+				+Lobster
 					_Lobster\Fonts\Lobster\Lobster-Regular.ttf
 					_Lobster\Fonts\Lobster\OFL.txt
 			_Lobster\Lobster.html
@@ -167,6 +167,13 @@ Exploration
 				_Tabmenu\js\prototype.js
 				_Tabmenu\js\scriptaculous.js
 			_Tabmenu\index.php
+		-_Visualize
+			-images
+				_Visualize\images\screenshot.jpg
+			_Visualize\index.html
+			_Visualize\README.md
+			_Visualize\visualize.jquery.json
+			_Visualize\visualize.js
 		-_WhipperSnapper
 			-css
 				_WhipperSnapper\css\style.css
@@ -263,21 +270,13 @@ Exploration
 				Signaphoto\imgdebug\Дед-сын-и-внук.png
 				Signaphoto\imgdebug\Танцы в Северном.doc
 				Signaphoto\imgdebug\Хорошенькая.png
-			-visualize-master
-				-images
-					Signaphoto\visualize-master\images\screenshot.jpg
-				Signaphoto\visualize-master\index.html
-				Signaphoto\visualize-master\README.md
-				Signaphoto\visualize-master\visualize.jquery.json
-				Signaphoto\visualize-master\visualize.js
 			Signaphoto\ajaEraseFiles.php
-			Signaphoto\log.txt
-			Signaphoto\LogName.txt
 			Signaphoto\reset.min.css
 			Signaphoto\SignaMakeStamp.php
 			Signaphoto\SignaPhoto.css
 			Signaphoto\SignaPhoto.js
 			Signaphoto\SignaPhoto.php
+			Signaphoto\SignaPhoto.txt
 			Signaphoto\SignaPhotoDef.php
 			Signaphoto\SignaPhotoImg.php
 			Signaphoto\SignaTunein.php
@@ -293,13 +292,82 @@ Exploration
 			SmartMenus\sm-blue.css
 			SmartMenus\sm-core-css.css
 		-Temp
-			Temp\Win10Ch98De--12stamp.png
-			Temp\Win10Ch98De--14stamt.png
-			Temp\Win10Ch98De--15probt.png
-			Temp\Win10Ch98De--18img.png
-			Temp\Win10Ch98De--18proba.png
-			Temp\Win10Ch98De--1img.jpeg
-			Temp\Win10Ch98De--1proba.jpeg
+			Temp\Win10Ch99De--1img.png
+			Temp\Win10Ch99De--1proba.png
+			Temp\Win10Ch99De--1probt.png
+			Temp\Win10Ch99De--1stamp.png
+			Temp\Win10Ch99De--1stamt.png
+		-TempRes
+			TempRes\AndroidCh98Mo185-90-102-1102img.jpeg
+			TempRes\AndroidCh98Mo185-90-102-1102proba.jpeg
+			TempRes\AndroidCh98Mo185-90-102-1102stamp.png
+			TempRes\AndroidCh98Mo185-90-102-1105img.png
+			TempRes\AndroidCh98Mo185-90-102-1105proba.png
+			TempRes\AndroidCh98Mo185-90-102-1106img.gif
+			TempRes\AndroidCh98Mo185-90-102-1106proba.gif
+			TempRes\AndroidCh98Mo185-90-102-1106stamt.png
+			TempRes\AndroidCh98Mo185-90-102-1108probt.png
+			TempRes\AndroidYa0Mo185-90-102-110img.jpeg
+			TempRes\AndroidYa0Mo185-90-102-110proba.jpeg
+			TempRes\AndroidYa0Mo185-90-102-110stamp.png
+			TempRes\AndroidYa0Mo185-90-102-110stamt.png
+			TempRes\goshan.jpg
+			TempRes\Win10Ch61De185-90-102-1109stamt.png
+			TempRes\Win10Ch61De185-90-102-110img.jpeg
+			TempRes\Win10Ch61De185-90-102-110proba.jpeg
+			TempRes\Win10Ch61De185-90-102-110stamp.png
+			TempRes\Win10Ch98De185-90-102-1106probt.png
+			TempRes\Win10Ch98De185-90-102-1107img.jpeg
+			TempRes\Win10Ch98De185-90-102-1107proba.jpeg
+			TempRes\Win10Ch98De185-90-102-1109img.gif
+			TempRes\Win10Ch98De185-90-102-1109img.png
+			TempRes\Win10Ch98De185-90-102-1109proba.gif
+			TempRes\Win10Ch98De185-90-102-1109proba.png
+			TempRes\Win10Ch98De185-90-102-110stamp.png
+			TempRes\Win10Ch98De185-90-102-110stamt.png
+			TempRes\Win10Ch98De--18stamp.png
+			TempRes\Win10Ed98De185-90-102-1108img.png
+			TempRes\Win10Ed98De185-90-102-1108proba.png
+			TempRes\Win10Ed98De185-90-102-1108probt.png
+			TempRes\Win10Ed98De185-90-102-1108stamp.png
+			TempRes\Win10Ed98De185-90-102-1108stamt.png
+			TempRes\Win10Fi0De185-90-102-1109probt.png
+			TempRes\Win10Fi0De185-90-102-1109stamt.png
+			TempRes\Win10Fi0De185-90-102-110img.gif
+			TempRes\Win10Fi0De185-90-102-110img.png
+			TempRes\Win10Fi0De185-90-102-110proba.gif
+			TempRes\Win10Fi0De185-90-102-110proba.png
+			TempRes\Win10Fi0De185-90-102-110stamp.png
+			TempRes\Win10Fi97De185-90-102-1108probt.png
+			TempRes\Win10Fi97De185-90-102-1108stamt.png
+			TempRes\Win10Fi97De185-90-102-1109img.png
+			TempRes\Win10Fi97De185-90-102-1109proba.png
+			TempRes\Win10Fi97De185-90-102-110img.gif
+			TempRes\Win10Fi97De185-90-102-110proba.gif
+			TempRes\Win10Fi97De185-90-102-110stamp.png
+			TempRes\Win10Ma5De185-90-102-1109stamt.png
+			TempRes\Win10Ma5De185-90-102-110img.jpeg
+			TempRes\Win10Ma5De185-90-102-110img.png
+			TempRes\Win10Ma5De185-90-102-110proba.jpeg
+			TempRes\Win10Ma5De185-90-102-110proba.png
+			TempRes\Win10Ma5De185-90-102-110probt.png
+			TempRes\Win10Ma5De185-90-102-110stamp.png
+			TempRes\Win10Op83De185-90-102-1109stamt.png
+			TempRes\Win10Op83De185-90-102-110img.gif
+			TempRes\Win10Op83De185-90-102-110img.jpeg
+			TempRes\Win10Op83De185-90-102-110proba.gif
+			TempRes\Win10Op83De185-90-102-110proba.jpeg
+			TempRes\Win10Op83De185-90-102-110probt.png
+			TempRes\Win10Op83De185-90-102-110stamp.png
+			TempRes\Win8Qu1De185-90-102-1109probt.png
+			TempRes\Win8Qu1De185-90-102-1109stamt.png
+			TempRes\Win8Qu1De185-90-102-110img.png
+			TempRes\Win8Qu1De185-90-102-110proba.png
+			TempRes\Win8Qu1De185-90-102-110stamp.png
+			TempRes\Win8Sa5De185-90-102-1109img.jpeg
+			TempRes\Win8Sa5De185-90-102-1109proba.jpeg
+			TempRes\Win8Sa5De185-90-102-1109stamt.png
+			TempRes\Win8Sa5De185-90-102-110stamp.png
 		-Материалы
 			Материалы\PHP и realpath.doc
 			Материалы\Метаданные в HTML.doc
@@ -322,9 +390,10 @@ Exploration
 6=Signaphoto\SignaUpload.php
 7=Signaphoto\SignaPhotoImg.php
 8=Signaphoto\SignaMakeStamp.php
+9=Signaphoto\SignaPhoto.css
 [Selected Project Files]
 Main=
-Selected=Signaphoto\SignaPhotoDef.php
+Selected=Signaphoto\SignaPhoto.css
 [index.html]
 TopLine=31
 Caret=74,38
@@ -352,3 +421,6 @@ Caret=6,201
 [Signaphoto\SignaMakeStamp.php]
 TopLine=227
 Caret=1,1
+[Signaphoto\SignaPhoto.css]
+TopLine=43
+Caret=1,71
