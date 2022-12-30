@@ -18,6 +18,19 @@ Extensions=*.*
 [Project tree]
 Workes
 	+Workes
+		+_AngledMenu
+			-css
+				_AngledMenu\css\reset-min.css
+				_AngledMenu\css\style.css
+			+js
+				_AngledMenu\js\index.js
+				_AngledMenu\js\prefixfree-min.js
+			-scss
+				_AngledMenu\scss\style.scss
+			_AngledMenu\index.html
+			_AngledMenu\license.txt
+			_AngledMenu\photo-1444927714506-8492d94b4e3d.jpg
+			_AngledMenu\README.txt
 		-_another-button
 			-css
 				_another-button\css\style.css
@@ -122,7 +135,7 @@ Workes
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
-		-_Signaphoto
+		+_Signaphoto
 			-Fonts
 				-Lobster
 					_Signaphoto\Fonts\Lobster\Lobster-Regular.ttf
@@ -165,15 +178,15 @@ Workes
 			_sortable\admin.php
 			_sortable\index.php
 			_sortable\save.php
-		-_Switch-button-with-smooth-animation
+		-_SwitchButtonWithSmoothAnimation
 			-css
-				_Switch-button-with-smooth-animation\css\style.css
+				_SwitchButtonWithSmoothAnimation\css\style.css
 			-sass
-				_Switch-button-with-smooth-animation\sass\style.sass
-			_Switch-button-with-smooth-animation\index.html
-			_Switch-button-with-smooth-animation\index.pug
-			_Switch-button-with-smooth-animation\license.txt
-			_Switch-button-with-smooth-animation\README.txt
+				_SwitchButtonWithSmoothAnimation\sass\style.sass
+			_SwitchButtonWithSmoothAnimation\index.html
+			_SwitchButtonWithSmoothAnimation\index.pug
+			_SwitchButtonWithSmoothAnimation\license.txt
+			_SwitchButtonWithSmoothAnimation\README.txt
 		-_tabmenu
 			-img
 				_tabmenu\img\3d.gif
@@ -195,7 +208,11 @@ Workes
 				_tabmenu\js\scriptaculous.js
 			_tabmenu\index.php
 		-_Visualize
+			-images
+				_Visualize\images\screenshot.jpg
 			_Visualize\index.html
+			_Visualize\jquery-1.11.1.min.js
+			_Visualize\jquery-1.11.1.min.map
 			_Visualize\README.md
 			_Visualize\visualize.jquery.json
 			_Visualize\visualize.js
@@ -207,16 +224,6 @@ Workes
 			_WhipperSnapper\index.html
 			_WhipperSnapper\license.txt
 			_WhipperSnapper\README.txt
-		-angled-menu240817
-			-css
-				angled-menu240817\css\style.css
-			-js
-				angled-menu240817\js\index.js
-			-scss
-				angled-menu240817\scss\style.scss
-			angled-menu240817\index.html
-			angled-menu240817\license.txt
-			angled-menu240817\README.txt
 		-font-awesome-4.7.0
 			-css
 				font-awesome-4.7.0\css\font-awesome.css
@@ -377,5 +384,5 @@ Workes
 Main=
 Selected=index.html
 [index.html]
-TopLine=65
-Caret=42,96
+TopLine=80
+Caret=1,107
