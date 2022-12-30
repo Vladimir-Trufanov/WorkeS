@@ -205,3 +205,33 @@ Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
 Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.21 (KHTML, like Gecko) QupZilla/1.8.6 Safari/537.21 
 ***sph***Fri, 04 Mar 2022 18:35:21 +0300 IP: ::1 URL: /Signaphoto/SignaPhoto.php 
 Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.21 (KHTML, like Gecko) QupZilla/1.8.6 Safari/537.21 
+***sph***Thu, 29 Dec 2022 18:17:26 +0300 IP: ::1 URL: /Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+EraseFilesHandler 2022-12-29 18:17:42 $errno=2 scandir(C:\Workes/Temp,C:\Workes/Temp): �� ������ ����� �������� ����. (code: 2) C:\Workes\Signaphoto\ajaEraseFiles.php $errline=29
+EraseFilesHandler 2022-12-29 18:17:42 $errno=2 scandir(C:\Workes/Temp): failed to open dir: No such file or directory C:\Workes\Signaphoto\ajaEraseFiles.php $errline=29
+EraseFilesHandler 2022-12-29 18:17:42 $errno=2 scandir(): (errno 2): No such file or directory C:\Workes\Signaphoto\ajaEraseFiles.php $errline=29
+EraseFilesHandler 2022-12-29 18:17:42 $errno=2 Invalid argument supplied for foreach() C:\Workes\Signaphoto\ajaEraseFiles.php $errline=30
+===sph===Thu, 29 Dec 2022 18:17:42 +0300 IP: ::1 URL: /Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:17:47 +0300 IP: ::1 URL: /Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+***sph***Thu, 29 Dec 2022 18:24:20 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:26:19 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:26:24 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:26:34 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:26:38 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:26:44 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:26:51 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:26:58 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:27:59 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 
+===sph===Thu, 29 Dec 2022 18:28:08 +0300 IP: ::1 URL: /_Signaphoto/SignaPhoto.php 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 

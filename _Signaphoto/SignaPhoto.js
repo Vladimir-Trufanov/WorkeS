@@ -39,7 +39,7 @@ function doOnOrientationChange()
 }
 function OnOrientationChange(xOrient) 
 {
-   console.log(window.orientation);
+   console.log('window.orientation='+window.orientation);
    // Если фактически портрет, а кукис ландшафт, то перегружаем на портрет
    if ((window.orientation==0)||(window.orientation==180))
    {

@@ -21,10 +21,10 @@ $SiteProtocol=$_WORKSPACE[wsSiteProtocol];  //  => isProtocol()
 $RemoteAddr = $_WORKSPACE[wsRemoteAddr];    // IP-адрес запроса сайта
 // Определяем URL сайта и URL страницы приложения "Подписать фотографию"
 $urlHome=$SiteProtocol.'://'.$_SERVER['HTTP_HOST']; 
-$urlPage=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Signaphoto/SignaPhoto.php'; 
+$urlPage=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/_Signaphoto/SignaPhoto.php'; 
 // Определяем полный путь каталога хранения изображений и
 // его url-аналог для связывания с разметкой через кукис
-$sceDir=$_SERVER['DOCUMENT_ROOT'].'/Signaphoto'; 
+$sceDir=$_SERVER['DOCUMENT_ROOT'].'/_Signaphoto'; 
 $imgDir=$_SERVER['DOCUMENT_ROOT'].'/Temp'; 
 $urlDir=$SiteProtocol.'://'.$_SERVER['HTTP_HOST'].'/Temp'; 
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
