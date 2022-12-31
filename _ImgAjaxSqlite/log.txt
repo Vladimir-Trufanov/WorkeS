@@ -5,3 +5,7 @@ Stack trace:
 #1 C:\Workes\_ImgAjaxSqlite\TinyItTve.php(28): require_once('C:\\Workes\\_ImgA...')
 #2 {main}
   thrown in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php on line 118
+[31-Dec-2022 18:36:04 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '-', expecting '(' in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php on line 45
+[31-Dec-2022 18:36:59 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ')', expecting variable (T_VARIABLE) in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php on line 113
+[31-Dec-2022 19:07:19 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ',' in C:\Workes\_ImgAjaxSqlite\Main.php on line 107
+[31-Dec-2022 19:08:16 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ',' in C:\Workes\_ImgAjaxSqlite\Main.php on line 107

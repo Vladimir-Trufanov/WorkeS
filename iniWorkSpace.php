@@ -19,6 +19,7 @@ define ("wsRemoteAddr",    6);          // IP-адрес запроса сайт
 define ("wsSiteName",      7);          // Доменное имя сайта
 define ("wsPhpVersion",    8);          // Версия PHP
 define ("wsSiteProtocol",  9);          // HTTP или HTTPS
+define ("wsUrlHome",      10);          // Начальная страница сайта
 // Формируем массив параметров рабочего пространства сайта 
 // и соответствующие глобальные переменные
 function iniWorkSpace()
@@ -40,6 +41,7 @@ function iniWorkSpace()
       wsSiteName      => $_SERVER['HTTP_HOST'],    
       wsPhpVersion    => prown\getPhpVersion(), 
       wsSiteProtocol  => isProtocol(), 
+      wsUrlHome       => isProtocol().'://'.$_SERVER['HTTP_HOST'], 
    );
    return $_WORKSPACE;
 }   

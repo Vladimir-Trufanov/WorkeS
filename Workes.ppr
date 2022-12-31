@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Workes
-	-Workes
+	+Workes
 		-_AngledMenu
 			-css
 				_AngledMenu\css\reset-min.css
@@ -62,7 +62,7 @@ Workes
 			-css
 				_FlipOnHover\css\style.css
 			_FlipOnHover\FlipOnHover.html
-		-_ImgAjaxSqlite
+		+_ImgAjaxSqlite
 			-TImgAjaxSqlite
 				_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
 			-Охота на медведя
@@ -157,7 +157,7 @@ Workes
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
-		-_Signaphoto
+		+_Signaphoto
 			-Fonts
 				-Lobster
 					_Signaphoto\Fonts\Lobster\Lobster-Regular.ttf
@@ -435,11 +435,12 @@ Workes
 [Open project files]
 0=index.html
 1=_ImgAjaxSqlite\TinyItTve.php
-2=_ImgAjaxSqlite\Main.php
-3=_ImgAjaxSqlite\aps-upload_image.php
-4=_ImgAjaxSqlite\aps-save_reviews.php
-5=_ImgAjaxSqlite\aps-reviews.php
-6=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
+2=_ImgAjaxSqlite\aps-save_reviews.php
+3=_ImgAjaxSqlite\aps-reviews.php
+4=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
+5=_ImgAjaxSqlite\aps-upload_image.php
+6=..\IttveMe\www\index.php
+7=_ImgAjaxSqlite\Main.php
 [Selected Project Files]
 Main=
 Selected=_ImgAjaxSqlite\Main.php
@@ -447,20 +448,23 @@ Selected=_ImgAjaxSqlite\Main.php
 TopLine=85
 Caret=58,108
 [_ImgAjaxSqlite\TinyItTve.php]
-TopLine=2
-Caret=78,5
-[_ImgAjaxSqlite\Main.php]
-TopLine=107
-Caret=1,144
-[_ImgAjaxSqlite\aps-upload_image.php]
-TopLine=104
-Caret=1,1
+TopLine=3
+Caret=9,22
 [_ImgAjaxSqlite\aps-save_reviews.php]
-TopLine=35
-Caret=35,74
+TopLine=1
+Caret=1,6
 [_ImgAjaxSqlite\aps-reviews.php]
 TopLine=12
 Caret=53,12
 [_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php]
-TopLine=141
-Caret=14,118
+TopLine=9
+Caret=36,112
+[_ImgAjaxSqlite\aps-upload_image.php]
+TopLine=75
+Caret=1,1
+[..\IttveMe\www\index.php]
+TopLine=49
+Caret=1,80
+[_ImgAjaxSqlite\Main.php]
+TopLine=102
+Caret=1,139

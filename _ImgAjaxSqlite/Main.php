@@ -25,6 +25,7 @@ define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools');
 
 // Готовим объект для работы с изображениями
 require_once $SiteRoot."/_ImgAjaxSqlite/TImgAjaxSqlite/ImgAjaxSqliteClass.php";
+
 $Imgaj=new ImgAjaxSqlite();
 $Imgaj->BaseFirstCreate();
 $impdo=$Imgaj->BaseConnect();
@@ -44,7 +45,7 @@ echo '
 //   <link rel="stylesheet" type="text/css" href="Styles/Styles.css">
 //';
 echo '<link rel="stylesheet" type="text/css" href="/_ImgAjaxSqlite/aps-style.css">';
-/// Подключаем js скрипты 
+// Подключаем js скрипты 
 ?> 
    <script src="/Jsx/jquery-1.11.1.min.js"></script>
 <?php
@@ -52,21 +53,16 @@ echo '<link rel="stylesheet" type="text/css" href="/_ImgAjaxSqlite/aps-style.css
 echo '</head>'; 
 
 echo '<body>'; 
-// Включаем в разметку див галереи изображений и всплывающее окно 
-// ----------------------------------------------------------------------------
-// Cоздаем объект для управления изображениями в галерее, связанной с 
-// материалами сайта из базы данных
-//$Galli=new ttools\KwinGallery(gallidir,nym,$pid,$uid);
-//$Galli->ViewGallery(gallidir,$apdo);
-         
+
    /*
    echo '<pre>';
    print_r( $_FILES );
    echo '</pre>'; 
    */
-   
+
+   $ImgAfterPost=$urlHome."/_ImgAjaxSqlite/TImgAjaxSqlite/aps-save_reviews.php";
+   echo '<form method="post" action="'.$ImgAfterPost.'">';
    ?> 
-   <form method="post" action="/_ImgAjaxSqlite/aps-save_reviews.php">
    <h3>Отправить отзыв:</h3>
    <div class="form-row">
       <label>Ваше имя:</label>
@@ -136,7 +132,6 @@ echo '<body>';
    }
    </script>
    <?php
-
 echo '
    </body>
    </html>

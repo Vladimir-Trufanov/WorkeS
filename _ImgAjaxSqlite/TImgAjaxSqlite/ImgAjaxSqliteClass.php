@@ -3,32 +3,24 @@
 // PHP7/HTML5, EDGE/CHROME                        *** ImgAjaxSqliteClass.php ***
 
 // ****************************************************************************
-// *                  Фрэйм галереи изображений, связанных с текущим *
-// *                   материалом (uid) из выбранной (указанной) группы (pid) *
+// *              Реализация загрузки изображений с превью через AJAX         *
+// *                     с сохранением в базу данных SQLite                   *
 // *                                                                          *
 // * v2.0, 31.12.2022                              Автор:       Труфанов В.Е. *
 // * Copyright © 2022 tve                          Дата создания:  18.12.2022 *
 // ****************************************************************************
 
 /**
- *
+ * В примере представлена упрощенная реализация загрузки изображений с превью 
+ * через AJAX с сохранением в базу данных SQLite, а также дальнейший их вывод 
+ * на примере модуля отзывов.
+ *  
+ * https://snipp.ru/php/upload-images
+ *  
+ * Первое что понадобится: HTML форма и JS скрипт, который после выбора одного 
+ * или несколькольких файлов отправит их на aps-upload_image.php через AJAX.
  * 
 **/
-
-// Свойства:
-//
-// --- $FltLead - команда управления передачей данных. По умолчанию fltNotTransmit,
-//            то есть данные о загрузке не передаются для контроля ни в кукисы, 
-// ни в консоль, а только записываются в LocalStorage. Если LocalStorage,
-// браузером не поддерживается, то данные будут записываться в кукисы при 
-// установке свойства $FltLead в значение fltSendCookies или fltAll 
-// $Page - название страницы сайта;
-// $Uagent - браузер пользователя;
-
-// Подгружаем нужные модули библиотеки прикладных функций
-//require_once pathPhpPrown."/CommonPrown.php";
-// Подгружаем нужные модули библиотеки прикладных классов
-//require_once pathPhpTools."/TArticlesMaker/ArticlesMakerClass.php";
 
 class ImgAjaxSqlite
 {
@@ -47,6 +39,85 @@ class ImgAjaxSqlite
    public function __destruct() 
    {
    }
+   // *************************************************************************
+   // *      Выбрать изображения, доп.информацию и отправить на обработку     *
+   // *************************************************************************
+   public function SelImagesSendProcess()
+   {
+   /*
+   ?> 
+   <form method="post" action="/_ImgAjaxSqlite/aps-save_reviews.php">
+   <h3>Отправить отзыв:</h3>
+   <div class="form-row">
+      <label>Ваше имя:</label>
+	  <input type="text" name="name" required>
+   </div>
+   <div class="form-row">
+      <label>Комментарий:</label>
+	  <input type="text" name="text" required>
+   </div>
+   <div class="form-row">
+      <label>Изображения:</label>
+	  <div class="img-list" id="js-file-list"></div>
+	  <input id="js-file" type="file" name="file[]" multiple accept=".jpg,.jpeg,.png,.gif">
+   </div>
+   <div class="form-submit">
+      <input type="submit" name="send" value="Отправить">
+   </div>
+   </form>
+ 
+   <script>
+   $("#js-file").change(function()
+   {
+	  if (window.FormData === undefined) 
+      {
+	     alert('В вашем браузере загрузка файлов не поддерживается');
+	  } 
+      else 
+      {
+	     var formData = new FormData();
+	     $.each($("#js-file")[0].files, function(key, input)
+         {
+		    formData.append('file[]', input);
+		 });
+ 
+		$.ajax(
+        {
+		   type: 'POST',
+		   url: '/_ImgAjaxSqlite/aps-upload_image.php',
+		   cache: false,
+		   contentType: false,
+	       processData: false,
+		   data: formData,
+		   dataType : 'json',
+		   success: function(msg)
+           {
+		      msg.forEach(function(row) 
+              {
+                 if (row.error == '') 
+                 {
+                    $('#js-file-list').append(row.data);
+				 } 
+                 else 
+                 {
+                    alert(row.error);
+                 }
+			  });
+			  $("#js-file").val(''); 
+		   }
+		});
+	  }
+   });
+ 
+   // Удаление загруженной картинки
+   function remove_img(target)
+   {
+      $(target).parent().remove();
+   }
+   </script>
+   <?php
+   */
+   } 
    // *************************************************************************
    // *                       Подключиться к базе данных                      *
    // *************************************************************************

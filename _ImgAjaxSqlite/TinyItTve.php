@@ -18,6 +18,8 @@ $SiteAbove   = $_WORKSPACE[wsSiteAbove];    // Надсайтовый катал
 $SiteHost    = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
 $SiteDevice  = $_WORKSPACE[wsSiteDevice];   // 'Computer' | 'Mobile' | 'Tablet'
 $UserAgent   = $_WORKSPACE[wsUserAgent];    // HTTP_USER_AGENT
+$SiteProtocol= $_WORKSPACE[wsSiteProtocol]; // isProtocol() 
+$urlHome     = $_WORKSPACE[wsUrlHome];      // Начальная страница сайта 
 
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
@@ -25,6 +27,7 @@ require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
    // Запускаем сценарий сайта
+   // echo '$urlHome ='.$urlHome.'<br>';
    require_once "Main.php";
 }
 catch (E_EXCEPTION $e) 
