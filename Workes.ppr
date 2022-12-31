@@ -18,11 +18,11 @@ Extensions=*.*
 [Project tree]
 Workes
 	+Workes
-		+_AngledMenu
+		-_AngledMenu
 			-css
 				_AngledMenu\css\reset-min.css
 				_AngledMenu\css\style.css
-			+js
+			-js
 				_AngledMenu\js\index.js
 				_AngledMenu\js\prefixfree-min.js
 			-scss
@@ -62,6 +62,28 @@ Workes
 			-css
 				_FlipOnHover\css\style.css
 			_FlipOnHover\FlipOnHover.html
+		+_ImgAjaxSqlite
+			-TImgAjaxSqlite
+				_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
+			-Охота на медведя
+				_ImgAjaxSqlite\Охота на медведя\Бревно на медведя.JPG
+				_ImgAjaxSqlite\Охота на медведя\Бревно на медведя2.jpg
+				_ImgAjaxSqlite\Охота на медведя\Карта прогулки.jpg
+				_ImgAjaxSqlite\Охота на медведя\Медведь пошел туда.JPG
+				_ImgAjaxSqlite\Охота на медведя\Медведь шел след в след.JPG
+				_ImgAjaxSqlite\Охота на медведя\Размыло дорогу.JPG
+				_ImgAjaxSqlite\Охота на медведя\След в след.JPG
+				_ImgAjaxSqlite\Охота на медведя\Следы не свежие, но догоним.JPG
+				_ImgAjaxSqlite\Охота на медведя\Шапша в половодье.JPG
+				_ImgAjaxSqlite\Охота на медведя\Шапша весной.JPG
+			_ImgAjaxSqlite\aps-reviews.php
+			_ImgAjaxSqlite\aps-save_reviews.php
+			_ImgAjaxSqlite\aps-style.css
+			_ImgAjaxSqlite\aps-upload_image.php
+			_ImgAjaxSqlite\aps-workbase.php
+			_ImgAjaxSqlite\Main.php
+			_ImgAjaxSqlite\remove.png
+			_ImgAjaxSqlite\TinyItTve.php
 		-_InterSpooky
 			-css
 				_InterSpooky\css\style.css
@@ -135,7 +157,7 @@ Workes
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
-		+_Signaphoto
+		-_Signaphoto
 			-Fonts
 				-Lobster
 					_Signaphoto\Fonts\Lobster\Lobster-Regular.ttf
@@ -365,6 +387,32 @@ Workes
 			TempRes\Win8Sa5De185-90-102-1109proba.jpeg
 			TempRes\Win8Sa5De185-90-102-1109stamt.png
 			TempRes\Win8Sa5De185-90-102-110stamp.png
+		-uploads
+			-tmp
+				uploads\tmp\1672425206-5340551166.jpg
+				uploads\tmp\1672425206-5340551166-thumb.jpg
+				uploads\tmp\1672466281-5211122576.jpg
+				uploads\tmp\1672466281-5211122576-thumb.jpg
+				uploads\tmp\1672466453-430396475.jpg
+				uploads\tmp\1672466453-430396475-thumb.jpg
+			uploads\1672466682-7634671476.jpg
+			uploads\1672466682-7634671476-thumb.jpg
+			uploads\1672466843-6338826834.jpg
+			uploads\1672466843-6338826834-thumb.jpg
+			uploads\1672466932-4554047842.jpg
+			uploads\1672466932-4554047842-thumb.jpg
+			uploads\1672467049-4568770672.jpg
+			uploads\1672467049-4568770672-thumb.jpg
+			uploads\1672467194-8350533960.jpg
+			uploads\1672467194-8350533960-thumb.jpg
+			uploads\1672469253-5462493483.jpg
+			uploads\1672469253-5462493483-thumb.jpg
+			uploads\1672469474-1018473989.jpg
+			uploads\1672469474-1018473989-thumb.jpg
+			uploads\1672469576-2677237156.jpg
+			uploads\1672469576-2677237156-thumb.jpg
+			uploads\1672469645-2194112211.jpg
+			uploads\1672469645-2194112211-thumb.jpg
 		-Материалы
 			Материалы\PHP и realpath.doc
 			Материалы\Метаданные в HTML.doc
@@ -374,15 +422,46 @@ Workes
 		favicon.ico
 		index.html
 		iniWorkSpace.php
+		itimg.db3
+		ittve.db3
+		ittve-copy.db3
 		README.md
 		sort.db3
 		ViewEnviron.php
 		Workes.ppr
 [Open project files]
 0=index.html
+1=_ImgAjaxSqlite\TinyItTve.php
+2=_ImgAjaxSqlite\Main.php
+3=_ImgAjaxSqlite\Styles\aps-style.css
+4=_ImgAjaxSqlite\aps-upload_image.php
+5=_ImgAjaxSqlite\aps-save_reviews.php
+6=_ImgAjaxSqlite\aps-reviews.php
+7=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
 [Selected Project Files]
 Main=
-Selected=index.html
+Selected=_ImgAjaxSqlite\Main.php
 [index.html]
-TopLine=80
-Caret=1,107
+TopLine=85
+Caret=58,108
+[_ImgAjaxSqlite\TinyItTve.php]
+TopLine=2
+Caret=78,5
+[_ImgAjaxSqlite\Main.php]
+TopLine=15
+Caret=9,29
+[_ImgAjaxSqlite\Styles\aps-style.css]
+TopLine=16
+Caret=33,27
+[_ImgAjaxSqlite\aps-upload_image.php]
+TopLine=104
+Caret=1,1
+[_ImgAjaxSqlite\aps-save_reviews.php]
+TopLine=35
+Caret=35,74
+[_ImgAjaxSqlite\aps-reviews.php]
+TopLine=24
+Caret=53,12
+[_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php]
+TopLine=1
+Caret=73,3
