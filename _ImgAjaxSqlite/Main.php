@@ -26,7 +26,8 @@ define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools');
 // Готовим объект для работы с изображениями
 require_once $SiteRoot."/_ImgAjaxSqlite/TImgAjaxSqlite/ImgAjaxSqliteClass.php";
 $Imgaj=new ImgAjaxSqlite();
-//$Imgaj-> BaseFirstCreate();
+$Imgaj->BaseFirstCreate();
+$impdo=$Imgaj->BaseConnect();
 
 // Начинаем разметку документа
 echo '
@@ -58,50 +59,6 @@ echo '<body>';
 //$Galli=new ttools\KwinGallery(gallidir,nym,$pid,$uid);
 //$Galli->ViewGallery(gallidir,$apdo);
          
-// Подключаем загрузку  
-require_once $SiteRoot."/_ImgAjaxSqlite/aps-workbase.php";
-
-   // Создаем базу таблиц для изображений
-   $imbasename=$_SERVER['DOCUMENT_ROOT'].'/itimg'; $imusername='tve'; $impassword='23ety17'; 
-   // Получаем спецификацию файла базы данных материалов
-   $imfilename=$imbasename.'.db3';
-   // Проверяем существование и удаляем файл копии базы данных 
-   $filenameOld=$imbasename.'-copy.db3';
-   im_UnlinkFile($filenameOld);
-   \prown\ConsoleLog('Проверено существование и удалена копия базы данных: '.$filenameOld);  
-   // Создаем копию базы данных
-   if (file_exists($imfilename)) 
-   {
-      if (rename($imfilename,$filenameOld))
-      {
-         \prown\ConsoleLog('Получена копия базы данных: '.$filenameOld);  
-      }
-      else
-      {
-         \prown\ConsoleLog('Не удалось переименовать базу данных: '.$imfilename);
-      }
-   } 
-   else 
-   {
-      \prown\ConsoleLog('Прежней версии базы данных '.$imfilename.' не существует');
-   }
-   // Проверяем существование и удаляем файл базы данных 
-   im_UnlinkFile($imfilename);
-   \prown\ConsoleLog('Проверено существование и удалён старый файл базы данных: '.$imfilename);  
-   // Создается объект PDO и файл базы данных
-   $impathBase='sqlite:'.$imfilename; 
-   // Подключаем PDO к базе
-   $impdo = new \PDO(
-      $impathBase, 
-      $imusername,
-      $impassword,
-      array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION)
-   );
-   \prown\ConsoleLog('Создан объект PDO и файл базы данных');
-   // Создаём таблицы базы данных
-   imCreateTables($impdo);
-   \prown\ConsoleLog('Созданы таблицы'); 
-   
    /*
    echo '<pre>';
    print_r( $_FILES );
@@ -184,22 +141,5 @@ echo '
    </body>
    </html>
 ';
-
-function im_UnlinkFile($filename)
-{
-   if (file_exists($filename)) 
-   {
-      if (!unlink($filename))
-      {
-         // Для файла базы данных выводится сообщение о неудачном удалении 
-         // в случаях:
-         //    а) база данных подключена к стороннему приложению;
-         //    б) база данных еще привязана к другому объекту класса;
-         //    в) прочее
-         throw new Exception("Не удалось удалить файл $filename!");
-      } 
-   } 
-}
-
  
 // *** <!-- --> ************************************************** Main.php ***

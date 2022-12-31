@@ -11,29 +11,8 @@
 // ****************************************************************************
 
 /**
- * Класс --------- KwinGallery строит интерфейс для выбора некоторых символа Юникода.
- * Выборка символов осуществляется из одного из подмассивов общего массива 
- * массива $aUniCues. Подмассивы (наборы) созданы из авторских соображений и 
- * имеют свои номера и названия, так 0 - 'Знаки всякие-разные', 1 - 'Символы 
- * валют', 2 - 'Ожидаемые символы' и так далее.
- * 
- * Для взаимодействия с объектами класса должны быть определены константы:
  *
- * articleSite  - тип базы данных (по сайту)
- * pathPhpTools - путь к каталогу с файлами библиотеки прикладных классов;
- * pathPhpPrown - путь к каталогу с файлами библиотеки прикладных функции
- *    
- * Пример создания объекта класса:
  * 
- * // Указываем место размещения библиотеки прикладных функций TPhpPrown
- * define ("pathPhpPrown",$SiteHost.'/TPhpPrown/TPhpPrown');
- * // Указываем место размещения библиотеки прикладных классов TPhpTools
- * define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools');
- * // Указываем тип базы данных (по сайту) для управления классом ArticlesMaker
- * define ("articleSite",'IttveMe'); 
- * // Cоздаем объект для управления изображениями в галерее, связанной с 
- * // материалами сайта из базы данных
- * $Galli=new ttools\KwinGallery(gallidir,$nym,$pid,$uid);
 **/
 
 // Свойства:
@@ -54,63 +33,133 @@
 class ImgAjaxSqlite
 {
    // ----------------------------------------------------- СВОЙСТВА КЛАССА ---
-   //protected $gallidir;  // Каталог для размещения файлов галереи и связанных материалов
-   //protected $nym;       // Префикс имен файлов для фотографий галереи и материалов
-   //protected $pid;       // Идентификатор группы текущего материала
-   //protected $uid;       // Идентификатор текущего материала
-
-   //protected $editdir='ittveEdit/';
+   protected $imbasename;  // База данных изображений
 
    // ------------------------------------------------------- МЕТОДЫ КЛАССА ---
    public function __construct() 
    {
-      // Инициализируем свойства класса
-      //$this->gallidir=$gallidir; 
-      //$this->nym=$nym; $this->pid=$pid; $this->uid=$uid;
+      // Получаем спецификацию файла базы данных
+      $this->imbasename=$_SERVER['DOCUMENT_ROOT'].'/itimg';
       // Трассируем установленные свойства
       //\prown\ConsoleLog('$this->gallidir='.$this->gallidir); 
-      //\prown\ConsoleLog('$this->nym='.$this->nym); 
-      //\prown\ConsoleLog('$this->pid='.$this->pid); 
-      //\prown\ConsoleLog('$this->uid='.$this->uid); 
    }
    
    public function __destruct() 
    {
    }
    // *************************************************************************
-   // *       Развернуть изображения галереи и обеспечить их ведение:         *
-   // *                $Dir - каталог для размещения изображений              *
+   // *                       Подключиться к базе данных                      *
    // *************************************************************************
-   public function ViewGallery($Dir,$apdo)
+   public function im_UnlinkFile($filename) 
    {
-   /*
-      // Выбираем режим работы с изображениями, как режим редактирования материала
-      if ($Dir==$this->editdir)
+      if (file_exists($filename)) 
       {
-         // Формируем определяющий массив для базы данных редактируемого материала
-         $aCharters=$this->MakeaCharters($apdo);
-         // Проверяем существование и создаем базу данных редактируемого материала
-         $basename=$_SERVER['DOCUMENT_ROOT'].'/itEdit'; // имя базы без расширения 'db3'
-         $username='tve';
-         $password='23ety17'; 
-         $Arti=new ArticlesMaker($basename,$username,$password);
-         // Создаем (или открываем) базу данных для редактируемого материала
-         //$Arti->BaseFirstCreate($aCharters);
-      }
-      else
-      {
-         \prown\ConsoleLog('НЕ ='.$this->editdir); 
-      }
-      */
+         if (!unlink($filename))
+         {
+            // Для файла базы данных выводится сообщение о неудачном удалении 
+            // в случаях:
+            //    а) база данных подключена к стороннему приложению;
+            //    б) база данных еще привязана к другому объекту класса;
+            //    в) прочее
+            throw new Exception("Не удалось удалить файл $filename!");
+         } 
+      } 
    }
-   // Формируем определяющий массив для базы данных редактируемого материала
-   // по образцу (выбирая данные из базы данных материалов):
-   //    $aCharters=[                                                          
-   //      [ 1, 0,-1, 'ittve.me',         '/',                 acsAll,'20',''],
-   //      [16, 1,-1, 'Прогулки',         'progulki',          acsAll,'20',''],
-   //      [17,16, 0, 'Охота на медведя', 'ohota-na-medvedya', acsAll,'2011.05.06',''],
-   //      [21, 0,-1, 'ittve.end',        '/',                 acsAll,'20','']
-   //    ];       
+   // *************************************************************************
+   // *                       Подключиться к базе данных                      *
+   // *************************************************************************
+   public function BaseConnect() 
+   {
+      $imusername='tve'; 
+      $impassword='23ety17'; 
+      $impathBase='sqlite:'.$this->imbasename.'.db3'; 
+      // Подключаем PDO к базе
+      $impdo = new \PDO(
+         $impathBase, 
+         $imusername,
+         $impassword,
+         array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION)
+      );
+      return $impdo;
+   }
+   // *************************************************************************
+   // *                  Создать базу таблиц для изображений                  *
+   // *************************************************************************
+   public function BaseFirstCreate()
+   {
+      // Получаем спецификацию файла базы данных материалов
+      $imfilename=$this->imbasename.'.db3';
+      // Проверяем существование и удаляем файл копии базы данных 
+      $filenameOld=$this->imbasename.'-copy.db3';
+      $this->im_UnlinkFile($filenameOld);
+      \prown\ConsoleLog('Проверено существование и удалена копия базы данных: '.$filenameOld);  
+      // Создаем копию базы данных
+      if (file_exists($imfilename)) 
+      {
+         if (rename($imfilename,$filenameOld))
+         {
+            \prown\ConsoleLog('Получена копия базы данных: '.$filenameOld);  
+         }
+         else
+         {
+            \prown\ConsoleLog('Не удалось переименовать базу данных: '.$imfilename);
+         }
+      } 
+      else 
+      {
+         \prown\ConsoleLog('Прежней версии базы данных '.$imfilename.' не существует');
+      }
+      // Проверяем существование и удаляем файл базы данных 
+      $this->im_UnlinkFile($imfilename);
+      \prown\ConsoleLog('Проверено существование и удалён старый файл базы данных: '.$imfilename); 
+      $impdo=$this->BaseConnect(); 
+      \prown\ConsoleLog('Создан объект PDO и файл базы данных');
+      // Создаём таблицы базы данных
+      $this->imCreateTables($impdo);
+      \prown\ConsoleLog('Созданы таблицы'); 
+   }
+   // *************************************************************************
+   // *      Создать таблицы базы данных и выполнить начальное заполнение     *
+   // *************************************************************************
+   public function imCreateTables($pdo)
+   {
+      try 
+      {
+         $pdo->beginTransaction();
+         // Включаем действие внешних ключей
+         $sql='PRAGMA foreign_keys=on;';
+         $st = $pdo->query($sql);
+         // Создаём 1 таблицу 
+         $sql=
+         'CREATE TABLE reviews ('.
+         'id       INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'.
+         'name     VARCHAR NOT NULL,'.
+         'text     TEXT    NOT NULL,'.
+         'date_add INTEGER NOT NULL  DEFAULT 0)';
+         $st = $pdo->query($sql);
+         // Создаём 2 таблицу 
+         $sql=
+         'CREATE TABLE reviews_images ('.
+         'id         INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'.
+         'reviews_id integer NOT NULL DEFAULT 0,'.
+         'filename   varchar NOT NULL)';
+         $st = $pdo->query($sql);
+         $pdo->commit();
+      } 
+      catch (Exception $e) 
+      {
+         // Если в транзакции, то делаем откат изменений
+         if ($pdo->inTransaction()) 
+         {
+            $pdo->rollback();
+         }
+         // Продолжаем исключение
+         throw $e;
+      }
+   }
+
+
+
    protected function MakeaCharters($apdo)
    {
       //$t1=SelRecord($apdo,$this->pid);
@@ -128,7 +177,7 @@ class ImgAjaxSqlite
          [           21,             0,              -1,       'ittve.end',                '/', acsAll,             '20','']
       ];  
       */     
-      return $aCharters;
+      //return $aCharters;
    }
    // --------------------------------------------------- ВНУТРЕННИЕ МЕТОДЫ ---
 } 

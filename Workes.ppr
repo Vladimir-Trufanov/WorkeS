@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Workes
-	+Workes
+	-Workes
 		-_AngledMenu
 			-css
 				_AngledMenu\css\reset-min.css
@@ -62,7 +62,7 @@ Workes
 			-css
 				_FlipOnHover\css\style.css
 			_FlipOnHover\FlipOnHover.html
-		+_ImgAjaxSqlite
+		-_ImgAjaxSqlite
 			-TImgAjaxSqlite
 				_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
 			-Охота на медведя
@@ -80,7 +80,7 @@ Workes
 			_ImgAjaxSqlite\aps-save_reviews.php
 			_ImgAjaxSqlite\aps-style.css
 			_ImgAjaxSqlite\aps-upload_image.php
-			_ImgAjaxSqlite\aps-workbase.php
+			_ImgAjaxSqlite\log.txt
 			_ImgAjaxSqlite\Main.php
 			_ImgAjaxSqlite\remove.png
 			_ImgAjaxSqlite\TinyItTve.php
@@ -413,6 +413,10 @@ Workes
 			uploads\1672469576-2677237156-thumb.jpg
 			uploads\1672469645-2194112211.jpg
 			uploads\1672469645-2194112211-thumb.jpg
+			uploads\1672469980-502121966.jpg
+			uploads\1672469980-502121966-thumb.jpg
+			uploads\1672470001-2727597111.jpg
+			uploads\1672470001-2727597111-thumb.jpg
 		-Материалы
 			Материалы\PHP и realpath.doc
 			Материалы\Метаданные в HTML.doc
@@ -423,8 +427,7 @@ Workes
 		index.html
 		iniWorkSpace.php
 		itimg.db3
-		ittve.db3
-		ittve-copy.db3
+		itimg-copy.db3
 		README.md
 		sort.db3
 		ViewEnviron.php
@@ -433,11 +436,10 @@ Workes
 0=index.html
 1=_ImgAjaxSqlite\TinyItTve.php
 2=_ImgAjaxSqlite\Main.php
-3=_ImgAjaxSqlite\Styles\aps-style.css
-4=_ImgAjaxSqlite\aps-upload_image.php
-5=_ImgAjaxSqlite\aps-save_reviews.php
-6=_ImgAjaxSqlite\aps-reviews.php
-7=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
+3=_ImgAjaxSqlite\aps-upload_image.php
+4=_ImgAjaxSqlite\aps-save_reviews.php
+5=_ImgAjaxSqlite\aps-reviews.php
+6=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
 [Selected Project Files]
 Main=
 Selected=_ImgAjaxSqlite\Main.php
@@ -448,11 +450,8 @@ Caret=58,108
 TopLine=2
 Caret=78,5
 [_ImgAjaxSqlite\Main.php]
-TopLine=15
-Caret=9,29
-[_ImgAjaxSqlite\Styles\aps-style.css]
-TopLine=16
-Caret=33,27
+TopLine=107
+Caret=1,144
 [_ImgAjaxSqlite\aps-upload_image.php]
 TopLine=104
 Caret=1,1
@@ -460,8 +459,8 @@ Caret=1,1
 TopLine=35
 Caret=35,74
 [_ImgAjaxSqlite\aps-reviews.php]
-TopLine=24
+TopLine=12
 Caret=53,12
 [_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php]
-TopLine=1
-Caret=73,3
+TopLine=141
+Caret=14,118
