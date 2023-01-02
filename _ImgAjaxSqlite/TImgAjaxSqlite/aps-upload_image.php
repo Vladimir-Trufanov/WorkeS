@@ -1,5 +1,22 @@
 <?php
-// Локаль.
+                                         
+// PHP7/HTML5, EDGE/CHROME                         *** aps-upload_image.php ***
+
+// ****************************************************************************
+// *     Выбранные изображения отправить на сервер до отправки основной формы *
+// *       (возможно пользователь вовсе её не отправит), поэтому PHP-скриптом *
+// * сохранить полученные файлы во временную директорию /uploads/tmp/ с новым *
+// *    именем и создать картинку-превью с префиксом «thumb» в конце названия *
+// * файла, далее вернуть контент для вставки обратно в форму в формате JSON. *
+// *                                                                          *
+// *      В целях безопасности, во временной директории /uploads/ должно быть *
+// *          отключено выполнение PHP-скриптов и выключен листинг каталогов. *
+// *       Так же временную директорию /uploads/tmp/ будет нужно периодически *
+// *                                                очищать от старых файлов. *
+// *                                                                          *
+// * v2.0, 02.01.2023                              Автор:       Труфанов В.Е. *
+// * Copyright © 2022 tve                          Дата создания:  18.12.2022 *
+// ****************************************************************************
 setlocale(LC_ALL, 'ru_RU.utf8');
 date_default_timezone_set('Europe/Moscow');
 mb_internal_encoding('UTF-8');
@@ -7,17 +24,16 @@ mb_regex_encoding('UTF-8');
 mb_http_output('UTF-8');
 mb_language('uni');
 //ini_set('display_errors', 1); 
-// Название <input type="file">
-$input_name = 'file';
+$input_name = 'file';  // так как название <input type="file">
 if (!isset($_FILES[$input_name])) 
 {
    exit;
 }
-// Разрешенные расширения файлов.
+// Разрешаем расширения файлов
 $allow = array('jpg', 'jpeg', 'png', 'gif');
-// URL до временной директории.
+// УказываемURL до временной директории
 $url_path = '/uploads/tmp/';
-// Полный путь до временной директории.
+// Указываем полный путь до временной директории.
 $tmp_path = $_SERVER['DOCUMENT_ROOT'].$url_path;
 if (!is_dir($tmp_path)) 
 {
@@ -44,7 +60,7 @@ $response = array();
 foreach ($files as $file) 
 {
    $error = $data  = '';
-   // Проверим на ошибки загрузки.
+   // Проверяем на ошибки загрузки.
    $ext = mb_strtolower(mb_substr(mb_strrchr(@$file['name'], '.'), 1));
    if (!empty($file['error']) || empty($file['tmp_name']) || $file['tmp_name'] == 'none') 
    {
@@ -155,3 +171,5 @@ foreach ($files as $file)
 header('Content-Type: application/json');
 echo json_encode($response, JSON_UNESCAPED_UNICODE);
 exit();
+
+// *************************************************** aps-upload_image.php ***

@@ -24,16 +24,13 @@
 }
 .img-item a {
 	display: inline-block;
-	background: url(/_ImgAjaxSqlite/TImgAjaxSqlite/remove.png) 0 0 no-repeat;
 	position: absolute;
 	top: -5px;
 	right: -9px;
-	width: 22px;
+	width: 20px;
 	height: 20px;
 	cursor: pointer;
 }
-
-
 .reviews_item {
 	background: #efefef;
 	padding: 15px 30px 0px 30px;

@@ -1,11 +1,6 @@
 <?php
 require_once("aps-common.php");
 
-?> 
-<script>
-</script>
-<?php
-
 // Сохранение изображений в БД и перенос в постоянную папку
 //ini_set('display_errors', 1); 
 // Временная директория.

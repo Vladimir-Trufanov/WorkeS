@@ -70,6 +70,7 @@ Workes
 				_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css
 				_ImgAjaxSqlite\TImgAjaxSqlite\aps-upload_image.php
 				_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
+				_ImgAjaxSqlite\TImgAjaxSqlite\remove.png
 			-Охота на медведя
 				_ImgAjaxSqlite\Охота на медведя\Бревно на медведя.JPG
 				_ImgAjaxSqlite\Охота на медведя\Бревно на медведя2.jpg
@@ -83,7 +84,6 @@ Workes
 				_ImgAjaxSqlite\Охота на медведя\Шапша весной.JPG
 			_ImgAjaxSqlite\log.txt
 			_ImgAjaxSqlite\Main.php
-			_ImgAjaxSqlite\remove.png
 			_ImgAjaxSqlite\TinyItTve.php
 		-_InterSpooky
 			-css
@@ -390,12 +390,12 @@ Workes
 			TempRes\Win8Sa5De185-90-102-110stamp.png
 		-uploads
 			-tmp
-			uploads\1672643967-4894168684.jpg
-			uploads\1672643967-4894168684-thumb.jpg
-			uploads\1672643972-8823055325.jpg
-			uploads\1672643972-8823055325-thumb.jpg
-			uploads\1672643979-1878531336.jpg
-			uploads\1672643979-1878531336-thumb.jpg
+			uploads\1672660287-755027368.jpg
+			uploads\1672660287-755027368-thumb.jpg
+			uploads\1672660377-2483960632.jpg
+			uploads\1672660377-2483960632-thumb.jpg
+			uploads\1672660690-129834181.jpg
+			uploads\1672660690-129834181-thumb.jpg
 		-Материалы
 			Материалы\PHP и realpath.doc
 			Материалы\Метаданные в HTML.doc
@@ -418,39 +418,35 @@ Workes
 4=_ImgAjaxSqlite\TImgAjaxSqlite\aps-save_reviews.php
 5=_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php
 6=_ImgAjaxSqlite\TImgAjaxSqlite\aps-upload_image.php
-7=..\TPhpPrown\TPhpPrown\CommonPrown.php
-8=_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php
-9=_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css
+7=_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php
+8=_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css
 [Selected Project Files]
 Main=
-Selected=_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css
+Selected=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
 [index.html]
 TopLine=70
 Caret=58,108
 [_ImgAjaxSqlite\TinyItTve.php]
 TopLine=6
-Caret=45,16
+Caret=16,44
 [_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php]
-TopLine=83
-Caret=7,147
+TopLine=71
+Caret=1,95
 [_ImgAjaxSqlite\Main.php]
 TopLine=33
 Caret=58,13
 [_ImgAjaxSqlite\TImgAjaxSqlite\aps-save_reviews.php]
-TopLine=22
-Caret=15,43
+TopLine=1
+Caret=1,3
 [_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php]
 TopLine=1
-Caret=1,2
+Caret=25,13
 [_ImgAjaxSqlite\TImgAjaxSqlite\aps-upload_image.php]
-TopLine=111
-Caret=1,154
-[..\TPhpPrown\TPhpPrown\CommonPrown.php]
-TopLine=119
-Caret=5,146
+TopLine=1
+Caret=2,31
 [_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php]
-TopLine=45
-Caret=64,22
+TopLine=1
+Caret=1,73
 [_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css]
-TopLine=11
-Caret=11,32
+TopLine=1
+Caret=1,34
