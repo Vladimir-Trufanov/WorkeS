@@ -1,4 +1,13 @@
 <?php
+// Вытаскиваем из параметра путь к файлам класса 
+$pathClass='';
+if (IsSet($_REQUEST['pathi']))
+{ 
+   $pathClass=$_REQUEST['pathi'];
+}
+
+//require_once("aps-common.php");
+
 
 echo '
    <!DOCTYPE html>
@@ -9,10 +18,10 @@ echo '
    <meta name="description" content="Труфанов Владимир Евгеньевич, редактор материалов TinyMCE">
    <meta name="keywords" content="Труфанов Владимир Евгеньевич,KwinTiny,TinyMCE,редактор материалов">
 ';
-echo '<link rel="stylesheet" type="text/css" href="/_ImgAjaxSqlite/aps-style.css">';
+//echo '<link rel="stylesheet" type="text/css" href="/_ImgAjaxSqlite/aps-style.css">';
+echo '<link rel="stylesheet" type="text/css" href="'.$pathClass.'/aps-style.css">';
 echo '</head>'; 
 echo '<body>'; 
-
 
 // Подключение к БД.
 // $dbh = new PDO('mysql:dbname=db_name;host=localhost', 'логин', 'пароль');
@@ -35,6 +44,9 @@ $sth->execute();
 $items = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 if (!empty($items)) {
+
+    echo '$pathClass='.$pathClass.'<br>';
+
     ?>
     <h2>Отзывы</h2>
     <div class="reviews">
@@ -69,5 +81,5 @@ if (!empty($items)) {
     </div>
     <?php
 }
-echo '<body>'; 
+echo '</body>'; 
 ?>

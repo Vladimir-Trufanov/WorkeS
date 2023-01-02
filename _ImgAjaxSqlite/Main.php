@@ -23,11 +23,14 @@ define ("pathPhpTools",$SiteHost.'/TPhpTools/TPhpTools');
 //require_once pathPhpTools."/TArticlesMaker/ArticlesMakerClass.php";
 //require_once pathPhpTools."/TKwinGallery/KwinGalleryClass.php";
 
-// Готовим объект для работы с изображениями
+// Готовим объект для работы с изображениями, где $SiteRoot - корневой каталог 
+// сайта, $urlHome - начальная страница сайта
 require_once $SiteRoot."/_ImgAjaxSqlite/TImgAjaxSqlite/ImgAjaxSqliteClass.php";
-
-$Imgaj=new ImgAjaxSqlite();
-$Imgaj->BaseFirstCreate();
+$Imgaj=new ImgAjaxSqlite($urlHome."/_ImgAjaxSqlite/TImgAjaxSqlite");
+// При необходимости создаем базу данных для изображений
+$imfilename=$Imgaj->imbasename.'.db3';
+if (!file_exists($imfilename)) $Imgaj->BaseFirstCreate();
+// Подключаемся к базе данных
 $impdo=$Imgaj->BaseConnect();
 
 // Начинаем разметку документа
@@ -41,10 +44,7 @@ echo '
    <meta name="keywords" content="Труфанов Владимир Евгеньевич,Загрузка, изображения, превью, AJAX+SQLite">
 ';
 // Подключаем шрифты и стили документа
-//echo '
-//   <link rel="stylesheet" type="text/css" href="Styles/Styles.css">
-//';
-echo '<link rel="stylesheet" type="text/css" href="/_ImgAjaxSqlite/aps-style.css">';
+$Imgaj->iniStyles(); 
 // Подключаем js скрипты 
 ?> 
    <script src="/Jsx/jquery-1.11.1.min.js"></script>
@@ -59,79 +59,10 @@ echo '<body>';
    print_r( $_FILES );
    echo '</pre>'; 
    */
+   
+   // Готовим и отрабатываем форму по загрузке изображений
+   $Imgaj->SelImagesSendProcess();
 
-   $ImgAfterPost=$urlHome."/_ImgAjaxSqlite/TImgAjaxSqlite/aps-save_reviews.php";
-   echo '<form method="post" action="'.$ImgAfterPost.'">';
-   ?> 
-   <h3>Отправить отзыв:</h3>
-   <div class="form-row">
-      <label>Ваше имя:</label>
-	  <input type="text" name="name" required>
-   </div>
-   <div class="form-row">
-      <label>Комментарий:</label>
-	  <input type="text" name="text" required>
-   </div>
-   <div class="form-row">
-      <label>Изображения:</label>
-	  <div class="img-list" id="js-file-list"></div>
-	  <input id="js-file" type="file" name="file[]" multiple accept=".jpg,.jpeg,.png,.gif">
-   </div>
-   <div class="form-submit">
-      <input type="submit" name="send" value="Отправить">
-   </div>
-   </form>
- 
-   <script>
-   $("#js-file").change(function()
-   {
-	  if (window.FormData === undefined) 
-      {
-	     alert('В вашем браузере загрузка файлов не поддерживается');
-	  } 
-      else 
-      {
-	     var formData = new FormData();
-	     $.each($("#js-file")[0].files, function(key, input)
-         {
-		    formData.append('file[]', input);
-		 });
- 
-		$.ajax(
-        {
-		   type: 'POST',
-		   url: '/_ImgAjaxSqlite/aps-upload_image.php',
-		   cache: false,
-		   contentType: false,
-	       processData: false,
-		   data: formData,
-		   dataType : 'json',
-		   success: function(msg)
-           {
-		      msg.forEach(function(row) 
-              {
-                 if (row.error == '') 
-                 {
-                    $('#js-file-list').append(row.data);
-				 } 
-                 else 
-                 {
-                    alert(row.error);
-                 }
-			  });
-			  $("#js-file").val(''); 
-		   }
-		});
-	  }
-   });
- 
-   /* Удаление загруженной картинки */
-   function remove_img(target)
-   {
-      $(target).parent().remove();
-   }
-   </script>
-   <?php
 echo '
    </body>
    </html>

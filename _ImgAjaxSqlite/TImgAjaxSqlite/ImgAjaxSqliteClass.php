@@ -1,4 +1,4 @@
-<?php
+<?php 
                                          
 // PHP7/HTML5, EDGE/CHROME                        *** ImgAjaxSqliteClass.php ***
 
@@ -17,111 +17,149 @@
  *  
  * https://snipp.ru/php/upload-images
  *  
- * Первое что понадобится: HTML форма и JS скрипт, который после выбора одного 
- * или несколькольких файлов отправит их на aps-upload_image.php через AJAX.
+ * Порядок работы с классом:
+ * 
+ * // Готовим объект для работы с изображениями, где $SiteRoot - корневой каталог
+ * // сайта, $urlHome - начальная страница сайта
+ * require_once $SiteRoot."/_ImgAjaxSqlite/TImgAjaxSqlite/ImgAjaxSqliteClass.php";
+ * $Imgaj=new ImgAjaxSqlite($urlHome."/_ImgAjaxSqlite/TImgAjaxSqlite");
+ * // При необходимости создаем базу данных для изображений
+ * $imfilename=$Imgaj->imbasename.'.db3';
+ * if (!file_exists($imfilename)) $Imgaj->BaseFirstCreate();
+ * // Подключаемся к базе данных
+ * $impdo=$Imgaj->BaseConnect();
+ * // Подключаем шрифты и стили документа
+ * echo '<head>';
+ * $Imgaj->iniStyles(); 
+ * echo '</head>';
+ * // Готовим и отрабатываем форму по загрузке изображений
+ * echo '<body>'; 
+ * $Imgaj->SelImagesSendProcess();
+ * echo '</body>'; 
  * 
 **/
 
+require_once("aps-common.php");
 class ImgAjaxSqlite
 {
    // ----------------------------------------------------- СВОЙСТВА КЛАССА ---
-   protected $imbasename;  // База данных изображений
-
+   public $imbasename;       // Наименование базы данных изображений 
+   protected $pathClass;     // Путь к каталогу файлов класса  
    // ------------------------------------------------------- МЕТОДЫ КЛАССА ---
-   public function __construct() 
+   public function __construct($pathClass) 
    {
-      // Получаем спецификацию файла базы данных
-      $this->imbasename=$_SERVER['DOCUMENT_ROOT'].'/itimg';
+      // Генерируем имя файла базы данных
+      $this->imbasename=_BaseName();
+      // Принимаем путь к каталогу файлов класса
+      $this->pathClass=$pathClass;
       // Трассируем установленные свойства
-      //\prown\ConsoleLog('$this->gallidir='.$this->gallidir); 
+      \prown\ConsoleLog('$this->pathClass='.$this->pathClass); 
    }
-   
    public function __destruct() 
    {
+   }
+   // *************************************************************************
+   // *                        Подключить стили форм класса                   *
+   // *************************************************************************
+   public function iniStyles() 
+   {
+      $FormsStyles=$this->pathClass."/aps-style.css";
+      echo '<link rel="stylesheet" type="text/css" href="'.$FormsStyles.'">';
    }
    // *************************************************************************
    // *      Выбрать изображения, доп.информацию и отправить на обработку     *
    // *************************************************************************
    public function SelImagesSendProcess()
    {
-   /*
-   ?> 
-   <form method="post" action="/_ImgAjaxSqlite/aps-save_reviews.php">
-   <h3>Отправить отзыв:</h3>
-   <div class="form-row">
-      <label>Ваше имя:</label>
-	  <input type="text" name="name" required>
-   </div>
-   <div class="form-row">
-      <label>Комментарий:</label>
-	  <input type="text" name="text" required>
-   </div>
-   <div class="form-row">
-      <label>Изображения:</label>
-	  <div class="img-list" id="js-file-list"></div>
-	  <input id="js-file" type="file" name="file[]" multiple accept=".jpg,.jpeg,.png,.gif">
-   </div>
-   <div class="form-submit">
-      <input type="submit" name="send" value="Отправить">
-   </div>
-   </form>
+      $ImgAfterPost  =$this->pathClass.'/aps-save_reviews.php?pathi='.$this->pathClass;
+      $apsUploadImage=$this->pathClass."/aps-upload_image.php";
+
+      echo '<form method="post" action="'.$ImgAfterPost.'">';
+      ?> 
+      <h3>Отправить отзыв:</h3>
+      <div class="form-row">
+        <label>Ваше имя:</label>
+	    <input type="text" name="name" required>
+      </div>
+      <div class="form-row">
+         <label>Комментарий:</label>
+	     <input type="text" name="text" required>
+      </div>
+      <div class="form-row">
+         <label>Изображения:</label>
+	     <div class="img-list" id="js-file-list"></div>
+	     <input id="js-file" type="file" name="file[]" multiple accept=".jpg,.jpeg,.png,.gif">
+      </div>
+      <div class="form-submit">
+         <input type="submit" name="send" value="Отправить">
+      </div>
+      <?php
+      echo '</form>';
+      ?> 
  
-   <script>
-   $("#js-file").change(function()
-   {
-	  if (window.FormData === undefined) 
+      <script>
+      apsUploadImage="<?php echo $apsUploadImage;?>";
+      $("#js-file").change(function()
       {
-	     alert('В вашем браузере загрузка файлов не поддерживается');
-	  } 
-      else 
-      {
-	     var formData = new FormData();
-	     $.each($("#js-file")[0].files, function(key, input)
+	     if (window.FormData === undefined) 
          {
-		    formData.append('file[]', input);
-		 });
+	        alert('В вашем браузере загрузка файлов не поддерживается');
+	     } 
+         else 
+         {
+	        var formData = new FormData();
+	        $.each($("#js-file")[0].files, function(key, input)
+            {
+		       formData.append('file[]', input);
+		    });
+		    $.ajax(
+            {
+		       type: 'POST',
+		       url: apsUploadImage,
+		       cache: false,
+		       contentType: false,
+	           processData: false,
+		       data: formData,
+		       dataType : 'json',
+		       success: function(msg)
+               {
+		          msg.forEach(function(row) 
+                  {
+                     if (row.error == '') 
+                     {
+                        $('#js-file-list').append(row.data);
+				     } 
+                     else 
+                     {
+                        alert(row.error);
+                     }
+			      });
+			      $("#js-file").val(''); 
+		       }
+		    });
+	     }
+      });
  
-		$.ajax(
-        {
-		   type: 'POST',
-		   url: '/_ImgAjaxSqlite/aps-upload_image.php',
-		   cache: false,
-		   contentType: false,
-	       processData: false,
-		   data: formData,
-		   dataType : 'json',
-		   success: function(msg)
-           {
-		      msg.forEach(function(row) 
-              {
-                 if (row.error == '') 
-                 {
-                    $('#js-file-list').append(row.data);
-				 } 
-                 else 
-                 {
-                    alert(row.error);
-                 }
-			  });
-			  $("#js-file").val(''); 
-		   }
-		});
-	  }
-   });
- 
-   // Удаление загруженной картинки
-   function remove_img(target)
-   {
-      $(target).parent().remove();
+      /* Удаление загруженной картинки */
+      function remove_img(target)
+      {
+         $(target).parent().remove();
+      }
+      </script>
+      <?php
    }
-   </script>
-   <?php
-   */
-   } 
    // *************************************************************************
    // *                       Подключиться к базе данных                      *
    // *************************************************************************
-   public function im_UnlinkFile($filename) 
+   public function BaseConnect() 
+   {
+      $impdo=_BaseConnect(); 
+      return $impdo;
+   }
+   // *************************************************************************
+   // *                       Подключиться к базе данных                      *
+   // *************************************************************************
+   protected function im_UnlinkFile($filename) 
    {
       if (file_exists($filename)) 
       {
@@ -135,23 +173,6 @@ class ImgAjaxSqlite
             throw new Exception("Не удалось удалить файл $filename!");
          } 
       } 
-   }
-   // *************************************************************************
-   // *                       Подключиться к базе данных                      *
-   // *************************************************************************
-   public function BaseConnect() 
-   {
-      $imusername='tve'; 
-      $impassword='23ety17'; 
-      $impathBase='sqlite:'.$this->imbasename.'.db3'; 
-      // Подключаем PDO к базе
-      $impdo = new \PDO(
-         $impathBase, 
-         $imusername,
-         $impassword,
-         array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION)
-      );
-      return $impdo;
    }
    // *************************************************************************
    // *                  Создать базу таблиц для изображений                  *
@@ -192,7 +213,7 @@ class ImgAjaxSqlite
    // *************************************************************************
    // *      Создать таблицы базы данных и выполнить начальное заполнение     *
    // *************************************************************************
-   public function imCreateTables($pdo)
+   protected function imCreateTables($pdo)
    {
       try 
       {
@@ -228,29 +249,5 @@ class ImgAjaxSqlite
          throw $e;
       }
    }
-
-
-
-   protected function MakeaCharters($apdo)
-   {
-      //$t1=SelRecord($apdo,$this->pid);
-      //$t2=SelRecord($apdo,$this->uid);
-      /*
-      echo '<pre>';
-      print_r($t1);
-      echo '</pre>';
-      */
-      /*
-      $aCharters=[                                                          
-         [            1,             0,              -1,        'ittve.me',                '/', acsAll,             '20',''],
-         [$t1[0]['uid'], $t1[0]['pid'], $t1[0]['IdCue'], $t1[0]['NameArt'], $t1[0]['Translit'], acsAll,$t1[0]['DateArt'],''],
-         [$t2[0]['uid'], $t2[0]['pid'], $t2[0]['IdCue'], $t2[0]['NameArt'], $t2[0]['Translit'], acsAll,$t2[0]['DateArt'],''],
-         [           21,             0,              -1,       'ittve.end',                '/', acsAll,             '20','']
-      ];  
-      */     
-      //return $aCharters;
-   }
-   // --------------------------------------------------- ВНУТРЕННИЕ МЕТОДЫ ---
-} 
-
+}
 // ************************************************* ImgAjaxSqliteClass.php ***

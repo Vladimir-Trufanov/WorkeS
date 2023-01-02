@@ -63,7 +63,12 @@ Workes
 				_FlipOnHover\css\style.css
 			_FlipOnHover\FlipOnHover.html
 		+_ImgAjaxSqlite
-			-TImgAjaxSqlite
+			+TImgAjaxSqlite
+				_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php
+				_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php
+				_ImgAjaxSqlite\TImgAjaxSqlite\aps-save_reviews.php
+				_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css
+				_ImgAjaxSqlite\TImgAjaxSqlite\aps-upload_image.php
 				_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
 			-Охота на медведя
 				_ImgAjaxSqlite\Охота на медведя\Бревно на медведя.JPG
@@ -76,10 +81,6 @@ Workes
 				_ImgAjaxSqlite\Охота на медведя\Следы не свежие, но догоним.JPG
 				_ImgAjaxSqlite\Охота на медведя\Шапша в половодье.JPG
 				_ImgAjaxSqlite\Охота на медведя\Шапша весной.JPG
-			_ImgAjaxSqlite\aps-reviews.php
-			_ImgAjaxSqlite\aps-save_reviews.php
-			_ImgAjaxSqlite\aps-style.css
-			_ImgAjaxSqlite\aps-upload_image.php
 			_ImgAjaxSqlite\log.txt
 			_ImgAjaxSqlite\Main.php
 			_ImgAjaxSqlite\remove.png
@@ -157,7 +158,7 @@ Workes
 				_Sandbox\view\upload.php
 			_Sandbox\Sandbox.php
 			_Sandbox\Полностью своя кнопка - Выбрать файл.doc
-		+_Signaphoto
+		-_Signaphoto
 			-Fonts
 				-Lobster
 					_Signaphoto\Fonts\Lobster\Lobster-Regular.ttf
@@ -389,34 +390,12 @@ Workes
 			TempRes\Win8Sa5De185-90-102-110stamp.png
 		-uploads
 			-tmp
-				uploads\tmp\1672425206-5340551166.jpg
-				uploads\tmp\1672425206-5340551166-thumb.jpg
-				uploads\tmp\1672466281-5211122576.jpg
-				uploads\tmp\1672466281-5211122576-thumb.jpg
-				uploads\tmp\1672466453-430396475.jpg
-				uploads\tmp\1672466453-430396475-thumb.jpg
-			uploads\1672466682-7634671476.jpg
-			uploads\1672466682-7634671476-thumb.jpg
-			uploads\1672466843-6338826834.jpg
-			uploads\1672466843-6338826834-thumb.jpg
-			uploads\1672466932-4554047842.jpg
-			uploads\1672466932-4554047842-thumb.jpg
-			uploads\1672467049-4568770672.jpg
-			uploads\1672467049-4568770672-thumb.jpg
-			uploads\1672467194-8350533960.jpg
-			uploads\1672467194-8350533960-thumb.jpg
-			uploads\1672469253-5462493483.jpg
-			uploads\1672469253-5462493483-thumb.jpg
-			uploads\1672469474-1018473989.jpg
-			uploads\1672469474-1018473989-thumb.jpg
-			uploads\1672469576-2677237156.jpg
-			uploads\1672469576-2677237156-thumb.jpg
-			uploads\1672469645-2194112211.jpg
-			uploads\1672469645-2194112211-thumb.jpg
-			uploads\1672469980-502121966.jpg
-			uploads\1672469980-502121966-thumb.jpg
-			uploads\1672470001-2727597111.jpg
-			uploads\1672470001-2727597111-thumb.jpg
+			uploads\1672643967-4894168684.jpg
+			uploads\1672643967-4894168684-thumb.jpg
+			uploads\1672643972-8823055325.jpg
+			uploads\1672643972-8823055325-thumb.jpg
+			uploads\1672643979-1878531336.jpg
+			uploads\1672643979-1878531336-thumb.jpg
 		-Материалы
 			Материалы\PHP и realpath.doc
 			Материалы\Метаданные в HTML.doc
@@ -427,7 +406,6 @@ Workes
 		index.html
 		iniWorkSpace.php
 		itimg.db3
-		itimg-copy.db3
 		README.md
 		sort.db3
 		ViewEnviron.php
@@ -435,36 +413,44 @@ Workes
 [Open project files]
 0=index.html
 1=_ImgAjaxSqlite\TinyItTve.php
-2=_ImgAjaxSqlite\aps-save_reviews.php
-3=_ImgAjaxSqlite\aps-reviews.php
-4=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
-5=_ImgAjaxSqlite\aps-upload_image.php
-6=..\IttveMe\www\index.php
-7=_ImgAjaxSqlite\Main.php
+2=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
+3=_ImgAjaxSqlite\Main.php
+4=_ImgAjaxSqlite\TImgAjaxSqlite\aps-save_reviews.php
+5=_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php
+6=_ImgAjaxSqlite\TImgAjaxSqlite\aps-upload_image.php
+7=..\TPhpPrown\TPhpPrown\CommonPrown.php
+8=_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php
+9=_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css
 [Selected Project Files]
 Main=
-Selected=_ImgAjaxSqlite\Main.php
+Selected=_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css
 [index.html]
-TopLine=85
+TopLine=70
 Caret=58,108
 [_ImgAjaxSqlite\TinyItTve.php]
-TopLine=3
-Caret=9,22
-[_ImgAjaxSqlite\aps-save_reviews.php]
-TopLine=1
-Caret=1,6
-[_ImgAjaxSqlite\aps-reviews.php]
-TopLine=12
-Caret=53,12
+TopLine=6
+Caret=45,16
 [_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php]
-TopLine=9
-Caret=36,112
-[_ImgAjaxSqlite\aps-upload_image.php]
-TopLine=75
-Caret=1,1
-[..\IttveMe\www\index.php]
-TopLine=49
-Caret=1,80
+TopLine=83
+Caret=7,147
 [_ImgAjaxSqlite\Main.php]
-TopLine=102
-Caret=1,139
+TopLine=33
+Caret=58,13
+[_ImgAjaxSqlite\TImgAjaxSqlite\aps-save_reviews.php]
+TopLine=22
+Caret=15,43
+[_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php]
+TopLine=1
+Caret=1,2
+[_ImgAjaxSqlite\TImgAjaxSqlite\aps-upload_image.php]
+TopLine=111
+Caret=1,154
+[..\TPhpPrown\TPhpPrown\CommonPrown.php]
+TopLine=119
+Caret=5,146
+[_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php]
+TopLine=45
+Caret=64,22
+[_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css]
+TopLine=11
+Caret=11,32

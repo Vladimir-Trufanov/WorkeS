@@ -9,3 +9,30 @@ Stack trace:
 [31-Dec-2022 18:36:59 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ')', expecting variable (T_VARIABLE) in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php on line 113
 [31-Dec-2022 19:07:19 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ',' in C:\Workes\_ImgAjaxSqlite\Main.php on line 107
 [31-Dec-2022 19:08:16 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ',' in C:\Workes\_ImgAjaxSqlite\Main.php on line 107
+[01-Jan-2023 13:36:07 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '$Imgaj' (T_VARIABLE) in C:\Workes\_ImgAjaxSqlite\Main.php on line 33
+[01-Jan-2023 13:46:48 Asia/Kuwait] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function ImgAjaxSqlite::SelImagesSendProcess(), 0 passed in C:\Workes\_ImgAjaxSqlite\Main.php on line 64 and exactly 1 expected in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php:64
+Stack trace:
+#0 C:\Workes\_ImgAjaxSqlite\Main.php(64): ImgAjaxSqlite->SelImagesSendProcess()
+#1 C:\Workes\_ImgAjaxSqlite\TinyItTve.php(31): require_once('C:\\Workes\\_ImgA...')
+#2 {main}
+  thrown in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php on line 64
+[01-Jan-2023 14:56:07 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function _BaseName() in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php:53
+Stack trace:
+#0 C:\Workes\_ImgAjaxSqlite\Main.php(29): ImgAjaxSqlite->__construct('http://localhos...')
+#1 C:\Workes\_ImgAjaxSqlite\TinyItTve.php(31): require_once('C:\\Workes\\_ImgA...')
+#2 {main}
+  thrown in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php on line 53
+[01-Jan-2023 15:00:48 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function _BaseName() in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php:53
+Stack trace:
+#0 C:\Workes\_ImgAjaxSqlite\Main.php(29): ImgAjaxSqlite->__construct('http://localhos...')
+#1 C:\Workes\_ImgAjaxSqlite\TinyItTve.php(31): require_once('C:\\Workes\\_ImgA...')
+#2 {main}
+  thrown in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php on line 53
+[01-Jan-2023 15:03:46 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '}', expecting ';' in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php on line 10
+[01-Jan-2023 15:04:43 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php:18
+Stack trace:
+#0 C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php(176): _BaseConnect()
+#1 C:\Workes\_ImgAjaxSqlite\Main.php(34): ImgAjaxSqlite->BaseConnect()
+#2 C:\Workes\_ImgAjaxSqlite\TinyItTve.php(31): require_once('C:\\Workes\\_ImgA...')
+#3 {main}
+  thrown in C:\Workes\_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php on line 18
