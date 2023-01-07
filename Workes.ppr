@@ -45,6 +45,12 @@ Workes
 			_button-loading-indicator\button-loading-indicator.html
 			_button-loading-indicator\license.txt
 			_button-loading-indicator\README.txt
+		-_CallSubscription
+			_CallSubscription\Call.png
+			_CallSubscription\Call.svg
+			_CallSubscription\Calli.css
+			_CallSubscription\Calli.html
+			_CallSubscription\Calli.js
 		-_countdown
 			-assets
 				-countdown
@@ -62,8 +68,8 @@ Workes
 			-css
 				_FlipOnHover\css\style.css
 			_FlipOnHover\FlipOnHover.html
-		+_ImgAjaxSqlite
-			+TImgAjaxSqlite
+		-_ImgAjaxSqlite
+			-TImgAjaxSqlite
 				_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php
 				_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php
 				_ImgAjaxSqlite\TImgAjaxSqlite\aps-save_reviews.php
@@ -82,7 +88,6 @@ Workes
 				_ImgAjaxSqlite\Охота на медведя\Следы не свежие, но догоним.JPG
 				_ImgAjaxSqlite\Охота на медведя\Шапша в половодье.JPG
 				_ImgAjaxSqlite\Охота на медведя\Шапша весной.JPG
-			_ImgAjaxSqlite\log.txt
 			_ImgAjaxSqlite\Main.php
 			_ImgAjaxSqlite\TinyItTve.php
 		-_InterSpooky
@@ -99,6 +104,11 @@ Workes
 					_Lobster\Fonts\Lobster\Lobster-Regular.ttf
 					_Lobster\Fonts\Lobster\OFL.txt
 			_Lobster\Lobster.html
+		+_LoginScreen
+			_LoginScreen\index.html
+			_LoginScreen\LoginScreen.css
+			_LoginScreen\LoginScreen.js
+			_LoginScreen\LoginScreen.scss
 		-_minsectimer
 			_minsectimer\index.html
 		-_MotionBlurEffect
@@ -390,12 +400,10 @@ Workes
 			TempRes\Win8Sa5De185-90-102-110stamp.png
 		-uploads
 			-tmp
-			uploads\1672660287-755027368.jpg
-			uploads\1672660287-755027368-thumb.jpg
-			uploads\1672660377-2483960632.jpg
-			uploads\1672660377-2483960632-thumb.jpg
-			uploads\1672660690-129834181.jpg
-			uploads\1672660690-129834181-thumb.jpg
+				uploads\tmp\1672922774-6657326802.jpg
+				uploads\tmp\1672922774-6657326802-thumb.jpg
+				uploads\tmp\1672922796-4030658583.jpg
+				uploads\tmp\1672922796-4030658583-thumb.jpg
 		-Материалы
 			Материалы\PHP и realpath.doc
 			Материалы\Метаданные в HTML.doc
@@ -405,48 +413,39 @@ Workes
 		favicon.ico
 		index.html
 		iniWorkSpace.php
-		itimg.db3
 		README.md
 		sort.db3
 		ViewEnviron.php
 		Workes.ppr
 [Open project files]
 0=index.html
-1=_ImgAjaxSqlite\TinyItTve.php
-2=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
-3=_ImgAjaxSqlite\Main.php
-4=_ImgAjaxSqlite\TImgAjaxSqlite\aps-save_reviews.php
-5=_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php
-6=_ImgAjaxSqlite\TImgAjaxSqlite\aps-upload_image.php
-7=_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php
-8=_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css
+1=_ImgAjaxSqlite\Main.php
+2=_CallSubscription\Calli.css
+3=_CallSubscription\Calli.js
+4=_LoginScreen\index.html
+5=_LoginScreen\LoginScreen.js
+6=_LoginScreen\LoginScreen.css
 [Selected Project Files]
 Main=
-Selected=_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php
+Selected=_LoginScreen\LoginScreen.css
 [index.html]
-TopLine=70
-Caret=58,108
-[_ImgAjaxSqlite\TinyItTve.php]
-TopLine=6
-Caret=16,44
-[_ImgAjaxSqlite\TImgAjaxSqlite\ImgAjaxSqliteClass.php]
-TopLine=71
-Caret=1,95
+TopLine=78
+Caret=48,99
 [_ImgAjaxSqlite\Main.php]
-TopLine=33
+TopLine=1
 Caret=58,13
-[_ImgAjaxSqlite\TImgAjaxSqlite\aps-save_reviews.php]
+[_CallSubscription\Calli.css]
+TopLine=143
+Caret=2,183
+[_CallSubscription\Calli.js]
 TopLine=1
-Caret=1,3
-[_ImgAjaxSqlite\TImgAjaxSqlite\aps-common.php]
+Caret=4,24
+[_LoginScreen\index.html]
 TopLine=1
-Caret=25,13
-[_ImgAjaxSqlite\TImgAjaxSqlite\aps-upload_image.php]
+Caret=8,15
+[_LoginScreen\LoginScreen.js]
 TopLine=1
-Caret=2,31
-[_ImgAjaxSqlite\TImgAjaxSqlite\aps-reviews.php]
+Caret=1,66
+[_LoginScreen\LoginScreen.css]
 TopLine=1
-Caret=1,73
-[_ImgAjaxSqlite\TImgAjaxSqlite\aps-style.css]
-TopLine=1
-Caret=1,34
+Caret=2,169
