@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Замены HTML-кода</title>
+</head>
+<body>
+   <!-- Делаем span в диве (содержимое span потом заменяем) -->   
+   <!-- Интересно то, что делается замена дочернего элементаДелаем span в диве (содержимое span потом заменяем) -->   
+   <div id='iDiv'>
+      <span id="childSpan" onclick="ClickSpan('Заменил по клику')">Кликни на мне и замени</span><br>
+      <span class="classSpan">здесь делается замена без клика, по факту идущего далее js-скрипта</span>
+   </div>
+   
+   <script>
+   function ClickSpan(Zamena)
+   {
+      // <div>
+      //  <span id="childSpan">foo bar</span>
+      // </div>
+
+      // Создаём новый пустой элемент
+      // without an ID, any attributes, or any content
+      sp1 = document.createElement("span");
+      // Присваиваем ему id 'newSpan'
+      sp1.setAttribute("id", "newSpan");
+      // Создаём строку.
+      sp1_content = document.createTextNode(Zamena);
+      // Добавляем контент в созданный нами узел
+      sp1.appendChild(sp1_content);
+      // создаём ссылку на существующий элемент который будем заменять
+      sp2 = document.getElementById("childSpan");
+      parentDiv = sp2.parentNode;
+      // заменяем существующий элемент sp2 на созданный нами sp1
+      parentDiv.replaceChild(sp1, sp2);
+
+      // Результат:
+      // <div>
+      //   <span id="newSpan">Заменил</span>
+      // </div>
+   }
+   </script>
+   
+   <script>
+      var sp1 = document.createElement("span");
+      var sp1_content = document.createTextNode("Заменил по ходу, без клика");
+      sp1.appendChild(sp1_content);
+      var sp2=document.getElementsByClassName("classSpan");
+   	  for(let i=0; i<sp2.length; i++)
+      { 
+         // проходим циклом по всем элементам массивоподобного объекта
+        var parentDiv = sp2[i].parentNode;
+        parentDiv.replaceChild(sp1,sp2[i]);
+	  }		
+      // устанавливаем зеленый цвет текста 
+      sp3=document.getElementById("iDiv");
+	  sp3.style.color="green"; 
+   </script>
+   
+</body>
+</html>
+
+ 
+      
+      
