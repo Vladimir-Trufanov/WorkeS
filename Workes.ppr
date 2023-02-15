@@ -38,8 +38,84 @@ Workes
 			_another-button\license.txt
 			_another-button\README.txt
 		+_BLOBtoSaveAndView
+			-Awsm_embed
+			+embed-any-document
+				-blocks
+					-document
+						-modules
+							_BLOBtoSaveAndView\embed-any-document\blocks\document\modules\ead-server-side-render.js
+							_BLOBtoSaveAndView\embed-any-document\blocks\document\modules\helper.js
+							_BLOBtoSaveAndView\embed-any-document\blocks\document\modules\icon.js
+							_BLOBtoSaveAndView\embed-any-document\blocks\document\modules\index.php
+							_BLOBtoSaveAndView\embed-any-document\blocks\document\modules\inspector.js
+						_BLOBtoSaveAndView\embed-any-document\blocks\document\document-block.js
+						_BLOBtoSaveAndView\embed-any-document\blocks\document\editor.css
+						_BLOBtoSaveAndView\embed-any-document\blocks\document\index.php
+						_BLOBtoSaveAndView\embed-any-document\blocks\document\main.js
+					_BLOBtoSaveAndView\embed-any-document\blocks\document.php
+					_BLOBtoSaveAndView\embed-any-document\blocks\index.php
+				-css
+					_BLOBtoSaveAndView\embed-any-document\css\embed.css
+					_BLOBtoSaveAndView\embed-any-document\css\embed.min.css
+					_BLOBtoSaveAndView\embed-any-document\css\embed-public.css
+					_BLOBtoSaveAndView\embed-any-document\css\embed-public.min.css
+					_BLOBtoSaveAndView\embed-any-document\css\index.php
+					_BLOBtoSaveAndView\embed-any-document\css\settings.css
+					_BLOBtoSaveAndView\embed-any-document\css\settings.min.css
+				-images
+					_BLOBtoSaveAndView\embed-any-document\images\admin-media.svg
+					_BLOBtoSaveAndView\embed-any-document\images\awsm-logo.png
+					_BLOBtoSaveAndView\embed-any-document\images\ead-button.png
+					_BLOBtoSaveAndView\embed-any-document\images\ead-icon-sprite.jpg
+					_BLOBtoSaveAndView\embed-any-document\images\EAD-logo.svg
+					_BLOBtoSaveAndView\embed-any-document\images\eadplus-banner.png
+					_BLOBtoSaveAndView\embed-any-document\images\ead-small.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-box.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-box.svg
+					_BLOBtoSaveAndView\embed-any-document\images\icon-close.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-drive.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-drive.svg
+					_BLOBtoSaveAndView\embed-any-document\images\icon-dropbox.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-dropbox.svg
+					_BLOBtoSaveAndView\embed-any-document\images\icon-ead.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-link.png
+					_BLOBtoSaveAndView\embed-any-document\images\iconmonstr-link-1.svg
+					_BLOBtoSaveAndView\embed-any-document\images\iconmonstr-upload-17.svg
+					_BLOBtoSaveAndView\embed-any-document\images\icon-no.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-onedrive.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-onedrive.svg
+					_BLOBtoSaveAndView\embed-any-document\images\icon-sprite.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-success.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-upload.png
+					_BLOBtoSaveAndView\embed-any-document\images\icon-yes.png
+					_BLOBtoSaveAndView\embed-any-document\images\index.php
+					_BLOBtoSaveAndView\embed-any-document\images\loading.svg
+					_BLOBtoSaveAndView\embed-any-document\images\open.svg
+					_BLOBtoSaveAndView\embed-any-document\images\reload.svg
+					_BLOBtoSaveAndView\embed-any-document\images\star.gif
+					_BLOBtoSaveAndView\embed-any-document\images\ticket.gif
+				-inc
+					_BLOBtoSaveAndView\embed-any-document\inc\index.php
+					_BLOBtoSaveAndView\embed-any-document\inc\popup.php
+					_BLOBtoSaveAndView\embed-any-document\inc\settings.php
+				-js
+					_BLOBtoSaveAndView\embed-any-document\js\embed.js
+					_BLOBtoSaveAndView\embed-any-document\js\embed.min.js
+					_BLOBtoSaveAndView\embed-any-document\js\embed-public.js
+					_BLOBtoSaveAndView\embed-any-document\js\embed-public.min.js
+					_BLOBtoSaveAndView\embed-any-document\js\index.php
+					_BLOBtoSaveAndView\embed-any-document\js\pdfobject.js
+					_BLOBtoSaveAndView\embed-any-document\js\pdfobject.min.js
+				-language
+					_BLOBtoSaveAndView\embed-any-document\language\embed-any-document.pot
+					_BLOBtoSaveAndView\embed-any-document\language\index.php
+				_BLOBtoSaveAndView\embed-any-document\awsm-embed.php
+				_BLOBtoSaveAndView\Awsm_embed\index.php
+				_BLOBtoSaveAndView\embed-any-document\readme.txt
 			_BLOBtoSaveAndView\BLOBtoSaveAndView.php
+			_BLOBtoSaveAndView\EmbedAnyDocument.php
 			_BLOBtoSaveAndView\Poster.jpg
+			_BLOBtoSaveAndView\proba.db3
 			_BLOBtoSaveAndView\Proba.doc
 			_BLOBtoSaveAndView\Proba.mp3
 			_BLOBtoSaveAndView\Proba.mp4
@@ -452,5 +528,5 @@ Caret=4,24
 TopLine=550
 Caret=37,563
 [_BLOBtoSaveAndView\BLOBtoSaveAndView.php]
-TopLine=17
+TopLine=94
 Caret=1,133
