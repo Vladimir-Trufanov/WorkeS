@@ -37,6 +37,15 @@ Workes
 			_another-button\AnotherButton.html
 			_another-button\license.txt
 			_another-button\README.txt
+		+_BLOBtoSaveAndView
+			_BLOBtoSaveAndView\BLOBtoSaveAndView.php
+			_BLOBtoSaveAndView\Poster.jpg
+			_BLOBtoSaveAndView\Proba.doc
+			_BLOBtoSaveAndView\Proba.mp3
+			_BLOBtoSaveAndView\Proba.mp4
+			_BLOBtoSaveAndView\Proba.pdf
+			_BLOBtoSaveAndView\Proba.png
+			_BLOBtoSaveAndView\SQLiteBLOBClass1.php
 		-_button-loading-indicator
 			-css
 				_button-loading-indicator\css\style.css
@@ -51,6 +60,8 @@ Workes
 			_CallSubscription\Calli.css
 			_CallSubscription\Calli.html
 			_CallSubscription\Calli.js
+		-_ClearJS
+			_ClearJS\index.html
 		-_countdown
 			-assets
 				-countdown
@@ -104,11 +115,10 @@ Workes
 					_Lobster\Fonts\Lobster\Lobster-Regular.ttf
 					_Lobster\Fonts\Lobster\OFL.txt
 			_Lobster\Lobster.html
-		+_LoginScreen
+		-_LoginScreen
 			_LoginScreen\index.html
 			_LoginScreen\LoginScreen.css
 			_LoginScreen\LoginScreen.js
-			_LoginScreen\LoginScreen.scss
 		-_minsectimer
 			_minsectimer\index.html
 		-_MotionBlurEffect
@@ -409,7 +419,6 @@ Workes
 			Материалы\Метаданные в HTML.doc
 			Материалы\Усовершенствованное кэширование страниц.doc
 		.gitignore
-		Exploration.ppr
 		favicon.ico
 		index.html
 		iniWorkSpace.php
@@ -422,30 +431,26 @@ Workes
 1=_ImgAjaxSqlite\Main.php
 2=_CallSubscription\Calli.css
 3=_CallSubscription\Calli.js
-4=_LoginScreen\index.html
-5=_LoginScreen\LoginScreen.js
-6=_LoginScreen\LoginScreen.css
+4=..\TPhpTools\TPhpTools\TArticlesMaker\ArticlesMakerClass.php
+5=_BLOBtoSaveAndView\BLOBtoSaveAndView.php
 [Selected Project Files]
 Main=
-Selected=_LoginScreen\LoginScreen.css
+Selected=_BLOBtoSaveAndView\BLOBtoSaveAndView.php
 [index.html]
-TopLine=78
-Caret=48,99
+TopLine=19
+Caret=63,37
 [_ImgAjaxSqlite\Main.php]
-TopLine=1
+TopLine=13
 Caret=58,13
 [_CallSubscription\Calli.css]
-TopLine=143
+TopLine=144
 Caret=2,183
 [_CallSubscription\Calli.js]
 TopLine=1
 Caret=4,24
-[_LoginScreen\index.html]
-TopLine=1
-Caret=8,15
-[_LoginScreen\LoginScreen.js]
-TopLine=1
-Caret=1,66
-[_LoginScreen\LoginScreen.css]
-TopLine=1
-Caret=2,169
+[..\TPhpTools\TPhpTools\TArticlesMaker\ArticlesMakerClass.php]
+TopLine=550
+Caret=37,563
+[_BLOBtoSaveAndView\BLOBtoSaveAndView.php]
+TopLine=17
+Caret=1,133
