@@ -1,0 +1,47 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.CompileOnBackground=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+Compilator.LogEncoding=0
+DefaultDir=C:\Workes\_blazy
+DefaultCP=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+Extensions=*.*
+[Project tree]
+_blazy
+	+_blazy
+		_blazy.ppr
+		blazy.min.js
+		index-simple.php
+		li000000.png
+		li88.png
+		phr500x250.png
+		Proba.js
+		Styles.css
+[Open project files]
+0=index-simple.php
+1=Styles.css
+2=Proba.js
+3=blazy.min.js
+[Selected Project Files]
+Main=
+Selected=index-simple.php
+[index-simple.php]
+TopLine=1
+Caret=25,54
+[Styles.css]
+TopLine=1
+Caret=10,7
+[Proba.js]
+TopLine=1
+Caret=1,16
+[blazy.min.js]
+TopLine=1
+Caret=20,6

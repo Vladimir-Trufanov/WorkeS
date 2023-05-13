@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 Workes
-	+Workes
+	-Workes
 		-_AngledMenu
 			-css
 				_AngledMenu\css\reset-min.css
@@ -31,15 +31,42 @@ Workes
 			_AngledMenu\license.txt
 			_AngledMenu\photo-1444927714506-8492d94b4e3d.jpg
 			_AngledMenu\README.txt
+		-_AnimateBackground
+			_AnimateBackground\action.js
+			_AnimateBackground\index.html
+			_AnimateBackground\style.css
 		-_another-button
 			-css
 				_another-button\css\style.css
 			_another-button\AnotherButton.html
 			_another-button\license.txt
 			_another-button\README.txt
-		+_BLOBtoSaveAndView
+		-_blazy
+			_blazy\_blazy.ppr
+			_blazy\01.jpg
+			_blazy\04.jpg
+			_blazy\06.jpg
+			_blazy\blazy.min.js
+			_blazy\index.php
+			_blazy\index-data64.php
+			_blazy\index-simple.php
+			_blazy\p1.png
+			_blazy\p2.png
+			_blazy\ph1.png
+			_blazy\Proba.js
+			_blazy\Styles.css
+			_blazy\Бревно на медведя.jpg
+			_blazy\Карта прогулки.jpg
+			_blazy\Медведь-пошел-туда.jpg
+			_blazy\Медведь-шел-след-в-след.jpg
+			_blazy\Размыло дорогу.JPG
+			_blazy\Следы-не-свежие-но-догоним.jpg
+			_blazy\Шапша весной.JPG
+			_blazy\Шапша-в-половодье.jpg
+		-_BLOBtoSaveAndView
 			-Awsm_embed
-			+embed-any-document
+				_BLOBtoSaveAndView\Awsm_embed\index.php
+			-embed-any-document
 				-blocks
 					-document
 						-modules
@@ -110,10 +137,11 @@ Workes
 					_BLOBtoSaveAndView\embed-any-document\language\embed-any-document.pot
 					_BLOBtoSaveAndView\embed-any-document\language\index.php
 				_BLOBtoSaveAndView\embed-any-document\awsm-embed.php
-				_BLOBtoSaveAndView\Awsm_embed\index.php
+				_BLOBtoSaveAndView\embed-any-document\index.php
 				_BLOBtoSaveAndView\embed-any-document\readme.txt
 			_BLOBtoSaveAndView\BLOBtoSaveAndView.php
 			_BLOBtoSaveAndView\EmbedAnyDocument.php
+			_BLOBtoSaveAndView\embed-any-document.zip
 			_BLOBtoSaveAndView\Poster.jpg
 			_BLOBtoSaveAndView\proba.db3
 			_BLOBtoSaveAndView\Proba.doc
@@ -151,6 +179,9 @@ Workes
 				-js
 					_countdown\assets\js\script.js
 			_countdown\index.html
+		-_CSS3-glass-button
+			_CSS3-glass-button\index.html
+			_CSS3-glass-button\style.css
 		-_FlipOnHover
 			-css
 				_FlipOnHover\css\style.css
@@ -286,6 +317,36 @@ Workes
 			_Signaphoto\SignaPhotoImg.php
 			_Signaphoto\SignaTunein.php
 			_Signaphoto\SignaUpload.php
+		-_SimpleDropDown
+			-css
+				-fonts
+					_SimpleDropDown\css\fonts\icomoon.eot
+					_SimpleDropDown\css\fonts\icomoon.svg
+					_SimpleDropDown\css\fonts\icomoon.ttf
+					_SimpleDropDown\css\fonts\icomoon.woff
+					_SimpleDropDown\css\fonts\license.txt
+				_SimpleDropDown\css\common.css
+				_SimpleDropDown\css\demo.css
+				_SimpleDropDown\css\icons.css
+				_SimpleDropDown\css\style1.css
+				_SimpleDropDown\css\style2.css
+				_SimpleDropDown\css\style3.css
+				_SimpleDropDown\css\style4.css
+				_SimpleDropDown\css\style5.css
+				_SimpleDropDown\css\style6.css
+			-images
+				_SimpleDropDown\images\grid_DominikKiss_SubtlePatterns.jpg
+			-js
+				_SimpleDropDown\js\jquery.dropdown.js
+				_SimpleDropDown\js\modernizr.custom.63321.js
+			_SimpleDropDown\Custom select box by VJ.lnk
+			_SimpleDropDown\index.html
+			_SimpleDropDown\index2.html
+			_SimpleDropDown\index3.html
+			_SimpleDropDown\index4.html
+			_SimpleDropDown\index5.html
+			_SimpleDropDown\index6.html
+			_SimpleDropDown\README.txt
 		-_sortable
 			-css
 				-images
@@ -297,6 +358,11 @@ Workes
 			_sortable\admin.php
 			_sortable\index.php
 			_sortable\save.php
+		-_SparclyShinyButton
+			_SparclyShinyButton\index.html
+			_SparclyShinyButton\LICENSE.txt
+			_SparclyShinyButton\README.md
+			_SparclyShinyButton\style.css
 		-_SwitchButtonWithSmoothAnimation
 			-css
 				_SwitchButtonWithSmoothAnimation\css\style.css
@@ -495,6 +561,7 @@ Workes
 			Материалы\Метаданные в HTML.doc
 			Материалы\Усовершенствованное кэширование страниц.doc
 		.gitignore
+		demo.zip
 		favicon.ico
 		index.html
 		iniWorkSpace.php
@@ -502,31 +569,41 @@ Workes
 		sort.db3
 		ViewEnviron.php
 		Workes.ppr
+		Простая-система-авторизации-и-регистрации.zip
+		Регистрация-через-Email.zip
 [Open project files]
 0=index.html
 1=_ImgAjaxSqlite\Main.php
-2=_CallSubscription\Calli.css
-3=_CallSubscription\Calli.js
-4=..\TPhpTools\TPhpTools\TArticlesMaker\ArticlesMakerClass.php
-5=_BLOBtoSaveAndView\BLOBtoSaveAndView.php
+2=_blazy\index-data64.php
+3=_blazy\Proba.js
+4=_blazy\index.php
+5=_blazy\index-simple.php
+6=_blazy\index.html
+7=Новый2.html
 [Selected Project Files]
 Main=
-Selected=_BLOBtoSaveAndView\BLOBtoSaveAndView.php
+Selected=_blazy\index.html
 [index.html]
-TopLine=19
-Caret=63,37
+TopLine=41
+Caret=45,65
 [_ImgAjaxSqlite\Main.php]
-TopLine=13
-Caret=58,13
-[_CallSubscription\Calli.css]
-TopLine=144
-Caret=2,183
-[_CallSubscription\Calli.js]
 TopLine=1
-Caret=4,24
-[..\TPhpTools\TPhpTools\TArticlesMaker\ArticlesMakerClass.php]
-TopLine=550
-Caret=37,563
-[_BLOBtoSaveAndView\BLOBtoSaveAndView.php]
-TopLine=94
-Caret=1,133
+Caret=58,13
+[_blazy\index-data64.php]
+TopLine=18
+Caret=10,46
+[_blazy\Proba.js]
+TopLine=1
+Caret=7,1
+[_blazy\index.php]
+TopLine=9
+Caret=1,34
+[_blazy\index-simple.php]
+TopLine=14
+Caret=4,33
+[_blazy\index.html]
+TopLine=1
+Caret=8,39
+[Новый2.html]
+TopLine=1
+Caret=1,1
