@@ -182,6 +182,12 @@ Workes
 		-_CSS3-glass-button
 			_CSS3-glass-button\index.html
 			_CSS3-glass-button\style.css
+		-_EmailRegistration
+			_EmailRegistration\confirmed.php
+			_EmailRegistration\db.php
+			_EmailRegistration\index.php
+			_EmailRegistration\user.sql
+			_EmailRegistration\Регистрация-через-Email.zip
 		-_FlipOnHover
 			-css
 				_FlipOnHover\css\style.css
@@ -208,14 +214,6 @@ Workes
 				_ImgAjaxSqlite\Охота на медведя\Шапша весной.JPG
 			_ImgAjaxSqlite\Main.php
 			_ImgAjaxSqlite\TinyItTve.php
-		-_InterSpooky
-			-css
-				_InterSpooky\css\style.css
-			-js
-				_InterSpooky\js\index.js
-			_InterSpooky\index.html
-			_InterSpooky\license.txt
-			_InterSpooky\README.txt
 		-_Lobster
 			-Fonts
 				-Lobster
@@ -570,40 +568,27 @@ Workes
 		ViewEnviron.php
 		Workes.ppr
 		Простая-система-авторизации-и-регистрации.zip
-		Регистрация-через-Email.zip
 [Open project files]
 0=index.html
-1=_ImgAjaxSqlite\Main.php
-2=_blazy\index-data64.php
-3=_blazy\Proba.js
-4=_blazy\index.php
-5=_blazy\index-simple.php
-6=_blazy\index.html
-7=Новый2.html
+1=_EmailRegistration\index.php
+2=_EmailRegistration\user.sql
+3=_EmailRegistration\db.php
+4=_EmailRegistration\confirmed.php
 [Selected Project Files]
 Main=
-Selected=_blazy\index.html
+Selected=_EmailRegistration\index.php
 [index.html]
-TopLine=41
+TopLine=71
 Caret=45,65
-[_ImgAjaxSqlite\Main.php]
+[_EmailRegistration\index.php]
 TopLine=1
-Caret=58,13
-[_blazy\index-data64.php]
-TopLine=18
-Caret=10,46
-[_blazy\Proba.js]
+Caret=15,66
+[_EmailRegistration\user.sql]
+TopLine=7
+Caret=1,1
+[_EmailRegistration\db.php]
 TopLine=1
-Caret=7,1
-[_blazy\index.php]
-TopLine=9
-Caret=1,34
-[_blazy\index-simple.php]
-TopLine=14
-Caret=4,33
-[_blazy\index.html]
-TopLine=1
-Caret=8,39
-[Новый2.html]
+Caret=1,1
+[_EmailRegistration\confirmed.php]
 TopLine=1
 Caret=1,1
